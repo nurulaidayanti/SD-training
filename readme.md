@@ -2,5 +2,6 @@
 
 this is my first repository
 
-#lab result
+**LAB RESULT**
+
 ![alt text](day0labs(nurul).jpg)
