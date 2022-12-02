@@ -27,3 +27,8 @@ Synthesis is process of converting RTL to a technology specific Gate level netli
 **LAB RESULT**
 
 ![alt text](day0labs(nurul).jpg)
+
+# Day-1
+## SKY130RTL D1SK2 L1 Lab1 introduction to lab
+
+
