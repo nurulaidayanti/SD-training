@@ -13,9 +13,12 @@ Package is the container that holds the semiconductor die.
 
 <img width="821" alt="image" src="https://user-images.githubusercontent.com/118953932/205200966-77136c29-f094-428f-aab2-ba5f85fef76b.png">
 
-***Communication between hardware and software***
+***Communication of Software and Hardware***
+
+Synthesis is process of transferring higher level of abstraction (RTL) to implementable lower level of abstraction
 
 <img width="782" alt="image" src="https://user-images.githubusercontent.com/118953932/205202814-1def0c8a-a7bd-4199-b754-1bba5bddffa9.png">
+
 
 
 **LAB RESULT**
