@@ -18,7 +18,7 @@ Core: consists main logics (NMOS and PMOS transistors)
 
 ***Communication of Software and Hardware***
 
-Synthesis is process of transferring higher level of abstraction (RTL) to implementable lower level of abstraction
+Synthesis is process of converting RTL to a technology specific Gate level netlist.
 
 <img width="782" alt="image" src="https://user-images.githubusercontent.com/118953932/205202814-1def0c8a-a7bd-4199-b754-1bba5bddffa9.png">
 
