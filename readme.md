@@ -1,6 +1,6 @@
 # Day-0
 
-# System Tool Setup Check and Git Hub ID Creation
+## System Tool Setup Check and Git Hub ID Creation
 
 this is my first repository
 
@@ -16,7 +16,7 @@ Core: consists main logics (NMOS and PMOS transistors)
 
 <img width="821" alt="image" src="https://user-images.githubusercontent.com/118953932/205200966-77136c29-f094-428f-aab2-ba5f85fef76b.png">
 
-***Communication of Software and Hardware***
+**Communication of Software and Hardware**
 
 Synthesis is process of converting RTL to a technology specific Gate level netlist.
 
