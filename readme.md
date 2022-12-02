@@ -6,7 +6,7 @@ this is my first repository
 
 **Package**
 
-Package is the container that holds the semiconductor die. It protects the circuit material from damage.
+Package is the container that holds the semiconductor die. It protects the die from potential damage.
 
 <img src = "https://user-images.githubusercontent.com/118953932/205201579-69f972ab-dc30-4b49-902d-5a79ab6e80ff.png" width = "200" height = "200">
 
