@@ -33,6 +33,7 @@ Synthesis is process of converting RTL to a technology specific Gate level netli
 
 **LAB RESULT**
 
+
 <img src = "https://user-images.githubusercontent.com/118953932/205524714-d9b07322-28c5-413d-827c-e8e562a323c3.JPG" width = "500" height = "300">
 
 ## SKY130RTL D1SK2 L2 Lab2 introduction to lab
@@ -47,4 +48,81 @@ Synthesis is process of converting RTL to a technology specific Gate level netli
 **LAB RESULT**
 
 <img src = "https://user-images.githubusercontent.com/118953932/205524878-0e696495-bf5f-444b-a29d-c8a1f92c19d7.JPG" width = "500" height = "300">
+
+## SKY130RTL D1SK4 L1 Lab3 Yosys 1 good mux Part1
+
+**LAB RESULT**
+
+Invoke yosys
+
+- yosys
+
+<img src = "https://user-images.githubusercontent.com/118953932/205528904-2c528986-b619-4ff8-913f-62b9788dec86.png" width = "500" height = "300">
+
+Read Liberty
+
+- read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+Successfully Read Verilog File
+
+- read_verilog good_mux.v
+
+<img src = "https://user-images.githubusercontent.com/118953932/205528663-ee6437e6-5379-41ab-9f9d-2c62116887bf.png" width = "500" height = "300">
+
+Synthesize module
+
+- synth -top good_mux
+
+<img src = "https://user-images.githubusercontent.com/118953932/205529293-805ccbd9-84ac-4223-8b05-f108e361e043.png" width = "500" height = "300">
+
+Generate netlist
+
+- abc -liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+<img src = "https://user-images.githubusercontent.com/118953932/205529804-74867478-7ec8-4b47-a0de-d902fa8c2c0f.png" width = "500" height = "300">
+
+Graphical version of the logic
+
+- show
+
+<img src = "https://user-images.githubusercontent.com/118953932/205530013-0b43f83d-0097-4894-8d35-27a72e9bdc42.png" width = "500" height = "400">
+
+## SKY130RTL D1SK4 L2 Lab3 Yosys 1 good mux Part2
+
+<img src = "https://user-images.githubusercontent.com/118953932/205535826-ef31f6ca-319d-458f-9e56-151ed280150b.png" width = "500" height = "300">
+
+the yellow highlighted is the name for the library used and the red underlined is the logical cell
+
+## SKY130RTL D1SK4 L3 Lab3 Yosys 1 good mux Part3
+
+**LAB RESULT**
+
+Write netlist
+
+- write_verilog good_mux_netlist.v
+
+<img src = "https://user-images.githubusercontent.com/118953932/205532061-8c6491da-0d58-4dc4-8c0e-1d3655abf02b.png" width = "500">
+
+- !vim good_mux_netlist.v
+
+<img src = "https://user-images.githubusercontent.com/118953932/205533023-3c315c4b-3f73-435c-af16-e2d5563621e3.png" width = "500" height = "300">
+
+Simplified netlist
+
+- write_verilog -noattr good_mux_netlist.v
+
+<img src = "https://user-images.githubusercontent.com/118953932/205533638-7dd57dcb-29ba-412d-9a40-8eb7abeefb38.png" width = "500">
+
+- !vim good_mux_netlist.v
+
+i0 = primary input
+
+i1 = primary input 
+
+sel = primary input
+
+y = primary output
+
+<img src = "https://user-images.githubusercontent.com/118953932/205533744-d7c3cdd4-31d0-4c0e-9c3b-251705ecbe00.png" width = "500" height = "400">
+
 
