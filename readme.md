@@ -33,6 +33,7 @@ Synthesis is process of converting RTL to a technology specific Gate level netli
 
 **LAB RESULT**
 
+Set up (git clone files)
 
 <img src = "https://user-images.githubusercontent.com/118953932/205524714-d9b07322-28c5-413d-827c-e8e562a323c3.JPG" width = "500" height = "300">
 
@@ -40,12 +41,16 @@ Synthesis is process of converting RTL to a technology specific Gate level netli
 
 **LAB RESULT**
 
+iverilog and gtkwave
+
 <img src = "https://user-images.githubusercontent.com/118953932/205524787-ab6395c4-de0d-4f3c-b3ad-26a051f40647.JPG" width = "500" height = "300">
 
 
 ## SKY130RTL D1SK2 L3 Lab2 introduction to lab
 
 **LAB RESULT**
+
+RTL code
 
 <img src = "https://user-images.githubusercontent.com/118953932/205524878-0e696495-bf5f-444b-a29d-c8a1f92c19d7.JPG" width = "500" height = "300">
 
