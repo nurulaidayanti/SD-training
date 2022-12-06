@@ -135,3 +135,31 @@ y = primary output
 ## Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
 ### SKY130RTL D2SK1 - Introduction to timing .libs (SKY130RTL D2SK1 L1 Lab4 Introduction to dot Lib part1)
 
+- dot lib is collection of a standard cell contains slow cells fast cells
+
+Open sky130 library
+
+- gvim ../lib/sky130_fd_sc_hd_tt_025C_1v80.lib
+
+ yellow highlighted on the right is how to turn off the syntech
+
+<img src = "https://user-images.githubusercontent.com/118953932/205811909-a5e0c4cc-d222-4f41-b8b5-0a972e8d7f12.png" width = "500" height = "300">  <img src = "https://user-images.githubusercontent.com/118953932/205811468-5785f612-d3c4-42fc-90eb-ddb684e6f311.png" width = "500" height = "300">
+
+
+Understanding the terms
+- tt = typical process
+- 025C = temperature
+- 1v80 = voltage
+
+<img src = "https://user-images.githubusercontent.com/118953932/205812752-2093184f-7fd0-45b7-a71a-85351a522a94.png" width = "500" height = "300">
+
+PVT
+- P = Process
+- V = Voltage
+- T =Temperature
+
+These will determine the silicon to work in various way
+
+Libraries will be characterize to model these variations
+
+<img src = "https://user-images.githubusercontent.com/118953932/205815366-16f4adb6-ccf0-4d41-9dc2-7fdccc585a79.png" width = "500" height = "300">
