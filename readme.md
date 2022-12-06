@@ -163,3 +163,5 @@ These will determine the silicon to work in various way
 Libraries will be characterize to model these variations
 
 <img src = "https://user-images.githubusercontent.com/118953932/205815366-16f4adb6-ccf0-4d41-9dc2-7fdccc585a79.png" width = "500" height = "300">
+
+### SKY130RTL D2SK1 - Introduction to timing .libs (SKY130RTL D2SK1 L2 Lab4 Introduction to dot Lib part2)
