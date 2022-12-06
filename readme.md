@@ -198,3 +198,22 @@ area number and power port information
 information of each input pin 
 
 <img src = "https://user-images.githubusercontent.com/118953932/205878419-0982d646-597d-4a5f-ae72-556216698df7.png" width = "500" height = "300">
+
+### SKY130RTL D2SK1 - Introduction to timing .libs (SKY130RTL D2SK1 L3 Lab4 Introduction to dot Lib part3)
+
+Understanding dot lib
+
+eg:
+
+- 4 conditions for AND gate: 01, 00, 11, 10
+
+
+<img src = "https://user-images.githubusercontent.com/118953932/205927278-1a5ca04c-020a-45e5-974c-5fc438e69195.png" width = "500" height = "300">
+
+- use ":vs" to display it side by side
+
+- If cell employing wider transistor, it will have larger area value
+- wider cells -> faster but area and power is more 
+- smaller cells -> delay more but area and power is less
+
+<img src = "https://user-images.githubusercontent.com/118953932/205931339-57cdf6b2-092b-44f0-8168-cb4e73721049.png" width = "600">
