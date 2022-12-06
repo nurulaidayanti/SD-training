@@ -217,3 +217,35 @@ eg:
 - smaller cells -> delay more but area and power is less
 
 <img src = "https://user-images.githubusercontent.com/118953932/205931339-57cdf6b2-092b-44f0-8168-cb4e73721049.png" width = "600">
+
+### SKY130RTL D2SK2 - Hierarchical vs Flat Synthesis (SKY130RTL D2SK2 L1 Lab05 Hier synthesis flat synthesis part1)
+
+Hierarchical synthesis and flat synthesis
+
+- gvim multiple_modules.v
+
+<img src = "https://user-images.githubusercontent.com/118953932/205934271-e6277db1-f16d-4575-a93d-c3e96d033511.png" width = "500" height = "300">
+
+- translated into logic
+
+<img src = "https://user-images.githubusercontent.com/118953932/205935440-30246ffb-67fd-4cdc-b423-94c9bcd13e1d.png" width = "500" height = "300">
+
+- yosys
+- read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- read_verilog multiple_modules.v
+
+<img src = "https://user-images.githubusercontent.com/118953932/205937266-903200d9-9229-4ae8-b8cf-bdf0f3cbd81d.png" width = "500" height = "300">
+
+- synth -top multiple_modules
+
+overall design have 2 cells (AND gate and OR gate)
+
+<img src = "https://user-images.githubusercontent.com/118953932/205938400-64adb178-048c-4bab-be48-6ed81fe39dd1.png" width = "500" height = "300"> <img src = "https://user-images.githubusercontent.com/118953932/205938621-95658673-116d-4595-a811-c2fb805bc5b3.png" width = "500" height = "300">
+
+Linking design to the library
+
+- abc -liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+- show multiple_modules 
+
+<img src = "" width = "500" height = "300">
