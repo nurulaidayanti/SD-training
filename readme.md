@@ -29,7 +29,8 @@ Synthesis is process of converting RTL to a technology specific Gate level netli
 
 
 # Day-1
-## SKY130RTL D1SK2 L1 Lab1 introduction to lab
+## Introduction to Verilog RTL design and Synthesis
+### SKY130RTL D1SK2 L1 Lab1 introduction to lab
 
 **LAB RESULT**
 
@@ -37,7 +38,7 @@ Set up (git clone files)
 
 <img src = "https://user-images.githubusercontent.com/118953932/205524714-d9b07322-28c5-413d-827c-e8e562a323c3.JPG" width = "500" height = "300">
 
-## SKY130RTL D1SK2 L2 Lab2 introduction to lab
+### SKY130RTL D1SK2 L2 Lab2 introduction to lab
 
 **LAB RESULT**
 
@@ -46,7 +47,7 @@ iverilog and gtkwave
 <img src = "https://user-images.githubusercontent.com/118953932/205524787-ab6395c4-de0d-4f3c-b3ad-26a051f40647.JPG" width = "500" height = "300">
 
 
-## SKY130RTL D1SK2 L3 Lab2 introduction to lab
+### SKY130RTL D1SK2 L3 Lab2 introduction to lab
 
 **LAB RESULT**
 
@@ -54,7 +55,7 @@ RTL code
 
 <img src = "https://user-images.githubusercontent.com/118953932/205524878-0e696495-bf5f-444b-a29d-c8a1f92c19d7.JPG" width = "500" height = "300">
 
-## SKY130RTL D1SK4 L1 Lab3 Yosys 1 good mux Part1
+### SKY130RTL D1SK4 L1 Lab3 Yosys 1 good mux Part1
 
 **LAB RESULT**
 
@@ -92,13 +93,13 @@ Graphical version of the logic
 
 <img src = "https://user-images.githubusercontent.com/118953932/205530013-0b43f83d-0097-4894-8d35-27a72e9bdc42.png" width = "500" height = "400">
 
-## SKY130RTL D1SK4 L2 Lab3 Yosys 1 good mux Part2
+### SKY130RTL D1SK4 L2 Lab3 Yosys 1 good mux Part2
 
 <img src = "https://user-images.githubusercontent.com/118953932/205535826-ef31f6ca-319d-458f-9e56-151ed280150b.png" width = "500" height = "300">
 
 the yellow highlighted is the name for the library used and the red underlined is the logical cell
 
-## SKY130RTL D1SK4 L3 Lab3 Yosys 1 good mux Part3
+### SKY130RTL D1SK4 L3 Lab3 Yosys 1 good mux Part3
 
 **LAB RESULT**
 
@@ -130,4 +131,7 @@ y = primary output
 
 <img src = "https://user-images.githubusercontent.com/118953932/205533744-d7c3cdd4-31d0-4c0e-9c3b-251705ecbe00.png" width = "500" height = "400">
 
+# Day 2
+## Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
+### SKY130RTL D2SK1 - Introduction to timing .libs (SKY130RTL D2SK1 L1 Lab4 Introduction to dot Lib part1)
 
