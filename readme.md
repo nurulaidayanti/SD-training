@@ -262,3 +262,23 @@ Situation where it does not use OR gate
 
 <img src = "https://user-images.githubusercontent.com/118953932/206104524-4db8fb57-6da9-47ab-ae9f-da7e325f6c81.png" height = "200"> <img src = "https://user-images.githubusercontent.com/118953932/206105575-274fb75d-c33a-4337-a0a3-258f54de2cf9.png" height = "200">
 
+### SKY130RTL D2SK2 - Hierarchical vs Flat Synthesis (SKY130RTL D2SK2 L2 Lab05 Hier synthesis flat synthesis part2)
+
+Flat Netlist
+- flatten
+- write_verilog -noattr multiple_modules_flat.v
+- !gvim multiple_modules_flat.v
+
+<img src = "https://user-images.githubusercontent.com/118953932/206108460-b49fc965-2a22-4735-902d-878132402898.png" width = "500" height = "300">
+
+Distintion between using the flat end switch and not using the flat end switch
+
+- :vsp multiple_modules_hier.v
+
+- hierarchy of sub module 1 and sub module2 are preserved
+
+<img src = "https://user-images.githubusercontent.com/118953932/206109377-3b8a3114-f705-4ccf-b76a-b142cb8f34ee.png" width = "500" height = "300">
+
+- show
+
+<img src = "https://user-images.githubusercontent.com/118953932/206110252-3d738d99-65c0-48b7-bab4-cca4caff7f9d.png" height = "300">
