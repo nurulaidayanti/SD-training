@@ -384,3 +384,15 @@ when set is low the q pin will follow the pos clock edge and affected by the d
 
 reset went high but q waiting for the subsequent posedge of the clock and then went low
 <img src = "https://user-images.githubusercontent.com/118953932/206149503-652defe6-63c3-44ea-be91-3d4bc5e7bc2e.png" width = "500" height = "300">
+
+### SKY130RTL D2SK3 - Various Flop Coding Styles and optimization (SKY130RTL D2SK3 L4 Lab flop synthesis simulations part2)
+
+Synthesis the circuit
+
+- yosys
+- read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- read_verilog dff_asyncres.v
+- synth -top dff_asyncres
+- dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- show
