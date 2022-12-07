@@ -422,3 +422,26 @@ active high reset
 - show
 
 <img src = "https://user-images.githubusercontent.com/118953932/206184418-8f475efb-fab9-4c57-81da-ee8c51c78794.png" height = "300">
+
+
+### SKY130RTL D2SK3 - Various Flop Coding Styles and optimization (SKY130RTL D2SK3 L5 Interesting optimisations part1)
+
+RTL code for optimization 
+
+- 3 bit input and 4 bit output
+
+<img src = "https://user-images.githubusercontent.com/118953932/206187813-1c0a3932-e9d5-4d9e-bebb-d389ebf96de2.png" height = "300"> <img src = "https://user-images.githubusercontent.com/118953932/206188512-8297e072-6855-4a8a-b343-551b9a23c7c9.png" height = "300">
+
+a(2:0)---------------- y(3:0)
+
+         a(2) - y(3)
+
+         a(1) - y(2)
+         
+         a(0) - y(1)
+         
+                y(0) ground
+
+tips - *multiply 2 (add one zero at the end) multiply 4 (add two zero at the end) multiply 8 (add three zero at the end)*
+
+
