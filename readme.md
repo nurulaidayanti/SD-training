@@ -83,7 +83,7 @@ Synthesize module
 
 Generate netlist
 
-- abc -liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 <img src = "https://user-images.githubusercontent.com/118953932/205529804-74867478-7ec8-4b47-a0de-d902fa8c2c0f.png" width = "500" height = "300">
 
@@ -244,7 +244,7 @@ overall design have 2 cells (AND gate and OR gate)
 
 Linking design to the library
 
-- abc -liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
 - show multiple_modules 
 
