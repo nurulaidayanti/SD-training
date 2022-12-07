@@ -347,7 +347,7 @@ Flop with different reset
 ### SKY130RTL D2SK3 - Various Flop Coding Styles and optimization (SKY130RTL D2SK3 L3 Lab flop synthesis simulations part1)
 
 Search for file
-- ls *dff*
+- ls *dff *
 
 **Asynchronous Reset**
 
