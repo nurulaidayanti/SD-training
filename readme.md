@@ -342,6 +342,24 @@ Synchronous
 
 Flop with different reset
 
-<img src = "https://user-images.githubusercontent.com/118953932/206135143-a8efe944-8bb4-4db6-8cb7-3d7fd9a0f574.png" width = "500" height = "300">
+<img src = "https://user-images.githubusercontent.com/118953932/206135143-a8efe944-8bb4-4db6-8cb7-3d7fd9a0f574.png" height = "400"> <img src = "https://user-images.githubusercontent.com/118953932/206135632-f9b3cd23-f302-429e-ba38-76f256ca9fe9.png" height = "400">
 
-<img src = "https://user-images.githubusercontent.com/118953932/206135632-f9b3cd23-f302-429e-ba38-76f256ca9fe9.png" width = "500" height = "300">
+### SKY130RTL D2SK3 - Various Flop Coding Styles and optimization (SKY130RTL D2SK3 L3 Lab flop synthesis simulations part1)
+
+Search for file
+- ls *dff*
+
+**Asynchronous Reset**
+
+Tool to used
+- iverilog dff_asyncres.v tb_dff_asyncres.v
+- ./a.out
+- gtkwave tb_dff_asyncres.vcd
+
+d may come up at any point but q is synchronous to the clock (will change upon clock)
+
+<img src = "https://user-images.githubusercontent.com/118953932/206139540-a23cf67c-be81-436a-bfca-f96e1725e246.png" width = "500" height = "300">
+
+output q went low immediately when reset came (due to the asynchrounous behaviour)
+
+<img src = "https://user-images.githubusercontent.com/118953932/206140736-40a9b779-ad1c-4d44-845e-c59f0625c7c5.png" width = "500" height = "300">
