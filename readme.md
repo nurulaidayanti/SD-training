@@ -302,3 +302,24 @@ Reasons why the do sub module synthesis
 -  to give one portion by one portion to the tool to achieve optimize netlist (when we have massive design and use divide and concure approach)
 
 <img src = "https://user-images.githubusercontent.com/118953932/206113996-36b79699-048d-4957-a468-80a167cf6d5a.png" width = "500" height = "300">
+
+### SKY130RTL D2SK3 - Various Flop Coding Styles and optimization (SKY130RTL D2SK3 L1 Why Flops and Flop coding styles part1)
+
+Reason why glitch occured
+- due to propagation delay
+
+<img src = "https://user-images.githubusercontent.com/118953932/206128517-0cd22edf-f878-4d87-b113-22c6267c6f7c.png" width = "500" height = "300">
+
+- the more the combinational circuit, the more the glitches
+- the output of the flop will be stable although the input glitches (from the combi circuit) and thats why we use flop
+
+<img src = "https://user-images.githubusercontent.com/118953932/206129515-e0c2c71f-1d9f-4091-9a96-08d761f012df.png" width = "500" height = "300">
+
+Flop need to be initialized
+
+<img src = "https://user-images.githubusercontent.com/118953932/206130184-6828f0d5-3ba6-4fa1-8468-c50a737d3885.png" width = "500" height = "300">
+
+### SKY130RTL D2SK3 - Various Flop Coding Styles and optimization (SKY130RTL D2SK3 L2 Why Flops and Flop coding styles part2)
+
+
+
