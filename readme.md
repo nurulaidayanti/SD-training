@@ -282,3 +282,23 @@ Distintion between using the flat end switch and not using the flat end switch
 - show
 
 <img src = "https://user-images.githubusercontent.com/118953932/206110252-3d738d99-65c0-48b7-bab4-cca4caff7f9d.png" height = "300">
+
+Create sub_module1 only 
+
+-exit
+- yosys
+- read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- read_verilog multiple_modules.v
+- synth -top sub_module1
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- show
+
+<img src = "https://user-images.githubusercontent.com/118953932/206118830-11b57a3f-d65a-477f-ad47-a3dd0af8ca40.png" width = "500" height = "300">
+
+
+Reasons why the do sub module synthesis 
+
+-  synthesize one time and replicate netlist then stich it in the top module (when we have multiple instances of same module) 
+-  to give one portion by one portion to the tool to achieve optimize netlist (when we have massive design and use divide and concure approach)
+
+<img src = "https://user-images.githubusercontent.com/118953932/206113996-36b79699-048d-4957-a468-80a167cf6d5a.png" width = "500" height = "300">
