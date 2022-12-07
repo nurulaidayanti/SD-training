@@ -351,7 +351,6 @@ Search for file
 
 **Asynchronous Reset**
 
-Tool to used
 - iverilog dff_asyncres.v tb_dff_asyncres.v
 - ./a.out
 - gtkwave tb_dff_asyncres.vcd
@@ -363,3 +362,16 @@ d may come up at any point but q is synchronous to the clock (will change upon c
 output q went low immediately when reset came (due to the asynchrounous behaviour)
 
 <img src = "https://user-images.githubusercontent.com/118953932/206140736-40a9b779-ad1c-4d44-845e-c59f0625c7c5.png" width = "500" height = "300">
+
+**Asynchronous Reset**
+
+- iverilog dff_async_set.v tb_dff_async_set.v
+- ./a.out
+- gtkwave tb_dff_async_set.vcd
+
+when set is present, q was at one irrespective to d
+
+when set is low the q pin will follow the clock edge and affected by the d
+
+
+<img src = "https://user-images.githubusercontent.com/118953932/206145368-a0ddfaf3-dfd2-4a59-8974-4ee6c9fc887d.png" width = "500" height = "300"> <img src = "https://user-images.githubusercontent.com/118953932/206144848-51922543-aad3-43a5-96c4-67dbf9f83212.png" width = "500" height = "300">
