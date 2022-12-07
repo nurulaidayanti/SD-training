@@ -415,3 +415,10 @@ active high reset
 
 **Synchronous Reset and Asynchronous Reset**
 
+- read_verilog dff_syncres.v
+- synth -top dff_syncres
+- dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- show
+
+<img src = "https://user-images.githubusercontent.com/118953932/206184418-8f475efb-fab9-4c57-81da-ee8c51c78794.png" height = "300">
