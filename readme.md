@@ -444,4 +444,33 @@ a(2:0)---------------- y(3:0)
 
 tips - *multiply 2 (add one zero at the end) multiply 4 (add two zero at the end) multiply 8 (add three zero at the end)*
 
+- yosys
+- read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- read_verilog mult_2.v
+- synth -top mul2
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- show
 
+<img src = "https://user-images.githubusercontent.com/118953932/206191959-e1c7958d-71de-4ab0-a7dd-df4d408fee00.png" height = "300">
+
+
+### SKY130RTL D2SK3 - Various Flop Coding Styles and optimization (SKY130RTL D2SK3 L6 Interesting optimisations part2)
+
+Special case
+
+a(2:0) * 9 = y(5:0)
+
+<img src = "https://user-images.githubusercontent.com/118953932/206198301-658c721f-c830-4386-9d5a-2d55708917a3.png" height = "200"> <img src = "https://user-images.githubusercontent.com/118953932/206198763-b58d2f95-8602-4315-afe4-211ae1498f67.png" height = "200">
+
+- write_verilog -noattr mul2_net.v
+- !gvim mul2_net.v
+
+<img src = "https://user-images.githubusercontent.com/118953932/206199728-0288f2c0-40f1-483a-a98c-b1ae935d9f4d.png" height = "350">
+
+- read_verilog mult_8.v
+- synth -top mult8
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- show 
+
+
+<img src = "" height = "300">
