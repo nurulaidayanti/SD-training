@@ -363,7 +363,7 @@ output q went low immediately when reset came (due to the asynchrounous behaviou
 
 <img src = "https://user-images.githubusercontent.com/118953932/206140736-40a9b779-ad1c-4d44-845e-c59f0625c7c5.png" width = "500" height = "300">
 
-**Asynchronous Reset**
+**Asynchronous Set**
 
 - iverilog dff_async_set.v tb_dff_async_set.v
 - ./a.out
@@ -371,7 +371,16 @@ output q went low immediately when reset came (due to the asynchrounous behaviou
 
 when set is present, q was at one irrespective to d
 
-when set is low the q pin will follow the clock edge and affected by the d
+when set is low the q pin will follow the pos clock edge and affected by the d
 
 
 <img src = "https://user-images.githubusercontent.com/118953932/206145368-a0ddfaf3-dfd2-4a59-8974-4ee6c9fc887d.png" width = "500" height = "300"> <img src = "https://user-images.githubusercontent.com/118953932/206144848-51922543-aad3-43a5-96c4-67dbf9f83212.png" width = "500" height = "300">
+
+**Synchronous Behaviour**
+
+- iverilog dff_syncres.v tb_dff_syncres.v
+- ./a.out
+- gtkwave tb_dff_syncres.vcd
+
+reset went high but q waiting for the subsequent posedge of the clock and then went low
+<img src = "https://user-images.githubusercontent.com/118953932/206149503-652defe6-63c3-44ea-be91-3d4bc5e7bc2e.png" width = "500" height = "300">
