@@ -246,6 +246,9 @@ Linking design to the library
 
 - abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 
-- show multiple_modules 
+- show multiple_modules (display the hierarchical design)
 
-<img src = "" width = "500" height = "300">
+<img src = "https://user-images.githubusercontent.com/118953932/206082435-688c7827-31a7-4e3b-aaf0-352aefe4feb1.png" width = "400">
+
+Write the netlist
+- write_verilog -noattr multiple_modules_hier.v
