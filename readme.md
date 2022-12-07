@@ -479,7 +479,7 @@ Netlist
 Netlist
 
 - write_verilog -noattr mult8_net.v
-- - !gvim mult8_net.v
+- !gvim mult8_net.v
 
-<img src = "" height = "300">
-https://user-images.githubusercontent.com/118953932/206202912-29de2303-1375-437c-99e0-83cb7471dfd4.png
+<img src = "https://user-images.githubusercontent.com/118953932/206202912-29de2303-1375-437c-99e0-83cb7471dfd4.png" height = "300">
+
