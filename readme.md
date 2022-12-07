@@ -321,5 +321,27 @@ Flop need to be initialized
 
 ### SKY130RTL D2SK3 - Various Flop Coding Styles and optimization (SKY130RTL D2SK3 L2 Why Flops and Flop coding styles part2)
 
+Circuit sensitive to posedge of the clock
 
+<img src = "https://user-images.githubusercontent.com/118953932/206131666-67d7b89f-d5c4-43ce-8f97-82de7f6e032d.png" width = "500" height = "300">
 
+Asynchronous
+- can happen anytime
+- irrespective of clock
+
+D flip flop with asynchronous reset
+
+<img src = "https://user-images.githubusercontent.com/118953932/206132694-554ed154-017d-4f19-aa61-d927cf376481.png" width = "500" height = "300">
+
+Synchronous
+
+- will come in the D pin of the flop
+- awaits for the clock edge
+
+<img src = "https://user-images.githubusercontent.com/118953932/206134088-ee603859-2951-4593-bc79-3d5531895204.png" width = "500" height = "300">
+
+Flop with different reset
+
+<img src = "https://user-images.githubusercontent.com/118953932/206135143-a8efe944-8bb4-4db6-8cb7-3d7fd9a0f574.png" width = "500" height = "300">
+
+<img src = "https://user-images.githubusercontent.com/118953932/206135632-f9b3cd23-f302-429e-ba38-76f256ca9fe9.png" width = "500" height = "300">
