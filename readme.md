@@ -389,6 +389,8 @@ reset went high but q waiting for the subsequent posedge of the clock and then w
 
 Synthesis the circuit
 
+**Asynchronous Reset**
+
 - yosys
 - read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 - read_verilog dff_asyncres.v
@@ -396,3 +398,20 @@ Synthesis the circuit
 - dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 - abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 - show
+
+active high reset
+
+<img src = "https://user-images.githubusercontent.com/118953932/206152672-f30e21cb-4ffb-47ae-be43-29eb64a66280.png" height = "300">
+
+**Asynchronous Set**
+
+- read_verilog dff_async_set.v
+- synth -top dff_async_set
+- dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- show
+
+<img src = "https://user-images.githubusercontent.com/118953932/206156094-ded2f43d-3369-40a7-b340-9cd9fa5fdb3f.png" height = "300">
+
+**Synchronous Reset and Asynchronous Reset**
+
