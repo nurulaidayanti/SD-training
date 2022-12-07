@@ -462,6 +462,8 @@ a(2:0) * 9 = y(5:0)
 
 <img src = "https://user-images.githubusercontent.com/118953932/206198301-658c721f-c830-4386-9d5a-2d55708917a3.png" height = "200"> <img src = "https://user-images.githubusercontent.com/118953932/206198763-b58d2f95-8602-4315-afe4-211ae1498f67.png" height = "200">
 
+Netlist
+
 - write_verilog -noattr mul2_net.v
 - !gvim mul2_net.v
 
@@ -472,5 +474,12 @@ a(2:0) * 9 = y(5:0)
 - abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 - show 
 
+<img src = "https://user-images.githubusercontent.com/118953932/206202175-575de40a-e08b-40c3-9d55-96d20a872a6a.png" height = "300">
+
+Netlist
+
+- write_verilog -noattr mult8_net.v
+- - !gvim mult8_net.v
 
 <img src = "" height = "300">
+https://user-images.githubusercontent.com/118953932/206202912-29de2303-1375-437c-99e0-83cb7471dfd4.png
