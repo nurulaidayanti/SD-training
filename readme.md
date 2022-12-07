@@ -252,3 +252,13 @@ Linking design to the library
 
 Write the netlist
 - write_verilog -noattr multiple_modules_hier.v
+- !gvim multiple_modules_hier.v
+
+<img src = "https://user-images.githubusercontent.com/118953932/206103090-b8534adc-5bca-4891-b121-0216ad233cb2.png" width = "700">
+
+Situation where it does not use OR gate
+
+- reason why NOR is not used: because it has stacked PMOS which means it has poor mobility
+
+<img src = "https://user-images.githubusercontent.com/118953932/206104524-4db8fb57-6da9-47ab-ae9f-da7e325f6c81.png" height = "200"> <img src = "https://user-images.githubusercontent.com/118953932/206105575-274fb75d-c33a-4337-a0a3-258f54de2cf9.png" height = "200">
+
