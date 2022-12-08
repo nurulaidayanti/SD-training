@@ -489,9 +489,15 @@ Netlist
 
 **Introduction to Logic Optimisation**
 
+Logic optimization is a process of finding an equivalent representation of the specified logic circuit under one or more specified constraints. It is a process of a part of a logic synthesis applied in digital electronics and integrated circuit design.
+
+<img src = "https://user-images.githubusercontent.com/118953932/206409949-31b372be-47a0-4273-9d52-3a7aa56ba642.png" height = "250"> <img src = "https://user-images.githubusercontent.com/118953932/206410486-e7527055-9172-4eba-aa47-67a35dfacd05.png" height = "250">
+
 Digital logic contains two type of logic names:
-- Combinational logic
-- Sequential Logic 
+- Combinational logic (one whose output solely depends on its current inputs)
+- Sequential Logic (are built using combinational circuits and memory elements which are flip flops)
+
+<img src = "https://user-images.githubusercontent.com/118953932/206412644-a52ca173-8a90-4523-ae92-01cb6840dc91.png" height = "300"> <img src = "https://user-images.githubusercontent.com/118953932/206411877-784dc5b8-c193-466d-ab7e-f0096f4e08e0.png" height = "300">
 
 Combinational logic optimisation
 - Squeeze the logic to get the most optimised design -- Area and Power savings
@@ -533,3 +539,13 @@ Example of Sequntial Constant Propagation:
 
 ### SKY130RTL D3SK1 L3 Introduction to optimisations part3
 
+**State Optimisation**
+
+Optimisation of unused state
+1) Cloning (physical aware synthesis)
+- avoid large routing delay
+
+<img src = "https://user-images.githubusercontent.com/118953932/206466206-b7d9b39d-570a-4574-acfb-1a38b04786c7.png" height = "300">
+
+2) Retiming
+- 
