@@ -548,6 +548,7 @@ Optimisation of unused state
 <img src = "https://user-images.githubusercontent.com/118953932/206466206-b7d9b39d-570a-4574-acfb-1a38b04786c7.png" height = "300">
 
 2) Retiming
-- improve perfomance of the circuit (can change the clock frequency)
+- improve perfomance of the circuit (can change the clock frequency) 
+- reduce delay increase frequency
 
-<img src = "https://user-images.githubusercontent.com/118953932/206469797-27eaa795-a799-4bb0-964c-79dc6d09135d.png" height = "300">
+<img src = "https://user-images.githubusercontent.com/118953932/206470638-9ece86aa-f5c3-42f5-81f2-ae36b6d0455e.png" height = "300">
