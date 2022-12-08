@@ -555,4 +555,7 @@ Optimisation of unused state
 
 ### SKY130RTL D3SK2 L1 Lab06 Combinational Logic Optimisations part1
 
+Optimisation
+
+- ls *opt_check *
 
