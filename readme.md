@@ -483,3 +483,53 @@ Netlist
 
 <img src = "https://user-images.githubusercontent.com/118953932/206202912-29de2303-1375-437c-99e0-83cb7471dfd4.png" height = "300">
 
+# Day-3
+## Combinational and sequential optmizations
+### SKY130RTL D3SK1 L1 Introduction to optimisations part1
+
+**Introduction to Logic Optimisation**
+
+Digital logic contains two type of logic names:
+- Combinational logic
+- Sequential Logic 
+
+Combinational logic optimisation
+- Squeeze the logic to get the most optimised design -- Area and Power savings
+- Constant Propagation -- Direct Optimisation
+- Boolean Logic Optimisation
+
+**Constant Propagation**
+
+Example:
+
+- the inverter consume less area and power than the due to it only have 2 MOS transistor compare to 6 MOS transistor
+
+- the constant 0 on A got propagated down the logic
+
+<img src = "https://user-images.githubusercontent.com/118953932/206398316-8396c426-9b19-4688-a667-6c3053a834e6.png" height = "300">
+
+Example of Boolean Logic Optimisation:
+
+- from mux to exclusive or
+
+- Boolean logic simplification and kmap reduction
+
+<img src = "https://user-images.githubusercontent.com/118953932/206399612-2bfabb19-d600-4dd0-b95e-cdd21b11c580.png" height = "300">
+
+### SKY130RTL D3SK1 L2 Introduction to optimisations part2
+
+**Sequential Logic Optimisations**
+- Basic -- Sequential Constant propagation
+- Advanced -- State optimisation, Retiming, Sequential Logic Cloning (Floor Plan Aware Synthesis)
+
+Example of Sequntial Constant Propagation:
+
+<img src = "https://user-images.githubusercontent.com/118953932/206401881-a1becd24-cf2e-49cd-b4ec-6ed9e3d66fea.png" height = "300">
+
+- set flop connected (not sequential constant = cannot optimize)
+- Q pin doesnt take constant value
+
+<img src = "https://user-images.githubusercontent.com/118953932/206404054-a4cc4525-7760-4733-818c-3b7be7f66d2e.png" height = "300">
+
+### SKY130RTL D3SK1 L3 Introduction to optimisations part3
+
