@@ -552,3 +552,7 @@ Optimisation of unused state
 - reduce delay increase frequency
 
 <img src = "https://user-images.githubusercontent.com/118953932/206470638-9ece86aa-f5c3-42f5-81f2-ae36b6d0455e.png" height = "300">
+
+### SKY130RTL D3SK2 L1 Lab06 Combinational Logic Optimisations part1
+
+
