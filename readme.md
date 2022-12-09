@@ -587,3 +587,62 @@ Implementation of 2 input NAND and NOR gate using 2x1 mux
 - synth -top opt_check
 - opt_clean -purge
 - abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- show
+
+opt_check.v (AND)
+
+<img src = "https://user-images.githubusercontent.com/118953932/206601917-e0f94855-1685-4c13-bb53-c533c3ef0ca6.png" height = "250"> <img src = "https://user-images.githubusercontent.com/118953932/206603702-3fac52ea-1aae-42de-adee-fcad7b618aa8.png" height = "250">
+
+opt_check2.v (OR)
+
+y = a?1:b
+
+<img src = "https://user-images.githubusercontent.com/118953932/206604249-f3374096-f1ef-4bb2-9a6a-ee8593695736.png" height = "250"> 
+
+opt_check3.v (3 input AND gate)
+
+y = a?(c?b:0):0
+
+<img src = "https://user-images.githubusercontent.com/118953932/206605587-a3c9e315-2abc-48cc-ac36-de3f24e49409.png" height = "200"> <img src = "https://user-images.githubusercontent.com/118953932/206605102-a508cd17-48c0-46b3-96dc-6e4c9439ac79.png" height = "250">
+
+opt_check4.v (xnor)
+
+y = a?(b?(a&c):c):(!c)
+
+<img src = "https://user-images.githubusercontent.com/118953932/206606111-82d30415-dead-4637-bac6-8988c17fa0af.png" height = "250">
+
+### SKY130RTL D3SK3 L1 Lab07 Sequential Logic Optimisations part1
+
+Reading and understanding content
+
+- ls *df *const *
+- gvim dff_const1.v -o dff_const2.v
+
+<img src = "https://user-images.githubusercontent.com/118953932/206609564-3dcbcdb9-7b77-474b-9ffb-eb4964b08342.png" height = "250"> <img src = "https://user-images.githubusercontent.com/118953932/206610254-523b2a15-aa2b-4ba7-b960-6d088b6a2cc9.png" height = "200">
+
+Simulation
+
+- iverilog dff_const1.v tb_dff_const1.v
+- ./a.out
+- gtkwave tb_dff_const1.vcd
+
+<img src = "https://user-images.githubusercontent.com/118953932/206611056-44c5d703-cece-4e74-9c7c-fadbd33b0d4f.png" height = "250">
+
+- iverilog dff_const2.v tb_dff_const2.v
+- ./a.out
+- gtkwave tb_dff_const2.vcd
+
+<img src = "https://user-images.githubusercontent.com/118953932/206611387-a2cd6872-ada7-40f9-8206-8de44a6270e7.png" height = "250">
+
+Synthesize
+
+- yosys
+- read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- read_verilog dff_const1.v
+- synth -top dff_const1
+- dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- show
+
+<img src = "https://user-images.githubusercontent.com/118953932/206612348-f3b1d01f-014d-4ab1-a5fe-5fe17776c65b.png" height = "250">
+
