@@ -721,4 +721,6 @@ Synthesize
 - abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 - show
 
-<img src = "https://user-images.githubusercontent.com/118953932/206623324-e6ceba1b-8fb1-439d-9e16-c7c993c1a1af.png" height = "250">
+<img src = "https://user-images.githubusercontent.com/118953932/206623324-e6ceba1b-8fb1-439d-9e16-c7c993c1a1af.png" height = "250"> <img src = "https://user-images.githubusercontent.com/118953932/206623995-98db33ac-36f2-4cb9-ade7-a9fea6d46117.png" height = "150">
+
+**2 bit of the unused is not connected to the primary input. hence, optimized. any logic that does not resulting in output, will be optimized**
