@@ -634,7 +634,7 @@ Simulation
 
 <img src = "https://user-images.githubusercontent.com/118953932/206611387-a2cd6872-ada7-40f9-8206-8de44a6270e7.png" height = "250">
 
-Synthesize
+Synthesize (dff_cost1)
 
 - yosys
 - read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
@@ -645,4 +645,60 @@ Synthesize
 - show
 
 <img src = "https://user-images.githubusercontent.com/118953932/206612348-f3b1d01f-014d-4ab1-a5fe-5fe17776c65b.png" height = "250">
+
+### SKY130RTL D3SK3 L2 Lab07 Sequential Logic Optimisations part2
+
+Synthesize (dff_cost2)
+
+- read_verilog dff_const2.v
+- synth -top dff_const2
+- dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- show
+
+<img src = "https://user-images.githubusercontent.com/118953932/206614309-32289f6d-ce09-4325-ab7d-28d786446530.png" height = "250">
+
+dff_cost3
+
+- gvim dff_const3.v
+
+<img src = "https://user-images.githubusercontent.com/118953932/206616067-f8afca5f-7f5f-445c-b8fd-29eb39de8d5f.png" height = "250">
+
+- Q always high expect for one clock cycle
+
+<img src = "https://user-images.githubusercontent.com/118953932/206615992-c7eefb85-c7cb-428e-bf18-2db01d61416b.png" height = "250">
+
+### SKY130RTL D3SK3 L3 Lab07 Sequential Logic Optimisations part3
+
+Simulate dff_const3
+
+- iverilog dff_const3.v tb_dff_const3.v
+- ./a.out
+- gtkwave tb_dff_const3.vcd
+
+<img src = "https://user-images.githubusercontent.com/118953932/206616786-6d911386-83e9-42aa-8254-084e61b3189e.png" height = "250">
+
+Synthesize
+
+- yosys
+- read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- read_verilog dff_const3.v
+- synth -top dff_const3
+- dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- show
+
+<img src = "https://user-images.githubusercontent.com/118953932/206617620-66edcab6-512f-4b40-90c8-22156324a5d3.png" height = "250">
+
+**not every flop having constant got optimize (need to check if Q value constant or not)**
+
+dff_const4
+
+<img src = "https://user-images.githubusercontent.com/118953932/206618391-3d71c6bd-a85f-4df7-be5f-19ad68fd9412.png" height = "250"> <img src = "https://user-images.githubusercontent.com/118953932/206618227-bcdfd1f5-0e9d-4a8e-94ae-1d56aa846974.png" height = "250">
+
+dff_const5.v
+
+<img src = "https://user-images.githubusercontent.com/118953932/206618876-46145f1a-c185-4b51-96fa-2ef26f156201.png" height = "250"> <img src = "https://user-images.githubusercontent.com/118953932/206618785-68b2ae8c-b47e-4a10-939d-2b846ae40b4b.png" height = "250">
+
+### SKY130RTL D3SK4 L1 Seq optimisation unused outputs part1
 
