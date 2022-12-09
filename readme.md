@@ -702,3 +702,23 @@ dff_const5.v
 
 ### SKY130RTL D3SK4 L1 Seq optimisation unused outputs part1
 
+Reading from RTL code
+
+- gvim counter_opt.v 
+
+<img src = "https://user-images.githubusercontent.com/118953932/206622400-4dbc7745-e2d3-48de-91f7-7c69b7cb96ba.png" height = "250"> <img src = "https://user-images.githubusercontent.com/118953932/206622498-7e2a66bc-9414-48c4-b60d-41ffaa996580.png" height = "250">
+
+Synthesize
+
+- yosys
+- read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- read_verilog counter_opt.v
+- synth -top counter_opt
+
+<img src = "https://user-images.githubusercontent.com/118953932/206622902-0eb337fa-14dd-4282-930e-53670e838abc.png" height = "250">
+
+- dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- show
+
+<img src = "https://user-images.githubusercontent.com/118953932/206623324-e6ceba1b-8fb1-439d-9e16-c7c993c1a1af.png" height = "250">
