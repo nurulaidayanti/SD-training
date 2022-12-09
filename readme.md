@@ -724,3 +724,31 @@ Synthesize
 <img src = "https://user-images.githubusercontent.com/118953932/206623324-e6ceba1b-8fb1-439d-9e16-c7c993c1a1af.png" height = "250"> <img src = "https://user-images.githubusercontent.com/118953932/206623995-98db33ac-36f2-4cb9-ade7-a9fea6d46117.png" height = "150">
 
 **2 bit of the unused is not connected to the primary input. hence, optimized. any logic that does not resulting in output, will be optimized**
+
+### SKY130RTL D3SK4 L2 Seq optimisation unused outputs part2
+
+Modify RTL
+
+- cp counter_opt.v counter_opt2.v
+- gvim counter_opt2.v
+
+change code to make all 3 bit appears
+
+<img src = "https://user-images.githubusercontent.com/118953932/206624852-c24a1d0b-19a0-48eb-a1ba-ff0a3e4f1465.png" height = "250">
+
+Synthesize
+
+- yosys
+- read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- read_verilog counter_opt2.v
+- synth -top counter_opt
+
+<img src = "https://user-images.githubusercontent.com/118953932/206625092-a66beff1-7d0a-4ef2-a048-0e74cbd1fd04.png" height = "250">
+
+- dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- show
+
+<img src = "https://user-images.githubusercontent.com/118953932/206625936-e4add870-38cd-4bc2-885c-3f061cf47b2a.png" height = "250">
+<img src = "https://user-images.githubusercontent.com/118953932/206626331-d59f1cb3-371a-42d9-975e-9dd8567e5c6e.png" height = "150">
+
