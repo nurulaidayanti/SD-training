@@ -555,7 +555,27 @@ Optimisation of unused state
 
 ### SKY130RTL D3SK2 L1 Lab06 Combinational Logic Optimisations part1
 
-Optimisation
+Reading and understanding the file content
 
 - ls *opt_check *
+- gvim opt_check.v
+- gvim opt_check2.v
 
+Mux
+
+The multiplexer or MUX is used to implement the Boolean functions or any of the logic gates, and it is called as universal logic which means all the standard logic gates can be implemented with multiplexers.
+
+De Morgan's Theorem
+
+The theorem explains that the complement of the product of all the terms is equal to the sum of the complement of each term.
+
+<img src = "https://user-images.githubusercontent.com/118953932/206597325-ad0c2fd9-698d-4bcc-8b3b-f7db6602c6d2.png" height = "300">
+
+mux to logic gate conversion:
+
+<img src = "https://user-images.githubusercontent.com/118953932/206599034-d1ec0768-aaff-4db6-979f-1263b94e5a1a.png" height = "250"> <img src = "https://user-images.githubusercontent.com/118953932/206599127-e7597e30-4694-4984-9f33-4d06bea3208d.png" height = "250">
+
+Implementation of 2 input NAND and NOR gate using 2x1 mux
+
+<img src = "https://user-images.githubusercontent.com/118953932/206598366-51d8b5ac-5bdc-400d-8288-b72caeaacff9.png" height = "100">
+<img src = "https://user-images.githubusercontent.com/118953932/206598460-410443ec-d593-466e-8003-4e1e31c3d12b.png" height = "120">
