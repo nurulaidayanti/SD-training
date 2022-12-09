@@ -625,8 +625,31 @@ multiple_module_opt.v
 <img src = "https://user-images.githubusercontent.com/118953932/206629019-8d59731a-6907-47a6-a33b-cb370166bf22.png" height = "250"> <img src = "https://user-images.githubusercontent.com/118953932/206630903-6eca6311-ff70-4c10-946b-faed82216b8b.png" height = "250"> <img src = "https://user-images.githubusercontent.com/118953932/206629165-6ebae6a2-fbef-4cce-a10e-eb63d831aff6.png" height = "250"> 
 
 - write_verilog multiple_module_opt_flat.v
+- exit
+- gvim multiple_module_opt_flat.v
 
  <img src = "https://user-images.githubusercontent.com/118953932/206630731-f94055a0-f3b8-4f9a-8a2c-a8ba42966205.png" height = "250">
+ 
+ 
+multiple_module_opt2.v
+
+- yosys
+- read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- read_verilog multiple_module_opt2.v
+- synth -top multiple_module_opt2
+- opt_clean -purge
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- flatten
+- show
+
+<img src = "https://user-images.githubusercontent.com/118953932/206643022-7e0489dc-6324-491c-a580-14cd2eb2f4d3.png" height = "250"> <img src = "https://user-images.githubusercontent.com/118953932/206642726-991e71d4-da66-4b90-aff8-ddf8a4f83257.png" height = "250"> <img src = "https://user-images.githubusercontent.com/118953932/206643404-1c6018cf-1492-4e08-b4cb-8d4328d52b30.png" height = "250">
+ 
+- write_verilog multiple_module_opt2_flat.v
+- exit
+- gvim multiple_module_opt2_flat.v
+
+ <img src = "https://user-images.githubusercontent.com/118953932/206644340-f7dafc87-b43c-473a-b9e6-23c3d57a26b1.png" height = "250">
+
 
 ### SKY130RTL D3SK3 L1 Lab07 Sequential Logic Optimisations part1
 
