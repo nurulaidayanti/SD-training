@@ -611,6 +611,23 @@ y = a?(b?(a&c):c):(!c)
 
 <img src = "https://user-images.githubusercontent.com/118953932/206606111-82d30415-dead-4637-bac6-8988c17fa0af.png" height = "250">
 
+multiple_module_opt.v
+
+- yosys
+- read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- read_verilog multiple_module_opt.v
+- synth -top multiple_module_opt
+- opt_clean -purge
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- flatten
+- show
+
+<img src = "https://user-images.githubusercontent.com/118953932/206629019-8d59731a-6907-47a6-a33b-cb370166bf22.png" height = "250"> <img src = "https://user-images.githubusercontent.com/118953932/206630903-6eca6311-ff70-4c10-946b-faed82216b8b.png" height = "250"> <img src = "https://user-images.githubusercontent.com/118953932/206629165-6ebae6a2-fbef-4cce-a10e-eb63d831aff6.png" height = "250"> 
+
+- write_verilog multiple_module_opt_flat.v
+
+ <img src = "https://user-images.githubusercontent.com/118953932/206630731-f94055a0-f3b8-4f9a-8a2c-a8ba42966205.png" height = "250">
+
 ### SKY130RTL D3SK3 L1 Lab07 Sequential Logic Optimisations part1
 
 Reading and understanding content
