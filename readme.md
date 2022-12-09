@@ -497,8 +497,7 @@ Digital logic contains two type of logic names:
 - Combinational logic (one whose output solely depends on its current inputs)
 - Sequential Logic (are built using combinational circuits and memory elements which are flip flops)
 
-<img src = "https://user-images.githubusercontent.com/118953932/206412644-a52ca173-8a90-4523-ae92-01cb6840dc91.png" height = "300"> <img src = "https://user-images.githubusercontent.com/118953932/206411877-784dc5b8-c193-466d-ab7e-f0096f4e08e0.png" height = "300">
-
+<img src = "https://user-images.githubusercontent.com/118953932/206600070-959b874d-c022-42cd-a9a5-cba0a403f40b.png" height = "300"> 
 Combinational logic optimisation
 - Squeeze the logic to get the most optimised design -- Area and Power savings
 - Constant Propagation -- Direct Optimisation
@@ -561,6 +560,8 @@ Reading and understanding the file content
 - gvim opt_check.v
 - gvim opt_check2.v
 
+<img src = "https://user-images.githubusercontent.com/118953932/206599871-5067db71-5598-4b50-b1b1-380af8e8a02d.png" height = "300">
+
 Mux
 
 The multiplexer or MUX is used to implement the Boolean functions or any of the logic gates, and it is called as universal logic which means all the standard logic gates can be implemented with multiplexers.
@@ -579,3 +580,10 @@ Implementation of 2 input NAND and NOR gate using 2x1 mux
 
 <img src = "https://user-images.githubusercontent.com/118953932/206598366-51d8b5ac-5bdc-400d-8288-b72caeaacff9.png" height = "100">
 <img src = "https://user-images.githubusercontent.com/118953932/206598460-410443ec-d593-466e-8003-4e1e31c3d12b.png" height = "120">
+
+- yosys
+- read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- read_verilog opt_check.v
+- synth -top opt_check
+- opt_clean -purge
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
