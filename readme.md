@@ -752,3 +752,4 @@ Synthesize
 <img src = "https://user-images.githubusercontent.com/118953932/206625936-e4add870-38cd-4bc2-885c-3f061cf47b2a.png" height = "250">
 <img src = "https://user-images.githubusercontent.com/118953932/206626331-d59f1cb3-371a-42d9-975e-9dd8567e5c6e.png" height = "150">
 
+**Conclusion: all the intermediate output that does not have direct role in determining the primary output will be optimized**
