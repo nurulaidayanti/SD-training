@@ -857,3 +857,13 @@ Caveats with Blocking Statements
 <img src = "https://user-images.githubusercontent.com/118953932/207066571-b6446aa7-505c-4995-93c2-b279df1c3548.png" height = "250">
 
 be careful when using blocking!
+
+<img src = "https://user-images.githubusercontent.com/118953932/207067538-6b9178d1-a745-4b13-99b5-250223a1f255.png" height = "250">
+
+will synthesize only one flop
+
+change order:
+
+<img src = "https://user-images.githubusercontent.com/118953932/207068094-1293127e-42fa-45da-b9b2-6aa64be8cb27.png" height = "250">
+
+that's why GLC needs to be run to match the expectated output!!
