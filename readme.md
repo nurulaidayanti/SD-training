@@ -867,3 +867,28 @@ change order:
 <img src = "https://user-images.githubusercontent.com/118953932/207068094-1293127e-42fa-45da-b9b2-6aa64be8cb27.png" height = "250">
 
 that's why GLC needs to be run to match the expectated output!!
+
+### SKY130RTL D4SK2 L1 Lab GLS Synth Sim Mismatch part1
+
+- gvim ternary_operator_mux.v -o bad_mux.v -o good_mux.v
+- iverilog ternary_operator_mux.v tb_ternary_operator_mux.v
+- ./a.out
+- gtkwave tb_ternary_operator_mux.vcd
+
+<img src = "https://user-images.githubusercontent.com/118953932/207077430-1d5f21f0-8287-45df-a4e6-361ed424106e.png" height = "180"> <img src = "https://user-images.githubusercontent.com/118953932/207080297-18c12f79-2d6d-48c9-8ac7-c8239fceb32f.png" height = "180"> 
+
+- yosys
+- read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- read_verilog ternary_operator_mux.v
+- synth -top ternary_operator_mux
+- abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- write_verilog -noattr ternary_operator_mux_net.v
+- show
+
+- iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v ternary_operator_mux_net.v tb_ternary_operator_mux.v
+- ./a.out
+- gtkwave tb_ternary_operator_mux.vcd
+
+<img src = "https://user-images.githubusercontent.com/118953932/207083319-a1e533b5-78a3-482c-b63d-788d6d69f23d.png" height = "300"> 
+
+### SKY130RTL D4SK2 L2 Lab GLS Synth Sim Mismatch part2
