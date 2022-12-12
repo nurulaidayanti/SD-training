@@ -889,6 +889,6 @@ that's why GLC needs to be run to match the expectated output!!
 - ./a.out
 - gtkwave tb_ternary_operator_mux.vcd
 
-<img src = "https://user-images.githubusercontent.com/118953932/207083319-a1e533b5-78a3-482c-b63d-788d6d69f23d.png" height = "300"> 
+<img src = "https://user-images.githubusercontent.com/118953932/207085336-53096edb-5dcc-42c1-940e-fb521e957d8b.png" height = "300"> 
 
 ### SKY130RTL D4SK2 L2 Lab GLS Synth Sim Mismatch part2
