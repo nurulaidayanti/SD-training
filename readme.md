@@ -793,3 +793,46 @@ Synthesize
 <img src = "https://user-images.githubusercontent.com/118953932/206626331-d59f1cb3-371a-42d9-975e-9dd8567e5c6e.png" height = "150">
 
 **Conclusion: all the intermediate output that does not have direct role in determining the primary output will be optimized**
+
+# Day-4
+## GLS, Synthesis-Simulation mismatch and Blocking/Non-blocking statements
+### SKY130RTL D4SK1 L1 GLSConceptsAndFlowUsingIverilog
+
+Simulations are an important part of the verification cycle in the process of hardware designing. It can be performed at varying degrees of physical abstraction:
+
+(a)    Transistor level
+
+(b)    Gate level
+
+(c)    Register transfer level (RTL)
+
+<img src = "https://user-images.githubusercontent.com/118953932/207059392-edf2e543-fa3c-4163-bc3b-e3f792989dd9.png" height = "350"> from: electronicsforu
+
+GLS is run before going into the last stage of chip manufacturing.
+
+GLS = gate level simulation
+
+- Running test bench with Netlist as Design Under Test
+- Netlist same as RTL code (logically) = same test bench will align with design 
+- it verify logical correctness of design after synthesis
+- ensuring timing of the design is met (needs to be run with delay annotation)
+
+<img src = "https://user-images.githubusercontent.com/118953932/207058975-ff8bce25-9f82-4bb6-996c-901ed7b1310d.png" height = "350">
+
+Using iverilog
+
+<img src = "https://user-images.githubusercontent.com/118953932/207057863-b2f657ca-83e9-49c8-b119-42df275acbf7.png" height = "350">
+
+### SKY130RTL D4SK1 L2 SynthesisSimulationMismatch
+
+Synthesis Simulation Mismatch
+
+- missing sensitivity list
+- blocking vs non-blocking assignments
+- non standard verilog coding
+
+Missing Sensitivity List
+
+change in input only will change the output (only when there is change in select)
+
+<img src = "https://user-images.githubusercontent.com/118953932/207063217-c73bfc02-b467-461e-afa3-0a9139e14e84.png" height = "350">
