@@ -836,3 +836,24 @@ Missing Sensitivity List
 change in input only will change the output (only when there is change in select)
 
 <img src = "https://user-images.githubusercontent.com/118953932/207063217-c73bfc02-b467-461e-afa3-0a9139e14e84.png" height = "350">
+
+### SKY130RTL D4SK1 L3 BlockingAndNonBlockingStatementsInVerilog
+
+Blocking and Non-Blocking Statements in Verilog
+
+- inside always block
+ > =  Blocking which executes the statements in the order it is written. so the first statement is evaluated before second statement
+ 
+ > <= Non Blocking which executes all the RHS when always block is entered and assigns to LHS (parallel evaluation)
+
+<img src = "https://user-images.githubusercontent.com/118953932/207064574-0fc432f7-f528-4a22-851d-51782612a9c1.png" height = "150">
+
+Caveats with Blocking Statements
+
+<img src = "https://user-images.githubusercontent.com/118953932/207065850-9ae26806-eda9-4014-9d9b-8502d6803e98.png" height = "250">
+
+### SKY130RTL D4SK1 L4 CaveatsWithBlockingStatements
+
+<img src = "https://user-images.githubusercontent.com/118953932/207066571-b6446aa7-505c-4995-93c2-b279df1c3548.png" height = "250">
+
+be careful when using blocking!
