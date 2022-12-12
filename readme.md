@@ -892,3 +892,22 @@ that's why GLC needs to be run to match the expectated output!!
 <img src = "https://user-images.githubusercontent.com/118953932/207085336-53096edb-5dcc-42c1-940e-fb521e957d8b.png" height = "300"> 
 
 ### SKY130RTL D4SK2 L2 Lab GLS Synth Sim Mismatch part2
+
+- iverilog bad_mux.v tb_bad_mux.v
+- ./a.out
+- gtkwave tb_bad_mux.vcd
+
+yosys
+- read_verilog bad_mux.v
+- synth -top bad_mux
+- abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- write_verilog -noattr bad_mux_net.v
+
+terminal
+- iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_mux_net.v tb_bad_mux.v
+- ./a.out
+- gtkwave tb_bad_mux.vcd
+
+<img src = "https://user-images.githubusercontent.com/118953932/207090265-8a7ecae3-42b2-44f5-a122-fc01b00e0620.png" height = "190"> <img src = "https://user-images.githubusercontent.com/118953932/207092457-c198f563-7f12-4d49-97ea-2a03f624c346.png" height = "190"> 
+
+left picture is the synthesis simulation mixmatch due to missing sensitivity list 
