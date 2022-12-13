@@ -903,7 +903,7 @@ yosys
 - abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 - write_verilog -noattr bad_mux_net.v
 
-terminal
+RTLWave
 - iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_mux_net.v tb_bad_mux.v
 - ./a.out
 - gtkwave tb_bad_mux.vcd
@@ -911,3 +911,45 @@ terminal
 <img src = "https://user-images.githubusercontent.com/118953932/207090265-8a7ecae3-42b2-44f5-a122-fc01b00e0620.png" height = "190"> <img src = "https://user-images.githubusercontent.com/118953932/207092457-c198f563-7f12-4d49-97ea-2a03f624c346.png" height = "190"> 
 
 left picture is the synthesis simulation mixmatch due to missing sensitivity list 
+
+### SKY130RTL D4SK3 L1 Lab Synth sim mismatch blocking statement part1
+
+Reading RTL
+
+- gvim blocking_caveat.v
+
+<img src = "https://user-images.githubusercontent.com/118953932/207196416-896be252-d1bf-4c1f-80b7-76f8ca285157.png" height = "190"> <img src = "https://user-images.githubusercontent.com/118953932/207196311-56ec3963-9f42-40fb-95d8-778aced416c8.png" height = "190"> 
+
+
+RTL Wave
+
+- iverilog blocking_caveat.v tb_blocking_caveat.v
+- ./a.out
+- gtkwave tb_blocking_caveat.vcd
+
+<img src = "https://user-images.githubusercontent.com/118953932/207194724-ba658c51-b18b-4ba0-a9b2-c6a00601b823.png" height = "300"> 
+
+synth sim. mismatch due to blocking statement
+
+### SKY130RTL D4SK3 L2 Lab Synth sim mismatch blocking statement part2
+
+Synthesize
+
+- yosys
+- read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- read_verilog blocking_caveat.v
+- synth -top blocking_caveat
+- abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+- write_verilog -noattr blocking_caveat_net.v
+- show
+
+<img src = "https://user-images.githubusercontent.com/118953932/207197080-b4f4f044-3b48-4689-acb5-071c06902143.png" height = "300"> 
+
+- iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v blocking_caveat_net.v tb_blocking_caveat.v
+- ./a.out
+- gtkwave tb_blocking_caveat.vcd
+
+
+<img src = "https://user-images.githubusercontent.com/118953932/207197873-cb63ee2e-752d-4660-8e20-698ba02afd9a.png" height = "300"> 
+
+**Conclusion: use blocking statement carefully**
