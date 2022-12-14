@@ -953,3 +953,50 @@ Synthesize
 <img src = "https://user-images.githubusercontent.com/118953932/207197873-cb63ee2e-752d-4660-8e20-698ba02afd9a.png" height = "300"> 
 
 **Conclusion: use blocking statement carefully**
+
+# Day-5
+
+## DFT - Design For Testability
+
+***
+-> [3W for DFT](#3w-for-dft)
+
+-> [Pro's and Con's](#pros-and-cons)
+
+-> [Basic terminologies](#basic-terminologies)
+
+-> [DFT Techniques](#dft-techniques)
+
+-> [Introduction to scan chain](#introduction-to-scan-chain)
+***
+
+### 3W for DFT
+
+❔ *What* is DFT?
+* consists of IC design techniques that add testability features to a hardware product design
+* facilitates design to become testable
+* add extra design in existing design to test it before fabricating
+
+📝 **Testibility** = design is *well-controllable* and *well-observable*
+
+
+Examples:
+> For macros, we include MBist (memory built in self test) Logic
+
+> For flops, we include scan chain
+
+> For combinational logic, we include generate test patterns
+
+❔ *Why* DFT?
+
+
+|:--------------|:-------------:|--------------:|
+
+### Pro's and Con's
+
+### Basic Terminologies
+
+### DFT Techniques
+
+### Introduction to scan chain
+
