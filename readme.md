@@ -974,6 +974,7 @@ Synthesize
 
 ❔ *What* is DFT?
 * consists of IC design techniques that add testability features to a hardware product design
+* a step of the design process in which testing features are added to the hardware
 * facilitates design to become testable
 * add extra design in existing design to test it before fabricating
 
@@ -988,15 +989,35 @@ Examples:
 > For combinational logic, we include generate test patterns
 
 ❔ *Why* DFT?
+* makes testing easy at the post-production process.
+  * 3 main levels of testing after a chip being fabricated:
+    * Chip-level (when chips are manufactured) ✔️ reduce cost/prevent much loss
+    * Board-level (when chips are integrated on the boards/package)
+    * System-level (when several boards are assembled together)
 
+❔ *When or Where* DFT?
+
+**When** = at the beginning of ASIC design flow
+
+**Where** = during the "Synthesis"
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/207630710-7b379caa-aa6c-4ab3-a0eb-0645f1888199.png" height = "250"></p>
+
+📝 **ASIC (Application Specific Integrated Circuit) design flow** = mature and silicon-proven IC design process which includes various steps like design conceptualization, chip optimization, logical/physical implementation, and design validation and verification
 
 ***
 
 ### Pro's and Con's
 
+
+***
 ### Basic Terminologies
 
+***
 ### DFT Techniques
 
+***
 ### Introduction to scan chain
+
+***
 
