@@ -958,7 +958,7 @@ Synthesize
 
 ## DFT - Design For Testability
 
-***
+
 -> [3W for DFT](#3w-for-dft)
 
 -> [Pro's and Con's](#pros-and-cons)
@@ -990,7 +990,7 @@ Examples:
 ❔ *Why* DFT?
 
 
-|:--------------|:-------------:|--------------:|
+***
 
 ### Pro's and Con's
 
