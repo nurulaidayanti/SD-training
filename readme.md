@@ -806,7 +806,7 @@ Simulations are an important part of the verification cycle in the process of ha
 
 (c)    Register transfer level (RTL)
 
-<img src = "https://user-images.githubusercontent.com/118953932/207059392-edf2e543-fa3c-4163-bc3b-e3f792989dd9.png" height = "350"> from: electronicsforu
+<img src = "https://user-images.githubusercontent.com/118953932/207473225-385942d7-ea49-4209-947d-85c563b901a9.png" height = "350"> from: electronicsforu
 
 GLS is run before going into the last stage of chip manufacturing.
 
