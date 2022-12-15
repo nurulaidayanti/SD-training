@@ -1079,7 +1079,7 @@ A **fault** causes an **error** which leads to the system **failure**.
 * are the elements in scan-based designs that are used to *shift-in* and *shift-out* test data
 * formed by a number of flops connected back to back in a chain with the output of one flope connected to another
 * the **input of first flop** is connected to the **input of the chip** (scan-in) from where scan is fed. the **output of the last flop** is connected to the **output pin of the chip** (scan-out) which is used to take the shifted data out. scan enable is something like enable line.
-* there are 3 types of scan flip-flops configuration namely - **multiplexed**, clocke, lssd (level sensitive scan design)
+* there are 3 types of scan flip-flops configuration namely - **multiplexed**, clocked, lssd (level sensitive scan design)
 
 <img src = "https://user-images.githubusercontent.com/118953932/207760572-dfe7ec77-372d-4b6c-9506-bcc589cfbf86.png" height = "300">
 
@@ -1116,6 +1116,22 @@ Scan chain operation involves three stages: **Scan-in**, **Scan-capture** and **
    - **NOTE**: number of cycles required to run a pattern = length of largest scan chain in design
 
 ATPG (Automatic Test Pattern Generator) also a ATE (Automatic Test Equipment)
+
+**LSSD (Level sensitive scan design)** (not in the video ❗)
+
+* Level-sensitive scan design (LSSD) is part of an integrated circuit manufacturing test process.
+* An LSSD scan cell requires three clocks, a system clock, and two non-overlapping clocks that are used during shift.
+* LSSD cell is used to replace a nonscan latch, and is suitable for latch based designs.
+* For test operation, the two latches form a master/slave pair with one scan input, one scan output and non-overlapping scan clocks A and B which are held low during system operation but cause the scan data to be latched when pulsed high during scan.
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/207811476-93dfce4e-89e8-4e1a-8951-6c59373a9829.png" height = "300"> <img src = "https://user-images.githubusercontent.com/118953932/207812961-4d8f378d-a8b3-4aec-8e6b-3db87169b93e.png" height = "300"></p>
+
+**ATE (Automatic Test Equipment)** (not in the video ❗)
+
+* computerized machinery that uses test instruments to carry out and evaluate the results of functionality, performance, quality, and stress tests performed on electronic devices and systems
+* widely used in the electronic manufacturing industry to test electronic components and systems after being fabricated
+
+
 
 **Basic ATE functionality**
 1. Scan-In Phase 
