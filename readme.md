@@ -1103,6 +1103,13 @@ Scan chain operation involves three stages: **Scan-in**, **Scan-capture** and **
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/207766241-a9f35735-92ed-4c8d-a056-3779fb99bda8.png" height = "220"></p>
 
 <p align="center">credits: photo from anysilicon</p>
+
+**FAQ for scan chains**
+1. How long one single scan chain is?
+   - by chain length, it means the number of ff in a single scan chain. The larger the chain length, the more the number of cycles required to shift the data in and out. For 3 reg, data came out at the forth cycle. so we need to wait for the 4th cycle. However, considering the numbers of flops remains the same, small chain length means more number of input/output ports is needed as scan_in and scan_out ports.
+   - Number of ports required = 2 x number of scan chain
+   - also, since for each scan chain, scan_in and scan_out port is needed
+   - **NOTE**: number of cycles required to run a pattern = length of largest scan chain in design
 ***
 ### Introduction to scan chain
 
