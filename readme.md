@@ -1104,9 +1104,9 @@ A **fault** causes an **error** which leads to the system **failure**.
 
 Scan chain operation involves three stages: **Scan-in**, **Scan-capture** and **Scan-out**. Scan-in involves shifting in and loading all the flip-flops with an input vector. During scan-in, the data flows from the output of one flop to the scan-input of the next flop. Once the sequence is loaded, one clock pulse (also called the capture pulse) is allowed to excite the combinatorial logic block and the output is captured at the second flop. The data is then shifted out and the signature is compared with the expected signature. In case of any mismatch, they can point the nodes where one can possibly find any manufacturing fault.
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/207766241-a9f35735-92ed-4c8d-a056-3779fb99bda8.png" height = "220"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/207879146-8759bfc9-e3d0-41c3-a580-9bd8a3694e40.png" height = "220"></p>
 
-<p align="center">credits: photo from anysilicon</p>
+
 
 **FAQ for scan chains**
 1. How long one single scan chain is?
@@ -1131,6 +1131,12 @@ ATPG (Automatic Test Pattern Generator) also a ATE (Automatic Test Equipment)
 * computerized machinery that uses test instruments to carry out and evaluate the results of functionality, performance, quality, and stress tests performed on electronic devices and systems
 * widely used in the electronic manufacturing industry to test electronic components and systems after being fabricated
 
+ATE tests perform two basic functions:
+
+1. to test whether or not the Device Under Test is working correctly
+2. when the DUT is not working correctly, to diagnose the reason
+
+ <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/207868477-0aab59c2-9b36-47e8-8c82-81b2c469db0f.png" height = "400"></p>
 
 
 **Basic ATE functionality**
