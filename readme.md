@@ -1047,7 +1047,62 @@ A **fault** causes an **error** which leads to the system **failure**.
 📝 **_Defect Level_** - refers to the fraction of shipped parts that are defective. Or, proportion of the faulty chip in which fault isn't detected and has been classified as good
 ***
 ### DFT Techniques
+1. **Ad-hoc Technique**
+* avoid combinational feedback
+* all flip flops must be initializable (dont want unknown state (x) so we need reset or set)
+* partition a large circuit into small blocks (break it up)
+* provide test control for the signals which are not controllable
+* while designing the test logic, have to consider the ATE requirements
 
+<img src = "https://user-images.githubusercontent.com/118953932/207756693-48a4a220-ad24-47d6-9ed2-b7d901c9e475.png" height = "300">
+
+*Ad-hoc has limitations. need to be done in intial design state only*
+
+2. **Structured Technique**
+* Scan: in the design, all the flip flops will be converted to *scan flip flop*
+* Boundary Scan (make it into small groups)
+* Built-in self-test
+  * MBist (in Macros)
+  * LBist (Logic built in self test)
+
+**Scan-chain Technique**
+* specifying the Scan constraints
+* specifying Scan ports and Scan enables
+* compiling the dft
+* identifying the number of Scan Chains
+
+**Scan based techniques/Scan-chains**
+* are the elements in scan-based designs that are used to *shift-in* and *shift-out* test data
+* formed by a number of flops connected back to back in a chain with the output of one flope connected to another
+* the **input of first flop** is connected to the **input of the chip** (scan-in) from where scan is fed. the **output of the last flop** is connected to the **output pin of the chip** (scan-out) which is used to take the shifted data out. scan enable is something like enable line.
+* there are 3 types of scan flip-flops configuration namely - **multiplexed**, clocke, lssd (level sensitive scan design)
+
+<img src = "https://user-images.githubusercontent.com/118953932/207760572-dfe7ec77-372d-4b6c-9506-bcc589cfbf86.png" height = "300">
+
+**Purpose of scan flops**
+* to test stuck-at faults in manufactured devices
+* to test paths in the manufactured devices for delay; i.e. to test whether each path is working at functional frequency or not
+
+**Functionality of scan chain** (steps to do basic scan-in and scan-out)
+* to make each node in the circuit controllable and observable
+1. **Assert scan_enable** (make it high) so as to enable (SI -> Q) path for each flps
+2. keep shifting in the scan data until the intended values at intended nodes are reached
+3. **De-assert scan_enable** (for one pulse of clock in case of stuck-at testing and two or more cycles in case of transition testing) to enable D -> Q path so that the combinational cloud output can be captured at the next clock edge
+4. again **assert scan_enable** and shift out the data through scan_out
+
+<img src = "https://user-images.githubusercontent.com/118953932/207763621-16371a57-a22d-49d3-83c1-ea7c5dc0bee9.png" height = "200"> <img src = "https://user-images.githubusercontent.com/118953932/207763884-8913c113-549f-4da0-8625-3b63285a593e.png" height = "220">
+
+<img src = "https://user-images.githubusercontent.com/118953932/207764076-c631fb23-772e-44f7-9078-7e1525c9b1f3.png" height = "200"> <img src = "https://user-images.githubusercontent.com/118953932/207764153-c0a2dfd6-9525-435a-befe-c4ffb9a67edd.png" height = "220">
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/207764232-65c45a70-b80d-4dc7-8137-f4b7f9dca1ba.png" height = "220"></p>
+
+<p align="center">credits: orginal photo from anysilicon & edited by nurul</p>
+
+Scan chain operation involves three stages: **Scan-in**, **Scan-capture** and **Scan-out**. Scan-in involves shifting in and loading all the flip-flops with an input vector. During scan-in, the data flows from the output of one flop to the scan-input of the next flop. Once the sequence is loaded, one clock pulse (also called the capture pulse) is allowed to excite the combinatorial logic block and the output is captured at the second flop. The data is then shifted out and the signature is compared with the expected signature. In case of any mismatch, they can point the nodes where one can possibly find any manufacturing fault.
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/207766241-a9f35735-92ed-4c8d-a056-3779fb99bda8.png" height = "220"></p>
+
+<p align="center">credits: photo from anysilicon</p>
 ***
 ### Introduction to scan chain
 
