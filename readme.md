@@ -1065,6 +1065,8 @@ A **fault** causes an **error** which leads to the system **failure**.
   * MBist (in Macros)
   * LBist (Logic built in self test)
 
+***
+### Introduction to scan chain
 **Scan-chain Technique**
 * specifying the Scan constraints
 * specifying Scan ports and Scan enables
@@ -1110,8 +1112,17 @@ Scan chain operation involves three stages: **Scan-in**, **Scan-capture** and **
    - Number of ports required = 2 x number of scan chain
    - also, since for each scan chain, scan_in and scan_out port is needed
    - **NOTE**: number of cycles required to run a pattern = length of largest scan chain in design
-***
-### Introduction to scan chain
 
+ATPG (Automatic Test Pattern Generator) also a ATE (Automatic Test Equipment)
+
+**Basic ATE functionality**
+1. Scan-In Phase 
+2. Parallel Measure
+3. Parallel Capture
+4. First Scan-Out Phase
+5. Scan-Out Phase
 ***
+
+
+
 
