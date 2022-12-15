@@ -966,6 +966,8 @@ Synthesize
 -> [Basic terminologies](#basic-terminologies)
 
 -> [DFT Techniques](#dft-techniques)
+* Ad-hoc Technique
+* Structured Technique
 
 -> [Introduction to scan chain](#introduction-to-scan-chain)
 ***
@@ -990,6 +992,7 @@ Examples:
 
 ❔ *Why* DFT?
 * makes testing easy at the post-production process.
+* to increase productivity and improve quality
   * 3 main levels of testing after a chip being fabricated:
     * Chip-level (when chips are manufactured) ✔️ reduce cost/prevent much loss
     * Board-level (when chips are integrated on the boards/package)
@@ -1009,10 +1012,39 @@ Examples:
 
 ### Pro's and Con's
 
+| Pro's | Con's |
+| ----- | ----- |
+| reduces tester complexity | adds complication to the design flow |
+| reduces tester time | increase power, area and package pins |
+| reduces the chances of going into loss due to faulty devices | design time increases |
 
 ***
 ### Basic Terminologies
 
+📝 **_Controllability_** - ability to set node to a specific value
+
+From DFT point of view, we intend if both '0' and '1' are able to propagate to each and every node within the target patterns. A point is said to be *controllable* if both 'o' and '1' propagated through scan patterns.
+
+<img src = "https://user-images.githubusercontent.com/118953932/207746575-d41b9475-7fbc-4554-909c-7e0735be8021.png" height = "250"> <img src = "https://user-images.githubusercontent.com/118953932/207748424-408c55dc-ada1-42ca-9863-39b657c81d52.png" height = "250">
+
+📝 **_Observability_** - ability to observe a node's value
+
+we need to observe so that we can control it. It means we are able to make the value at the node can be shifted out through scan patterns and can be observe through scan points.
+
+
+<img src = "https://user-images.githubusercontent.com/118953932/207749638-beb57d35-ba0b-4982-87f1-10edf49d5295.png" height = "300"> <img src = "https://user-images.githubusercontent.com/118953932/207749747-262fcd4d-48c0-4910-a613-7c2d11b67182.png" height = "300">
+
+📝 **_Fault_** - physical damage/defect compared to the good system, which may or may not cause failure
+
+📝 **_Error_** - caused by a fault because of which system went to erroneous state (unknown state)
+
+📝 **_Failure_** - system is not providing the expected service
+
+A **fault** causes an **error** which leads to the system **failure**.
+
+📝 **_Fault Coverage_** - percentage of the total number of logical faults that can be tested using a given test set
+
+📝 **_Defect Level_** - refers to the fraction of shipped parts that are defective. Or, proportion of the faulty chip in which fault isn't detected and has been classified as good
 ***
 ### DFT Techniques
 
