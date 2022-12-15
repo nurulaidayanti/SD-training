@@ -1008,6 +1008,8 @@ Examples:
 
 📝 **ASIC (Application Specific Integrated Circuit) design flow** = mature and silicon-proven IC design process which includes various steps like design conceptualization, chip optimization, logical/physical implementation, and design validation and verification
 
+🤔 **Own opinions on DFT = can reduce cost or make it cost effective and can detects faulty at early stage. It also makes testing chip possible and easy.**
+
 ***
 
 ### Pro's and Con's
