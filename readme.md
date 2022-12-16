@@ -1147,6 +1147,24 @@ ATE tests perform two basic functions:
 5. Scan-Out Phase
 ***
 
+# **ADVANCED SYNTHESIS AND STA WITH DC**
+# Day-1 Introduction to Logic Synthesis
+## DC_D1SK1_L1 - Lecture1 - Introduction to the course
 
+Agenda of the course
+- Basics of Digital Logic Design and Synthesis (recap)
+- Introduction to Design Compiler (DC)
+- TCL (Tool Command Language)
+- Constraining the Design, Synopsys Design Constraints (SDC)
+- STA (Static Timing Analysis)
+- Logic Optimizations
+- Advanced Synthesis options
+- Generating Timing Reports
+- Analyzing Synthesis QoR
 
+Tools Used
+- Iverilog - for verilog compilation, simulationn
+- gtkwave - for viewing the simulation output
+- Synopsys Design Compiler - for logic synthesis
+- Skywater 130nm Library - design standard of library
 
