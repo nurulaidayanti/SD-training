@@ -1175,5 +1175,9 @@ Pre Requisites 📚
 - Idea of Basics of Synthesis
 
 Course Outcomes ✔️
-- Understand various steps involved in digital logic synthesis
-- 
+- Understand various steps involved in Digital Logic Synthesis
+- Understand and Write SDC (Sypnosys Design Constraints) for the given module
+- Perform Synthesis and write out Netlist using DC
+- Generate and Analyze the Synthesis reports/STA reports
+
+
