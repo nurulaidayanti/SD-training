@@ -1180,9 +1180,10 @@ ATE tests perform two basic functions:
 - Perform Synthesis and write out Netlist using DC
 - Generate and Analyze the Synthesis reports/STA reports
 
-**Basics of Digital Logic Design and Synthesis** ✒️
 
-- Digital Logic 
+Basics of Digital Logic Design and Synthesis ✒️ 
+
+- Digital Logic
   - Switching Function
   - Automation and Decision making
 
@@ -1207,8 +1208,37 @@ ATE tests perform two basic functions:
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208057956-3cb12dff-1310-477f-929c-550f87030ee9.png" height = "350"></p>
 <p align="center">source: FPGA Site</p>
 
-VHDL and Verilog implement register-transfer-level (RTL) abstractions.
+> VHDL and Verilog implement register-transfer-level (RTL) abstractions.
 
+RTL (Register Transfer Logic)
+-  is a smaller subset of the full range of HDL code.
+-  describes circuits at a level similar to the design description on a schematic.
 
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208061364-401dea60-76db-4219-9147-6e249dbdf3cc.png" height = "300"></p>
+<p align="center">The conversion of RTL to digital logic circuit</p>
+ 
+Synthesis
+- RTL to Gate level translation
+- the design is converted into gates and connections are made between gates
+- this is given out as a file called netlist (provide rtl and dot lib which from code to gates)
+ 
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208065043-cc40c142-b6b2-47c4-98df-7267346600aa.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/208066396-44c5ddc5-2884-4a39-8baa-e81679726b1e.png" height = "200"></p>
+ 
+What is .lib
+- collection of logical modules
+- includes basic logic gates like AND, OR, NOT and others
+- different flavours of same gate:
+  - 2 input AND gate
+    - slow
+    - medium
+    - fast
+  - 3 input AND gate
+    - slow
+    - medium
+    - fast
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208056063-0bcd54cf-9461-47be-b263-490b1e7132f4.png" height = "200"></p>
+Why is there different flavours of gate
+- combinational delay in logic path determines the maximum speed of operation of digital logic circuit
+  - so we need cells that work fast to make Tcombi small
+  - are faster cells sufficient?
+    - we want high performance
