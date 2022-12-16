@@ -1151,7 +1151,7 @@ ATE tests perform two basic functions:
 # Day-1 Introduction to Logic Synthesis
 ## DC_D1SK1_L1 - Lecture1 - Introduction to the course
 
-Agenda of the course 📑
+**Agenda of the course** 📑
 - Basics of Digital Logic Design and Synthesis (recap)
 - Introduction to Design Compiler (DC)
 - TCL (Tool Command Language)
@@ -1162,22 +1162,53 @@ Agenda of the course 📑
 - Generating Timing Reports
 - Analyzing Synthesis QoR
 
-Tools Used 🧰
+**Tools Used** 🧰
 - Iverilog - for verilog compilation, simulationn
 - gtkwave - for viewing the simulation output
 - Synopsys Design Compiler - for logic synthesis
 - Skywater 130nm Library - design standard of library
 
-Pre Requisites 📚
+**Pre Requisites** 📚
 - Digital Electronics
 - Boolean Algebra
 - Verilog HDL Coding
 - Idea of Basics of Synthesis
 
-Course Outcomes ✔️
+**Course Outcomes** ✔️
 - Understand various steps involved in Digital Logic Synthesis
 - Understand and Write SDC (Sypnosys Design Constraints) for the given module
 - Perform Synthesis and write out Netlist using DC
 - Generate and Analyze the Synthesis reports/STA reports
 
+**Basics of Digital Logic Design and Synthesis** ✒️
 
+- Digital Logic 
+  - Switching Function
+  - Automation and Decision making
+
+ > manipulation of binary values through printed circuit board technology that uses circuits and logic gates to construct the implementation of computer operations.
+
+ > used to develop hardware, such as circuit boards and microchip processors.
+
+- Behavioral Model of the design is written in HDL
+  - VHDL (VHSIC Hardware Description Language)
+    - a hardware description language (HDL) that can model the behavior and structure of digital systems at multiple levels of abstraction, ranging from the system level down to that of logic gates, for design entry, documentation, and verification purposes
+      
+  - Verilog
+    - standardized as IEEE 1364
+    - a hardware description language (HDL) used to model electronic systems
+    - most commonly used in the design and verification of digital circuits at the register-transfer level of abstraction
+ 
+ > 1.  VHDL is strongly typed. This makes it harder to make mistakes as a beginner because the compiler will not allow you to write code that is in valid. Verilog is weakly typed. It allows you to write code that is wrong, but more concise.
+ > 2. Verilog looks closer to a software language like C. This makes it easier for someone who knows C well to read and understand what Verilog is doing.
+ > 3. VHDL requires a lot of typing. Verilog generally requires less code to do the same thing.
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208057956-3cb12dff-1310-477f-929c-550f87030ee9.png" height = "350"></p>
+<p align="center">source: FPGA Site</p>
+
+VHDL and Verilog implement register-transfer-level (RTL) abstractions.
+
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208056063-0bcd54cf-9461-47be-b263-490b1e7132f4.png" height = "200"></p>
