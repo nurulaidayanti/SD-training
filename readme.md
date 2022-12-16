@@ -1151,7 +1151,7 @@ ATE tests perform two basic functions:
 # Day-1 Introduction to Logic Synthesis
 ## DC_D1SK1_L1 - Lecture1 - Introduction to the course
 
-Agenda of the course
+Agenda of the course 📑
 - Basics of Digital Logic Design and Synthesis (recap)
 - Introduction to Design Compiler (DC)
 - TCL (Tool Command Language)
@@ -1162,9 +1162,18 @@ Agenda of the course
 - Generating Timing Reports
 - Analyzing Synthesis QoR
 
-Tools Used
+Tools Used 🧰
 - Iverilog - for verilog compilation, simulationn
 - gtkwave - for viewing the simulation output
 - Synopsys Design Compiler - for logic synthesis
 - Skywater 130nm Library - design standard of library
 
+Pre Requisites 📚
+- Digital Electronics
+- Boolean Algebra
+- Verilog HDL Coding
+- Idea of Basics of Synthesis
+
+Course Outcomes ✔️
+- Understand various steps involved in digital logic synthesis
+- 
