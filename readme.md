@@ -1239,6 +1239,20 @@ What is .lib
 
 Why is there different flavours of gate
 - combinational delay in logic path determines the maximum speed of operation of digital logic circuit
+- want high performance
   - so we need cells that work fast to make Tcombi small
-  - are faster cells sufficient?
-    - we want high performance
+ <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208069270-424a8aff-880a-4152-acfb-39c0671b2854.png" height = "300"></p>
+
+Why we need slow cells?
+- to ensure that there are no hold issue at DFF B, we need cells that work slowly
+- fast cell = to meet required performance (setup), slow cell = to meet HOLD
+- the collection forms the .lib
+
+ <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208070386-a158a646-d3eb-4643-9b86-c1d7f826c373.png" height = "300"></p>
+
+Faster Cells vs Slower Cells
+- load in digital logic circuit -> capacitance
+- faster the charging/discharging of cap, lesser the cell delay
+  - to charge/discharge the cap fast, we need transistors capable of sourcing more current
+  - wider transistor -> low delay -> more area and power
+  - narrow transistor -> more delay -> less area and power
