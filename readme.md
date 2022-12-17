@@ -1256,3 +1256,16 @@ Faster Cells vs Slower Cells
   - to charge/discharge the cap fast, we need transistors capable of sourcing more current
   - wider transistor -> low delay -> more area and power
   - narrow transistor -> more delay -> less area and power
+
+Selection of Cells (convert hdl code to netlist)
+- need to guide the Synthesizer to select the flavour of cells that is optimum for the implementation of logic circuit
+- more use of **faster cells**
+  - bad circuit in terms of power and area
+  - hold time violation
+- more use of **slower cells**
+  - sluggish circuit, may not meet the performance
+-the guidance offered to the Synthesizer is **Constraints**
+
+Example:
+
+<img src = "https://user-images.githubusercontent.com/118953932/208243318-7d0a499b-5144-42f8-b99e-75924869f6ef.png" height = "240"><img src = "https://user-images.githubusercontent.com/118953932/208243411-c07e906c-51b6-44dc-b0bb-b5477e7f22c2.png" height = "240">
