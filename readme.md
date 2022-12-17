@@ -1181,7 +1181,7 @@ ATE tests perform two basic functions:
 - Generate and Analyze the Synthesis reports/STA reports
 
 <details>
-<summary> Basics of Digital Logic Design and Synthesis ✒️ (click HERE to read more) </summary>
+<summary> Basics of Digital Logic Design and Synthesis ✒️ (❗click HERE to read more ❗) </summary>
  <br>
 
 - Digital Logic
@@ -1290,4 +1290,14 @@ What is the correct recipie?
 
  </details>
  
-## DC_D1SK1_L1 - Lecture1 - Introduction to the course
+## DC_D1SK1_L2 - Lecture2 - Intro to DC
+
+**What is DC** ❔
+- Design Compiler (DC): synthesis tool targeted for ASIC design flow from Synopsys
+- Features of DC
+  - established as a premium synthesis tool across semiconductor industry
+  - interoperability with various backend tools from Synopsys
+  - has the ability to perform DFT Scan stitch
+  - can handle huge designs with extreme complexity and provide very good QoR
+
+**Common Terminologies associated with DC** 🤔
