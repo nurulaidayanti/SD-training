@@ -1180,8 +1180,9 @@ ATE tests perform two basic functions:
 - Perform Synthesis and write out Netlist using DC
 - Generate and Analyze the Synthesis reports/STA reports
 
-
-Basics of Digital Logic Design and Synthesis ✒️ 
+<details>
+<summary> Basics of Digital Logic Design and Synthesis ✒️ (click HERE to read more) </summary>
+ <br>
 
 - Digital Logic
   - Switching Function
@@ -1269,3 +1270,24 @@ Selection of Cells (convert hdl code to netlist)
 Example:
 
 <img src = "https://user-images.githubusercontent.com/118953932/208243318-7d0a499b-5144-42f8-b99e-75924869f6ef.png" height = "240"><img src = "https://user-images.githubusercontent.com/118953932/208243411-c07e906c-51b6-44dc-b0bb-b5477e7f22c2.png" height = "240">
+
+<img src = "https://user-images.githubusercontent.com/118953932/208243655-1af8d515-2810-4308-810a-5e37bf56d6fc.png" height = "240"><img src = "https://user-images.githubusercontent.com/118953932/208243852-66fb82d8-837f-4a20-a4a5-5a894942ea91.png" height = "240">
+
+Logic Synthesis
+- Working Digital Logic Circuit
+  - logically correct ✔️
+  - electrically correct ✔️
+  - timing met ✔️
+- implementation 3 offers very less area and delay! 🥇
+- but need to observe the hold met or not
+  - to meet it we have to add delay (buffers)
+    - add additional area 
+
+What is the correct recipie?
+- Constraints:
+  - constraints are the guide to the synthesizer to pick the correct library cells which is the most for appropriate for the design
+  - as illustrated implementation 1, 2, 3 all are correct and will be picked based on need or requirement
+
+ </details>
+ 
+## DC_D1SK1_L1 - Lecture1 - Introduction to the course
