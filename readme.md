@@ -1181,7 +1181,7 @@ ATE tests perform two basic functions:
 - Generate and Analyze the Synthesis reports/STA reports
 
 <details>
-<summary> Basics of Digital Logic Design and Synthesis ✒️ (❗click HERE to read more ❗) </summary>
+<summary> Basics of Digital Logic Design and Synthesis ✒️ (❗ click HERE to read more ❗) </summary>
  <br>
 
 - Digital Logic
