@@ -1334,6 +1334,8 @@ What is the correct recipie?
 
 ## DC_D1SK2_L1 - lab1 - Invoking dc basic setup
 
+
+
 ## DC_D1SK3_L1 - Lecture3 - TCL quick refresher
 
 Advanced Synthesis and STA using DC
@@ -1382,7 +1384,7 @@ while {$i < 10}{
        incr i;
 }
 ``` 
- **do not put the wron variables, it could lead to infinite loops**
+ **do not put the wrong variables, it could lead to infinite loops**
 
 - for 
 ```
