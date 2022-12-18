@@ -1758,3 +1758,32 @@ d\
 e\
 f\
 g
+- foreach_in_collection
+```
+get_lib_cells */*and*
+```
+output:
+> {sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and2_0 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and2_1 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and2_2 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and2_4 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and2b_1 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and2b_2 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and2b_4 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and3_1 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and3_2 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and3_4 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and3b_1 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and3b_2 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and3b_4 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and4_1 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and4_2 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and4_4 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and4b_1 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and4b_2 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and4b_4 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and4bb_1 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and4bb_2 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and4bb_4 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand2_1 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand2_2 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand2_4 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand2_8 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand2b_1 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand2b_2 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand2b_4 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand3_1 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand3_2 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand3_4 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand3b_1 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand3b_2 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand3b_4 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand4_1 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand4_2 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand4_4 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand4b_1 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand4b_2 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand4b_4 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand4bb_1 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand4bb_2 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__nand4bb_4}
+
+**it's in curly braces so it is a collection** ☑️
+
+```
+foreach_in_collection my_var [get_lib_cells */*and*] {
+echo $my_var;
+}
+```
+
+output:
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208304894-388abebb-7930-48c4-8572-cdde68efe278.png" height = "300"></p>
+
+Hence, need to use this:
+
+```
+foreach_in_collection my_var [get_lib_cells */*and*] {
+set my_var_name [get_object_name $my_var]; echo $my_var_name;
+}
+```
+output:
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208305137-6939b7ac-c900-4de4-9ec3-12cb0c8875ae.png" height = "300"></p>
