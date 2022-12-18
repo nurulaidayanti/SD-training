@@ -1334,7 +1334,63 @@ What is the correct recipie?
 
 ## DC_D1SK2_L1 - lab1 - Invoking dc basic setup
 
+1. change directory 
+```
+cd /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul
+```
+2. make directory 
+```
+mkdir VLSI
+```
+3. git clone
+```
+git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
+```
+4. change directory
+```
+cd sky130RTLDesignAndSynthesisWorkshop
+```
+5. open DC_WORKSHOP
+```
+cd DC_WORKSHOP
+```
+6. open lib
+```
+cd lib
+```
+7. see list files 
+```
+ls
 
+output: sky130_fd_sc_hd__tt_025C_1v80.db  sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+**Note: DC can only read .db format. for reading and understanding, we will use .lib. for the tool, it will look at .db**
+
+8. reading .lib
+
+```
+gvim sky130_fd_sc_hd__tt_025C_1v80.lib
+
+:syn off (inside gvim: to close the syntax)
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208288535-0c282ddd-7e1c-4725-a036-1fcc70036a77.png" height = "450"></p>
+
+```
+inside gvim
+:se nu (number or line)
+/cell (.*and [to find keyword cell & and]
+/cell (.*inv [to find keyword cell & inv]
+/cell (.*or [to find keyword cell & or]
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208288884-9e5e03d5-cfc2-4159-8cf8-46c73af903ab.png" height = "180"><img src = "https://user-images.githubusercontent.com/118953932/208288822-e095fa46-ccbb-41ac-86b8-6174ed30eac6.png" height = "180"></p>
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208288999-9910cb09-fa23-4f09-a28c-d27319fd3371.png" height = "180"><img src = "https://user-images.githubusercontent.com/118953932/208289081-5b691191-5c8c-403b-8382-622f7cb4fb30.png" height = "180"></p>
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208289114-a50b9789-c79a-4ffd-9b29-d4e81af8af43.png" height = "180"><img src = "https://user-images.githubusercontent.com/118953932/208289178-ebdac398-1a65-4613-abe9-6599a9469405.png" height = "180"></p>
 
 ## DC_D1SK3_L1 - Lecture3 - TCL quick refresher
 
