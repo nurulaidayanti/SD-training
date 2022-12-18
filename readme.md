@@ -1408,6 +1408,39 @@ echo $target_library
 echo $link_library
 ``` 
 **Note: used by the DC**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208290550-76b7b1f0-0745-4b3c-902f-9f4f1edf8b07.png" height = "300"></p>
+
+11. exit
+12. understanding file
+```
+gvim DC_WORKSHOP/verilog_files/lab1_flop_with_en.v
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208290976-b5b5cbc0-141c-4fa8-9fd3-b5e16115d112.png" height = "300"></p>
+
+13. read_verilog
+```
+read_verilog DC_WORKSHOP/verilog_files/lab1_flop_with_en.v
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208291257-0968d46d-bd23-427c-8271-d8b05eac12b4.png" height = "300"></p>
+
+14. write verilog
+```
+write -f verilog -out lab1_net.v
+
+output: 
+Warning: Can't read link_library file 'your_library.db'. (UID-3)
+Writing verilog file '/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/lab1_net.v'.
+
+sh gvim lab1_net.v &
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208291590-52eb715c-3fd2-4790-b950-18a0cdb1ba6b.png" height = "300"></p>
+
+15. load the sky130 library
+```
+
+```
+
 ## DC_D1SK3_L1 - Lecture3 - TCL quick refresher
 
 Advanced Synthesis and STA using DC
