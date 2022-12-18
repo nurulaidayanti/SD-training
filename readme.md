@@ -1517,7 +1517,56 @@ read_ddc lab1.ddc
 
 ## DC_D1SK2_L3 - lab3 - dc synopsys dc setup
 
+1. open dc_shell
+```
+csh
+dc_shell
+```
+2. check library
+```
+echo $target_library
+echo $link_library
+```
+3. set library
+```
+set target_library DC_WORKSHOP/lib/sky130_fd_sc_hd__tt_025C_1v80.db
+set link_library {* $target_library}
+```
+4. check library
+```
+echo $target_library
 
+output: DC_WORKSHOP/lib/sky130_fd_sc_hd__tt_025C_1v80.db
+
+echo $link_library
+
+output: * $target_library
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208301176-fb8b772c-0c6e-48fa-a3b1-65bd68b34ab0.png" height = "300"></p>
+**all repetetive tasks (mainly target lib and link lib) which is needed for tool setup can be pointed in this file**
+
+**can set automatically with the help of synopsys**
+
+5. synopsys
+- quit dc_shell
+- go to path /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop (need to be in here)
+```
+gvim .synopsys_dc.setup
+
+(inside gvim)
+set target_library DC_WORKSHOP/lib/sky130_fd_sc_hd__tt_025C_1v80.db
+set link_library {* $target_library}
+```
+**MUST USE .synopsys_dc.setup or else it will set the dummy/imaginary library** ❗❗❗
+
+6. invoke dc_shell
+```
+csh
+dc_shell
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208301779-de9f7896-2dac-4ca7-97ea-d46c3c1f472f.png" height = "300"></p>
+
+**automatically set sky130 library as target library and link library**
 
 ## DC_D1SK3_L1 - Lecture3 - TCL quick refresher
 
