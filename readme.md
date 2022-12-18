@@ -1438,8 +1438,54 @@ sh gvim lab1_net.v &
 
 15. load the sky130 library
 ```
+read_db DC_WORKSHOP/lib/sky130_fd_sc_hd__tt_025C_1v80.db
+ 
+output:
+Loading db file '/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/lib/sky130_fd_sc_hd__tt_025C_1v80.db'
+Loaded 0 designs.
 
 ```
+16. write verilog
+```
+write -f verilog -out lab1_net.v
+sh gvim lab1_net.v &
+```
+**but it is still in gtech format - need to look at link_library and target_library (use echo $link_library)**
+17. set library
+```
+set target_library /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/lib/sky130_fd_sc_hd__tt_025C_1v80.db
+/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/lib/sky130_fd_sc_hd__tt_025C_1v80.db
+
+set link_library {* /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/lib/sky130_fd_sc_hd__tt_025C_1v80.db}
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208292352-d15efd21-0dc2-4f6e-a866-3c616ba698e3.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/208292498-7b1fc2f1-0738-4410-bd03-7bcf2b323b71.png" height = "250"></p>
+
+18. link
+```
+link
+
+output:
+  Linking design 'lab1_flop_with_en'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  lab1_flop_with_en           /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/lab1_flop_with_en.db
+  sky130_fd_sc_hd__tt_025C_1v80 (library) /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/lib/sky130_fd_sc_hd__tt_025C_1v80.db
+```
+19. compile the design
+```
+compile
+```
+20. write new verilog
+```
+write -f verilog -out lab1_net_with_sky130.v
+sh gvim lab1_net_with_sky130.v &
+
+(inside gvim open the other file without using sky130)
+:sp lab1_net.v
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208292995-115275cb-e338-4678-8741-09af2d4aef96.png" height = "350"></p>
+
+## DC_D1SK2_L2 - lab2 - Intro to ddc gui with design_vision
 
 ## DC_D1SK3_L1 - Lecture3 - TCL quick refresher
 
