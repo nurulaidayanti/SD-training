@@ -1438,3 +1438,5 @@ foreach_in_collection cell_name [get_cells * -hier]{
 > Note: nesting of TCL commands (very much used in DC)
 
 > DC specific commands will be explained in detail in upcoming sessions
+
+![image](https://user-images.githubusercontent.com/118953932/208286222-3da8bfcd-316b-40fb-abb3-5760def8806c.png)
