@@ -1384,3 +1384,56 @@ while {$i < 10}{
 ``` 
  **do not put the wron variables, it could lead to infinite loops**
 
+- for 
+```
+for {looping var}{condition}{looping var modification}{
+      statements
+   }
+   
+eg:
+for {set i 0}{$i < 10}{incr i}{
+       echo $i;
+}
+``` 
+
+- foreach (very useful in DC!)
+```
+foreach var list {
+      statements
+   }
+   
+eg:
+set my_design_list [list u_top/u_mod1\
+                       u_top/u_mod3]
+foreach my_module $my_design_list {
+       set_size_only $my_module;
+}
+``` 
+my_design_list = name of list
+
+"\\" next line is the continuation of present command
+
+entry will be fetch one by one (looping through every element of the list)
+
+foreach general tcl statemnet or command
+
+- foreach_in_collection (DC Specific [very useful in DC!])
+- ```
+foreach_in_collection var collection {
+      statements
+   }
+   
+eg:
+
+foreach_in_collection cell_name [get_cells * -hier]{
+    set cell_name [get_object_name $cell_name];
+    set ref_name [get_attribute [get_cells $cell_name]ref_name];
+    echo $cell_name, $ref_name;
+}
+``` 
+
+collections are DC objects like lists which are returned by many DC commands
+
+Note: nesting of TCL commands (very much used in DC)
+
+DC specific commands will be explained in detail in upcoming sessions
