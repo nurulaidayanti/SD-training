@@ -1487,6 +1487,38 @@ sh gvim lab1_net_with_sky130.v &
 
 ## DC_D1SK2_L2 - lab2 - Intro to ddc gui with design_vision
 
+Design Vision
+- supports gui
+
+1. Write the previous lab in the format DDC
+```
+dc_shell> write -f ddc -out lab1.ddc
+```
+2. Launch Design Vision
+```
+csh
+design_vision
+```
+3. Start gui
+```
+start_gui
+```
+4. read
+```
+read_ddc lab1.ddc
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208297853-a80a97bf-fb4c-45dd-9468-6d81c906550b.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/208298229-62b1eae7-a388-483b-a067-abf3610c2b4f.png" height = "300"></p>
+
+**if use read_verilog = only read the verilog file**
+
+**disadvantage: synopsys proprietary format (only understood by synopsys tool)**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208298410-d6f5ecec-b23c-4b98-b7e0-0a8886fdf2f0.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/208298629-3aa78a51-7896-40cb-9ddb-7620b1a9d9f0.png" height = "300"></p>
+
+## DC_D1SK2_L3 - lab3 - dc synopsys dc setup
+
+
+
 ## DC_D1SK3_L1 - Lecture3 - TCL quick refresher
 
 Advanced Synthesis and STA using DC
