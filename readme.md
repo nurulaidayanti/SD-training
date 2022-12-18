@@ -1181,7 +1181,7 @@ ATE tests perform two basic functions:
 - Generate and Analyze the Synthesis reports/STA reports
 
 <details>
-<summary> Basics of Digital Logic Design and Synthesis ✒️ (❗ click HERE to read more ❗) </summary>
+<summary> Basics of Digital Logic Design and Synthesis ✒️ (>>>>❗ click HERE to read more ❗<<<<) </summary>
  <br>
 
 - Digital Logic
@@ -1301,3 +1301,38 @@ What is the correct recipie?
   - can handle huge designs with extreme complexity and provide very good QoR
 
 **Common Terminologies associated with DC** 🤔
+- SDC (Synopsys Design Constraints): design constraints which are supplied to DC to enable appropriate optimization suitable for achieving the best implementation
+  - Industry standard: used across Electronic Design Automation (EDA) implementation tools
+- .LIB: Design Library which contains the standard cells
+- DB: (same as .lib but in different format) understand libraries in .db format (convert .lib in db and then supply to DC)
+- DDC: synopsys proprietary format for storing the design information. can write out and read in DDC
+- Design: RTL files which has the behavioral model of the design
+
+**Synopsys Design Constraints (SDC)**
+- design intent in terms of timing, power and area constraints
+- supported by EDA tools across  semiconductor industry
+- based on Tool Command Language (TCL)
+
+**DC Setup**
+
+Tools to setup:
+
+- RTL files
+- Library files
+- Constraints (SDC)
+
+Supply to:
+
+- Design Compiler:
+  - verilog netlist
+  - DDC
+  - synthesis reports
+
+**Implementation Flow of ASIC**
+- steps in converting RTL to physical database (GDS)
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208281661-da738be7-c9ef-4bd7-8076-a0ba003fb00c.png" height = "240"></p>
+
+**DC Synthesis Flow**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208281929-7d6d08a4-8813-4eb0-b1c0-307bde269e8e.png" height = "240"></p>
