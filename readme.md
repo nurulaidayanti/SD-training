@@ -1147,8 +1147,8 @@ ATE tests perform two basic functions:
 5. Scan-Out Phase
 ***
 
-# **ADVANCED SYNTHESIS AND STA WITH DC**
 # Day-6
+# **ADVANCED SYNTHESIS AND STA WITH DC**
 # Day-1 Introduction to Logic Synthesis
 ## DC_D1SK1_L1 - Lecture1 - Introduction to the course
 
