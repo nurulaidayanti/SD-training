@@ -1566,7 +1566,7 @@ dc_shell
 ```
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208301779-de9f7896-2dac-4ca7-97ea-d46c3c1f472f.png" height = "300"></p>
 
-**automatically set sky130 library as target library and link library**
+<p align="center">automatically set sky130 library as target library and link library</p>
 
 ## DC_D1SK3_L1 - Lecture3 - TCL quick refresher
 
@@ -1674,3 +1674,87 @@ foreach_in_collection cell_name [get_cells * -hier]{
 > DC specific commands will be explained in detail in upcoming sessions
 
 ![image](https://user-images.githubusercontent.com/118953932/208286222-3da8bfcd-316b-40fb-abb3-5760def8806c.png)
+
+## DC_D1SK3_L2 - lab4 - tcl scripting
+
+Example of commands in TCL:
+- set, echo & incr
+```
+set i 0
+echo $i
+incr i
+echo $i
+```
+output: 
+> 1
+- for
+```
+for {set i 0} {$i < 12} {incr i} {                                                             
+              echo $i
+}
+```
+output:
+> 0 \
+1 \
+2 \
+3 \
+4 \
+5 \
+6 \
+7 \
+8 \
+9 \
+10 \
+11 
+
+- while
+```
+set i 0
+while {$i < 11} {
+echo $i;
+incr i;
+}
+```
+
+**OR**
+
+```
+while {$i < 11} {
+echo $i;
+set i [expr $i + 1];
+}
+```
+output:
+> 0 \
+1 \
+2 \
+3 \
+4 \
+5 \
+6 \
+7 \
+8 \
+9 \
+10 
+
+- list (create list)
+```
+set mylist [list a b c d e f g];
+echo $mylist
+```
+output:
+> a b c d e f g
+- foreach (loop)
+```
+foreach my_var $mylist {
+echo $my_var;
+}
+```
+output:
+> a \
+b \
+c\
+d\
+e\
+f\
+g
