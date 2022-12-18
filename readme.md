@@ -1787,3 +1787,79 @@ set my_var_name [get_object_name $my_var]; echo $my_var_name;
 output:
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208305137-6939b7ac-c900-4de4-9ec3-12cb0c8875ae.png" height = "300"></p>
+
+- multiple of these commands
+```
+sh gvim &
+
+(inside gvim)
+
+foreach_in_collection my_var [get_lib_cells */*and*] {
+	set my_var_name [get_object_name $my_var]; echo $my_var_name;
+}
+
+echo "Printing Multiplication Table"
+
+set i 10;
+set j 1;
+while {$j < 21} {
+	echo $i*$j;
+	incr j;
+}
+
+:w! myscript.tcl
+:q!
+
+source myscript.tcl
+```
+
+output:
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208305600-e3cf3e0f-c25a-4302-bc42-0cc570dbb431.png" height = "300"></p>
+
+```
+sh gvim myscript.tcl &
+
+(inside gvim)
+
+foreach_in_collection my_var [get_lib_cells */*and*] {
+	set my_var_name [get_object_name $my_var]; echo $my_var_name;
+}
+
+echo "Printing Multiplication Table"
+
+set i 10;
+set j 1;
+while {$j < 21} {
+	echo [expr $i*$j];
+	incr j;
+}
+
+:wq!
+```
+
+output:
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208305819-5b1dd5ea-4663-4c2a-b9c1-a3fdb32ef1e3.png" height = "350"></p>
+
+- create list in gvim
+```
+gvim myscript.tcl &
+
+(inside gvim add below original code)
+
+set mylist [list a b c d e f g];
+
+foreach myvar $mylist {
+	echo $myvar;
+}
+echo $mylist;
+
+:wq!
+
+source myscript.tcl
+```
+
+output: 
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208306051-314217a5-fa5f-4434-ad02-6a557fa50946.png" height = "350"></p>
