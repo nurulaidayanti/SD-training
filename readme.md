@@ -1315,24 +1315,22 @@ What is the correct recipie?
 
 **DC Setup**
 
-Tools to setup:
+| Tools to setup | Supply to |
+| ----- | ----- |
+| RTL files | Design Compiler: |
+|Library files|- verilog netlist|
+|Constraints (SDC)|- DDC|
+| |- synthesis reports|
 
-- RTL files
-- Library files
-- Constraints (SDC)
-
-Supply to:
-
-- Design Compiler:
-  - verilog netlist
-  - DDC
-  - synthesis reports
 
 **Implementation Flow of ASIC**
 - steps in converting RTL to physical database (GDS)
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208281661-da738be7-c9ef-4bd7-8076-a0ba003fb00c.png" height = "240"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208281661-da738be7-c9ef-4bd7-8076-a0ba003fb00c.png" height = "250"></p>
 
 **DC Synthesis Flow**
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208281929-7d6d08a4-8813-4eb0-b1c0-307bde269e8e.png" height = "240"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208281929-7d6d08a4-8813-4eb0-b1c0-307bde269e8e.png" height = "250"></p>
+
+## DC_D1SK2_L1 - lab1 - Invoking dc basic setup
+
