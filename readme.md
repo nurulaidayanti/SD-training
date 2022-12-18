@@ -1378,8 +1378,9 @@ while {condition}{
 eg:
 set i 0
 while {$i < 10}{
-       echo $1;
-       incr 1;
+       echo $i;
+       incr i;
 }
-```
+``` 
+ **do not put the wron variables, it could lead to infinite loops**
 
