@@ -1334,3 +1334,52 @@ What is the correct recipie?
 
 ## DC_D1SK2_L1 - lab1 - Invoking dc basic setup
 
+## DC_D1SK3_L1 - Lecture3 - TCL quick refresher
+
+Advanced Synthesis and STA using DC
+
+TCL Quick Refresher
+- set
+  - creating and storing information in variable
+  - note a square brackets are used for nesting the commands in TCL
+
+```
+eg:
+set a 5
+set a [expr $a + $b]
+
+
+first line: a = 5
+second line: a = a+b
+```
+
+- if else
+```
+if {condition}{
+      statements if true;
+   } else {
+      statements if false;
+   }
+
+eg:
+if {$a < 10}{
+      echo "$a is less than 10";
+   } else {
+      echo "$a is greater than 10";
+   }
+```
+
+- while
+```
+while {condition}{
+      statements
+   }
+   
+eg:
+set i 0
+while {$i < 10}{
+       echo $1;
+       incr 1;
+}
+```
+
