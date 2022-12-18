@@ -1409,16 +1409,17 @@ foreach my_module $my_design_list {
        set_size_only $my_module;
 }
 ``` 
-my_design_list = name of list
+> my_design_list = name of list
 
-"\\" next line is the continuation of present command
+> "\\" next line is the continuation of present command
 
-entry will be fetch one by one (looping through every element of the list)
+> entry will be fetch one by one (looping through every element of the list)
 
-foreach general tcl statemnet or command
+> foreach general tcl statemnet or command
 
 - foreach_in_collection (DC Specific [very useful in DC!])
-- ```
+
+```
 foreach_in_collection var collection {
       statements
    }
@@ -1432,8 +1433,8 @@ foreach_in_collection cell_name [get_cells * -hier]{
 }
 ``` 
 
-collections are DC objects like lists which are returned by many DC commands
+> collections are DC objects like lists which are returned by many DC commands
 
-Note: nesting of TCL commands (very much used in DC)
+> Note: nesting of TCL commands (very much used in DC)
 
-DC specific commands will be explained in detail in upcoming sessions
+> DC specific commands will be explained in detail in upcoming sessions
