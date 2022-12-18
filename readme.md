@@ -1392,6 +1392,22 @@ inside gvim
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208289114-a50b9789-c79a-4ffd-9b29-d4e81af8af43.png" height = "180"><img src = "https://user-images.githubusercontent.com/118953932/208289178-ebdac398-1a65-4613-abe9-6599a9469405.png" height = "180"></p>
 
+9. to invoke DC
+```
+cd ..
+cd ..
+/p/hdk/pu_tu/prd/sams/mig76_wlw/setup/enter_p31 -cfg ip76p31r08hp7rev03 -ov ./
+csh
+dc_shell
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208290407-ae80aeef-4a90-4422-8fcd-3c8e4a31efda.png" height = "300"></p>
+
+10. read std cell/tech .lib
+```
+echo $target_library
+echo $link_library
+``` 
+**Note: used by the DC**
 ## DC_D1SK3_L1 - Lecture3 - TCL quick refresher
 
 Advanced Synthesis and STA using DC
