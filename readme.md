@@ -1864,3 +1864,7 @@ source myscript.tcl
 output: 
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208306051-314217a5-fa5f-4434-ad02-6a557fa50946.png" height = "350"></p>
+
+# Day-7
+## Basics of STA
+### DC_D2SK1_L1 - lect4 - Intro to STA
