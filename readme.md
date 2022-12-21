@@ -2066,3 +2066,55 @@ Example:
 
 ### DC_D2SK2_L3 - Lab7 - Exploring - dotLib part2
 
+**Properties of the .lib**
+
+-	Library loaded
+```
+dc_shell> list_lib
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208886428-a9d557a5-bf2c-4de9-b34e-aedf56d497b4.png" height = "150"></p>
+
+currently loaded: sky130_fd_sc_hd__tt_025C_1v80
+
+-	Want to know all the AND gate available in the library
+
+>	in a collection form
+```
+dc_shell> get_lib_cells */*and* 
+```
+
+>	in list form
+```
+dc_shell> foreach_in_collection my_lib_cell [get_lib_cells */*and*] {
+set my_lib_cell_name [get_object_name $my_lib_cell]; echo $my_lib_cell_name;
+}
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208888584-da502ce0-c97a-4531-88df-577abf253ff2.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/208888835-ae8a86c2-c0ce-468d-aa29-92bf21e29090.png" height = "400"></p>
+
+**DO NOT DO THIS AS IT WILL ONLY PRINT OUT THE POINTER** ❗
+```
+dc_shell> foreach_in_collection my_lib_cell [get_lib_cells */*and*] {
+echo $my_lib_cell;
+}
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208889163-58e8599a-f884-497b-af5f-618087f4a8b9.png" height = "350"></p>
+
+-	Want to know the pins available for a specific gate
+```
+dc_shell> get_lib_pins sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and2_0/*
+```
+Output:
+>	{sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and2_0/A sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and2_0/B sky130_fdd__tt_025C_1v80/sky130_fd_sc_hd__and2_0/X}
+-	Functionality of this gate
+```
+dc_shell> foreach_in_collection my_pins [get_lib_pins sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and2_0/*] {                  
+set my_pin_name [get_object_name $my_pins];                                                                               
+set pin_dir [get_lib_attribute $my_pin_name direction];                                                                   
+echo $my_pin_name $pin_dir;                                                                                               
+}                                                                                                                
+```
+>	can use this also to double confirm:
+```
+dc_shell> get_lib_attribute sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and2_0/X function
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208891544-f8a7f4a0-85c2-460e-a1c0-1e444e207983.png" height = "150"><img src = "https://user-images.githubusercontent.com/118953932/208892371-7e8993e6-568a-4d84-87c5-4ddf0dfb2399.png" height = "130"></p>
