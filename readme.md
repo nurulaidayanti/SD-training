@@ -1868,3 +1868,100 @@ output:
 # Day-7
 ## Basics of STA
 ### DC_D2SK1_L1 - lect4 - Intro to STA
+
+STA = Static Timing Analysis
+
+-	a way of evaluating a design's timing performance by testing for timing violations along all conceivable paths
+-	breaks a design down into timing paths, calculates the signal propagation delay along each path, and checks for violations of timing constraints inside the design and at the input/output interface
+-	basically method of adding the net delays and cell delays to obtain path delays
+
+Why STA?
+-	complete and exhaustive verification of all timing checks of a design
+-	provides a faster and simpler way of checking and analyzing all the timing paths in a design for any timing violations
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208794142-0d2de31d-bfd0-4c9f-bdb0-05ed43d99538.png" height = "350"></p>
+<p align="center">source: physicaldesign4u</p>
+
+**Max and Min Delay Constraints**
+
+Path = multiple path in combinational logic, Case = interms of condition or PVT
+
+Min Delay = shortest path and best case 
+
+Max Delay = longest path and worst case 
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208801934-57cddfa5-cd21-4879-8f49-6632eb1420d9.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/208802218-f1dba537-c4de-4892-a216-9398b4b9219d.png" height = "200"></p> 
+
+
+**Why Delay: Water Bucket Analogy**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208796698-879f85a3-4134-4018-862c-95ffa94662cc.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/208797418-fb027be9-5d8d-4ed6-885a-e339318a3fe9.png" height = "200"></p> 
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208797870-05c27c5e-68ee-4db8-bd88-ce74b5b1f9d6.png" height = "110"><img src = "https://user-images.githubusercontent.com/118953932/208798008-281687b8-e025-481f-bd56-11ff49396240.png" height = "110"></p> 
+
+-	delay of a cell will be a function of input transition (inflow)
+-	delay of a cell will be a function of output load (size of the bucket)
+-	delay will increase if capacitance is large (lengthy net)
+-	delay of a gate is a function of input of transition and output of a load
+-	if a gate feeding to more gate, load capacitance increase and delay gate will also increase
+
+**Timing Arc**
+-	Combinational cell
+	-	delay information from every input pin to every output pin which it can control
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208799532-fc98ecce-42b6-4607-af92-6c355b21a1bc.png" height = "150"><img src = "https://user-images.githubusercontent.com/118953932/208799364-74efd11a-7735-41aa-9fe3-2f4404ec8c00.png" height = "150"></p> 
+-	Sequential cell (DFF, D Latch)
+	-	delay from Clock to Q to DFF
+	-	delay from Clock to Q, Delay from D to Q for D Latch
+	-	setup and hold time
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208800831-fbf543ba-7a2d-42fe-a694-962112fa88ae.png" height = "350"></p>
+
+### DC_D2SK1_L2 - Lect5 - What are constraints?
+
+**Timing Path**
+
+-	the path between start point and end point
+-	each timing path has it's own "Start Point" and "End Point"
+
+STA tool analyzes all paths from each and every startpoint to each and every endpoint and compares it against the constarint that exist for the path.
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208806009-3e174c6a-b70b-4c84-a5a8-bfd9dfcc8b15.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/208807736-63368f0b-d2d7-47bd-ad95-3ba38fa48e52.png" height = "250"></p>
+
+Critical Path:
+-	timing-sensitive functional path (no additional gates are allowed to be added to the path, to prevent increasing delay of the critical path)
+-	the longest path in the circuit and limits the clock speed
+
+Timing Paths:
+-	start points
+	-	input ports
+	-	clock pins of register
+-	end points
+	-	output ports
+	-	D pin of DFF/DLAT
+-	always the timing paths start at one of the start points and ends at one of the end points
+	-	clk to D (Reg 2 Reg Timing Path)
+	-	Clk to Output (IO Timing Path)
+	-	Input to D (IO Timing Path)
+	-	Input to Output (IO Paths that ideally should not be present)
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208814412-862a01e4-8c89-428b-9871-1d33dc930b5e.png" height = "350"></p>
+
+**Constraining the Design - why constraints?**
+
+-	D clock decides how much D combi logic are allowed
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208815853-b71adb76-ac2e-4d66-af5b-78dfc5646871.png" height = "350"></p>
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208816371-f9e0deed-e5d3-4267-a1e9-226bcba439da.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/208816603-970db57d-2a4e-44f4-9f41-588dbfb31ad3.png" height = "250"></p>
+
+-	REG 2 REG: constrained by clock
+-	REG 2 OUT: constrained by output external delay and clock period
+-	IN 2 REG: constrained by input external delay and clock period
+-	Collectively the REG2OUT and IN2REG are called IO paths and the delay modelling are referred above is called IO Delay Modelling
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208818056-7991d386-feef-447f-a6f9-4113fdf0c8b6.png" height = "350"></p>
+
+**Note: logic delay is the one that has to be adjustable/need to be squeeze**
+
+###
