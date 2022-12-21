@@ -2158,5 +2158,19 @@ dc_shell> source my_script.tcl
 -	Can also use to get attribute that we wanted (eg: area, capacitance, clock pin or not)
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208902517-a6854b3e-afe5-457e-bd2a-62d88be6104d.png" height = "150"></p>
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208903897-e7f141cc-0c99-407c-b2f1-5c0e2a5d3d58.png" height = "450"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208904142-a7a161b7-81dd-4549-b558-34dd7b2b0270.png" height = "450"></p>
+
+-	To know all the attribute
+```
+dc_shell> list_attributes -app
+
+(move it to a file)
+
+dc_shell> list_attributes -app > a
+dc_shell> sh gvim a &
+```
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208905199-6a7800d0-6824-4bbf-9fde-1d775a0d470d.png" height = "550"></p>
+
 
