@@ -1982,3 +1982,5 @@ need input transition modelling.
 -	REG 2 OUT: constrained by output external delay, output load and clock period
 -	IN 2 REG: constrained by input external delay, input transition and clock period
 -	note: the IO paths needs to be constrained for both Max delay (setup) and Min delay (hold)
+
+### DC_D2SK2_L1 - Lab5 - Timing dot Libs
