@@ -1964,4 +1964,21 @@ Timing Paths:
 
 **Note: logic delay is the one that has to be adjustable/need to be squeeze**
 
-###
+### DC_D2SK1_L3 - Lect6 - Inp Trans Output Load
+
+**IO Constraints**
+
+**IO: IO Delay Modelling Sufficient?**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208818868-73ad2834-003c-4b30-8f12-5d47fc71df1b.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/208819344-99c0d8fa-7db2-4c29-b32c-430dfb9a3ba6.png" height = "250"></p>
+
+need input transition modelling.
+
+**IO Delay and Input Transition Modelling Sufficient for IO Paths**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208820685-0ec31504-069e-4a46-b91b-09f7c32cfabb.png" height = "280"><img src = "https://user-images.githubusercontent.com/118953932/208821231-7bbe01c8-c6f4-432a-a727-4c9448c8918f.png" height = "280"></p>
+
+-	REG 2 REG: constrained by clock
+-	REG 2 OUT: constrained by output external delay, output load and clock period
+-	IN 2 REG: constrained by input external delay, input transition and clock period
+-	note: the IO paths needs to be constrained for both Max delay (setup) and Min delay (hold)
