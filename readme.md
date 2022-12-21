@@ -2042,3 +2042,7 @@ There are table for every cell. It will use to look for the delay using the outp
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208848071-fcd2bf0b-314b-4a83-a86b-3e2aedd1d599.png" height = "500"></p>
 
 ### DC_D2SK2_L2 - Lab6 - Exploring dotLib
+
+ cell ("sky130_fd_sc_hd__sdfbbn_1") = flop
+ 
+ <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208860403-d93b9212-3bd8-4408-840b-46f9aadb8951.png" height = "380"><img src = "https://user-images.githubusercontent.com/118953932/208861448-d9ced89d-f15e-4e84-8b06-5d03399597f1.png" height = "250"></p>
