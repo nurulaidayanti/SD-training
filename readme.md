@@ -2043,6 +2043,26 @@ There are table for every cell. It will use to look for the delay using the outp
 
 ### DC_D2SK2_L2 - Lab6 - Exploring dotLib
 
- cell ("sky130_fd_sc_hd__sdfbbn_1") = flop
+Example:
+
+ cell ("sky130_fd_sc_hd__sdfbb**n**_1") = neg edge flop (n for negative edge flop, p for positive edge flop)
  
- <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208860403-d93b9212-3bd8-4408-840b-46f9aadb8951.png" height = "380"><img src = "https://user-images.githubusercontent.com/118953932/208861448-d9ced89d-f15e-4e84-8b06-5d03399597f1.png" height = "250"></p>
+ Timing type: falling edge (if rising type, it's pos edge flop)
+ 
+ <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208860403-d93b9212-3bd8-4408-840b-46f9aadb8951.png" height = "380"><img src = "https://user-images.githubusercontent.com/118953932/208862499-b55d511a-ccc8-4875-bb65-2815b7714f10.png" height = "250"></p>
+ <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208864506-9c3da738-1317-4e8f-9705-4b869c99a8b9.png" height = "350"></p>
+ 
+ <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208866025-b4ae4aa4-eb02-4a65-8499-ab2ef20fb306.png" height = "150"></p>
+ 
+ Latch
+ 
+ Command to look for library cell
+ ```
+ dc_shell> get_lib_cells */* -filter "is_sequential==true"
+ ```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208869177-69116f4f-6086-472a-b97d-dbf2bdec997d.png" height = "350"></p>
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208870305-c0284681-cee3-422a-a9af-f54be0470ad8.png" height = "400"><img src = "https://user-images.githubusercontent.com/118953932/208870844-a90d1566-e39f-4adb-ad87-b811f0ea247d.png" height = "300"></p>
+
+### DC_D2SK2_L3 - Lab7 - Exploring - dotLib part2
+
