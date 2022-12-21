@@ -2118,3 +2118,39 @@ echo $my_pin_name $pin_dir;
 dc_shell> get_lib_attribute sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__and2_0/X function
 ```
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208891544-f8a7f4a0-85c2-460e-a1c0-1e444e207983.png" height = "150"><img src = "https://user-images.githubusercontent.com/118953932/208892371-7e8993e6-568a-4d84-87c5-4ddf0dfb2399.png" height = "130"></p>
+
+Another Example:
+-	nand4_1
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208893699-6838ddde-4869-4dbd-b82e-963b4b1821bf.png" height = "250"></p>
+
+-	and2b_1 & and4bb_1
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208895051-fcd93f2b-c16d-44c6-85e4-b75c9a5054a8.png" height = "250"></p>
+
+-	Writing script to print out output pin names and its functionality
+```
+dc_shell> sh gvim my_script.tcl
+
+(inside gvim)
+set my_list [list
+*paste the gates copied]
+
+
+
+#For each cell in the list, find the output pin name and its functionality
+
+
+foreach my_cell $my_list {
+	foreach_in_collection my_lib_pin [get_lib_pins ${my_cell}/*] {
+		set my_lib_pin_name [get_object_name $my_lib_pin];
+		set a [get_lib_attribute $my_lib_pin_name direction];
+		if {a > 1} {
+			set fn [get_lib_attribute $my_lib_pin_name function];
+			echo $my_lib_pin_name $a $fn];
+		}
+	}
+}
+
+dc_shell> source my_script.tcl
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208901398-2e7db589-c2f9-4c70-ada3-fc4550694b20.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/208901892-7f0247bd-c89c-46c6-851f-11a54be4199d.png" height = "360"></p>
