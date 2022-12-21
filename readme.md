@@ -2015,6 +2015,30 @@ There are table for every cell. It will use to look for the delay using the outp
 -	will calculate and do interpolation
 -	there are multiple things that wil be present in the lookup table
 
- <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208843043-b06fda7e-7a22-4cb1-bd98-315aa2256a2f.png" height = "350"></p>
+ <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208843043-b06fda7e-7a22-4cb1-bd98-315aa2256a2f.png" height = "300"></p>
  
  **Note: lut = lookup table**
+
+
+ <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208850708-7fd151ea-158b-4a4e-a4d9-1ac2071e2ef7.png" height = "500"></p>
+ <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208852043-e9ff5939-b422-48f3-861a-07a46ed28641.png" height = "400"></p>
+ 
+ Tools need to know unateness to propagate transition.
+ 
+ AND & OR = positive unate
+ 
+ NOT, NAND & NOR = negative unate
+ 
+ XOR = both pos & neg unate
+
+**Gates**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208844891-83ee2f59-4d28-4690-b04b-61570dab4959.png" height = "400"></p>
+
+**Attribute**
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208846187-80f02d0d-ca3e-437b-9e78-87c4f044a672.png" height = "500"></p>
+
+-	clock pin
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208848071-fcd2bf0b-314b-4a83-a86b-3e2aedd1d599.png" height = "500"></p>
+
+### DC_D2SK2_L2 - Lab6 - Exploring dotLib
