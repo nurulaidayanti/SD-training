@@ -2154,3 +2154,9 @@ foreach my_cell $my_list {
 dc_shell> source my_script.tcl
 ```
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208901398-2e7db589-c2f9-4c70-ada3-fc4550694b20.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/208901892-7f0247bd-c89c-46c6-851f-11a54be4199d.png" height = "360"></p>
+
+-	Can also use to get attribute that we wanted (eg: area, capacitance, clock pin or not)
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208902517-a6854b3e-afe5-457e-bd2a-62d88be6104d.png" height = "150"></p>
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208903897-e7f141cc-0c99-407c-b2f1-5c0e2a5d3d58.png" height = "450"></p>
+
