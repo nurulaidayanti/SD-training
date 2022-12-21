@@ -1984,3 +1984,37 @@ need input transition modelling.
 -	note: the IO paths needs to be constrained for both Max delay (setup) and Min delay (hold)
 
 ### DC_D2SK2_L1 - Lab5 - Timing dot Libs
+
+**Exploring .lib**
+ 
+We are not able to read .db because it is meant for DC and only DC understood it.
+ 
+The information included in the .lib are such as: 
+1)	library name
+2)	units used
+3)	technology used
+4)	max constraint
+5)	PVT
+6)	delay model
+ 
+ <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208835930-51c112ac-54c7-4ccb-a396-90bbff4fc33a.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/208836560-d646699a-1e42-49ee-ac02-bfba2fc5eb1d.png" height = "250"></p>
+ 
+ <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208840971-26b4f7ea-6296-487f-97c3-02b9d7401d6b.png" height = "300"></p>
+ 
+ fanout = the number of input pins that are connected to a specific output pin
+ 
+ net = connecting the output to all the inputs
+ 
+ capacitance = gate terminal of a MOSFET
+ 
+ <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208841036-2b849399-9e99-4e32-9ee6-3435ecff87e1.png" height = "350"></p>
+  
+ **Delay Model Lookup Table**
+ 
+There are table for every cell. It will use to look for the delay using the output load and input transition. 
+-	will calculate and do interpolation
+-	there are multiple things that wil be present in the lookup table
+
+ <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208843043-b06fda7e-7a22-4cb1-bd98-315aa2256a2f.png" height = "350"></p>
+ 
+ **Note: lut = lookup table**
