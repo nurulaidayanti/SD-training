@@ -2173,4 +2173,49 @@ dc_shell> sh gvim a &
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/208905199-6a7800d0-6824-4bbf-9fde-1d775a0d470d.png" height = "550"></p>
 
+# Day - 8
+## Advanced constraints
+### DC_D3SK1_L1 - Lecture7 - SDC Part1 Clock - Clock Tree Modelling - Uncertainty
 
+Reg to Reg path = contraints by clock period (Tclk >= Tcq + Tcombi + Ts)
+
+Input to Reg path = constraints by clock, input delay and input transition
+
+Output to Reg path = constraints by clock, output delay and load
+
+**What need to be contrainted for clocks (is clock period sufficient?)**
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209048821-28dd0db7-927b-4335-9ae4-411de7de3e7b.png" height = "300"></p>
+
+Will clock arrive at the same time at these flops?
+>	the answer is no
+
+**Implementation Flow of ASIC**
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209050705-2fa7f0ea-882c-40f7-90ea-3c1fe0fb4de0.png" height = "350"></p>
+Should synthesis consider the practicality of clock network ❓
+
+**Clock Generation**
+-	Oscilator
+-	PLL
+-	External Clock Source
+-	All the above clock sources have inherent variations in the clock period due to stochastic effects (jitter)
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209052686-bc73785f-347a-4141-be92-0b81f9137fab.png" height = "400"></p>
+
+jitter cause by stochastic variation clock generator
+
+**Clock Distribution**
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209054049-66a631b8-ab47-404a-9dc5-62e3fbb3426f.png" height = "400"></p>
+
+**Clock Skew**
+>	The difference in the arrival time of a clock signal at two different registers, which can be caused by path length differences between two clock paths.
+>	caused by clock tree distribution network
+-	clock tree built during CTS: practical Clock Tree
+-	Logic optimization happens during in synthesis: Ideal Clock Tree
+-	Timing Clean paths in Synthesis may fail after STA
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209055170-22ef9585-dee6-473a-97a8-8346488a06a9.png" height = "300"></p>
+
+**Clock Modelling**
