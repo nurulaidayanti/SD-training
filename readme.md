@@ -2219,3 +2219,23 @@ jitter cause by stochastic variation clock generator
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209055170-22ef9585-dee6-473a-97a8-8346488a06a9.png" height = "300"></p>
 
 **Clock Modelling**
+-	model the clock for following
+	-	period
+	-	source latency: time taken by the clock source to generate clock
+	-	clock network latency: time taken by clock distribution network
+	-	clock skew: clock path delay mismatches which causes difference in the arrival of clock
+		-	CTS will balance clocks but still skew cannot be reduced to 0
+	-	jitter: stochastic variation in the arrival of clock edge
+		-	duty cycle jitter
+		-	period jitter
+	-	clock skew & jitter is called clock uncertainty
+-	post CTS, the clock network is real and hence these modelled clock skew and clock network latency must be removed ❗
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209075053-d4b5dd46-87b8-47fe-bc73-991a5c83897e.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/209075946-65c436ce-74ac-47aa-a1a0-e16eb1565750.png" height = "200"></p>
+
+| Stage | Clock Uncertainty |
+| ----- | ----- |
+| Synthesis | Jitter + Skew |
+| Post CTS | Only Jitter |
+
+### DC_D3SK1_L2 - Lecture8 - SDC Part2 IO delays
