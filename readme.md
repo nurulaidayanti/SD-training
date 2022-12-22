@@ -2239,3 +2239,27 @@ jitter cause by stochastic variation clock generator
 | Post CTS | Only Jitter |
 
 ### DC_D3SK1_L2 - Lecture8 - SDC Part2 IO delays
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209143985-76293996-ec99-4cdd-a125-62d89d01fd17.png" height = "350"></p>
+
+Nets = connections of 2 or more pins or pins and ports
+
+**Commands to use**
+
+-	To get the ports
+```
+get_ports clk;
+get_ports *clk*;                         (a collections of ports)
+get_ports *;                             (get all ports)
+get_ports * -filter "direction==in";     (all input ports)
+get_ports * -filter "direction==out";    (all output ports)
+```
+
+-	To get the clocks
+```
+get_clocks *                                        (all the clocks)
+get_clocks *clk*                                    (all clocks which has the name clk in it)
+get_clocks * - filter "period>10"                   (condition this query which get the attribute of period)
+get_attribute [get_clocks my_clk] is_generated
+report_clocks my_clk                                (report all the detail of the clock)
+```
