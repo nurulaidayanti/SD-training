@@ -2312,3 +2312,162 @@ set_output_load -min 20 [get_ports Out_y];
 Note: Output Out_y is generated wrt clock MY_CLK created on port CLK
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209257037-43282ff4-c064-485c-9f34-f73062d5c103.png" height = "250"></p>
+
+### DC_D3SK2_L1 - Lab8 - Loading design get_cells, get_ports, get_nets
+
+Reading the file
+```
+cd /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files
+gvim lab8_circuit.v
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209259993-fe00a5d9-8779-4d2b-95f6-8d66f2e8155d.png" height = "400"></p>
+
+
+```
+dc_shell> echo $target_library
+dc_shell> echo $link_library
+dc_shell> read_verilog lab8_circuit.v
+```
+make sure target_library and link_library are correct
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209261889-ac3d7031-fcd1-4fc1-bb0c-124e56cbf6a5.png" height = "200"></p>
+
+```
+dc_shell> link
+dc_shell> compile_ultra
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209270352-428dd471-6e7c-4caa-af82-0025f5158b52.png" height = "350"></p>
+
+```
+dc_shell> get_ports
+#output 
+{rst clk IN_A IN_B OUT_Y out_clk} #collection
+dc_shell>  foreach_in_collection my_port [get_ports *] {
+set my_port_name [get_object_name $my_port]; echo $my_port_name; }
+#output 
+rst
+clk
+IN_A
+IN_B
+OUT_Y
+out_clk
+```
+
+**To know the direction of a port**
+
+```
+dc_shell> get_ports rst
+{rst}
+dc_shell> get_attribute [get_ports rst] direction
+in
+
+```
+
+**To know the direction of ports**
+
+```
+dc_shell> foreach_in_collection my_port [get_ports *] {
+set my_port_name [get_object_name $my_port];
+set dir [get_attribute [get_ports $my_port_name] direction];
+echo $my_port_name $dir;
+}
+rst in
+clk in
+IN_A in
+IN_B in
+OUT_Y out
+out_clk out
+```
+
+**Get Cells**
+
+```
+dc_shell> get_cells *
+{REGA_reg REGB_reg REGC_reg U9 U10 U11 U12 U13 U14}
+dc_shell> get_attribute [get_cells U9] is_hierarchical
+false
+dc_shell> get_attribute [get_cells U12] is_hierarchical
+false
+dc_shell> get_attribute [get_cells REGA_reg] is_hierarchical
+false
+dc_shell> get_cells * -filter "is_hierarchical == false"
+{REGA_reg REGB_reg REGC_reg U9 U10 U11 U12 U13 U14}
+
+```
+
+Note: design has no hierarchical (the design only got 1 module)
+
+Note: 
+-	"REGC_reg" is instance name
+-	reference name is name of the physical cell in the .lib
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209272090-9c9ecb5e-1b11-4931-9d2c-8f879c4564a2.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/209272977-c093d7f1-14c8-4440-9eaa-01f53500dd01.png" height = "350"></p>
+
+**Get reference name of cell**
+
+```
+dc_shell> get_attribute [get_cells REGA_reg] ref_name
+sky130_fd_sc_hd__dfrtp_1
+# d flip flop with an asynchronous reset, posedge trigger and giving positive output (t =true output)
+
+#ref name for all cells in the design
+
+dc_shell> foreach_in_collection my_cell [get_cells * -hier] {                                                        
+set my_cell_name [get_object_name $my_cell];                                                                 
+set rname [get_attribute [get_cells $my_cell_name] ref_name];                                                
+echo $my_cell_name $rname;                                                                                   
+}
+REGA_reg sky130_fd_sc_hd__dfrtp_1
+REGB_reg sky130_fd_sc_hd__dfrtp_1
+REGC_reg sky130_fd_sc_hd__dfrtp_1
+U9 sky130_fd_sc_hd__clkinv_1
+U10 sky130_fd_sc_hd__clkinv_1
+U11 sky130_fd_sc_hd__nor2_1
+U12 sky130_fd_sc_hd__clkinv_1
+U13 sky130_fd_sc_hd__a21oi_1
+U14 sky130_fd_sc_hd__nand2_1
+```
+
+Note: if output not in curly bracket, dont have to use get_object_name
+
+**DDC**
+
+```
+dc_shell> write -f ddc -out lab8_circuit.ddc
+Writing ddc file 'lab8_circuit.ddc'.
+1
+
+csh
+design_vision
+
+design_vision> pwd
+/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files
+
+design_vision> read_ddc lab8_circuit.ddc
+design_vision> get_nets *
+{rst IN_A IN_B out_clk N0 N1 REGC REGB REGA n2 n3 OUT_Y n5}
+design_vision> all_connected N1
+{U13/Y REGB_reg/D}
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209274430-86132a73-48d9-4bc8-9607-b3dd4856f39d.png" height = "450"></p>
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209275422-fae3ad1b-0be7-4493-8683-3b1ad333a764.png" height = "250"></p>
+
+**Want to know driver of the net**
+```
+design_vision> all_connected n5
+{U11/Y U12/A U13/B1}
+
+design_vision> foreach_in_collection my_pin [all_connected n5] {
+set pin_name [get_object_name $my_pin];
+set dir [get_attribute [get_pins $pin_name] direction];
+echo $pin_name $dir;
+}
+U11/Y out
+U12/A in
+U13/B1 in
+```
+
+### DC_D3SK2_L2 - Lab9 get_pins, get_clocks, querying_clocks
+
