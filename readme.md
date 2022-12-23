@@ -2594,7 +2594,19 @@ Note: regexp will return one if it's matching
 ```
 dc_shell> sh gvim query_clock_pin.tcl &
 
-source query_clock_pin.tcl
+(inside gvim)
+foreach_in_collection my_pin [get_pins *] {
+	set my_pin_name [get_object_name $my_pin];
+        set dir [get_attribute [get_pins $my_pin_name] direction];                                                                                              
+	if { [regexp $dir in] } {
+		if { [get_attribute [get_pins $my_pin_name] clock ] } { 
+			echo $my_pin_name $clk_name;
+
+		}
+	}
+}	
+
+dc_shell> source query_clock_pin.tcl
 REGA_reg/CLK 
 REGB_reg/CLK 
 REGC_reg/CLK 
@@ -2628,3 +2640,95 @@ Warning: Can't find clocks matching '*' in design 'lab8_circuit'. (UID-95)
 ```
 
 ### DC_D3SK2_L3 - lab10 - create_clock waveform
+
+**To know the name of top moduel currently working**
+
+```
+dc_shell> current_design
+Current design is 'lab8_circuit'.
+{lab8_circuit}
+
+```
+
+**Get ports of the design**
+
+```
+dc_shell> get_ports *
+{rst clk IN_A IN_B OUT_Y out_clk}
+```
+
+**Create Clock and Know Attribute**
+
+```
+dc_shell> create_clock -name MYCLK -per 10 [get_ports clk]
+1
+
+dc_shell> get_clocks *
+{MYCLK}
+
+dc_shell> get_attribute [get_clocks MYCLK] period
+10.000000
+
+dc_shell> get_attribute [get_clocks MYCLK] is_generated
+false
+#means it's a master clock
+
+dc_shell> get_attribute [get_pins REGA_reg/CLK] clocks
+{MYCLK}
+```
+
+**Reporting clocks**
+
+```
+dc_shell> report_clocks *
+Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : clocks
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 16:12:23 2022
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+MYCLK           10.00   {0 5}                         {clk}
+--------------------------------------------------------------------------------
+1
+
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209298761-317ac8ac-7c88-4f7b-90d2-4a37c488c381.png" height = "450"></p>
+
+```
+dc_shell> get_attribute [get_pins REGA_reg/CLK] clocks
+{MYCLK}
+dc_shell> get_attribute [get_ports out_clk] clocks
+{MYCLK}
+
+dc_shell> sh gvim query_clock_pin.tcl 
+
+(inside gvim)
+foreach_in_collection my_pin [get_pins *] {
+	set my_pin_name [get_object_name $my_pin];
+        set dir [get_attribute [get_pins $my_pin_name] direction];                                                                                              
+	if { [regexp $dir in] } {
+		if { [get_attribute [get_pins $my_pin_name] clock ] } { 
+			set clk [get_attribute [get_pins $my_pin_name] clocks]; # 	set clk_name [get_object_name [get_attribute [get_pins $my_pin_name] clocks]];
+			set clk_name [get_object_name $clk];
+ 			echo $my_pin_name $clk_name;
+
+		}
+	}
+}	
+
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209302276-dd88a4d3-57a6-4ad7-b4a1-e8a286073028.png" height = "320"><img src = "https://user-images.githubusercontent.com/118953932/209302687-9aa1d262-65f4-4d25-9afd-725c6f1d798b.png" height = "300"></p>
