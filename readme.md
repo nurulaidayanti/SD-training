@@ -3337,7 +3337,7 @@ Wire Load Model Mode: top
 
 **Recap**
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209341970-369eb4e9-cf5d-4106-a889-c66d354e235c.png" height = "350"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209341970-369eb4e9-cf5d-4106-a889-c66d354e235c.png" height = "250"></p>
 
 **IO Constraints**
 
@@ -3706,8 +3706,6 @@ dc_shell> set_input_delay -max 5 -clock [get_clocks MYCLK] [get_ports IN_A]
 dc_shell> report_timing -from IN_A -trans  -cap -nosplit > a
 dc_shell> sh gvim a &
 32224
-
- 
 ```
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209347318-80b4ca18-9349-48f8-bdef-3c122b5b0b56.png" height = "450"></p>
@@ -3715,4 +3713,263 @@ dc_shell> sh gvim a &
 -	input transition
 
 ```
+dc_shell> set_input_transition -max 0.3 [get_ports IN_A]
+1
+dc_shell> set_input_transition -max 0.3 [get_ports IN_B]
+1
+dc_shell> set_input_transition -min 0.1 [get_ports IN_B]
+1
+dc_shell> set_input_transition -min 0.1 [get_ports IN_A]
+1
+dc_shell> report_timing -from IN_A -trans  -cap -nosplit > a_trans
 ```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209348056-3cef9473-0b61-48be-aef1-a5b658a5cb3d.png" height = "450"></p>
+
+-	output delay
+
+```
+dc_shell> set_output_delay -max 5 -clock [get_clocks MYCLK] [get_ports OUT_Y]
+1
+dc_shell> set_output_delay -min 1 -clock [get_clocks MYCLK] [get_ports OUT_Y]
+1
+dc_shell> report_timing -to OUT_Y
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 22:10:39 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: REGC_reg (rising edge-triggered flip-flop clocked by MYCLK)
+  Endpoint: OUT_Y (output port clocked by MYCLK)
+  Path Group: MYCLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock MYCLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             3.00       3.00
+  REGC_reg/CLK (sky130_fd_sc_hd__dfrtp_1)                 0.00       3.00 r
+  REGC_reg/Q (sky130_fd_sc_hd__dfrtp_1)                   0.34       3.34 f
+  U10/Y (sky130_fd_sc_hd__clkinv_1)                       0.03       3.36 r
+  OUT_Y (out)                                             0.00       3.36 r
+  data arrival time                                                  3.36
+
+  clock MYCLK (rise edge)                                10.00      10.00
+  clock network delay (ideal)                             3.00      13.00
+  clock uncertainty                                      -0.50      12.50
+  output external delay                                  -5.00       7.50
+  data required time                                                 7.50
+  --------------------------------------------------------------------------
+  data required time                                                 7.50
+  data arrival time                                                 -3.36
+  --------------------------------------------------------------------------
+  slack (MET)                                                        4.14
+
+
+1
+
+dc_shell> report_timing -to OUT_Y -cap -trans
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -transition_time
+        -capacitance
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 22:12:05 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: REGC_reg (rising edge-triggered flip-flop clocked by MYCLK)
+  Endpoint: OUT_Y (output port clocked by MYCLK)
+  Path Group: MYCLK
+  Path Type: max
+
+  Point                                          Cap     Trans      Incr       Path
+  ------------------------------------------------------------------------------------
+  clock MYCLK (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       3.00       3.00
+  REGC_reg/CLK (sky130_fd_sc_hd__dfrtp_1)                 0.00      0.00       3.00 r
+  REGC_reg/Q (sky130_fd_sc_hd__dfrtp_1)         0.00      0.04      0.34       3.34 f
+  U10/Y (sky130_fd_sc_hd__clkinv_1)             0.00      0.01      0.03       3.36 r
+  OUT_Y (out)                                             0.01      0.00       3.36 r
+  data arrival time                                                            3.36
+
+  clock MYCLK (rise edge)                                          10.00      10.00
+  clock network delay (ideal)                                       3.00      13.00
+  clock uncertainty                                                -0.50      12.50
+  output external delay                                            -5.00       7.50
+  data required time                                                           7.50
+  ------------------------------------------------------------------------------------
+  data required time                                                           7.50
+  data arrival time                                                           -3.36
+  ------------------------------------------------------------------------------------
+  slack (MET)                                                                  4.14
+  
+```
+
+-	load
+
+```
+dc_shell> set_load -max 0.4 [get_ports OUT_Y]
+1
+dc_shell> report_timing -to OUT_Y -cap -trans
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -transition_time
+        -capacitance
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 22:14:49 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: REGC_reg (rising edge-triggered flip-flop clocked by MYCLK)
+  Endpoint: OUT_Y (output port clocked by MYCLK)
+  Path Group: MYCLK
+  Path Type: max
+
+  Point                                          Cap     Trans      Incr       Path
+  ------------------------------------------------------------------------------------
+  clock MYCLK (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       3.00       3.00
+  REGC_reg/CLK (sky130_fd_sc_hd__dfrtp_1)                 0.00      0.00       3.00 r
+  REGC_reg/Q (sky130_fd_sc_hd__dfrtp_1)         0.00      0.05      0.30       3.30 r
+  U10/Y (sky130_fd_sc_hd__clkinv_1)             0.40      3.07      2.32       5.62 f
+  OUT_Y (out)                                             3.07      0.00       5.62 f
+  data arrival time                                                            5.62
+
+  clock MYCLK (rise edge)                                          10.00      10.00
+  clock network delay (ideal)                                       3.00      13.00
+  clock uncertainty                                                -0.50      12.50
+  output external delay                                            -5.00       7.50
+  data required time                                                           7.50
+  ------------------------------------------------------------------------------------
+  data required time                                                           7.50
+  data arrival time                                                           -5.62
+  ------------------------------------------------------------------------------------
+  slack (MET)                                                                  1.88
+
+dc_shell> report_timing -to OUT_Y -cap -trans > out_load
+dc_shell> sh gvim out_load &
+36260
+
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209350607-210c030b-c45b-45cc-b979-4400f8b5239e.png" height = "450"></p>
+
+for min delay
+
+```
+dc_shell> report_timing -to OUT_Y -cap -trans -delay min
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -max_paths 1
+        -transition_time
+        -capacitance
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 22:20:46 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: REGC_reg (rising edge-triggered flip-flop clocked by MYCLK)
+  Endpoint: OUT_Y (output port clocked by MYCLK)
+  Path Group: MYCLK
+  Path Type: min
+
+  Point                                          Cap     Trans      Incr       Path
+  ------------------------------------------------------------------------------------
+  clock MYCLK (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       3.00       3.00
+  REGC_reg/CLK (sky130_fd_sc_hd__dfrtp_1)                 0.00      0.00       3.00 r
+  REGC_reg/Q (sky130_fd_sc_hd__dfrtp_1)         0.00      0.04      0.34       3.34 f
+  U10/Y (sky130_fd_sc_hd__clkinv_1)             0.40      2.20      1.55       4.89 r
+  OUT_Y (out)                                             2.20      0.00       4.89 r
+  data arrival time                                                            4.89
+
+  clock MYCLK (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       3.00       3.00
+  clock uncertainty                                                 0.10       3.10
+  output external delay                                            -1.00       2.10
+  data required time                                                           2.10
+  ------------------------------------------------------------------------------------
+  data required time                                                           2.10
+  data arrival time                                                           -4.89
+  ------------------------------------------------------------------------------------
+  slack (MET)                                                                  2.79
+```
+
+-	set other load for delay min
+
+```
+dc_shell> report_timing -to OUT_Y -cap -trans -delay min
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -max_paths 1
+        -transition_time
+        -capacitance
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 22:22:58 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: REGC_reg (rising edge-triggered flip-flop clocked by MYCLK)
+  Endpoint: OUT_Y (output port clocked by MYCLK)
+  Path Group: MYCLK
+  Path Type: min
+
+  Point                                          Cap     Trans      Incr       Path
+  ------------------------------------------------------------------------------------
+  clock MYCLK (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       3.00       3.00
+  REGC_reg/CLK (sky130_fd_sc_hd__dfrtp_1)                 0.00      0.00       3.00 r
+  REGC_reg/Q (sky130_fd_sc_hd__dfrtp_1)         0.00      0.04      0.34       3.34 f
+  U10/Y (sky130_fd_sc_hd__clkinv_1)             0.10      0.56      0.41       3.75 r
+  OUT_Y (out)                                             0.56      0.00       3.75 r
+  data arrival time                                                            3.75
+
+  clock MYCLK (rise edge)                                           0.00       0.00
+  clock network delay (ideal)                                       3.00       3.00
+  clock uncertainty                                                 0.10       3.10
+  output external delay                                            -1.00       2.10
+  data required time                                                           2.10
+  ------------------------------------------------------------------------------------
+  data required time                                                           2.10
+  data arrival time                                                           -3.75
+  ------------------------------------------------------------------------------------
+  slack (MET)                                                                  1.65
+```
+
+### DC_D3SK3_L1 - Lecture9 - SDC Part3 generated_clk
