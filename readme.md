@@ -2921,3 +2921,186 @@ MYCLK           10.00   {15 20}                       {clk}
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209312783-aa3630e9-2d53-4952-8f81-f2383e073c64.png" height = "320"></p>
 
 ### DC_D3SK2_L4 - Lab11- Clock Network Modelling - Uncertainty, report_timing
+
+Clock jitter is random variation in clock edge (source)
+
+Clock skew is clock network (delay imbalance between flops)
+
+CTS = clock tree synthesis (minimize the imbalance but cannot make it to 0)
+
+clock uncertinty
+-	skew + jitter (Pre CTS) 
+-	jitter only because the clock network is actually built (post CTS)
+
+Recall:
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209323982-f4bbcb42-1468-4d14-9732-7e8b6d6edec1.png" height = "250"></p>
+
+**Model the clock tree attribute**
+
+```
+dc_shell> report_clocks *
+Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : clocks
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 17:42:54 2022
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+MYCLK           10.00   {15 20}                       {clk}
+--------------------------------------------------------------------------------
+1
+dc_shell> set_clock_latency -source 1 [get_clocks MYCLK] #modelling source latency
+1
+dc_shell> set_clock_latency 1 [get_clocks MYCLK] #modelling network latency
+1
+dc_shell> set_clock_uncertainty 0.5 [get_clocks MYCLK] #max delay time/setup time (default)
+1
+dc_shell> set_clock_uncertainty -hold 0.1 [get_clocks MYCLK] #min delay time/hold time
+1
+
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209324250-cc7307ce-6308-49ac-8238-f453bb7c7cf0.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/209325061-31e59010-fde9-4c26-9be8-bb53f1496fe7.png" height = "250"></p>
+
+**See timing**
+
+```
+dc_shell> remove_clock *
+1
+dc_shell> get_clocks *
+Warning: Can't find clocks matching '*' in design 'lab8_circuit'. (UID-95)
+dc_shell> report_timing
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 19:00:22 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: REGC_reg (rising edge-triggered flip-flop)
+  Endpoint: OUT_Y (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  REGC_reg/CLK (sky130_fd_sc_hd__dfrtp_1)                 0.00       0.00 r
+  REGC_reg/Q (sky130_fd_sc_hd__dfrtp_1)                   0.34       0.34 f
+  U10/Y (sky130_fd_sc_hd__clkinv_1)                       0.03       0.36 r
+  OUT_Y (out)                                             0.00       0.36 r
+  data arrival time                                                  0.36
+  --------------------------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+
+dc_shell> report_timing -to REGC_reg/D
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 19:05:07 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: REGA_reg (rising edge-triggered flip-flop)
+  Endpoint: REGC_reg (rising edge-triggered flip-flop)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  REGA_reg/CLK (sky130_fd_sc_hd__dfrtp_1)                 0.00       0.00 r
+  REGA_reg/Q (sky130_fd_sc_hd__dfrtp_1)                   0.33       0.33 f
+  U14/Y (sky130_fd_sc_hd__nand2_1)                        0.05       0.38 r
+  REGC_reg/D (sky130_fd_sc_hd__dfrtp_1)                   0.00       0.38 r
+  data arrival time                                                  0.38
+  --------------------------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+
+#nothing to constraints
+```
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209324811-b38d4ada-97fc-4fcb-8bfa-ad7910fd9990.png" height = "350">
+	
+**Create clock again and report timing**
+	
+```
+dc_shell> create_clock -name MYCLK -per 10 [get_ports clk]
+1
+dc_shell> report_timing -to REGC_reg/D
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 19:06:46 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: REGA_reg (rising edge-triggered flip-flop clocked by MYCLK)
+  Endpoint: REGC_reg (rising edge-triggered flip-flop clocked by MYCLK)
+  Path Group: MYCLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock MYCLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  REGA_reg/CLK (sky130_fd_sc_hd__dfrtp_1)                 0.00       0.00 r
+  REGA_reg/Q (sky130_fd_sc_hd__dfrtp_1)                   0.29       0.29 r
+  U14/Y (sky130_fd_sc_hd__nand2_1)                        0.04       0.34 f
+  REGC_reg/D (sky130_fd_sc_hd__dfrtp_1)                   0.00       0.34 f
+  data arrival time                                                  0.34
+
+  clock MYCLK (rise edge)                                10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  REGC_reg/CLK (sky130_fd_sc_hd__dfrtp_1)                 0.00      10.00 r
+  library setup time                                     -0.12       9.88
+  data required time                                                 9.88
+  --------------------------------------------------------------------------
+  data required time                                                 9.88
+  data arrival time                                                 -0.34
+  --------------------------------------------------------------------------
+  slack (MET)                                                        9.55 
+```
+
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209326727-fb3e8d48-091d-4060-8789-ccee736b563c.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/209327491-74082fb9-c3d1-4205-8161-bfee1be27187.png" height = "200"></p>
