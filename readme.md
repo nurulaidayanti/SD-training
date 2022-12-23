@@ -2729,6 +2729,90 @@ foreach_in_collection my_pin [get_pins *] {
 	}
 }	
 
+dc_shell> source query_clock_pin.tcl 
+REGA_reg/CLK MYCLK
+REGB_reg/CLK MYCLK
+REGC_reg/CLK MYCLK
+
 ```
 
+Conclusion: clock created and ensure it propagating everywhere
+
+Note: create clock at port only
+
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209302276-dd88a4d3-57a6-4ad7-b4a1-e8a286073028.png" height = "320"><img src = "https://user-images.githubusercontent.com/118953932/209302687-9aa1d262-65f4-4d25-9afd-725c6f1d798b.png" height = "300"></p>
+
+```
+dc_shell> create_clock -name BAD_CLK -per 10 [get_pins U14/Y]
+1
+dc_shell> get_clocks *
+{MYCLK BAD_CLK}
+dc_shell> report_clocks *
+Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : clocks
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 17:22:05 2022
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+BAD_CLK         10.00   {0 5}                         {U14/Y}
+MYCLK           10.00   {0 5}                         {clk}
+--------------------------------------------------------------------------------
+1
+
+#not reaching any clock pin of any flop and reaching the data path
+
+dc_shell> all_connected U14/Y
+{n3}
+
+dc_shell> all_connected n3
+{U14/Y REGC_reg/D}
+
+#only confuses the tool and have no purpose
+```
+
+**Command to remove clock**
+
+```
+dc_shell> remove_clock BAD_CLK
+1
+
+dc_shell> get_clocks *
+{MYCLK}
+
+dc_shell> report_clocks *
+Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : clocks
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 17:30:05 2022
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+MYCLK           10.00   {0 5}                         {clk}
+--------------------------------------------------------------------------------
+1
+
+```
+
