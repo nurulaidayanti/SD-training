@@ -3334,3 +3334,385 @@ Wire Load Model Mode: top
 ```
 
 ### DC_D3SK2_L5 - Lab12- IO Delays
+
+**Recap**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209341970-369eb4e9-cf5d-4106-a889-c66d354e235c.png" height = "350"></p>
+
+**IO Constraints**
+
+```
+dc_shell> report_timing -from IN_A
+
+dc_shell> report_timing
+
+dc_shell> report_timing -to OUT_Y
+
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209342624-21b5a163-62d6-433a-9f8b-43b36c6b3986.png" height = "450"></p>
+
+**List all the ports**
+```
+dc_shell> report_port -verbose
+ 
+****************************************
+Report : port
+        -verbose
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 21:20:28 2022
+****************************************
+
+
+                       Pin      Wire     Max     Max     Connection
+Port           Dir     Load     Load     Trans   Cap     Class      Attrs
+--------------------------------------------------------------------------------
+IN_A           in      0.0000   0.0000   --      --      --         
+IN_B           in      0.0000   0.0000   --      --      --         
+clk            in      0.0000   0.0000   --      --      --         
+rst            in      0.0000   0.0000   --      --      --         
+OUT_Y          out     0.0000   0.0000   --      --      --         
+out_clk        out     0.0000   0.0000   --      --      --         
+
+
+              External  Max             Min                Min       Min
+              Number    Wireload        Wireload           Pin       Wire
+Port          Points    Model           Model              Load      Load
+--------------------------------------------------------------------------------
+IN_A               1      --              --              --        -- 
+IN_B               1      --              --              --        -- 
+clk                1      --              --              --        -- 
+rst                1      --              --              --        -- 
+OUT_Y              1      --              --              --        -- 
+out_clk            1      --              --              --        -- 
+
+                    Input Delay
+                  Min             Max       Related   Max
+Input Port    Rise    Fall    Rise    Fall   Clock  Fanout
+--------------------------------------------------------------------------------
+IN_A          --      --      --      --      --      -- 
+IN_B          --      --      --      --      --      -- 
+clk           --      --      --      --      --      -- 
+rst           --      --      --      --      --      -- 
+
+
+
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+               Max Tran        Min Tran
+Input Port    Rise    Fall    Rise    Fall
+--------------------------------------------------------------------------------
+IN_A          --      --      --      -- 
+IN_B          --      --      --      -- 
+clk           --      --      --      -- 
+rst           --      --      --      -- 
+
+
+                    Output Delay
+                  Min             Max      Related  Fanout
+Output Port   Rise    Fall    Rise    Fall  Clock     Load
+--------------------------------------------------------------------------------
+OUT_Y         --      --      --      --      --      0.00
+out_clk       --      --      --      --      --      0.00
+
+1
+
+#have not modelled anything yet
+```
+
+**Modelling**
+
+-	input delay
+```
+dc_shell> set_input_delay -max 5 -clock [get_clocks MYCLK] [get_ports IN_A]
+1
+dc_shell> set_input_delay -max 5 -clock [get_clocks MYCLK] [get_ports IN_B]
+1
+dc_shell> report_port -verbose
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : port
+        -verbose
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 21:23:31 2022
+****************************************
+
+
+                       Pin      Wire     Max     Max     Connection
+Port           Dir     Load     Load     Trans   Cap     Class      Attrs
+--------------------------------------------------------------------------------
+IN_A           in      0.0000   0.0000   --      --      --         
+IN_B           in      0.0000   0.0000   --      --      --         
+clk            in      0.0000   0.0000   --      --      --         
+rst            in      0.0000   0.0000   --      --      --         
+OUT_Y          out     0.0000   0.0000   --      --      --         
+out_clk        out     0.0000   0.0000   --      --      --         
+
+
+              External  Max             Min                Min       Min
+              Number    Wireload        Wireload           Pin       Wire
+Port          Points    Model           Model              Load      Load
+--------------------------------------------------------------------------------
+IN_A               1      --              --              --        -- 
+IN_B               1      --              --              --        -- 
+clk                1      --              --              --        -- 
+rst                1      --              --              --        -- 
+OUT_Y              1      --              --              --        -- 
+out_clk            1      --              --              --        -- 
+
+                    Input Delay
+                  Min             Max       Related   Max
+Input Port    Rise    Fall    Rise    Fall   Clock  Fanout
+--------------------------------------------------------------------------------
+IN_A          --      --      5.00    5.00  MYCLK     --    
+IN_B          --      --      5.00    5.00  MYCLK     --    
+clk           --      --      --      --      --      -- 
+rst           --      --      --      --      --      --
+
+----------------------------------------------------------------------------
+
+
+
+               Max Tran        Min Tran
+Input Port    Rise    Fall    Rise    Fall
+--------------------------------------------------------------------------------
+IN_A          --      --      --      -- 
+IN_B          --      --      --      -- 
+clk           --      --      --      -- 
+rst           --      --      --      -- 
+
+
+                    Output Delay
+                  Min             Max      Related  Fanout
+Output Port   Rise    Fall    Rise    Fall  Clock     Load
+--------------------------------------------------------------------------------
+OUT_Y         --      --      --      --      --      0.00
+out_clk       --      --      --      --      --      0.00
+
+1
+```
+```
+dc_shell> report_timing -from IN_A
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 21:26:06 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: IN_A (input port clocked by MYCLK)
+  Endpoint: REGA_reg (rising edge-triggered flip-flop clocked by MYCLK)
+  Path Group: MYCLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock MYCLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             3.00       3.00
+  input external delay                                    5.00       8.00 f    #added
+  IN_A (in)                                               0.00       8.00 f
+  U11/Y (sky130_fd_sc_hd__nor2_1)                         0.12       8.12 r
+  U12/Y (sky130_fd_sc_hd__clkinv_1)                       0.07       8.18 f
+  REGA_reg/D (sky130_fd_sc_hd__dfrtp_1)                   0.00       8.18 f
+  data arrival time                                                  8.18
+
+  clock MYCLK (rise edge)                                10.00      10.00
+  clock network delay (ideal)                             3.00      13.00
+  clock uncertainty                                      -0.50      12.50
+  REGA_reg/CLK (sky130_fd_sc_hd__dfrtp_1)                 0.00      12.50 r
+  library setup time                                     -0.12      12.38
+  data required time                                                12.38
+  --------------------------------------------------------------------------
+  data required time                                                12.38
+  data arrival time                                                 -8.18
+  --------------------------------------------------------------------------
+  slack (MET)                                                        4.19
+
+
+1
+
+
+dc_shell> report_timing -from IN_A -trans -net -cap
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -nets
+        -max_paths 1
+        -transition_time
+        -capacitance
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 21:28:25 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: IN_A (input port clocked by MYCLK)
+  Endpoint: REGA_reg (rising edge-triggered flip-flop clocked by MYCLK)
+  Path Group: MYCLK
+  Path Type: max
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock MYCLK (rise edge)                                                     0.00       0.00
+  clock network delay (ideal)                                                 3.00       3.00
+  input external delay                                                        5.00       8.00 f
+  IN_A (in)                                                         0.00      0.00       8.00 f
+  IN_A (net)                                    2         0.00                0.00       8.00 f
+  U11/Y (sky130_fd_sc_hd__nor2_1)                                   0.13      0.12       8.12 r
+  n5 (net)                                      2         0.01                0.00       8.12 r
+  U12/Y (sky130_fd_sc_hd__clkinv_1)                                 0.04      0.07       8.18 f
+  N0 (net)                                      1         0.00                0.00       8.18 f
+  REGA_reg/D (sky130_fd_sc_hd__dfrtp_1)                             0.04      0.00       8.18 f
+  data arrival time                                                                      8.18
+
+  clock MYCLK (rise edge)                                                    10.00      10.00
+  clock network delay (ideal)                                                 3.00      13.00
+  clock uncertainty                                                          -0.50      12.50
+  REGA_reg/CLK (sky130_fd_sc_hd__dfrtp_1)                                     0.00      12.50 r
+  library setup time                                                         -0.12      12.38
+  data required time                                                                    12.38
+  ----------------------------------------------------------------------------------------------
+   data required time                                                                   12.38
+   data arrival time                                                                    -8.18
+  ----------------------------------------------------------------------------------------------
+   slack (MET)                                                                           4.19
+
+dc_shell> report_timing -from IN_A -trans -net -cap -nosplit > a
+dc_shell> sh gvim a &
+14222
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209345582-beff267b-76de-4093-8c45-cc096a0b6380.png" height = "450"></p>
+
+hold timing
+
+```
+dc_shell> report_timing -from IN_A -trans -net -cap -nosplit -delay_type min
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -nets
+        -max_paths 1
+        -transition_time
+        -capacitance
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 21:45:49 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: IN_A (input port)
+  Endpoint: REGB_reg (rising edge-triggered flip-flop clocked by MYCLK)
+  Path Group: (none)
+  Path Type: min
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  IN_A (in)                                                         0.00      0.00       0.00 r
+  IN_A (net)                                    2         0.00                0.00       0.00 r
+  U13/Y (sky130_fd_sc_hd__a21oi_1)                                  0.03      0.04       0.04 f
+  N1 (net)                                      1         0.00                0.00       0.04 f
+  REGB_reg/D (sky130_fd_sc_hd__dfrtp_1)                             0.03      0.00       0.04 f
+  data arrival time                                                                      0.04
+  ----------------------------------------------------------------------------------------------
+  (Path is unconstrained)
+
+#not modelled respected to any clock
+```
+
+**modelled hold time**
+
+```
+dc_shell> set_input_delay -min 1 -clock [get_clocks MYCLK] [get_ports IN_A]
+1
+dc_shell> set_input_delay -min 1 -clock [get_clocks MYCLK] [get_ports IN_B]
+1
+dc_shell> report_timing -from IN_A -trans -net -cap -nosplit -delay_type min
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -nets
+        -max_paths 1
+        -transition_time
+        -capacitance
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 21:48:29 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: IN_A (input port clocked by MYCLK)
+  Endpoint: REGB_reg (rising edge-triggered flip-flop clocked by MYCLK)
+  Path Group: MYCLK
+  Path Type: min
+
+  Point                                       Fanout       Cap     Trans      Incr       Path
+  ----------------------------------------------------------------------------------------------
+  clock MYCLK (rise edge)                                                     0.00       0.00
+  clock network delay (ideal)                                                 3.00       3.00
+  input external delay                                                        1.00       4.00 r
+  IN_A (in)                                                         0.00      0.00       4.00 r
+  IN_A (net)                                    2         0.00                0.00       4.00 r
+  U13/Y (sky130_fd_sc_hd__a21oi_1)                                  0.03      0.04       4.04 f
+  N1 (net)                                      1         0.00                0.00       4.04 f
+  REGB_reg/D (sky130_fd_sc_hd__dfrtp_1)                             0.03      0.00       4.04 f
+  data arrival time                                                                      4.04
+clock MYCLK (rise edge)                                                     0.00       0.00
+  clock network delay (ideal)                                                 3.00       3.00
+  clock uncertainty                                                           0.10       3.10
+  REGB_reg/CLK (sky130_fd_sc_hd__dfrtp_1)                                     0.00       3.10 r
+  library hold time                                                          -0.05       3.05
+  data required time                                                                     3.05
+  ----------------------------------------------------------------------------------------------
+   data required time                                                                    3.05
+   data arrival time                                                                    -4.04
+  ----------------------------------------------------------------------------------------------
+   slack (MET)                                                                           0.99
+
+```
+
+new max value
+
+```
+dc_shell> set_input_delay -max 5 -clock [get_clocks MYCLK] [get_ports IN_A]
+1
+dc_shell> report_timing -from IN_A -trans  -cap -nosplit > a
+dc_shell> sh gvim a &
+32224
+
+ 
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209347318-80b4ca18-9349-48f8-bdef-3c122b5b0b56.png" height = "450"></p>
+
+-	input transition
+
+```
+```
