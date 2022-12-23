@@ -2816,3 +2816,108 @@ MYCLK           10.00   {0 5}                         {clk}
 
 ```
 
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209310674-31d47472-a5fa-4678-8f41-ee73511b9ae8.png" height = "350"></p>
+
+
+**Adjusting Waveform**
+
+```
+dc_shell> remove_clock MYCLK
+1
+
+dc_shell> create_clock -name MYCLK -per 10 [get_ports clk] -wave {5 10}    #rise edge=5   fall edge =10
+1
+
+dc_shell> report_clocks *
+Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : clocks
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 17:34:59 2022
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+MYCLK           10.00   {5 10}                        {clk}
+--------------------------------------------------------------------------------
+1
+
+```
+
+**Adjusting Waveform**
+
+```
+dc_shell> remove_clock MYCLK
+1
+dc_shell> create_clock -name MYCLK -per 10 [get_ports clk] -wave {0 2.5}  #first rising edge = 0, fall edge = 2.5,  next rising edge = 10, fall edge =12.5
+1
+
+#order is not important
+
+dc_shell> report_clocks *
+Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : clocks
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 17:38:49 2022
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+MYCLK           10.00   {0 0.25}                      {clk}
+--------------------------------------------------------------------------------
+1
+
+#next waveform
+
+dc_shell> remove_clock MYCLK
+1
+dc_shell> create_clock -name MYCLK -per 10 [get_ports clk] -wave {15 20}
+1
+dc_shell> report_clocks *
+Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : clocks
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Fri Dec 23 17:42:54 2022
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+MYCLK           10.00   {15 20}                       {clk}
+--------------------------------------------------------------------------------
+1
+
+```
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209312783-aa3630e9-2d53-4952-8f81-f2383e073c64.png" height = "320"></p>
+
+### DC_D3SK2_L4 - Lab11- Clock Network Modelling - Uncertainty, report_timing
