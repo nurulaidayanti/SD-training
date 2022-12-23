@@ -2471,3 +2471,160 @@ U13/B1 in
 
 ### DC_D3SK2_L2 - Lab9 get_pins, get_clocks, querying_clocks
 
+**Get to know pins**
+
+```
+dc_shell> get_pins *
+{REGA_reg/D REGA_reg/CLK REGA_reg/RESET_B REGA_reg/Q REGB_reg/D REGB_reg/CLK REGB_reg/RESET_B REGB_reg/Q REGC_reg/D REGC_reg/CLK REGC_reg/RESET_B REGC_reg/Q U9/A U9/Y U10/A U10/Y U11/A U11/B U11/Y U12/A U12/Y U13/A1 U13/A2 U13/B1 U13/Y U14/A U14/B U14/Y}
+
+dc_shell> foreach_in_collection my_pin [get_pins *] {
+set pin_name [get_object_name $my_pin];
+echo $pin_name;
+}
+REGA_reg/D
+REGA_reg/CLK
+REGA_reg/RESET_B
+REGA_reg/Q
+REGB_reg/D
+REGB_reg/CLK
+REGB_reg/RESET_B
+REGB_reg/Q
+REGC_reg/D
+REGC_reg/CLK
+REGC_reg/RESET_B
+REGC_reg/Q
+U9/A
+U9/Y
+U10/A
+U10/Y
+U11/A
+U11/B
+U11/Y
+U12/A
+U12/Y
+U13/A1
+U13/A2
+U13/B1
+U13/Y
+U14/A
+U14/B
+U14/Y
+
+dc_shell> get_attribute [get_pins REGC_reg/RESET_B] direction
+in
+
+dc_shell> get_attribute [get_pins REGC_reg/RESET_B] clock
+false
+
+dc_shell> get_attribute [get_pins REGC_reg/CLK] clock
+true
+
+dc_shell> foreach_in_collection my_pin [get_pins *] {
+set pin_name [get_object_name $my_pin];
+set dir [get_attribute [get_pins $pin_name] direction];
+echo $pin_name $dir;
+}
+REGA_reg/D in
+REGA_reg/CLK in
+REGA_reg/RESET_B in
+REGA_reg/Q out
+REGB_reg/D in
+REGB_reg/CLK in
+REGB_reg/RESET_B in
+REGB_reg/Q out
+REGC_reg/D in
+REGC_reg/CLK in
+REGC_reg/RESET_B in
+REGC_reg/Q out
+U9/A in
+U9/Y out
+U10/A in
+U10/Y out
+U11/A in
+U11/B in
+U11/Y out
+U12/A in
+U12/Y out
+U13/A1 in
+U13/A2 in
+U13/B1 in
+U13/Y out
+U14/A in
+U14/B in
+U14/Y out
+
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209283061-5134c30f-165c-46da-81b4-c2b4347bc989.png" height = "450"></p>
+
+Note: clock attribute is present for input pin only
+
+**Using regexp**
+
+```
+dc_shell> regexp abcd efgh
+0
+dc_shell> regexp abcd abcd
+1
+dc_shell>  set a in
+in
+dc_shell> regexp $a in
+1
+dc_shell> regexp $a out
+0
+dc_shell> foreach_in_collection my_pin [get_pins *] {
+set pin_name [get_object_name $my_pin];                                                                                      
+set dir [get_attribute [get_pins $pin_name] direction];                                                      
+if { [regexp $dir in] } {                                                                                    
+if { [get_attribute [get_pins $pin_name] clock] } {                                          
+echo $pin_name;                                                                                              
+}                                                                                                            
+}                                                                                                            
+}
+REGA_reg/CLK
+REGB_reg/CLK
+REGC_reg/CLK
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209283997-2fc217b0-d537-4a25-b094-838fdfd936ea.png" height = "450"></p>
+
+Note: regexp will return one if it's matching
+
+**Writing script**
+
+```
+dc_shell> sh gvim query_clock_pin.tcl &
+
+source query_clock_pin.tcl
+REGA_reg/CLK 
+REGB_reg/CLK 
+REGC_reg/CLK 
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209285632-0a27e3e8-8008-4cb8-bbe4-8dbe6dc766ea.png" height = "450"></p>
+
+**To check is there any clock coming in**
+
+```
+dc_shell> get_attribute [get_pins REGA_reg/CLK] clock
+true
+dc_shell> get_attribute [get_pins REGA_reg/CLK] clocks
+Warning: Attribute 'clocks' does not exist on pin 'REGA_reg/CLK'. (UID-101)
+
+```
+Note:
+
+get_attribute [get_pins REGA_reg/CLK] clock
+-	To check if the pin meant to be a clock pin or not
+
+get_attribute [get_pins REGA_reg/CLK] clock
+-	What are the clocks reaching the pins
+
+**Get the clock**
+```
+dc_shell> get_clocks *
+Warning: Can't find clocks matching '*' in design 'lab8_circuit'. (UID-95)
+
+#no clock because haven't created
+```
+
+### DC_D3SK2_L3 - lab10 - create_clock waveform
