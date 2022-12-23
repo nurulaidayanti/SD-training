@@ -2249,17 +2249,66 @@ Nets = connections of 2 or more pins or pins and ports
 -	To get the ports
 ```
 get_ports clk;
-get_ports *clk*;                         (a collections of ports)
-get_ports *;                             (get all ports)
-get_ports * -filter "direction==in";     (all input ports)
-get_ports * -filter "direction==out";    (all output ports)
+get_ports *clk*;                         #a collections of ports
+get_ports *;                             #get all ports
+get_ports * -filter "direction==in";     #all input ports
+get_ports * -filter "direction==out";    #all output ports
 ```
 
 -	To get the clocks
 ```
-get_clocks *                                        (all the clocks)
-get_clocks *clk*                                    (all clocks which has the name clk in it)
-get_clocks * - filter "period>10"                   (condition this query which get the attribute of period)
+get_clocks *                                        #all the clocks
+get_clocks *clk*                                    #all clocks which has the name clk in it
+get_clocks * - filter "period>10"                   #condition this query which get the attribute of period
 get_attribute [get_clocks my_clk] is_generated
-report_clocks my_clk                                (report all the detail of the clock)
+report_clocks my_clk                                #report all the detail of the clock
 ```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209251370-fdc461b1-aba7-4c49-9bd8-817396ccab5a.png" height = "350"></p>
+
+**Clock Distribution**
+
+Command to create clock
+```
+create_clock -name <clock name> -per <period> [clock definition point (eg: get_ports CLK)]
+
+set_clock_latency 3 MY_CLK;    #this is the latency, modelling the clock delay in network
+
+set_clock_uncertainty 0.5 MY_CLK;   #this is for setting the clock network (skew+jitter) pre CTS
+```
+
+Note: clocks must be created on the clock generators (PLL, OSCILLATORS) or Primary IO Pins (for external clocks). Clocks should not be created on hierarchical pins which are not clock generators
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209252791-d4e7b3e2-aed5-479d-80f0-fed5a17d008b.png" height = "350"></p>
+
+**Clocks - Waveform**
+
+create waveform
+```
+create_clock -name MYCLK -per [get_ports clk] #default which means rise at 0 fall at 5
+create_clock -name MYCLK -per [get_ports clk] -wave {5 10}  #rise at 5 fall at 10
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209253449-16c6b8a4-eb74-4b0e-8821-07b1650389d1.png" height = "350"></p>
+
+**Constraining the IO Paths**
+Constraint the Input
+```
+set_input_delay -max 3 -clock [get_clocks MY_CLK][get_ports IN_*];
+set_input_delay -min 1.5 -clock [get_clocks MY_CLK][get_ports IN_*];
+set_input_transition -max 1.5 [get_ports IN_*];
+set_input_transition -min .75 [get_ports IN_*];
+```
+
+Note: Both inputs IN_A, IN_B are coming wrt clock MY_CLK created on port CLK
+
+Constraint the Input
+```
+set_output_delay -max 3 -clock [get_clocks MY_CLK][get_ports Out_y];
+set_output_delay -min 0.5 -clock [get_clocks MY_CLK][get_ports Out_y];
+set_output_load -max 80 [get_ports Out_y];
+set_output_load -min 20 [get_ports Out_y];
+```
+Note: Output Out_y is generated wrt clock MY_CLK created on port CLK
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209257037-43282ff4-c064-485c-9f34-f73062d5c103.png" height = "250"></p>
