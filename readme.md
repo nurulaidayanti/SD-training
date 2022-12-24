@@ -3973,3 +3973,66 @@ Wire Load Model Mode: top
 ```
 
 ### DC_D3SK3_L1 - Lecture9 - SDC Part3 generated_clk
+
+**Interesting Note**
+
+-	the Out_y is constrained with the clock leaving the module
+-	logically it is the same as MY_CLK defined on port CLK
+-	ist it physically same? NO. 
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209415118-781a3a87-454d-4baf-b7ea-2177ca66f8d4.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/209415157-9d965eb2-947b-4698-a38a-38f90fd1ba9e.png" height = "150"></p>
+
+**Generated clock**
+-	generated clocks are always created with respect to master clocks (clocks at clock source or primary IO pin)
+
+```
+create_generated_clock -name MY_GEN_CLK -master [get clocks MY_CLK] -source [get_ports CLK] -div 1 [get_ports OUT_CLK]
+```
+[get clocks MY_CLK] -source [get_ports CLK] = wrt to what the generated clock is created
+
+-div =division value of generated clock (useful for clock dividers)
+
+[get_ports OUT_CLK] = where the generated clock is created (generated definition point)
+
+Out_Y need to be constrained with respect to the generated clock
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209415684-176977de-079e-4210-b147-e66940e1785a.png" height = "350"></p>
+
+**Constraining the design**
+-	IN_DATA, IN_CLK has 2 functionalities
+-	in one functionality the IN_DATA and IN_CLK gets the data and clock corresponding to A and in other functionality it gets data and clock corresponding to B
+-	same for OUT_DATA, OUT_CLK (can get from A or from B)
+-	how the clocks are propagated:
+	-	once a clock is created on a pin/port, DC will propagate that clock downstream based on the timing arcs (all implementation tools)
+	-	all the timing ars from the definition point will see the clock propagation by default
+-	note:
+	-	in the above design, while operating for "A", the clock and data from the input goes only towards A
+	-	while operating for 'B', the clock and data from input goes only towards 'B'
+	-	never to both places simultaneously! 
+
+### DC_D3SK3_L2 - lab13 - generated_clocks
+
+```
+dc_shell> report_timing -to OUT_Y
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209416240-d48af8f4-d26f-4323-a2c4-109a31ef6aa7.png" height = "500"></p>
+
+**Create Generated Clock**
+
+```
+dc_shell> create_generated_clock -name MYGEN_CLK -master MYCLK -source [get_ports clk] -div 1 [get_ports out_clk]
+1
+
+dc_shell> report_clocks
+
+dc_shell> get_attribute [get_clocks MYGEN_CLK] is_generated
+true #generated clock
+
+dc_shell> get_attribute [get_clocks MYCLK] is_generated
+false #not generated clock (master clock)
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209416493-8e57dc3f-d418-4a78-ab0a-d42f8a774e62.png" height = "300"></p>
+
+**Model MYGEN_CLK**
