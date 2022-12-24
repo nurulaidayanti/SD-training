@@ -4182,3 +4182,115 @@ Attributes:
 **DESIGN COMPLETELY CONSTRAINED!!**
 
 ### DC_D3SK4_L1 - Lecture10 - SDC Part4 vclk, max_latency, rise_fall IODelays
+
+**Input Delay**
+
+-	max
+```
+create_clock -name MYCLK -per 10 [get_ports clk]
+set_input_delay -max 3 -clock myclk [get_ports IN_A]
+set_input_delay -max -3 -clock myclk [get_ports IN_A] #good
+```
+[clock period - uncertainty -i/p delay] = available time
+
+Note: -ve delay for max is relaxing, +ve delay for max is tightening
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209436711-b55b8518-31a7-4076-b8ad-c838b75fbacc.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/209437462-16bc9729-1c9b-469e-8288-df436c611462.png" height = "200"></p>
+
+-	min 
+
+```
+set_input_delay -min 1 -clock myclk [get_ports IN_A]
+set_input_delay -min -1 -clock myclk [get_ports IN_A] #need to add delay to met hold time
+```
+
+positive delay = data comes after clk edge (ease in meeting hold time)
+
+negative delay = data come before clk edge (clock relatively get push out wrt data)
+
+
+Note: +ve delay for max is relaxing, -ve delay for max is tightening
+
+**Output Delay**
+
+-	max
+```
+create_clock -name MYCLK -per 10 [get_ports clk]
+set_output_delay -max 3 -clock myclk [get_ports IN_A]  #7ns available
+set_output_delay -max -3 -clock myclk [get_ports IN_A]  #13ns available
+```
+
+[clock period - external delay] = available time
+
+-	min 
+
+```
+set_output_delay -min 1 -clock myclk [get_ports IN_A]
+set_output_delay -min -1 -clock myclk [get_ports IN_A] #clock get pushed out
+```
+
+**IO Constraints**
+
+-	to constraint the IN_C and IN_D (purely combo) path
+```
+set_max_latency 1.0 -from [get_ports IN_C] -to [get_ports OUT_Z] #allowed max latency =1.0
+set_max_latency 1.0 -from [get_ports IN_D] -to [get_ports OUT_Z]
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209438114-c907114e-db09-4f23-91b0-bf2c2aca2931.png" height = "250"></p>
+
+-	overcome by using virtual clock
+
+```
+create_clock -name MY_VCLK -period 5 #no clock definition point (automatically inferred as virtual clock)
+```
+
+-	create the input and output delay for virtual clock
+
+```
+set_output_delay -max 2.5 -clock MY_VCLK [get_ports OUT_Z]
+set_input_delay -max 1.5 -clock MY_VCLK [get_ports IN_C]
+set_input_delay -max 1.5 -clock MY_VCLK [get_ports IN_D]
+```
+
+Note: for virtual clock there is no latency, no clock definition point 
+
+input 
+
+```
+set_input_delay -max 2 -clock CLK [get_ports IN_A] #clock name CLK (outside module)
+
+set_input_delay -max 3 -clock CLK -clock_fall -add [get_ports IN_A] #wrt the falling edge of the clock
+```
+
+-clock_fall = to specify the annotated delay is wrt to neg edge
+
+-add = to specify that append this constraint to the already existing constraint
+
+output
+
+```
+set_output_delay -max 2 -clock CLK [get_ports Out_Y] #clock name CLK 
+set_output_delay -max 3 -clock CLK -clock_fall -add [get_ports Out_Y]
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209438503-731ccca1-abd9-4a20-ac50-f74e2cd46a71.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/209438585-04c260d7-27b4-4050-84a7-65222911a334.png" height = "250"></p>
+
+**set_driving_cell**
+
+```
+set_input_transition -max 0.15 [get_ports IN_A] #fixed transition (mainly recommended for top level primary IOs
+```
+
+set_driving_cell more accurate and recommended for all internal parts
+
+```
+set_driving_cell -lib <lib_cell_name> <ports> #recomended to module level IOs (module to module)
+
+eg:
+set_driving_cell -lib sky130_fd_sc_hd__buf_1 [all_inputs]
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209438869-70adeed6-4e25-470b-aef9-4cd1a9f3ff9e.png" height = "300"></p>
+
+### DC_D3SK4_L2 - lab15 - part1 Set_Max_delay
