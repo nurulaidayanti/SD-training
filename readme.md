@@ -4036,3 +4036,149 @@ false #not generated clock (master clock)
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209416493-8e57dc3f-d418-4a78-ab0a-d42f8a774e62.png" height = "300"></p>
 
 **Model MYGEN_CLK**
+
+```
+dc_shell> set_clock_latency -max 1 [get_clocks MYGEN_CLK]
+1
+
+dc_shell> set_output_delay -max 5 [get_ports OUT_Y] -clock [get_clocks MYGEN_CLK]
+1
+
+dc_shell> set_output_delay -min 1 [get_ports OUT_Y] -clock [get_clocks MYGEN_CLK]
+1
+
+dc_shell> report_timing -to OUT_Y
+
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209428165-4fac518e-f404-46e6-aa6c-061a4471453b.png" height = "400"></p>
+
+**Modify lab8_circuit.v**
+
+```
+dc_shell> sh gvim lab8_circuit.v
+
+(inside gvim)
+:sp lab8_circuit_modified.v
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209428279-5e5f7c23-5ff0-486b-b23a-b1451846cba6.png" height = "400"></p>
+
+**Reset design**
+
+```
+dc_shell> reset_design
+re1
+
+dc_shell> read_verilog lab8_circuit_modified.v
+Loading verilog file '/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/lab8_circuit_modified.v'
+Detecting input file type automatically (-rtl or -netlist).
+Warning: Overwriting design file '/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/lab8_circuit'. (DDB-24)
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/lab8_circuit_modified.v
+
+Inferred memory devices in process
+        in routine lab8_circuit line 5 in file
+                '/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/lab8_circuit_modified.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      REGC_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   out_div_clk_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      REGB_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      REGA_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/lab8_circuit.db:lab8_circuit'
+Loaded 1 design.
+Current design is 'lab8_circuit'.
+lab8_circuit
+
+dc_shell> sh gvim lab8_cons.tcl &
+21889
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209428365-c12800ba-8f19-4900-b50f-29d24dd8368d.png" height = "400"></p>
+
+need to set all of it again
+
+**Source lab8_cons.tcl**
+
+```
+dc_shell> link
+
+  Linking design 'lab8_circuit'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  lab8_circuit                /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/lab8_circuit.db
+  sky130_fd_sc_hd__tt_025C_1v80 (library)
+                              /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/lib/sky130_fd_sc_hd__tt_025C_1v80.db
+
+1
+
+dc_shell> source lab8_cons.tcl
+1
+
+dc_shell> report_clocks
+Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : clocks
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Sat Dec 24 17:02:15 2022
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+MYCLK           10.00   {0 5}                         {clk}
+MYGEN_CLK       10.00   {0 5}               G         {out_clk}
+MYGEN_DIV_CLK   20.00   {0 10}              G         {out_div_clk}
+--------------------------------------------------------------------------------
+
+Generated     Master         Generated      Master         Waveform
+Clock         Source         Source         Clock          Modification
+--------------------------------------------------------------------------------
+MYGEN_CLK     clk            {out_clk}      MYCLK          divide_by(1)
+MYGEN_DIV_CLK clk            {out_div_clk}  MYCLK          divide_by(2)
+--------------------------------------------------------------------------------
+1
+
+dc_shell> get_generated_clocks
+{MYGEN_CLK MYGEN_DIV_CLK}
+```
+
+**Report ports**
+
+```
+dc_shell> report_port -verbose
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : port
+        -verbose
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Sat Dec 24 17:03:37 2022
+****************************************
+
+
+
+Attributes:
+    c - port_is_clock_port
+
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209428897-62169af5-9032-4410-962b-e35513f0784b.png" height = "500"></p>
+
+**DESIGN COMPLETELY CONSTRAINED!!**
+
+### DC_D3SK4_L1 - Lecture10 - SDC Part4 vclk, max_latency, rise_fall IODelays
