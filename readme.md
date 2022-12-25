@@ -4294,3 +4294,86 @@ set_driving_cell -lib sky130_fd_sc_hd__buf_1 [all_inputs]
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209438869-70adeed6-4e25-470b-aef9-4cd1a9f3ff9e.png" height = "300"></p>
 
 ### DC_D3SK4_L2 - lab15 - part1 Set_Max_delay
+
+**Previous design**
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209461755-c6bfff44-32f8-4a81-8011-9e49e641f438.png" height = "250"></p>
+
+**lab14_circuit.v**
+
+```
+dc_shell> reset_design
+1
+dc_shell> sh gvim lab14_circuit.v
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209462233-2c3fcd24-8947-44bf-93c8-4937aab807d3.png" height = "500"></p>
+
+```
+dc_shell> read_verilog lab14_circuit.v
+Loading verilog file '/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/lab14_circuit.v'
+Detecting input file type automatically (-rtl or -netlist).
+Warning: Overwriting design file '/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/lab8_circuit'. (DDB-24)
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/lab14_circuit.v
+
+Inferred memory devices in process
+        in routine lab8_circuit line 6 in file
+                '/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/lab14_circuit.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      REGC_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   out_div_clk_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      REGB_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|      REGA_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/lab8_circuit.db:lab8_circuit'
+Loaded 1 design.
+Current design is 'lab8_circuit'.
+lab8_circuit
+```
+
+```
+dc_shell> source lab8_cons.tcl
+1
+dc_shell> report_clock
+Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : clocks
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Sun Dec 25 17:07:52 2022
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+MYCLK           10.00   {0 5}                         {clk}
+MYGEN_CLK       10.00   {0 5}               G         {out_clk}
+MYGEN_DIV_CLK   20.00   {0 10}              G         {out_div_clk}
+--------------------------------------------------------------------------------
+
+Generated     Master         Generated      Master         Waveform
+Clock         Source         Source         Clock          Modification
+--------------------------------------------------------------------------------
+MYGEN_CLK     clk            {out_clk}      MYCLK          divide_by(1)
+MYGEN_DIV_CLK clk            {out_div_clk}  MYCLK          divide_by(2)
+--------------------------------------------------------------------------------
+1
+```
+
+```
+dc_shell> report_timing
+```
+
