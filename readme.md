@@ -4485,3 +4485,172 @@ Current design is 'lab8_circuit'.
 
 ### DC_D3SK4_L3 - Lab15 - part2 - VCLK
 
+**Using virtual clock**
+-	first method used set_max_delay
+-	second use virtual clock 
+	-	a clock that is created without a definition point
+
+```
+dc_shell> reset_design
+
+dc_shell> read_verilog lab14_circuit.v
+
+dc_shell> link
+
+dc_shell> source lab8_cons.tcl
+
+dc_shell> compile_ultra
+
+dc_shell> report_clocks
+Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : clocks
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Sun Dec 25 19:19:14 2022
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+MYCLK           10.00   {0 5}                         {clk}
+MYGEN_CLK       10.00   {0 5}               G         {out_clk}
+MYGEN_DIV_CLK   20.00   {0 10}              G         {out_div_clk}
+--------------------------------------------------------------------------------
+
+Generated     Master         Generated      Master         Waveform
+Clock         Source         Source         Clock          Modification
+--------------------------------------------------------------------------------
+MYGEN_CLK     clk            {out_clk}      MYCLK          divide_by(1)
+MYGEN_DIV_CLK clk            {out_div_clk}  MYCLK          divide_by(2)
+--------------------------------------------------------------------------------
+1
+
+dc_shell> report_timing -to OUT_Z
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209466046-ebc7673c-8cf7-4455-8233-7cc688f547ce.png" height = "500"></p>
+
+```
+dc_shell> create_clock -name MYVCLK -per 10
+Warning: Creating virtual clock named 'MYVCLK' with no sources. (UID-348)
+1
+
+dc_shell> report_clocks
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209466298-28a22219-fad1-4164-b46e-646eec1a0387.png" height = "500"></p>
+
+**Annotate IO Delays**
+
+```
+dc_shell> set_input_delay -max 5 [get_ports IN_C] -clock [get_clocks MYVCLK]
+1
+
+dc_shell> set_input_delay -max 5 [get_ports IN_D] -clock [get_clocks MYVCLK]
+1
+
+dc_shell> set_output_delay -max 4.9 [get_ports OUT_Z] -clock [get_clocks MYVCLK]
+1
+
+#5ns input and 4.9ns in the output so only 100ps is left
+
+dc_shell> report_timing
+
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : lab8_circuit
+Version: P-2019.03-SP5-3
+Date   : Sun Dec 25 19:35:29 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: IN_A (input port clocked by MYCLK)
+  Endpoint: REGA_reg (rising edge-triggered flip-flop clocked by MYCLK)
+  Path Group: MYCLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock MYCLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             3.00       3.00
+  input external delay                                    5.00       8.00 f
+  IN_A (in)                                               0.00       8.00 f
+  U15/Y (sky130_fd_sc_hd__nor2_1)                         0.25       8.25 r
+  U12/Y (sky130_fd_sc_hd__clkinv_1)                       0.08       8.32 f
+  REGA_reg/D (sky130_fd_sc_hd__dfrtp_1)                   0.00       8.32 f
+  data arrival time                                                  8.32
+
+  clock MYCLK (rise edge)                                10.00      10.00
+  clock network delay (ideal)                             3.00      13.00
+  clock uncertainty                                      -0.50      12.50
+  REGA_reg/CLK (sky130_fd_sc_hd__dfrtp_1)                 0.00      12.50 r
+  library setup time                                     -0.13      12.37
+  data required time                                                12.37
+  --------------------------------------------------------------------------
+  data required time                                                12.37
+  data arrival time                                                 -8.32
+  --------------------------------------------------------------------------
+  slack (MET)                                                        4.05
+
+
+  Startpoint: REGC_reg (rising edge-triggered flip-flop clocked by MYCLK)
+  Endpoint: OUT_Y (output port clocked by MYGEN_CLK)
+  Path Group: MYGEN_CLK
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock MYCLK (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             3.00       3.00
+  REGC_reg/CLK (sky130_fd_sc_hd__dfrtp_1)                 0.00       3.00 r
+  REGC_reg/Q (sky130_fd_sc_hd__dfrtp_1)                   0.37       3.37 f
+  U13/Y (sky130_fd_sc_hd__inv_4)                          0.77       4.14 r
+  OUT_Y (out)                                             0.00       4.14 r
+  data arrival time                                                  4.14
+
+  clock MYGEN_CLK (rise edge)                            10.00      10.00
+  clock network delay (ideal)                             0.00      10.00
+  output external delay                                  -5.00       5.00
+  data required time                                                 5.00
+  --------------------------------------------------------------------------
+  data required time                                                 5.00
+  data arrival time                                                 -4.14
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.86
+
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209466453-af4e1945-a6b4-40b8-a7db-848407b4918a.png" height = "300"></p>
+
+**Optimized**
+
+```
+dc_shell> compile_ultra
+
+dc_shell> report_timing -to OUT_Z -sig 4
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209466549-b53b36e3-1def-4319-969c-8bae80ebfb62.png" height = "450"></p>
+
+Note: same optimization has done as previous strategy
+
+```
+dc_shell> report_port -verbose
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209466606-2f024978-ccca-4828-bcee-01b00e21a5ae.png" height = "450"></p>
