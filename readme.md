@@ -4373,7 +4373,115 @@ MYGEN_DIV_CLK clk            {out_div_clk}  MYCLK          divide_by(2)
 1
 ```
 
+**Report timing (in terms of gtech cells)**
+
 ```
 dc_shell> report_timing
 ```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209463443-8c209a58-89a0-42b7-a372-d7abf2acc316.png" height = "500"></p>
+
+**Link the design**
+
+```
+dc_shell> link
+dc_shell> compile_ultra
+```
+
+**Report timing**
+
+```
+dc_shell> report_timing
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209463679-bb2e2b0d-b93b-45e2-8f34-0ca689259b5d.png" height = "500"></p>
+
+**Check path constraint or not**
+
+```
+dc_shell> get_ports *
+{rst clk IN_A IN_B OUT_Y out_clk out_div_clk IN_C IN_D OUT_Z}
+
+dc_shell> report_timing -to OUT_Z
+
+dc_shell> report_timing -from IN_C
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209464206-86ab4c56-c0fe-4ad3-a98b-becfe896ddd3.png" height = "500"></p>
+
+**Helpful commands**
+
+```
+all_inputs #listing all inputs
+
+all_outputs #listing all outputs
+
+all_clocks #listing all clocks
+
+all_registers #listing all registers
+
+all_registers -clock MYCLK #registers clocked by MYCLK
+
+all_fanout -from IN_A #listing all the fanout of IN_A
+{REGA_reg/D U12/Y REGB_reg/D U16/B1 U12/A U16/Y U15/Y U16/A2 U15/A IN_A}
+
+dc_shell> all_fanout -flat -endpoints_only -from IN_A
+{REGA_reg/D REGB_reg/D}
+
+dc_shell> all_fanin -to REGA_reg/D
+{IN_B IN_A U15/B U15/A U15/Y U12/A U12/Y REGA_reg/D}
+
+dc_shell> all_fanin -flat -startpoints_only -to REGA_reg/D
+{IN_B IN_A}
+```
+Note: ENDPOINTS of a timing path = D pin or out pin
+
+**Constraining path to Z**
+
+no path to OUT_Z yet
+
+```
+dc_shell> set_max_delay 0.1 -from [all_inputs] -to [get_port OUT_Z]
+1
+dc_shell> report_timing -to OUT_Z -sig 4
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209465183-6fc0c9cf-96d9-4e51-a1dc-bcb5585363e1.png" height = "500"></p>
+
+Note: path not constraint properly, DC to do not optimized to meet the path
+
+**Optimized the delay**
+
+```
+dc_shell> compile_ultra
+dc_shell> report_timing -to OUT_Z -sig 4
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209465417-6bfea1cf-6404-496f-9553-cc768e5bd529.png" height = "500"></p>
+
+**Design Vision**
+
+```
+dc_shell> write -f ddc -out lab14.ddc
+Writing ddc file 'lab14.ddc'.
+1
+
+design_vision> reset_design
+1
+
+design_vision> read_ddc lab14.ddc
+Reading ddc file '/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/lab14.ddc'.
+Loaded 1 design.
+Current design is 'lab8_circuit'.
+lab8_circuit
+
+design_vision> start_gui
+
+design_vision> Current design is 'lab8_circuit'.
+Current design is 'lab8_circuit'.
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209465714-2fa1eeb3-8b84-4387-b5f8-bf8c36252876.png" height = "500"></p>
+
+### DC_D3SK4_L3 - Lab15 - part2 - VCLK
 
