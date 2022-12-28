@@ -4991,3 +4991,12 @@ dc_shell> report_timing
 
 
 ## DC_D4SK2_L2 - Lab16 - part2 resource sharing optimizations
+
+Note to self make sure target and lib as below 
+```
+dc_shell> echo $target_library
+/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/lib/sky130_fd_sc_hd__tt_025C_1v80.db
+
+dc_shell> echo $link_library
+* /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/lib/sky130_fd_sc_hd__tt_025C_1v80.db
+```
