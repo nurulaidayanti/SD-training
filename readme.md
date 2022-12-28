@@ -4704,3 +4704,57 @@ dc_shell> report_port -verbose
 >	Tool will pick based on constraints to get the best optimize design
 
 ## DC_D4SK1_L2 - Lecture12 Sequential Optimizations 
+
+**Sequential Logic optimizations**
+-	Basic
+	-	sequential constant propagation
+	-	retiming
+	-	unused flop removal
+	-	clock gating
+-	Advanced
+	-	state optimization
+	-	sequential logic cloning (floorplan aware synthesis)
+
+**Example: Constant Propagation** 🤔
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209778746-2537dcfa-ddd3-4e3f-8da2-46d2fae9b435.png" height = "300"></p>
+
+>	optimized
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209779007-9e0780c3-54f5-46c9-b746-331c7338f401.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/209779592-861d4b44-7015-42bf-b683-aed1354d76ce.png" height = "300"></p>
+
+>	not optimized
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209780518-5159d294-e2cf-426c-8655-410c2af72391.png" height = "400"></p>
+
+>	set and D = 1 is sequential constant \
+>	optimized 
+
+**Example: Optimization of unloaded outputs** 🤔
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209783125-e7d52e3b-4086-4386-bb2e-c2755f58aea2.png" height = "300"></p>
+
+>	optimized
+
+**Controlling Sequential Optimizations in DC** 🤔
+
+Commands used (Boolean variables so can set true or false)
+
+```
+compile_seqmap_propagate_constants 
+#set to true = will propagate sequential constant. circuit will remain the same. need not have to bring the logic back (it will retained)
+
+
+compile_delete_unloaded_sequential_cells 
+#set to false = will not remove the cells
+
+
+compile_register_replication 
+#floorplan aware synthesis (optimum routing delay or cloning registers)
+```
+
+>	can prevent the optimization happening so that all the flops and logics are preserved (incase we want to use it later)
+
+## DC_D4SK2_L1 - Lab16 - part1 Combinational_optimizations
+
