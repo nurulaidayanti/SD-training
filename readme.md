@@ -4901,3 +4901,93 @@ design_vision> read_ddc opt_check4.ddc
 ```
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209796693-4eb0adbb-6008-45a3-9ec1-c7cc12096564.png" height = "450"></p>
+
+>	b is unused
+
+```
+dc_shell> report_timing
+```
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209797093-158ea240-8f58-4d82-85a7-1a23c5ad15ab.png" height = "300"></p>
+
+```
+dc_shell> set_max_delay 0.06 -from [all_inputs] -to [get_ports y]
+1
+
+dc_shell> report_timing -to y -sig 4
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : opt_check4
+Version: P-2019.03-SP5-3
+Date   : Wed Dec 28 18:23:11 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: a (input port)
+  Endpoint: y (output port)
+  Path Group: default
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                   0.0000     0.0000 f
+  a (in)                                 0.0000     0.0000 f
+  U2/Y (sky130_fd_sc_hd__xnor2_1)        0.0830     0.0830 f
+  y (out)                                0.0000     0.0830 f
+  data arrival time                                 0.0830
+
+  max_delay                              0.0600     0.0600
+  output external delay                  0.0000     0.0600
+  data required time                                0.0600
+  -----------------------------------------------------------
+  data required time                                0.0600
+  data arrival time                                -0.0830
+  -----------------------------------------------------------
+  slack (VIOLATED)                                 -0.0230
+
+
+1
+
+dc_shell> compile_ultra
+
+dc_shell> report_timing
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209798137-e33c3fd0-f474-4826-90f3-f8eb30a43613.png" height = "350"></p>
+
+```
+#Upsize cell
+
+dc_shell> get_lib_cells */sky130_fd_sc_hd__xnor2*
+{sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__xnor2_1 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__xnor2_2 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__xnor2_4}
+
+dc_shell> size_cell U3 sky130_fd_sc_hd__tt_025C_1v80/sky130_fd_sc_hd__xnor2_4
+{U3}
+
+dc_shell> report_timing
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209799837-8f2a7288-194f-401e-96da-23965072518d.png" height = "350"></p>
+
+```
+#do the compile_ultra back
+
+dc_shell> compile_ultra
+
+dc_shell> report_timing
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209800129-2d74923b-5fe4-40c3-bbd7-1af6d47611f9.png" height = "350"></p>
+
+>	pick the best implementation given the constraints
+
+
+## DC_D4SK2_L2 - Lab16 - part2 resource sharing optimizations
