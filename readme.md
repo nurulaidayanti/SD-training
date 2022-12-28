@@ -4758,3 +4758,146 @@ compile_register_replication
 
 ## DC_D4SK2_L1 - Lab16 - part1 Combinational_optimizations
 
+```
+dc_shell> sh gvim opt_check*.v -o
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209790298-b36713ad-060c-4444-af87-21d54ae77e3e.png" height = "500"></p>
+
+**opt_check.v**
+
+Expected output:
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209790166-26192087-5bff-44f3-87b9-dc3027bbb3e0.png" height = "350"></p>
+
+```
+dc_shell> read_verilog opt_check.v
+```
+
+>	Loading verilog file '/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/opt_check.v'\
+Detecting input file type automatically (-rtl or -netlist).\
+Reading with Presto HDL Compiler (equivalent to -rtl option).\
+Running PRESTO HDLC\
+Compiling source file /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/opt_check.v\
+Presto compilation completed successfully.\
+Current design is now '/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/opt_check.db:opt_check'\
+Loaded 1 design.\
+Current design is 'opt_check'.\
+opt_check\
+
+
+```
+dc_shell> report_timing
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209791150-4e3c4fae-b700-42a0-8769-b7223f0dd2e4.png" height = "300"></p>
+
+```
+dc_shell> link
+
+dc_shell> compile
+
+dc_shell> report_timing
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209791488-6ab903e7-7259-4a1f-a7fb-1dd5995969b4.png" height = "300"></p>
+
+```
+dc_shell> get_cells *
+{U4 U5} 
+#only 2 cells in the design
+```
+
+```
+dc_shell> report_timing -to y2
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209791774-baf88f5e-6047-49a4-adbe-29158a0b4fcd.png" height = "300"></p>
+
+```
+dc_shell> report_timing -to y1
+```
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209792168-a0271eca-628c-4c3f-9d0a-381dba18ba1f.png" height = "300"></p>
+
+```
+dc_shell> write -f ddc -out opt_check.ddc
+Writing ddc file 'opt_check.ddc'.
+1
+```
+
+```
+#launch design vision
+
+csh
+
+design_vision
+
+design_vision> read_ddc opt_check.ddc
+```
+
+As Expected:
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209792645-f676315b-2e70-4e3a-9b86-a6b896982af0.png" height = "450"></p>
+
+```
+design_vision> reset_deisgn
+
+dc_shell> reset_design
+
+```
+
+**Load other files**
+
+Expected output:
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209793774-ceb1e01b-2f0a-47d6-97bb-3dbbe66d78c4.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/209794428-5c684faa-a99a-4a7d-ac22-514b7e67eb74.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/209794938-4fb0ac0d-1b9e-4e15-a3b8-f3574b3a7401.png" height = "300"></p>
+
+**opt_check2.v**
+
+```
+dc_shell> read_verilog opt_check2.v
+
+dc_shell> link
+
+dc_shell> compile
+
+dc_shell> write -f ddc -out opt_check2.ddc
+
+design_vision> read_ddc opt_check2.ddc
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209796100-c0b708e3-722b-4d49-a37e-4b380c091f57.png" height = "450"></p>
+
+**opt_check3.v**
+
+```
+dc_shell> read_verilog opt_check3.v
+
+dc_shell> link
+
+dc_shell> compile
+
+dc_shell> write -f ddc -out opt_check3.ddc
+
+design_vision> read_ddc opt_check3.ddc
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209796380-9bc0dcd3-3bcc-450f-b8b9-ee0ae4eb0eca.png" height = "450"></p>
+
+**opt_check4.v**
+
+```
+dc_shell> read_verilog opt_check4.v
+
+dc_shell> link
+
+dc_shell> compile
+
+dc_shell> write -f ddc -out opt_check4.ddc
+
+design_vision> read_ddc opt_check4.ddc
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209796693-4eb0adbb-6008-45a3-9ec1-c7cc12096564.png" height = "450"></p>
