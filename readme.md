@@ -4654,3 +4654,53 @@ dc_shell> report_port -verbose
 ```
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209466606-2f024978-ccca-4828-bcee-01b00e21a5ae.png" height = "450"></p>
+
+# Day-9 
+## DC_D4SK1_L1 - Lecture11 - Optimizations Combinational Opt
+
+**Optimization Goal** ✨
+-	cost function based optimization
+	-	optimization till the cost is met
+	-	over optimization of one goal will harm other goals
+	-	goals for synthesis
+		-	meet timing (put faster cells ✔️ but power will go bad ✖️ , area will be wider ✖️)
+			-	cost funtion IO Delay, clock period, max delay
+		-	meet area (put smaller cells ✔️, power is good ✔️ but timing is bad ✖️)
+		-	meet power 
+
+**Combinational Logic Optimization**
+-	squeezing the logic to get the most optimised design
+	-	area and power savings
+-	constant propagation
+	-	direct optimization
+-	boolean logic optitmization
+	-	k-map
+	-	Quine McKluskey
+
+**Example: Constant Propagation**
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209769473-65337b0c-da8a-4e89-84e3-d200e30d400f.png" height = "300"></p>
+
+**Example: Boolean Logic Optimization**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209771681-8d7ee661-d919-46a1-a892-bc2db708c656.png" height = "300"></p>
+
+>	can have single xnor gate instead of 3 mux
+
+**Example: Resource Sharing**
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209772543-340071cb-e382-4f39-8705-3af0157e080a.png" height = "350"></p>
+
+**Example: Logic Sharing**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209773215-b5d6c7ce-5a00-4fb3-a13b-19b095e78a25.png" height = "350"></p>
+
+**Example: Balanced vs Preferential Implementation**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209775820-a54c0fb3-f2bf-49cc-b3f8-747c8f1cba06.png" height = "350"></p>
+
+>	Tool will pick based on constraints to get the best optimize design
+
+## DC_D4SK1_L2 - Lecture12 Sequential Optimizations
