@@ -5342,3 +5342,17 @@ set isolate_ports -type buffer [get_ports Out_y]
 
 
 ## DC_D4SK3_L2 - Lecure14 - How Paths are timed MCP?
+
+**Single Cycle Path**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209938168-a7393285-9091-4799-b3fe-d4cc0554e31c.png" height = "350"></p> 
+
+>	Hold is always checked at edge BEFORE setup
+
+**Half Cycle Path**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209939284-2974e791-8f3c-4c92-a92e-e1dd59b858a1.png" height = "350"></p> 
+
+>	Hold will happen at 1 edge before. Setup is very tight to meet because half of the cycle from launch to capture flop. Hold got sufficient margin
+
+**Multi Cycle Path**
