@@ -5282,4 +5282,62 @@ design_vision> compile
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209915226-ad465c29-856e-4cd0-b468-c836e2edf2c8.png" height = "270"><img src = "https://user-images.githubusercontent.com/118953932/209915294-37409f26-b41b-4e2d-ba6c-5d4a4edc64e6.png" height = "300"></p>
 
->	break the combo logic
+>	break the combo logic. critical path delay decreases but functional DV may have issue
+
+Note: need to be careful with this optimization. need to consider the repercussions of enabling or disable it ❗
+
+**Boundary Optimization**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209924300-7f183ec5-570d-4dc5-bdfc-a3194f0a977e.png" height = "350"></p>
+
+>	boundary will not be retained in the netlist but functional DV may have issue. hierarchy not preserved. not able to find the signal in the netlist but get most optimal logic
+
+Note: need to see the benefit first ❗
+
+Commands:
+
+```
+set boundary_optimization <design> <true/false>
+
+#set boundary_optimization module_sub false
+```
+
+**Multicycle Path**
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209927086-e5ea6f5d-5986-4f15-b98d-9af2fab755f0.png" height = "350"></p>
+
+>	data will only sample once in 2 cycles (need not optimize path in single cycle path)
+
+Tell tool not to optimize this to single cycle path:
+
+```
+set multicycle_path -setup 2 -to prod_reg[*]/D -through [all_inputs]
+```
+Note: be very careful when using this. should have been thorough understanding of design ❗
+
+**False Paths**
+-	paths that are not valid for STA
+	-	set false_path -from <> to <>
+	-	set false_path -through <>
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209929012-ae82a99b-474f-46a2-a68f-59d44df950ac.png" height = "350"></p>
+
+Are always path between 2 different clocks async?
+>	No. They are async only if 2 clocks are not related
+
+**External Load vs Internal Load**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209929826-ced27bd0-0f93-4df4-b8a2-7507c99a4376.png" height = "350"></p>
+
+What to do:
+```
+set isolate_ports -type buffer [get_ports Out_y]
+```
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209930535-1d0ea710-13c9-40e3-bfe4-d569cc95e66b.png" height = "200"></p>
+
+>	Internal path will not see the external load, the load is seen by the buffer
+
+
