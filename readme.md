@@ -5382,4 +5382,261 @@ set multicycle_path -hold 1 -from [all_inputs] -to prod_reg[*]/D
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209944437-82b1c6b0-2129-4229-9a43-ab28537bbe3a.png" height = "200"></p> 
 
+## DC_D4SK4_L1 - Lab18 - Boundary Optimization
+
+```
+dc_shell> sh gvim check_boundary.v &
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209956910-4a2971bd-cf1e-4a12-927b-740c77ca52fd.png" height = "450"></p> 
+
+```
+dc_shell> read_verilog check_boundary.v
+
+dc_shell> link
+
+dc_shell> compile_ultra
+
+dc_shell> write -f ddc -out boundary.ddc
+```
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209957620-5ca4fe50-ae6e-440e-bb3d-19c9ce0b7d98.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/209960735-b3fa7f2d-a2fc-45ff-8c5a-a7279f057d84.png" height = "450"</p> 
+
+>	nothing call internal module. no hierarchy
+
+```
+design_vision> reset_design
+1
+design_vision> read_verilog check_boundary.v
+
+design_vision> link
+	
+design_vision> get_cells
+{u_im val_out_reg[3] val_out_reg[2] val_out_reg[1] val_out_reg[0] U1}
+	
+design_vision> get_pins u_im/*
+
+design_vision> set_boundary_optimization u_im false
+	
+design_vision> compile_ultra
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209962899-659c7f91-ea8c-47fe-a1a9-9a3d587d6b5d.png" height = "450"></p>
+
+>	design hierarchy are maintained so if there any ECO, can quickly search for the bug. let tool not optimized fully
+
 ## DC_D4SK4_L2 - Lab19 - Register Retiming
+
+```
+design_vision> design_vision> reset_design
+1
+design_vision> sh gvim check_reg_retime.v &
+11483
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209965520-3becf04d-19a5-4def-a194-b49aea638e61.png" height = "450"></p>
+
+```
+design_vision> read_verilog check_reg_retime.v
+
+design_vision> link
+
+design_vision> compile
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209965852-63726be8-41b5-4c12-9564-20e86935cbf4.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/209966816-31f887bf-0cab-4fd3-8b7c-ae674b3c686b.png" height = "350"></p>
+
+```
+design_vision> report_timing
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : check_reg_retime
+Version: P-2019.03-SP5-3
+Date   : Thu Dec 29 22:17:34 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: q3_reg[7] (rising edge-triggered flip-flop)
+  Endpoint: c[7] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  q3_reg[7]/CLK (sky130_fd_sc_hd__dfrtp_1)                0.00       0.00 r
+  q3_reg[7]/Q (sky130_fd_sc_hd__dfrtp_1)                  0.31       0.31 f
+  c[7] (out)                                              0.00       0.31 f
+  data arrival time                                                  0.31
+  --------------------------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+```
+
+```
+#set the constraints
+design_vision> sh gvim reg_retime_cons.tcl
+
+design_vision> source reg_retime_cons.tcl
+1
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209967968-b84788af-ab72-4e43-8e46-c891b81b374b.png" height = "350"></p>
+
+```
+design_vision> report_clock
+Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : clocks
+Design : check_reg_retime
+Version: P-2019.03-SP5-3
+Date   : Thu Dec 29 22:35:09 2022
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+myclk            2.00   {0 1}                         {clk}
+--------------------------------------------------------------------------------
+1
+
+design_vision> report_timing
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : check_reg_retime
+Version: P-2019.03-SP5-3
+Date   : Thu Dec 29 22:35:15 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: b[2] (input port clocked by myclk)
+  Endpoint: q1_reg[7] (rising edge-triggered flip-flop clocked by myclk)
+  Path Group: myclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock myclk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    1.20       1.20 f
+  b[2] (in)                                               0.00       1.20 f
+  mult_4/B[2] (check_reg_retime_DW02_mult_0)              0.00       1.20 f
+  mult_4/U17/Y (sky130_fd_sc_hd__inv_2)                   0.12       1.32 r
+  mult_4/U43/Y (sky130_fd_sc_hd__nor2_1)                  0.06       1.38 f
+  mult_4/U3/X (sky130_fd_sc_hd__and2_1)                   0.16       1.55 f
+  mult_4/S3_2_2/COUT (sky130_fd_sc_hd__fa_1)              0.41       1.95 f
+  mult_4/S5_2/SUM (sky130_fd_sc_hd__fa_1)                 0.48       2.44 f
+  mult_4/U7/X (sky130_fd_sc_hd__and2_1)                   0.18       2.61 f
+  mult_4/U30/Y (sky130_fd_sc_hd__nor2_1)                  0.15       2.76 r
+  mult_4/U9/Y (sky130_fd_sc_hd__inv_2)                    0.04       2.80 f
+  mult_4/U33/Y (sky130_fd_sc_hd__a21oi_1)                 0.16       2.95 r
+  mult_4/U10/Y (sky130_fd_sc_hd__xnor2_1)                 0.12       3.08 r
+  mult_4/PRODUCT[7] (check_reg_retime_DW02_mult_0)        0.00       3.08 r
+  q1_reg[7]/D (sky130_fd_sc_hd__dfrtp_1)                  0.00       3.08 r
+  data arrival time                                                  3.08
+
+  clock myclk (rise edge)                                 2.00       2.00
+  clock network delay (ideal)                             0.00       2.00
+  clock uncertainty                                      -0.30       1.70
+  q1_reg[7]/CLK (sky130_fd_sc_hd__dfrtp_1)                0.00       1.70 r
+  library setup time                                     -0.08       1.62
+  data required time                                                 1.62
+  --------------------------------------------------------------------------
+  data required time                                                 1.62
+  data arrival time                                                 -3.08
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.46
+
+
+1
+
+```
+
+```
+design_vision> compile_ultra -retime
+```
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209968764-079af7cb-1372-425b-9487-21207040c18a.png" height = "450"></p>
+
+>	sliced the multiplier and split the logic into partition and nicely optimized it. as in the picture, there are logics between 2 registers
+
+```
+design_vision> report_timing
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : check_reg_retime
+Version: P-2019.03-SP5-3
+Date   : Thu Dec 29 22:41:10 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: q3_reg[0] (rising edge-triggered flip-flop clocked by myclk)
+  Endpoint: c[0] (output port clocked by myclk)
+  Path Group: myclk
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock myclk (rise edge)                                 0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  q3_reg[0]/CLK (sky130_fd_sc_hd__dfrtp_1)                0.00       0.00 r
+  q3_reg[0]/Q (sky130_fd_sc_hd__dfrtp_1)                  0.37       0.37 f
+  U57/Y (sky130_fd_sc_hd__inv_4)                          0.11       0.48 r
+  U58/Y (sky130_fd_sc_hd__inv_16)                         0.10       0.58 f
+  c[0] (out)                                              0.00       0.58 f
+  data arrival time                                                  0.58
+
+  clock myclk (rise edge)                                 2.00       2.00
+  clock network delay (ideal)                             0.00       2.00
+  clock uncertainty                                      -0.30       1.70
+  output external delay                                  -1.20       0.50
+  data required time                                                 0.50
+  --------------------------------------------------------------------------
+  data required time                                                 0.50
+  data arrival time                                                 -0.58
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.08
+
+
+1
+```
+
+```
+design_vision> compile_ultra
+
+design_vision> report_timing -from [all_inputs] -trans -cap -nosplit -sig 4
+```
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209970856-c2b92428-13c6-481d-87b8-a1c9bf62b415.png" height = "450"></p>
