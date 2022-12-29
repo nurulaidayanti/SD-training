@@ -5000,3 +5000,141 @@ dc_shell> echo $target_library
 dc_shell> echo $link_library
 * /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/lib/sky130_fd_sc_hd__tt_025C_1v80.db
 ```
+
+Open file
+```
+design_vision> sh gvim resource_sharing_mult_check.v &
+```
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209887684-815501c8-a5fb-4037-b667-ccaa858c1cd8.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/209887610-c98d3a0e-01e7-4219-a698-a1b77a1b8d51.png" height = "250"></p>
+
+```
+design_vision> read_verilog resource_sharing_mult_check.v
+
+design_vision> link
+
+design_vision> compile_ultra
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209888638-78868a03-3b35-4a44-a344-2596bc7b7e1f.png" height = "500"></p>
+
+>	expected the select go towards the output but it's implementing the select towards the input
+
+```
+design_vision> report_area #to know the area of the design
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209889002-7c36c3c7-345e-4d69-a84b-bf1a3ac21dab.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/209888882-cf35509a-dd13-404a-86a4-783bc285a34e.png" height = "350"></p>
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209889753-8eae73f4-59c1-4847-9659-1b470430b887.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/209889771-4a8d1f29-7d0e-4a2c-9da5-04a280937abc.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/209889811-0fb3068a-cf8c-4d47-a5f1-81f7a2b3092c.png" height = "250"></p>
+
+```
+design_vision> set_max_delay  -from [all_inputs] -to [all_outputs] 2.5
+1
+
+design_vision> report_timing
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209890057-48a5a183-d2fa-4948-9628-33aea5968d4a.png" height = "350"></p>
+
+```
+design_vision> compile_ultra
+
+design_vision> report_timing
+
+design_vision> report_area
+```
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209890311-d624deca-ddfd-44ea-aaeb-663f38e35e36.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/209890337-b4470a68-2db1-4032-9c66-ad79897ff24a.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/209890384-7e858e87-7d2d-4d4f-938a-aab978bb16ea.png" height = "250"></p>
+
+>	2 ports decreases, area also decreases
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209890716-f95ffeeb-0825-4445-b4ec-f591449ff8dc.png" height = "350"></p>
+
+```
+design_vision> set_max_delay 0.1  -from sel -to [all_outputs]
+1
+
+
+design_vision> report_timing
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : resource_sharing_mult_check
+Version: P-2019.03-SP5-3
+Date   : Thu Dec 29 09:09:56 2022
+****************************************
+
+Operating Conditions: tt_025C_1v80   Library: sky130_fd_sc_hd__tt_025C_1v80
+Wire Load Model Mode: top
+
+  Startpoint: sel (input port)
+  Endpoint: y[6] (output port)
+  Path Group: default
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  input external delay                                    0.00       0.00 r
+  sel (in)                                                0.00       0.00 r
+  U53/Y (sky130_fd_sc_hd__inv_2)                          0.04       0.04 f
+  U54/Y (sky130_fd_sc_hd__o22ai_1)                        0.22       0.26 r
+  U56/Y (sky130_fd_sc_hd__nor2_1)                         0.08       0.34 f
+  DP_OP_9J1_122_9283/U13/SUM (sky130_fd_sc_hd__ha_1)      0.30       0.65 f
+  DP_OP_9J1_122_9283/U6/COUT (sky130_fd_sc_hd__fa_1)      0.38       1.03 f
+  DP_OP_9J1_122_9283/U5/COUT (sky130_fd_sc_hd__fa_1)      0.41       1.44 f
+  DP_OP_9J1_122_9283/U4/COUT (sky130_fd_sc_hd__fa_1)      0.38       1.82 f
+  DP_OP_9J1_122_9283/U3/COUT (sky130_fd_sc_hd__fa_1)      0.36       2.18 f
+  U27/SUM (sky130_fd_sc_hd__fah_1)                        0.26       2.44 r
+  y[6] (out)                                              0.00       2.44 r
+  data arrival time                                                  2.44
+
+  max_delay                                               0.10       0.10
+  output external delay                                   0.00       0.10
+  data required time                                                 0.10
+  --------------------------------------------------------------------------
+  data required time                                                 0.10
+  data arrival time                                                 -2.44
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -2.34
+
+
+1
+
+design_vision> compile_ultra
+
+design_vision> report_area
+```
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209891205-ed9a5835-138b-47d1-b68a-64aa2380642e.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/209891018-5cde92ae-2c28-4269-a44d-55c010bd54f9.png" height = "350"></p>
+
+```
+design_vision> report_timing
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209891496-41990dff-ad74-4870-895e-53ed03d959c1.png" height = "350"></p>
+
+Constraint area
+
+```
+design_vision> set_max_area 800
+1
+
+design_vision> compile_ultra
+
+design_vision> report_timing -sig 4
+
+design_vision> report_area
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209891615-23c6e000-c173-4376-8c4b-0bdade9de851.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/209891812-a2cb9e80-1606-49ee-bdcc-6306b69e7884.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/209891923-0815a162-5428-4cc0-afeb-868485ef1d32.png" height = "350"></p>
+
+## DC_D4SK2_L3 - lab17 - seq optimizations
