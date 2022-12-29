@@ -5640,3 +5640,5 @@ design_vision> report_timing -from [all_inputs] -trans -cap -nosplit -sig 4
 
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209970856-c2b92428-13c6-481d-87b8-a1c9bf62b415.png" height = "450"></p>
+
+## DC_D4SK4_L3 - Lab20 - Isolating output ports
