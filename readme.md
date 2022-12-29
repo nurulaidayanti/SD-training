@@ -5341,3 +5341,4 @@ set isolate_ports -type buffer [get_ports Out_y]
 >	Internal path will not see the external load, the load is seen by the buffer
 
 
+## DC_D4SK3_L2 - Lecure14 - How Paths are timed MCP?
