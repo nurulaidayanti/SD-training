@@ -5137,6 +5137,8 @@ design_vision> report_area
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209891615-23c6e000-c173-4376-8c4b-0bdade9de851.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/209891812-a2cb9e80-1606-49ee-bdcc-6306b69e7884.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/209891923-0815a162-5428-4cc0-afeb-868485ef1d32.png" height = "350"></p>
 
+>	area cannot go below 800 maybe because timing constraints too tight
+
 ## DC_D4SK2_L3 - lab17 - seq optimizations
 
 ```
@@ -5177,6 +5179,8 @@ U4 sky130_fd_sc_hd__conb_1
 U5 sky130_fd_sc_hd__clkinv_1
 ```
 
+**dff_const.v**
+
 ```
 pglc00014> csh
 pglc00014> design_vision
@@ -5188,6 +5192,89 @@ design_vision> link
 design_vision> compile
 ```
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209895577-e3bac260-a8bf-4871-8304-c1680eec078f.png" height = "350"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209895577-e3bac260-a8bf-4871-8304-c1680eec078f.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/209898785-c1dececa-311f-4244-a97e-38dc898fa61e.png" height = "200"></p>
 
 >	gate terminal of CMOS is very sensitive "gate oxide". so we should never allow gate terminal of CMOS to see any surges (so use tie cells for driving 1'b1 or 1'b0. that why not connected directly)
+
+>	Tie cell is a standard cell, designed specially to provide the high or low signal to the input (gate terminal) of any logic gate. The high/low signal can not be applied directly to the gate of any transistors because of some limitations of transistors, especially in the lower node
+
+**dff_const2.v**
+
+```
+design_vision> reset_design
+1
+design_vision> read_verilog dff_const2.v
+
+design_vision> link
+
+design_vision> compile
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209899035-c3723bc2-17a2-4bca-b8b4-b20508b00d3b.png" height = "350"></p>
+
+
+Set dff_const2.v to sequential constant = false
+
+```
+design_vision> reset_design
+1
+design_vision> read_verilog dff_const2.v
+
+design_vision> set compile_seqmap_propagate_constants false
+false
+
+design_vision> link
+
+design_vision> compile
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209902171-fa50a7ff-4d60-4348-9dec-f21d19f033ba.png" height = "350"></p>
+
+**dff_const3.v**
+
+```
+design_vision> reset_design
+1
+design_vision> read_verilog dff_const3.v
+
+design_vision> link
+
+design_vision> compile
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209901411-c71b77f8-de39-4975-bb75-b52e7abb5441.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/209901451-2a4da5ff-5c87-47b7-90cf-9cc3d7664b39.png" height = "450"></p>
+
+
+**dff_const4.v**
+
+```
+design_vision> reset_design
+1
+design_vision> read_verilog dff_const4.v
+
+design_vision> link
+
+design_vision> set compile_seqmap_propagate_constants true
+true
+
+design_vision> compile_ultra
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209903776-5cf37bef-51d1-41bf-adf1-b7c019df1d00.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/209904058-4ea68176-b4e6-4f14-8345-2b6ff98619bb.png" height = "300"></p>
+
+**dff_const5.v**
+
+```
+design_vision> reset_design
+1
+design_vision> read_verilog dff_const5.v
+
+design_vision> link
+
+design_vision> compile
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209905007-6579d844-2d97-40aa-9669-8d6a49671fd3.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/209904522-6e0b02c3-5da4-435b-990a-28e40e1d9885.png" height = "300"></p>
+
+## DC_D4SK3_L1 - Lecture13 special optimizations
+
