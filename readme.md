@@ -5278,3 +5278,8 @@ design_vision> compile
 
 ## DC_D4SK3_L1 - Lecture13 special optimizations
 
+**Register Retiming**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209915226-ad465c29-856e-4cd0-b468-c836e2edf2c8.png" height = "270"><img src = "https://user-images.githubusercontent.com/118953932/209915294-37409f26-b41b-4e2d-ba6c-5d4a4edc64e6.png" height = "300"></p>
+
+>	break the combo logic
