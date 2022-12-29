@@ -5356,3 +5356,30 @@ set isolate_ports -type buffer [get_ports Out_y]
 >	Hold will happen at 1 edge before. Setup is very tight to meet because half of the cycle from launch to capture flop. Hold got sufficient margin
 
 **Multi Cycle Path**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209942995-f936297c-e247-42e8-ac1a-c8a65599894c.png" height = "350"></p> 
+
+>	Prod_reg is loaded once in every 2 cycles only
+
+
+Can put this constraint:
+
+```
+set multicycle_path -setup 2 -from [all_inputs] -to prod_reg[*]/D 
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209943734-6e97dcf8-5264-40d1-94f5-53641c236e3c.png" height = "200"></p> 
+
+>	very bad for hold. So whenever apply for MCP for setup so we should apply for hold also
+
+```
+#also put this!
+
+set multicycle_path -hold 1 -from [all_inputs] -to prod_reg[*]/D 
+
+#so that launch edge will move forward
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209944437-82b1c6b0-2129-4229-9a43-ab28537bbe3a.png" height = "200"></p> 
+
+## DC_D4SK4_L2 - Lab19 - Register Retiming
