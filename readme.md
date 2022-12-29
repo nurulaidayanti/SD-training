@@ -5138,3 +5138,56 @@ design_vision> report_area
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209891615-23c6e000-c173-4376-8c4b-0bdade9de851.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/209891812-a2cb9e80-1606-49ee-bdcc-6306b69e7884.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/209891923-0815a162-5428-4cc0-afeb-868485ef1d32.png" height = "350"></p>
 
 ## DC_D4SK2_L3 - lab17 - seq optimizations
+
+```
+pglc00014> gvim dff_const* -o
+5 files to edit
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209893213-87e0d535-af1c-4f45-88fa-d536e03d2e8e.png" height = "350"></p>
+
+```
+dc_shell> reset_design
+1
+
+dc_shell> read_verilog dff_const1.v
+
+dc_shell> link
+
+dc_shell> compile
+
+dc_shell> get_cells
+{q_reg U4 U5}
+
+dc_shell> foreach_in_collection my_cell [get_cells *] {
+set cell_name [get_object_name $my_cell];
+echo $cell_name; 
+}
+q_reg
+U4
+U5
+
+dc_shell> foreach_in_collection my_cell [get_cells *] {
+set cell_name [get_object_name $my_cell];
+set rn [get_attribute [get_cells $cell_name] ref_name];  
+echo $cell_name $rn; 
+}
+q_reg sky130_fd_sc_hd__dfrtp_1
+U4 sky130_fd_sc_hd__conb_1
+U5 sky130_fd_sc_hd__clkinv_1
+```
+
+```
+pglc00014> csh
+pglc00014> design_vision
+
+design_vision> read_verilog dff_const1.v
+
+design_vision> link
+
+design_vision> compile
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209895577-e3bac260-a8bf-4871-8304-c1680eec078f.png" height = "350"></p>
+
+>	gate terminal of CMOS is very sensitive "gate oxide". so we should never allow gate terminal of CMOS to see any surges (so use tie cells for driving 1'b1 or 1'b0. that why not connected directly)
