@@ -5824,3 +5824,76 @@ dc_shell> report_timing -nosplit -inp -cap -trans -sig 4
 
 # Day-10
 ## DC_D5SK1_L1 - Lecture Report timing
+
+**Generating Timing Report**
+
+Example Commands:
+
+```
+report_timing -from DDF_A/clk
+
+report_timing -from DDF_A/clk -to DDF_A/d
+
+report_timing -fall_from DDF_A/clk
+
+report_timing -rise_from DDF_b/clk
+
+report_timing -delay_type min -to DDF_C/d
+
+report_timing -delay_type min -through INV/a
+
+report_timing -delay_type max -through AND/b
+
+report_timing -rise_from DDF_b/clk -delay_type max -nets -cap -trans -sig 4
+
+#default is delay_type max (if didnt specify the delay type)
+```
+
+**Propagation Delay**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210036279-d9408cbd-b7d7-48a1-a78e-776d03b19c68.png" height = "350"></p>
+
+>	For inv. If A rises, Y will fall and NMOS circuit will enable, PMOS circuit will disable. Vice versa
+
+>	current sinking path (to GND) and current sourcing path (to Y) are different. mobility is different. DELAYS ARE NOT SAME ❗ Load on A and load on B are different too
+
+**Timing Paths** 
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210037874-1f4dcc72-1087-48d2-9d01-f68a6ea4e685.png" height = "350"></p>
+
+>	2 different timing path and tool will calculate rise delay and fall delay 
+
+
+>	when doing report_timing -delay min to DFFC/D (Min Delay to C) -> lowest delay which is from DFFB/D (1.0ns) ❗
+
+
+>	when doing report_timing -delay max to DFFC/D (Max Delay to C) -> highest delay which is from DFFA/D (1.65ns) ❗
+
+
+>	report_timing -delay_type max -rise_to DFFC/D (max rise delay) -> from DFFA to DFF_C(r) (1.5ns) ❗
+
+
+>	report_timing -delay_type max -fall_to DFFC/D (max fall delay) -> from DFFA to DFF_C(f) (1.65ns) ❗
+
+>	report_timing -delay_type min -rise_to DFFC/D (min rise delay) -> from DFFB to DFF_C(r) (1.15ns) ❗
+
+>	report_timing -delay_type min -fall_to DFFC/D (min fall delay) -> from DFFB to DFF_C(f) (1.0ns) ❗
+
+
+**Timing Path Part 2**
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210040203-714e74f9-85d2-4a68-a6de-aa5940e313bd.png" height = "350"></p>
+
+
+>	setup = before that the data shoulde stable
+
+>	hold = after that should be stable
+
+Note: KNOW THE DIFFERENCE OF SLACK CALCULATION BETWEEEN THE TWO ❗
+
+
+**Max_Paths and Nworst**
+
+<p align="center"><img src = "" height = "350"></p>
