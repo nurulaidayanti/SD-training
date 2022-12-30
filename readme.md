@@ -5901,4 +5901,64 @@ Note: KNOW THE DIFFERENCE OF SLACK CALCULATION BETWEEEN THE TWO ❗
 
 ## DC_D5SK1_L2 - Lab Report timing
 
+```
+dc_shell> sh gvim lab8_circuit_modified.v 
 
+(inside gvim)
+
+:sp la8_cons_modified.tcl #to look at the constraint of the design
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210043683-b25c60dc-437b-4b8d-9871-f6f467cf5d37.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210043896-01c357af-a3b2-4088-a6e8-7af356c6e61e.png" height = "250"></p>
+
+
+```
+dc_shell> read_verilog lab8_circuit_modified.v 
+
+dc_shell> link
+
+dc_shell> source lab8_cons_modified.tcl
+
+dc_shell> compile_ultra
+
+dc_shell> report_timing -sig 4 -nosplit -trans -cap -input_pins -from IN_A > t1.rpt
+
+dc_shell> sh gvim t1.rpt
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210045580-747424c7-e443-40a1-a09b-a74bb6010d5d.png" height = "450"></p>
+
+>	Setup!!!
+
+```
+dc_shell> report_timing -rise_from IN_A -sig 4 -transition_time -capacitance -input_pins > t2.rpt
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210046581-b54b086d-f7a9-4bd2-a39f-b1057cc2855a.png" height = "500"></p>
+
+```
+dc_shell> report_timing -rise_from IN_A -sig 4 -transition_time -capacitance -input_pins -to REGA_reg/D > t3.rpt
+
+dc_shell> sh gvim t1.rpt -O t3.rpt &
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210047453-12a60b99-b042-46fc-9c15-aab95d3045f1.png" height = "400"></p>
+
+
+**Hold Check**
+
+```
+dc_shell> report_timing -delay min -from  IN_A
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210048106-37258ed0-e36f-46bf-9e43-4bda33e0b34b.png" height = "350"></p>
+
+**Report timing through U15/Y**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210048228-8452fd36-2ca9-4bf3-b9ef-6055201dce80.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/210048385-4ff22735-7dd9-4eb1-9dd4-dba893aad9ee.png" height = "350"></p>
+
+>	delay U15 does not matter. It does not look at the contribution of the cell ❗ It look at the overall path delay ❗ Overall max path is 7.03 while overall min path is 4.07. Hence the report of the report timing.
+
+## DC_D5SK1_L3 - Lab Check_timing, Check_design, Set_max_capacitance, HFN
+
+<p align="center"><img src = "" height = "350"></p>
