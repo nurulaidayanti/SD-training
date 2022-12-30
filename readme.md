@@ -6055,7 +6055,56 @@ dc_shell> check_timing
 ```
 #set constraints
 
+dc_shell> set_max_delay -from [all_inputs] -to [all_outputs] 3.5
+1
+dc_shell> report_timing
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210057429-99136cb2-3481-4530-a116-7ef13b33edd7.png" height = "300"></p>
 
 ```
+dc_shell> set_max_capacitance 0.025 [current_design]
+Current design is 'mux_generate'.
+1
+
+dc_shell> report_constraint -all_violators
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210057842-2429806d-f205-45cc-b19e-35f0ec6533ad.png" height = "300"></p>
+
+```
+dc_shell> compile_ultra
+
+dc_shell> check_timing 
+Information: Updating design information... (UID-85)
+
+Information: Checking generated_clocks...
+
+Information: Checking loops...
+
+Information: Checking no_input_delay...
+
+Information: Checking unconstrained_endpoints...
+
+Information: Checking pulse_clock_cell_type...
+
+Information: Checking no_driving_cell...
+
+Information: Checking partial_input_delay...
+1
+
+dc_shell> report_constraints
+
+dc_shell> report_timing
+
+dc_shell> report_timing -net -cap -sig 4
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210058079-1f04cb1f-7674-4428-9da1-1ba75bd0b195.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/210058219-f67eece1-96c8-4df1-93fb-c2c51d3fe9ac.png" height = "500"><img src = "https://user-images.githubusercontent.com/118953932/210058649-4bbc91df-7235-41a9-aeb5-1f2b0cf4b74e.png" height = "500"></p>
+
+>	Optimized!! Max capacitance less than 25 fF and fanout got broken
+
+
+
 
 <p align="center"><img src = "" height = "300"></p>
