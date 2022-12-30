@@ -6149,5 +6149,18 @@ dc_shell> report_timing -from en -inp -nets -cap -sig 4
 
 >	enable driving 17 buffers and buffers drive the other buffers and so on
 
+```
+dc_shell> write -f ddc -out  en_128.ddc
+
+design_vision> read_ddc en_128.ddc
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210062899-24c96cf1-4e23-4700-9fd1-68792b73498c.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/210063442-0ba38b3d-63b7-4aa6-8dfd-585fa5c3a069.png" height = "350"></p>
+
+>	buffer driving only few bits of nets. few AND gates (selected bold white lines) single pin is not having burden of driving such a huge heavily loaded net
+
+**Note: set_max_cap is mainly for breaking or buffering the high fanout net ❗**
+
+
 
 <p align="center"><img src = "" height = "350"></p>
