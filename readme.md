@@ -6106,7 +6106,48 @@ dc_shell> report_timing -net -cap -sig 4
 
 >	So whenever we are doing synthesis we should limit the capacitance so that high fanout net are buffered properly ❗
 
+>	HFN = high fanout net
+
+**New design**
+
+```
+dc_shell> sh gvim en_128.v
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210059729-a3d7d368-962b-4d29-8bf8-e86fc864f735.png" height = "200"></p>
+
+```
+dc_shell> reset_design 
+
+dc_shell> read_verilog en_128.v
+
+dc_shell> link
+
+dc_shell> compile_ultra
+
+dc_shell> report_timing -from en -inp -nets -cap
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210060027-0020fad8-470f-415b-8ab6-01c3490b780d.png" height = "350"></p>
+
+```
+dc_shell> set_max_capacitance 0.03 [current_design]
+
+dc_shell> report_constraints
+
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210060370-e1799579-0c82-4410-9e25-a65f003ec4aa.png" height = "200"></p>
+
+```
+dc_shell> compile_ultra 
+
+dc_shell> report_timing -from en -inp -nets -cap -sig 4
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210060716-dfa7f383-5c13-41a7-b51e-ac525650966f.png" height = "350"></p>
+
+>	enable driving 17 buffers and buffers drive the other buffers and so on
 
 
-
-<p align="center"><img src = "" height = "300"></p>
+<p align="center"><img src = "" height = "350"></p>
