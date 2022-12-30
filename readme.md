@@ -5896,4 +5896,7 @@ Note: KNOW THE DIFFERENCE OF SLACK CALCULATION BETWEEEN THE TWO ❗
 
 **Max_Paths and Nworst**
 
-<p align="center"><img src = "" height = "350"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210041980-8cf44b64-a9c8-4aab-8cb8-4b1193888ae9.png" height = "350"></p>
+
+
+## DC_D5SK1_L2 - Lab Report timing
