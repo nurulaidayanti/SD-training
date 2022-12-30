@@ -6177,7 +6177,7 @@ dc_shell> report_constraints
 dc_shell> report_constraint -all_violators
 ```
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210064217-42881f4e-e78e-47f2-9103-94896c9214bd.png" height = 200"><img src = "https://user-images.githubusercontent.com/118953932/210064563-baf1dfd3-132a-4320-853d-f2d106327585.png" height = "350"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210064217-42881f4e-e78e-47f2-9103-94896c9214bd.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/210064563-baf1dfd3-132a-4320-853d-f2d106327585.png" height = "350"></p>
 
 >	dc will optimize the high cost
 	
@@ -6186,7 +6186,34 @@ dc_shell> report_constraint -all_violators
 ```
 dc_shell> compile_ultra
 	
+dc_shell> report_constraint -all_violators
+
+dc_shell> report_timing -inp -nets -cap -trans -sig 4 -nosplit
 
 ```
 
-<p align="center"><img src = "" height = "350"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210068625-c9acbaf0-9617-4e03-a03f-215340c8ad0c.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/210068798-e033d647-32db-465b-ad26-440bf0e82e9b.png" height = "300"></p> 
+
+>	transtion not violated anymore. nothing beyond 0.150. it splits the nets and upsize the buffer
+
+
+```
+dc_shell> report_timing -inp -nets -cap -trans -sig 4 -nosplit -from en -to y[116]
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210069098-a2e6c8b4-ca3b-45d1-bbd2-2d0416a707e5.png" height = "350"></p>
+
+>	broke the net and adjust the net such as the transition is not that bad. bad transition will resulted in bad delay
+
+**Note: set_max_transition can be use for breaking or buffering the high fanout net ❗ use it correctly**
+
+Conclusion:
+
+1.	**check_design** is to ensure that the quality of the design is proper. if the design is proper or not. if there are any missing things in the design
+2.	**check_timing** will ensure all the proper constraints are in place
+3.	**report_constraints** to check what are the constraints we are checking. if there is any violation, it will report
+4.	**set_max_capacitance** and **set_max_transition** will check if there are any high fanout net and broken and buffered properly so that there are no transition issues
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210071598-17c689f3-1428-4cad-96f2-3488252eb06c.png" height = "350"></p>
+
