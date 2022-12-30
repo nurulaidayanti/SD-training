@@ -5642,3 +5642,89 @@ design_vision> report_timing -from [all_inputs] -trans -cap -nosplit -sig 4
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/209970856-c2b92428-13c6-481d-87b8-a1c9bf62b415.png" height = "450"></p>
 
 ## DC_D4SK4_L3 - Lab20 - Isolating output ports
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210025171-60548d42-a1af-4f59-80d1-20808f8f950c.png" height = "250"></p>
+
+>	we dont want internal path to fail because of external load. hence, that's why we isolate the output port
+
+
+```
+design_vision> sh gvim check_boundary.v &
+23733
+
+#same as lab previous (boundary optimization)
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210025348-4579716c-8d87-4d50-aa87-2073deabcff4.png" height = "300"></p>
+
+```
+design_vision> read_verilog check_boundary.v
+
+design_vision> link
+
+design_vision> compile_ultra
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210025625-0e5ac602-65be-4314-aff0-e15daf43a3d7.png" height = "350"></p>
+
+>	it drives the output load as well as the internal logic. not good!!
+
+
+**Isolate Port**
+
+```
+design_vision> set_isolate_ports -type buffer [all_outputs]
+
+design_vision> compile_ultra
+```
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210026026-bf6f72a9-7385-4774-9228-5006b1c2a27a.png" height = "450"></p>
+
+>	the internal load are driven by the flop, outputs are driven by the buffer. Flop delay remain constant, only buffers see variation
+
+
+**Report Timing before isolate port (reg to IO path)**
+
+```
+#dc_shell
+
+reset_design
+read_verilog check_boundary.v
+link
+compile_ultra
+create_clock -per 5 -name myclk [get_ports clk]
+set_input_delay -max 2 [all_inputs] -clock myclk
+set_output_delay -max 2 [all_outputs] -clock myclk
+set_load -max 0.3 [all_outputs]
+report_timing -nosplit -inp -cap -trans -sig 4
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210026412-be8811f9-8666-4f2d-8140-c676d0c74305.png" height = "350"></p>
+
+**Report Timing before isolate portr (reg to reg path)**
+
+```
+dc_shell> report_timing -to val_out_reg[0]/D -inp -trans -nosplit -cap -sig 4
+```
+
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210026588-e64cd63a-285f-44a9-8296-b81fb54b3cc6.png" height = "350"></p>
+
+
+**Report Timing after isolate port (both paths)**
+
+```
+dc_shell> set_isolate_ports -type buffer [all_outputs]
+
+dc_shell> compile_ultra
+
+dc_shell> report_timing -nosplit -inp -cap -trans -sig 4
+
+dc_shell> report_timing -from val_out_reg[0]/CLK -to val_out_reg[0]/D -nosplit -inp -cap -trans -sig 4
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210026812-e5805897-9427-466e-a25f-279450769e47.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/210027164-fc6f4ddf-4c9b-43fa-9d61-0736714dad53.png" height = "350"></p>
+
+## DC_D4SK4_L4 - Lab21 - MultiCycle path
+
