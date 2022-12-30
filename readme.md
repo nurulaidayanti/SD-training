@@ -6102,7 +6102,9 @@ dc_shell> report_timing -net -cap -sig 4
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210058079-1f04cb1f-7674-4428-9da1-1ba75bd0b195.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/210058219-f67eece1-96c8-4df1-93fb-c2c51d3fe9ac.png" height = "500"><img src = "https://user-images.githubusercontent.com/118953932/210058649-4bbc91df-7235-41a9-aeb5-1f2b0cf4b74e.png" height = "500"></p>
 
->	Optimized!! Max capacitance less than 25 fF and fanout got broken
+>	Optimized!! Max capacitance less than 25 fF and fanout got split, nets got buffered
+
+>	So whenever we are doing synthesis we should limit the capacitance so that high fanout net are buffered properly ❗
 
 
 
