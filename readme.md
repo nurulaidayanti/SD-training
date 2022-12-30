@@ -5728,3 +5728,99 @@ dc_shell> report_timing -from val_out_reg[0]/CLK -to val_out_reg[0]/D -nosplit -
 
 ## DC_D4SK4_L4 - Lab21 - MultiCycle path
 
+```
+dc_shell> sh gvim mcp_check.v
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210028790-7957e953-2945-4afa-b38e-33e439e1dc79.png" height = "350"></p>
+
+```
+dc_shell> read_verilog mcp_check.v
+
+dc_shell> link
+
+dc_shell> compile_ultra
+
+dc_shell> sh gvim mcp_check_cons.tcl &  #reading the constraints written
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210028845-cc6475c9-1c0e-41cb-b212-1ba07f030299.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/210028994-6e6845e7-ffc2-4c64-933b-a369f4388f65.png" height = "300"></p>
+
+```
+dc_shell> source mcp_check_cons.tcl
+
+dc_shell> report_timing
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210029151-5aed5b64-bee2-462e-b303-a3568bd68d79.png" height = "350"></p>
+
+```
+dc_shell> compile_ultra
+
+dc_shell> report_timing
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210029286-043305fa-dac4-4662-8c30-c694a7698f98.png" height = "350"></p>
+
+>	from the design, input to prod_reg path can be 2 cycles delay because only when en_int coming
+
+
+```
+dc_shell> set_multicycle_path -setup 2 -to prod_reg[*]/D -from [all_inputs] 
+#have to put all_inputs
+```
+
+>	valid to prod_reg is a single cycle path. if did not put [all_inputs] it will mcp the valid to prod_reg path also (CRIMINAL MISTAKE!!)
+
+```
+dc_shell> report_timing -to prod_reg[*]/D -from valid_reg/CLK
+
+dc_shell> report_clock *
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210030206-258dd684-4810-4f44-a2b2-e95fb874b6a4.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/210030288-789b2e30-052f-4a12-9785-73937d67c191.png" height = "250"</p>
+
+**This is where MCP is applied**
+
+```
+dc_shell> report_timing -to prod_reg[*]/D -from [all_inputs]
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210030514-a191aaee-2d6b-46d7-a204-6f3cd1c5a93a.png" height = "400"></p>
+
+**Hold**
+
+```
+dc_shell> report_timing -delay min
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210030769-d5f278f2-7f91-4ffd-95b1-aed1db1bf147.png" height = "350"></p>
+
+>	need to apply hold MCP also
+
+**Apply MCP for hold**
+
+```
+dc_shell> set_multicycle_path -hold 1 -from [all_inputs] -to prod_reg[*]/D
+
+dc_shell> report_timing -delay min  -to prod_reg[*]/D -from [all_inputs]
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210030957-a11569d7-83a7-47ff-b8bd-1c2e1dd0c416.png" height = "350"></p>
+
+>	launch at zero capture at zero 🙂👍
+
+**Port isolated report timing**
+
+```
+#do the previous"s lab method to isolate the port
+
+dc_shell> report_timing -nosplit -inp -cap -trans -sig 4
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210031189-3ab31491-0a53-40a5-a66d-35381fa48014.png" height = "350"></p>
+
+>	if dont isolate then will get timing violation
+
+# Day-10
+## DC_D5SK1_L1 - Lecture Report timing
