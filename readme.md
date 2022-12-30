@@ -5961,4 +5961,101 @@ dc_shell> report_timing -delay min -from  IN_A
 
 ## DC_D5SK1_L3 - Lab Check_timing, Check_design, Set_max_capacitance, HFN
 
-<p align="center"><img src = "" height = "350"></p>
+```
+dc_shell> read_verilog lab8_circuit_modified.v
+
+dc_shell> link
+
+dc_shell> check_design
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210050969-baeb5568-006c-466e-8027-ddb3b70faa47.png" height = "150"></p>
+
+**Before sourcing constraints**
+
+```
+dc_shell> compile_ultra
+
+dc_shell> check_timing #check whether design is constraint properly or not
+
+dc_shell> report_constraints #default constraints loaded in the tool memory
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210051257-a1383495-105d-4eea-9206-83780b10bdc6.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/210051897-19ecd081-7d33-44fa-bc22-f845428bec46.png" height = "200"></p>
+
+**Sourcing constraints**
+
+```
+dc_shell> source lab8_cons_modified.tcl 
+
+dc_shell> check_timing
+
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210052179-e5164b77-d09e-4cb0-b66c-1d4dd24e5ce4.png" height = "300"></p>
+
+>	clk created that's why reg to reg path are constraints. input delay and output delay are also annotated. That two clock ports that are unconstraint are fine to leave as unconstraint.
+
+
+```
+dc_shell> report_timing
+
+dc_shell> report_constraints
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210053094-d219925a-3769-4a97-83b2-9283208e9a2f.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/210053189-79ae89f8-fe83-45e0-863c-e1d3d352b0b3.png" height = "200"></p>
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210053294-1d95f1be-baf2-4d79-b0ba-10384dcf99f6.png" height = "400"></p>
+
+**New Design**
+
+```
+dc_shell> reset_design
+
+dc_shell> sh gvim mux_generate.v 
+
+(inside gvim)
+:sp mux_generate_128_1.v
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210054734-32b6c74a-d792-4800-a5e3-4f28abd1fed5.png" height = "500"></p>
+
+```
+dc_shell> read_verilog mux_generate_128_1.v 
+
+dc_shell> link
+
+dc_shell> compile_ultra
+
+dc_shell> write -f verilog -out mux_generate_128_1_net.v
+
+dc_shell> sh gvim mux_generate_128_1_net.v &
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210054944-9cd43c65-6d37-4b35-b95b-22a6071fe57a.png" height = "220"><img src = "https://user-images.githubusercontent.com/118953932/210055453-78f4b281-bb97-4acf-9e11-3e565dce4159.png" height = "350"></p>
+
+```
+dc_shell> get_cells * -hier -filter "is_sequential == true"
+
+dc_shell> get_cells * -hier -filter "is_sequential == false"
+{U516 U517 U518 U519 U520 U521 U522 U523 U524 U525 U526 U527 U528 U529 U530 U531 U532 U533 U534 U535 U536 U537 U538 U539 U540 U541 U542 U543 U544 U545 U546 U547 U548 U549 U550 U551 U552 U553 U554 U555 U556 U557 U558 U559 U560 U561 U562 U563 U564 U565 U566 U567 U568 U569 U570 U571 U572 U573 U574 U575 U576 U577 U578 U579 U580 U581 U582 U583 U584 U585 U586 U587 U588 U589 U590 U591 U592 U593 U594 U595 U596 U597 U598 U599 U600 U601 U602 U603 U604 U605 U606 U607 U608 U609 U610 U611 U612 U613 U614 U615 ...}
+```
+
+>	it says it is a latch because we use "always"
+
+
+```
+dc_shell> report_timing -net -cap -sig 4
+
+dc_shell> check_timing
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210056158-61499240-b8ee-46d7-b963-4cc15d14ff16.png" height = "400"><img src = "https://user-images.githubusercontent.com/118953932/210056364-e349578f-ff6e-4d70-ac30-ae1cac67b436.png" height = "200"></p>
+
+```
+#set constraints
+
+
+```
+
+<p align="center"><img src = "" height = "300"></p>
