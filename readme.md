@@ -6161,6 +6161,32 @@ design_vision> read_ddc en_128.ddc
 
 **Note: set_max_cap is mainly for breaking or buffering the high fanout net ❗**
 
+**set_max_transition**
 
+```
+dc_shell> report_timing -from en  -nets -cap -sig 4 -trans
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210064023-8f8717d0-0d26-4857-8c90-c9d7226e868e.png" height = "350"></p>
+
+```
+dc_shell> set_max_transition 0.150 [current_design]
+
+dc_shell> report_constraints
+
+dc_shell> report_constraint -all_violators
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210064217-42881f4e-e78e-47f2-9103-94896c9214bd.png" height = 200"><img src = "https://user-images.githubusercontent.com/118953932/210064563-baf1dfd3-132a-4320-853d-f2d106327585.png" height = "350"></p>
+
+>	dc will optimize the high cost
+	
+
+	
+```
+dc_shell> compile_ultra
+	
+
+```
 
 <p align="center"><img src = "" height = "350"></p>
