@@ -6217,3 +6217,27 @@ Conclusion:
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210071598-17c689f3-1428-4cad-96f2-3488252eb06c.png" height = "350"></p>
 
+**What is QTM and ETM?**
+
+Timing Models
+
+**ETM** = Extracted Timing Models .lib format for cell-based reusable IP and physical design flow
+
+-	an abstraction of the block using sequential and
+combinational timing arcs. NLDM lookup tables are extracted for each of the timing arcs whose
+delay is a function of input transitions and output loads, which makes the **ETM usable with
+different input transition times and different output loads**.
+Using ETMs to abstract the timing model of a complex block or IP hides the detailed design
+implementation information. This usage model is ideal for IP providers.
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210073020-b2a24e4a-a227-4b1d-b6c1-97333355442a.png" height = "200"></p>
+
+<p align="center">source from Mantra VLSI</p>
+
+**QTM** = Quick Timing Models for top-down design
+
+-	In the early stages of the design cycle, if a block does not yet have a netlist, you can use a **quick
+timing model** to describe its initial timing. Later in the cycle, you can **replace each quick timing
+model with a netlist block** to obtain more accurate timing.
+
+
