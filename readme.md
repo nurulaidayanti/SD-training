@@ -6295,6 +6295,31 @@ model with a netlist block** to obtain more accurate timing.
 
 <details><summary>SoC Design Flow</summary>
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210316546-296d70eb-ae95-48c4-8899-6ae80585e891.png" height = "400"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210319070-e06a5a96-e768-463c-b078-b1f153bfbad5.png" height = "400"></p>
+		
+</details>
+
+<details><summary>How Are Microchips Made</summary>
+	
+
 	
 </details>
+
+<details><summary>Introduction To BabySoC</summary>
+	
+	
+	
+</details>
+
+<details><summary>BabySoC Components</summary>
+	
+	
+	
+</details>
+
+<details><summary>Introduction To Modelling</summary>
+	
+	
+	
+</details>
+
