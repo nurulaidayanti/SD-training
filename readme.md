@@ -6301,7 +6301,39 @@ model with a netlist block** to obtain more accurate timing.
 
 <details><summary>How Are Microchips Made</summary>
 	
-
+1.	It is made out of silicon (silicon rich sand) because silicon is a semiconductor (between insulator and pure conductor). Its properties such as its conductivity can be altered by adding impurities or doping to meet the needs of different electronic devices which also allows us to control electrical signals that pass through
+	
+2.	Silicon is also abundant (common elements found on earth). But, mostly, silicon found is bound to oxygen. Hence, they must be seperated by combining the sand with carbon to produce carbon monoxide and 99% pure silicon
+	
+3.	Ultra pure silicon is produced after futher processing
+	
+4.	Seed crystal is placed in contact with molten silicon. Seed crystal is pulled away and silicon atoms are deposited on the bottom surface. The result is a large cylindrical boule or a single crystal ingot of pure silicon
+	
+5.	Boule is then thinly sliced into wafers (bigger wafers able to yield more microchips)
+	
+6.	Microchips are made in extremely sterile conditions free from contaminants such as dust
+	
+7.	First step: Deposition
+	
+	-	a thin non-conducting layer of silicon dioxide is grown or deposited on the surface of the wafer
+	
+8.	Silicon wafer went through **Litography**:
+	
+	-	coats with photosensitive and light resistance materials
+	
+9.	Critical step: Exposure
+	
+	-	exposed to UV light passed through a reticle containing the chip's blueprint (the area exposed are harden while unexposed are etched away by hot gases to leave a 3D microchip)
+	
+>	Note: the electrical conductivity of different part of the chipcan also be altered by doping them with chemicals under heat and pressure
+	
+10.	To create a conducting paths between the components, a thin layer of metal such as aluminium is overlaid onto the chip (etching process is used to remove everything except the thin conducting pathways)
+	
+11.	Severals layers of conductors seperated by glass insulators can be laid down
+	
+12.	Each of the wafers is tested for performance before seperated from other chips on the wafer by a saw
+	
+>	Note: Microchips have a basic set of components such as **capacitors** (temporarily store an electrical charge), **resistors** (control the electrical current), **transistors** (can either amplify or switch the electrical signals passing through)
 	
 </details>
 
