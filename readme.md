@@ -6307,7 +6307,11 @@ model with a netlist block** to obtain more accurate timing.
 
 <details><summary>Introduction To BabySoC</summary>
 	
--	smallest SoC in VLSI Industry	
+-	small mixed-signal SoC
+	
+-	based on RVMYTH (a RISCV-based processor)
+	
+-	will leverage a PLL as its clock generator and controller and a 10-bit DAC
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210322480-9909e3fe-337e-49be-870e-d774a8b91fa7.png" height = "350"></p>
 
