@@ -6321,13 +6321,39 @@ model with a netlist block** to obtain more accurate timing.
 
 <details><summary>BabySoC Components</summary>
 	
+-	**RVMYTH**: **RVMYTH** core is a simple **RISCV-based CPU**
+	-	**RISC-V** is  an instruction set architecture (ISA) rooted in reduced instruction set computer (RISC) principles
+	-	Reason why based on **RISC-V** : 
+		-	it simplifies the instructions given to the processor to accomplish tasks and provides the flexibility to create thousands of possible custom processors (enables companies to get their designs to market faster)
+		-	it is a common, free, open-source ISA to which software can be ported, hardware can be developed, and processors can be built to support it
 	
+>	Instruction Set Architecture (ISA) is basically the portion of the machine that is visible to the assembly level programmer or the compiler writer. ISA is where software meets hardware. ISA defines the commands/ instructions that can natively be understood by a machine and its micro-architecture, and it also defines how the instructions are to be stored, accessed, and implemented
+	
+-	PLL (Phase Locked Loop) 
+	-	a control system that generates an output signal whose phase is related to the phase of an input signal. 
+	-	widely used for synchronization purposes, including clock generation and distribution
+	-	used for clock retiming and recovery, as a frequency synthesizer, and as a tunable oscillator
+	-	generally used in multimedia, communication and in many other applications
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210328722-8144692a-d20c-4b8d-9b83-a747d4d3ff27.png" height = "250"></p>
+
+<p align="center">Credit: DigiKey</p>
+	
+-	DAC: (Digital-to-Analog Converter) a system that converts a digital signal (consists of a number of binary inputs) into an analog signal (single output such as voltage or current) which they are widely used in modern communication systems enabling the generation of digitally-defined transmission signals
+
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210332915-fe97ee46-b42b-4dd8-84b7-854a8d716c77.png" height = "250"></p>
+
+<p align="center">Credit: electricaltechnology</p>
 	
 </details>
 
 <details><summary>Introduction To Modelling</summary>
 	
-	
+-	Some initial input signals will be fed into BabySoC module that make the pll start generating the proper CLK for the circuit
+-	The clock signal will make the rvmyth to execute instructions in its imem. As a result, the register r17 will be filled with some values cycle by cycle 
+-	These values are used by dac core to provide the final output signal named OUT
+-	So, we have got3 main elements (IPcores) and a wrapper as an SoC and of-course there would be also a test bench module out there	
 	
 </details>
 
