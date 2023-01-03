@@ -6289,7 +6289,21 @@ model with a netlist block** to obtain more accurate timing.
 	
 -	Functional components: Processor Cores, Memory, Interfaces, Digital Signal Processor and others
 	
+	-	Processor Cores: usually SoC contains at least one or more than one coprocessor. It can be a microcontroller, microprocessor, or DSP. Most of the time DSP is used in every SoC as a processor
+	
+	-	Memory: for the purpose of storage. May be a volatile or non-volatile memory. Volatile memory includes RAM there are two types of RAM one is SRAM and another is DRAM. The non-volatile memory includes ROM
+	
+	-	DSP: to perform signal processing operations such as data collection, data processing, etc. it is also used for the purpose of decoding the images
+	
+	-	Peripheral devices: externally connected devices/interfaces such as USB, HDMI, Wi-Fi, and Bluetooth are included in peripheral devices
+	
+	-	UART: Universal Asynchronous Receiver Transmitter is included in SoC which is used to transmit or receive serial data
+	
 -	Intermodule communications: Bus-Based Communication, Network on a chip
+	
+	-	Bus-based communication: communicating between components in a system-on-a-chip (SoC) design
+	
+	-	Network on a chip: a router-based packet switching network between SoC modules
 
 </details>
 
