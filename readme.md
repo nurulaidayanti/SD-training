@@ -6307,7 +6307,11 @@ model with a netlist block** to obtain more accurate timing.
 
 <details><summary>Introduction To BabySoC</summary>
 	
+-	smallest SoC in VLSI Industry	
 	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210322480-9909e3fe-337e-49be-870e-d774a8b91fa7.png" height = "350"></p>
+
+<p align="center">Credit: VLSI System Design (from lecture)</p>
 	
 </details>
 
