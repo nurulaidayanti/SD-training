@@ -6240,4 +6240,61 @@ implementation information. This usage model is ideal for IP providers.
 timing model** to describe its initial timing. Later in the cycle, you can **replace each quick timing
 model with a netlist block** to obtain more accurate timing.
 
+# Day-11
+## Introduction to BabySoC
 
+<details><summary>What and Why SoC</summary>
+
+-	SoC or system-on-chip is an integrated circuit or IC that combines many elements of a computer system (integrates all the components) into a single chip
+	
+-	it is a single die chip that has some different IP core on it. these IP's could vary from digital to analog
+	
+-	The design usually includes CPU (central unit processing), system memory, I/O ports, secondary storage devices and peripheral interfaces
+	
+-	It can also consists of a digital or analog signal processing system or a floating-point unit (depends upon the requirement)
+	
+-	PPA = increased performance, reduced power comsuption and smaller semiconductor die area
+	
+-	The use of SoC makes computers smaller, faster, cheaper and less power consumption.	
+		
+</details>
+
+<details><summary>Typical Structure of a snapdragon SoC</summary>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210313923-0ca4b4bc-5b94-4d08-8717-f5b1fd5ee8ae.png" height = "350"></p>
+	
+<p align="center">Taken from Lecture's Note</p>
+	
+</details>
+
+<details><summary>Types of SoC</summary>
+	
+-	built around a microcontroller
+	
+-	built around a microprocessor (often found in phones)
+	
+-	designed for specific applications (speacialized application-specified integrated circuit SoCs)
+	
+	-	 examples: IoT, Industrial IoT, and Artificial Intelligence (AI)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210314620-8211bd61-1eb9-423a-b528-5e615e927a14.png" height = "400"></p>	
+
+<p align="center">Credit: Wikipedia</p>
+	
+</details>	
+	
+<details><summary>SoC Structure</summary>	
+	
+-	consists of hardware functional units, icluding microprocessors that run software code, as well as a communications subsystem to connect, control, direct and interface between these functional modules
+	
+-	Functional components: Processor Cores, Memory, Interfaces, Digital Signal Processor and others
+	
+-	Intermodule communications: Bus-Based Communication, Network on a chip
+
+</details>
+
+<details><summary>SoC Design Flow</summary>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210316546-296d70eb-ae95-48c4-8899-6ae80585e891.png" height = "400"></p>
+	
+</details>
