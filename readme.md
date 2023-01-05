@@ -6406,6 +6406,30 @@ model with a netlist block** to obtain more accurate timing.
 # Day-12
 ## VSDBabySoC Modelling
 
+For modelling RVMYTH (RISC-V)
+
+```
+git clone https://github.com/kunalg123/rvmyth/
+
+cd rvmyth
+
+csh
+
+vcs mythcore_test.v tb_mythcore_test.v #need to debug first
+
+./simv
+
+dve  -full64 &
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210694741-6ab4335f-0f19-4e15-891d-431d3da82f07.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/210694926-438c2a27-2cc7-408d-8153-005bcbd7126a.png" height = "300"></p>
+
+For modelling DAC
+
+```
+
+```
+
 | Debug Mode | Description |
 | --- | --- |
 | debug_access | Enables dumping to FSDB/VPD, and limited read/callback capability |
