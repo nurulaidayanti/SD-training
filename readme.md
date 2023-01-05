@@ -6406,6 +6406,87 @@ model with a netlist block** to obtain more accurate timing.
 # Day-12
 ## VSDBabySoC Modelling
 
+<details><summary>What does modelling mean?</summary>
+
+-	Modeling and simulation is the use of a physical or logical representation of a given system to generate data and help determine decisions or make predictions about the system.
+	
+-	Models can aid in defining, analyzing, and communicating a set of concepts
+	
+-	Purpose of modelling:
+	
+	-	support analysis, specification
+	
+	-	design
+	
+	-	verification
+	
+	-	validation of a system
+	
+	-	communicate certain information
+	
+	
+</details>
+
+<details><summary>What we modelling?</summary>
+	
+M&S **VSDBabySoC**:	
+	
+1.	initial input signals will be fed into vsdbabysoc module
+	
+2.	which will get the pll start generating the proper CLK for the circuit
+	
+3.	clock signal will make the rvmyth to execute instructions and some values are generated, these values are used by DAC core to provide the final output signal named OUT
+
+3 main elements (IP cores) and a wrapper as an SoC (there would be also a testbench module):
+
+-	RVMYTH modelling
+-	PLL modelling
+-	DAC modelling 
+	
+</details>
+
+<details><summary>RVMYTH - Risc-V based MYTH (Microprocessor for You in Thirty Hours)</summary>
+	
+-	RISC stands for Reduced instruction set computer 
+	
+-	RISC-V (pronounced “risk-five”) ISA is defined as a base integer ISA, which must be present in any implementation, plus optional extensions to the base ISA
+	
+-	Each base integer instruction set is characterized by the width of the integer registers and the corresponding size of the address space and by the number of integer registers. There are two primary base integer variants, RV32I and RV64
+	
+</details>
+
+<details><summary>Phase Locked Loop</summary>
+
+-	an electronic circuit with a voltage or voltage-driven oscillator that constantlyadjusts to match the frequency of an input signal
+	
+-	used to generate, stabilize, modulate, demodulate etc
+	
+</details>
+
+<details><summary>Digital-to-Analog Converter</summary>
+	
+-	converts a digital input signal into an analog output signal
+	
+-	digital signal = binary code (combination of bits 0 and 1)
+	
+-	consists of a number of binary inputs and a single output
+	
+-	In general, the number of binary inputs of a DAC will be a power of two
+	
+-	There are two types of DACs :
+	
+	-	Weighted Resistor DAC
+	
+		-	produces an analog output (digital (binary) input by using binary weighted resistors in the inverting adder circuit) 
+	
+	-	R-2R Ladder DAC
+	
+		-	overcomes the disadvantages of a binary weighted resistor DAC
+	
+		-	produces an analog output, which is almost equal to the digital (binary) input by using a R-2R ladder network in the inverting adder circuit
+	
+</details>
+
 **For modelling RVMYTH (RISC-V)**
 
 ```
