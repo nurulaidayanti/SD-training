@@ -6403,3 +6403,15 @@ model with a netlist block** to obtain more accurate timing.
 	
 </details>
 
+# Day-12
+## VSDBabySoC Modelling
+
+| Debug Mode | Description |
+| --- | --- |
+| debug_access | Enables dumping to FSDB/VPD, and limited read/callback capability |
+| debug_access+class | testbench debug |
+| debug_access+all | for all debug capabilities |
+| debug_region | region control |
+| debug_pp | enables dumping to FSDB/VPD, and use of UCLI, VERDI and DVE |
+| debug | same as debug_pp but also includes 'force' capability |
+| debug_all | enables all debug and dumping capability |
