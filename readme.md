@@ -6406,7 +6406,7 @@ model with a netlist block** to obtain more accurate timing.
 # Day-12
 ## VSDBabySoC Modelling
 
-For modelling RVMYTH (RISC-V)
+**For modelling RVMYTH (RISC-V)**
 
 ```
 git clone https://github.com/kunalg123/rvmyth/
@@ -6424,7 +6424,7 @@ dve  -full64 &
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210694741-6ab4335f-0f19-4e15-891d-431d3da82f07.png" height = "400"><img src = "https://user-images.githubusercontent.com/118953932/210694926-438c2a27-2cc7-408d-8153-005bcbd7126a.png" height = "300"></p>
 
-For modelling DAC
+**For modelling DAC**
 
 ```
 git clone https://github.com/vsdip/rvmyth_avsdpll_interface
@@ -6441,7 +6441,7 @@ dve  -full64 &
 ```
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210722791-f05e4026-72d1-423f-8994-9da7cd80f9d2.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210722577-122aa0fd-dea8-4a3d-83ca-28c1e30f0dfd.png" height = "300"></p>
 
-For modelling PLL
+**For modelling PLL**
 
 ```
 cd verilog #/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/rvmyth_avsdpll_interface/verilog
@@ -6457,9 +6457,39 @@ dve  -full64 &
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210726134-831016ca-e2bf-457d-bc18-daa73da9a8e4.png" height = "300"></p>
 
-Interactive mode (debug mode)
+**Interactive mode (debug mode)**
 
-Interface Blocks Together
+```
+#mythcore_test
+
+cd rvmyth
+
+csh 
+
+vcs -lca -debug_access+all mythcore_test.v tb_mythcore_test.v
+
+./simv
+
+dve -full64 &
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210748098-be7f7cc1-d1aa-490a-a223-6e97e843aebf.png" height = "450"></p>
+
+```
+#pll
+
+cd verilog
+
+csh 
+
+vcs -lca -debug_access+all avsd_pll_1v8.v pll_tb.v
+
+./simv
+
+dve -full64 &
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210760777-cfd24045-9c1f-4e14-8fd4-c3833e1b4c07.png" height = "450"></p>
+
+**Interface Blocks Together**
 
 ```
 #risc_v and pll
