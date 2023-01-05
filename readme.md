@@ -6422,13 +6422,75 @@ vcs mythcore_test.v tb_mythcore_test.v #need to debug first
 dve  -full64 &
 ```
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210694741-6ab4335f-0f19-4e15-891d-431d3da82f07.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/210694926-438c2a27-2cc7-408d-8153-005bcbd7126a.png" height = "300"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210694741-6ab4335f-0f19-4e15-891d-431d3da82f07.png" height = "400"><img src = "https://user-images.githubusercontent.com/118953932/210694926-438c2a27-2cc7-408d-8153-005bcbd7126a.png" height = "300"></p>
 
 For modelling DAC
 
 ```
+git clone https://github.com/vsdip/rvmyth_avsdpll_interface
+
+cd Pre Synthesis #pwd = /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/rvmyth_avsddac_interface/iverilog/Pre-synthesis 
+
+csh 
+
+vcs -sverilog avsddac.v avsddac_tb_test.v #need to debug first
+
+./simv
+
+dve  -full64 &
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210722791-f05e4026-72d1-423f-8994-9da7cd80f9d2.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210722577-122aa0fd-dea8-4a3d-83ca-28c1e30f0dfd.png" height = "300"></p>
+
+For modelling PLL
 
 ```
+cd verilog #/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/rvmyth_avsdpll_interface/verilog
+
+csh
+
+vcs avsd_pll_1v8.v pll_tb.v #need to debug first
+
+./simv
+
+dve  -full64 &
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210726134-831016ca-e2bf-457d-bc18-daa73da9a8e4.png" height = "300"></p>
+
+Interactive mode (debug mode)
+
+Interface Blocks Together
+
+```
+#risc_v and pll
+
+cd verilog #/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/rvmyth_avsdpll_interface/verilog
+
+csh
+
+vcs -sverilog rvmyth_pll.v rvmyth_pll_tb.v #need to debug first
+
+./simv
+
+dve  -full64 &
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210734266-4b8a048f-895d-4bd1-828f-0621abd49ad5.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210734026-8a7c9f72-e7db-42fa-a0e3-25564a02a7f0.png" height = "450"></p>
+
+```
+#DAC and RVMYTH
+
+cd Pre-synthesis #/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/rvmyth_avsddac_interface/iverilog/Pre-synthesis 
+
+csh
+
+vcs -sverilog rvmyth_avsddac.v rvmyth_avsddac_TB.v #need to debug first
+
+./simv
+
+dve  -full64 &
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210731566-f027ab69-3226-4c40-af9c-e35cd5f73fa6.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210731421-f25e62d4-e214-4c7b-bfc4-9814debacb2f.png" height = "450"></p>
 
 | Debug Mode | Description |
 | --- | --- |
