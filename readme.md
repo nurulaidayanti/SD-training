@@ -6622,4 +6622,4 @@ vcs -sverilog vsdbabysoc.v testbench.v #need to debug first
 dve  -full64 &
 ```
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210907337-8e8e80a5-8093-434d-beae-db3f4b31ee9c.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210907449-b09f5f88-4d2c-4543-99b6-3a8a02e15791.png" height = "450"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210907337-8e8e80a5-8093-434d-beae-db3f4b31ee9c.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210916145-aae0de4c-23ad-45b5-8729-94b38d4532a9.png" height = "450"></p>
