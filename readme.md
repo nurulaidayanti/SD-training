@@ -6603,7 +6603,7 @@ Expected:
 
 Result:
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210913307-82bee9f9-b1d6-4697-8a15-be594ae43566.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210913015-7bea9c25-dc86-4a3f-b966-1d059723689b.png" height = "450"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210931164-03ccdda9-7ca8-4c5a-a864-7dda313a0f74.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210913015-7bea9c25-dc86-4a3f-b966-1d059723689b.png" height = "450"></p>
 
 >	the waveform obtained is same as predicted/expected
 
