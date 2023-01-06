@@ -6520,7 +6520,7 @@ vcs -sverilog avsddac.v avsddac_tb_test.v #need to debug first
 
 dve  -full64 &
 ```
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210722791-f05e4026-72d1-423f-8994-9da7cd80f9d2.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210722577-122aa0fd-dea8-4a3d-83ca-28c1e30f0dfd.png" height = "300"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210907990-e69c8b34-f728-4fec-9b8d-f6a18a4294c2.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210722577-122aa0fd-dea8-4a3d-83ca-28c1e30f0dfd.png" height = "300"></p>
 
 **For modelling PLL**
 
@@ -6536,39 +6536,8 @@ vcs avsd_pll_1v8.v pll_tb.v #need to debug first
 dve  -full64 &
 ```
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210726134-831016ca-e2bf-457d-bc18-daa73da9a8e4.png" height = "300"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210907786-92f1f1d3-6f77-46d1-a778-2fd8514dec48.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210726134-831016ca-e2bf-457d-bc18-daa73da9a8e4.png" height = "300"></p>
 
-**Interactive mode (debug mode)**
-
-```
-#mythcore_test
-
-cd rvmyth
-
-csh 
-
-vcs -lca -debug_access+all mythcore_test.v tb_mythcore_test.v
-
-./simv
-
-dve -full64 &
-```
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210748098-be7f7cc1-d1aa-490a-a223-6e97e843aebf.png" height = "450"></p>
-
-```
-#pll
-
-cd verilog
-
-csh 
-
-vcs -lca -debug_access+all avsd_pll_1v8.v pll_tb.v
-
-./simv
-
-dve -full64 &
-```
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210760777-cfd24045-9c1f-4e14-8fd4-c3833e1b4c07.png" height = "450"></p>
 
 **Interface Blocks Together**
 
@@ -6603,6 +6572,25 @@ dve  -full64 &
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210731566-f027ab69-3226-4c40-af9c-e35cd5f73fa6.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210731421-f25e62d4-e214-4c7b-bfc4-9814debacb2f.png" height = "450"></p>
 
+**VSDBabySoC**
+
+```
+cd rvmyth #/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth 
+# make sure to copy the files needed in the directory
+
+csh
+
+vcs -sverilog vsdbabysoc.v testbench.v #need to debug first
+
+./simv
+
+dve  -full64 &
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210907337-8e8e80a5-8093-434d-beae-db3f4b31ee9c.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210907449-b09f5f88-4d2c-4543-99b6-3a8a02e15791.png" height = "450"></p>
+
+**Differences between all the modes in interactive mode**
+
 | Debug Mode | Description |
 | --- | --- |
 | debug_access | Enables dumping to FSDB/VPD, and limited read/callback capability |
@@ -6612,3 +6600,5 @@ dve  -full64 &
 | debug_pp | enables dumping to FSDB/VPD, and use of UCLI, VERDI and DVE |
 | debug | same as debug_pp but also includes 'force' capability |
 | debug_all | enables all debug and dumping capability |
+
+
