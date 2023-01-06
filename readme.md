@@ -6602,3 +6602,23 @@ dve  -full64 &
 | debug_all | enables all debug and dumping capability |
 
 
+**4x1 Mux**
+
+```
+cd new #/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/new
+
+vcs -sverilog mux_generate.v tb_mux_generate.v
+
+./simv
+
+dve -full64
+```
+Expected:
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210914097-0eb79c4a-00da-4abb-8247-d0cf42c09e17.png" height = "250"></p>
+
+Result:
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210913307-82bee9f9-b1d6-4697-8a15-be594ae43566.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210913015-7bea9c25-dc86-4a3f-b966-1d059723689b.png" height = "450"></p>
+
+>	the waveform obtained is same as predicted/expected
