@@ -6572,22 +6572,6 @@ dve  -full64 &
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210731566-f027ab69-3226-4c40-af9c-e35cd5f73fa6.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210731421-f25e62d4-e214-4c7b-bfc4-9814debacb2f.png" height = "450"></p>
 
-**VSDBabySoC**
-
-```
-cd rvmyth #/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth 
-# make sure to copy the files needed in the directory
-
-csh
-
-vcs -sverilog vsdbabysoc.v testbench.v #need to debug first
-
-./simv
-
-dve  -full64 &
-```
-
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210907337-8e8e80a5-8093-434d-beae-db3f4b31ee9c.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210907449-b09f5f88-4d2c-4543-99b6-3a8a02e15791.png" height = "450"></p>
 
 **Differences between all the modes in interactive mode**
 
@@ -6622,3 +6606,20 @@ Result:
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210913307-82bee9f9-b1d6-4697-8a15-be594ae43566.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210913015-7bea9c25-dc86-4a3f-b966-1d059723689b.png" height = "450"></p>
 
 >	the waveform obtained is same as predicted/expected
+
+**VSDBabySoC**
+
+```
+cd rvmyth #/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth 
+# make sure to copy the files needed in the directory
+
+csh
+
+vcs -sverilog vsdbabysoc.v testbench.v #need to debug first
+
+./simv
+
+dve  -full64 &
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210907337-8e8e80a5-8093-434d-beae-db3f4b31ee9c.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210907449-b09f5f88-4d2c-4543-99b6-3a8a02e15791.png" height = "450"></p>
