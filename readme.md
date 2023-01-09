@@ -6627,6 +6627,45 @@ dve  -full64 &
 # Day-13
 ## Post Synthesis Simulation
 
+<details><summary>Theory 📝</summary>
+
+**What did we do in pre-synthesis?**
+	
+>	modelled and simulated the IP cores in VSDBabySoC(for checking its functionality) 
+	
+
+**Synthesizable and non-synthesizable constructs in verilog**
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211314710-3dbb812a-820e-48f1-8771-ada46022e992.png" height = "450"></p>
+	
+**Why do pre-synthesis? Why not just do post-synthesis?**
+	
+-	Pre-synthesis simulation is done according to the logic you have designed for and written -> only functionality.
+	
+-	Post synthesis simulation / ‘gate level simulation’ is done after synthesisconsidering each and every gate delays into account. reports the violations in both functionality and timing. 
+	
+-	This also show’s the mismatches we are likely to get due to wrong usage of operators and inference of latches.
+	
+-	For ex: using ‘X’(simulator terms/ synthesizer terms) - ‘Unknown’/“Don’t care”.
+	
+**GLS: a brief introduction**
+	
+-	The term "gate level" refers to the netlist view of a circuit, usually produced by logic synthesis.
+	
+-	So while RTL simulation is pre-synthesis, GLS is post-synthesis. 
+	
+-	The netlist view is a complete connection list consisting of gates and IP models with full functional and timing behavior. 
+	
+-	RTL simulation is a zero delay environment and events generally occur on the active clock edge. GLS can be zero delay also, but is more often used in unit delay or full timing mode. 
+	
+>	Gate level simulation is used to boost the confidence regarding implementation of a design and can help verify dynamic circuit behaviour, which cannot be verified accurately by static methods. It is a significant step in the verification process.
+	
+**What are we going to synthesize the netlist with?**
+	
+Design Compiler® (dc_shell) RTL synthesis solution enables users to meet today's design challenges with concurrent optimization of timing, area, power and test.
+	
+</details>
+
 **Invoke lc_shell**
 ```
 #create new VNC
