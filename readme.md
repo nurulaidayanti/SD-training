@@ -6701,6 +6701,21 @@ lc_shell> write_lib avsdpll -format db -output avsdpll.db #move to png
 ```
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211263499-11dfde38-f209-45a9-a9b1-1ef80ab4e8fc.png" height = "500"></p>
 	
+**Synthsize using DC**
+	
+```
+dc_shell> set target_library {/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/rvmyth_avsddac_interface/LIB/avsddac.db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/rvmyth_avsddac_interface/LIB/sky130_fd_sc_hd__tt_025C_1v80.db}
 
+
+dc_shell> set link_library {* /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/rvmyth_avsddac_interface/LIB/avsddac.db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/rvmyth_avsddac_interface/LIB/sky130_fd_sc_hd__tt_025C_1v80.db}
+
+dc_shell> read_verilog avsddac.v #need to debug
+	
+dc_shell> read_db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/rvmyth_avsddac_interface/LIB/avsddac.db
+
+dc_shell> compile
+	
+dc_shell> write -f verilog -out avsddac_net.v
+```
 	
 </details>
