@@ -6627,7 +6627,7 @@ dve  -full64 &
 # Day-13
 ## Post Synthesis Simulation
 
-<details><summary>Theory 📝</summary>
+<details><summary>Theory 📝🤔</summary>
 
 **What did we do in pre-synthesis?**
 	
@@ -6666,6 +6666,8 @@ Design Compiler® (dc_shell) RTL synthesis solution enables users to meet today'
 	
 </details>
 
+<details><summary>Lab 💻🖱️</summary>
+
 **Invoke lc_shell**
 ```
 #create new VNC
@@ -6698,3 +6700,5 @@ lc_shell> read_lib avsdpll.lib #make sure in same directory or can use read_lib 
 lc_shell> write_lib avsdpll -format db -output avsdpll.db
 ```
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211263499-11dfde38-f209-45a9-a9b1-1ef80ab4e8fc.png" height = "500"></p>
+	
+</details>
