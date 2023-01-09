@@ -6717,5 +6717,8 @@ dc_shell> compile
 	
 dc_shell> write -f verilog -out avsddac_net.v
 ```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211335922-883e060e-713d-4560-8aee-50c96a427ac2.png" height = "400"></p>
+	
+**Synthesis the code**
 	
 </details>
