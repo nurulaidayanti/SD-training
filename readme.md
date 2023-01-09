@@ -6623,3 +6623,39 @@ dve  -full64 &
 ```
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/210907337-8e8e80a5-8093-434d-beae-db3f4b31ee9c.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/210916145-aae0de4c-23ad-45b5-8729-94b38d4532a9.png" height = "450"></p>
+
+# Day-13
+## Post Synthesis Simulation
+
+**Invoke lc_shell**
+```
+#create new VNC
+
+cd /nfs/site/disks/zsc11_mip_xmphy_0021/users/nurul
+
+git config --global http.proxy  http://proxy-dmz.intel.com:912
+
+git clone https://github.com/manili/VSDBabySoC
+
+#source UE setup
+
+lc_shell
+```
+
+**Convert .lib to .db (avsddac)**
+```
+lc_shell> read_lib avsddac.lib #make sure in same directory or can use read_lib /nfs/site/disks/zsc11_mip_xmphy_0021/users/nurul/VSDBabySoC/src/lib/avsddac.lib
+
+lc_shell> write_lib avsddac -format db -output avsddac.db
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211263965-a1d01b21-b8b6-49b0-856e-2714fb7c6032.png" height = "500"></p>
+
+**Convert .lib to .db (avsdpll)**
+```
+#debug avsdpll.lib first
+
+lc_shell> read_lib avsdpll.lib #make sure in same directory or can use read_lib /nfs/site/disks/zsc11_mip_xmphy_0021/users/nurul/VSDBabySoC/src/lib/avsdpll.lib
+
+lc_shell> write_lib avsdpll -format db -output avsdpll.db
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211263499-11dfde38-f209-45a9-a9b1-1ef80ab4e8fc.png" height = "500"></p>
