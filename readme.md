@@ -6704,20 +6704,24 @@ lc_shell> write_lib avsdpll -format db -output avsdpll.db #move to png
 **Synthsize using DC**
 	
 ```
-dc_shell> set target_library {/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/rvmyth_avsddac_interface/LIB/avsddac.db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/rvmyth_avsddac_interface/LIB/sky130_fd_sc_hd__tt_025C_1v80.db}
+dc_shell> set target_library {/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/avsddac.db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/sky130_fd_sc_hd__tt_025C_1v80.db}
 
 
-dc_shell> set link_library {* /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/rvmyth_avsddac_interface/LIB/avsddac.db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/rvmyth_avsddac_interface/LIB/sky130_fd_sc_hd__tt_025C_1v80.db}
-
-dc_shell> read_verilog avsddac.v #need to debug
+dc_shell> set link_library {* /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/avsddac.db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/sky130_fd_sc_hd__tt_025C_1v80.db}
 	
-dc_shell> read_db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/rvmyth_avsddac_interface/LIB/avsddac.db
+
+dc_shell> read_verilog rvmyth_avsddac.v #need to debug avsddac and rvmyth_avsddac
+	
+dc_shell> read_file {rvmyth_avsddac.v avsddac.v mythcore_test.v clk_gate.v} -autoread -format verilog -top rvmyth_avsddac #to set rvmyth_avsddac as top module
+
+dc_shell> current_design #check if rvmyth_avsddac is the top module (previous is clk_gate)
+
 
 dc_shell> compile
 	
 dc_shell> write -f verilog -out avsddac_net.v
 ```
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211335922-883e060e-713d-4560-8aee-50c96a427ac2.png" height = "400"></p>
+<p align="center"><img src = "" height = "400"></p>
 	
 **Synthesis the code**
 	
