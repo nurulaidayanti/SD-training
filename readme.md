@@ -6702,26 +6702,27 @@ lc_shell> write_lib avsdpll -format db -output avsdpll.db #move to png
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211263499-11dfde38-f209-45a9-a9b1-1ef80ab4e8fc.png" height = "500"></p>
 	
 **Synthsize using DC**
+
+-	rvmyth_avsddac
 	
 ```
 dc_shell> set target_library {/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/avsddac.db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/sky130_fd_sc_hd__tt_025C_1v80.db}
 
-
 dc_shell> set link_library {* /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/avsddac.db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/sky130_fd_sc_hd__tt_025C_1v80.db}
 	
-
 dc_shell> read_verilog rvmyth_avsddac.v #need to debug avsddac and rvmyth_avsddac
 	
 dc_shell> read_file {rvmyth_avsddac.v avsddac.v mythcore_test.v clk_gate.v} -autoread -format verilog -top rvmyth_avsddac #to set rvmyth_avsddac as top module
 
 dc_shell> current_design #check if rvmyth_avsddac is the top module (previous is clk_gate)
 
-
+dc_shell> link
+	
 dc_shell> compile
 	
-dc_shell> write -f verilog -out avsddac_net.v
+dc_shell> write -f verilog -out rvmyth_avsddac_net.
 ```
-<p align="center"><img src = "" height = "400"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211520981-d0c9a04d-ccc0-404d-874d-afe6daac844a.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/211521122-9bb4d889-9db0-4f7d-a705-d6c1f4e631f7.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/211521262-3aca1a42-81cd-49dc-99e9-82cbee9d5047.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/211523824-7c5d3d4b-046a-4fb7-bdfa-733501c2db44.png" height = "250"></p>
 	
 **Synthesis the code**
 	
