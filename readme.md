@@ -6762,7 +6762,6 @@ dc_shell> write -f verilog -out vsdbabysoc_net.v
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211742484-74a56f4a-c0f9-472e-aded-cd0b14023aea.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/211742668-ce245479-c80b-43e5-b2e6-4d4fd5ce303f.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/211742771-74d0b70e-a248-45ba-9657-42a6a340ecf6.png" height = "400"></p>
 	
-**Synthesis the code**
 	
 </details>
 
