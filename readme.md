@@ -6720,9 +6720,29 @@ dc_shell> link
 	
 dc_shell> compile
 	
-dc_shell> write -f verilog -out rvmyth_avsddac_net.
+dc_shell> write -f verilog -out rvmyth_avsddac_net.v
 ```
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211520981-d0c9a04d-ccc0-404d-874d-afe6daac844a.png" height = "450"><img src = "https://user-images.githubusercontent.com/118953932/211521122-9bb4d889-9db0-4f7d-a705-d6c1f4e631f7.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/211521262-3aca1a42-81cd-49dc-99e9-82cbee9d5047.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/211523824-7c5d3d4b-046a-4fb7-bdfa-733501c2db44.png" height = "250"></p>
+	
+-	rvmyth_avsdpll
+	
+```
+dc_shell> set target_library {/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/avsdpll.db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/sky130_fd_sc_hd__tt_025C_1v80.db}
+
+dc_shell> set link_library {* /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/avsdpll.db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/sky130_fd_sc_hd__tt_025C_1v80.db}
+	
+dc_shell> read_file {avsd_pll_1v8.v mythcore_test.v clk_gate.v rvmyth_pll.v} -autoread -format verilog -top rvmyth_pll_interface #to set as top module
+
+dc_shell> current_design 
+
+dc_shell> link
+	
+dc_shell> compile
+	
+dc_shell> write -f verilog -out rvmyth_avsdpll_net.v
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211700919-bedacae8-4229-4db7-bf6b-3fb6c29ba5fe.png" height = "400"><img src = "https://user-images.githubusercontent.com/118953932/211701082-9163aeee-31cb-4853-b42f-33116c13d626.png" height = "150"><img src = "https://user-images.githubusercontent.com/118953932/211701142-40a6f031-84aa-4c0b-b1a9-c7e5e6fe02af.png" height = "400"></p>
 	
 **Synthesis the code**
 	
