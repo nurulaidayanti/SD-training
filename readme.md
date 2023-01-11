@@ -6744,6 +6744,24 @@ dc_shell> write -f verilog -out rvmyth_avsdpll_net.v
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211700919-bedacae8-4229-4db7-bf6b-3fb6c29ba5fe.png" height = "400"><img src = "https://user-images.githubusercontent.com/118953932/211701082-9163aeee-31cb-4853-b42f-33116c13d626.png" height = "150"><img src = "https://user-images.githubusercontent.com/118953932/211701142-40a6f031-84aa-4c0b-b1a9-c7e5e6fe02af.png" height = "400"></p>
 	
+-	vsdbabysoc
+	
+```
+dc_shell> set target_library {nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/avsdpll.db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/sky130_fd_sc_hd__tt_025C_1v80.db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/avsddac.db}
+	
+dc_shell> set link_library {* nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/avsdpll.db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/sky130_fd_sc_hd__tt_025C_1v80.db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/avsddac.db}
+	
+dc_shell> read_file {mythcore_test.v avsd_pll_1v8.v avsddac.v clk_gate.v vsdbabysoc.v} -autoread -format verilog -top vsdbabysoc
+	
+dc_shell> link
+	
+dc_shell> compile
+	
+dc_shell> write -f verilog -out vsdbabysoc_net.v
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211742484-74a56f4a-c0f9-472e-aded-cd0b14023aea.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/211742668-ce245479-c80b-43e5-b2e6-4d4fd5ce303f.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/211742771-74d0b70e-a248-45ba-9657-42a6a340ecf6.png" height = "400"></p>
+	
 **Synthesis the code**
 	
 </details>
