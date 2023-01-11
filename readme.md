@@ -6765,3 +6765,29 @@ dc_shell> write -f verilog -out vsdbabysoc_net.v
 **Synthesis the code**
 	
 </details>
+
+
+# Day-14
+## Sypnosys DC and Timing Analysis
+
+<details><summary>Theory 📝🤔</summary>
+
+**Corners of PVT (Process, Voltage and Temperature)**
+
+-	Integrated circuits are designed in such a way that they can function in a wide variety of temperatures and voltages, rather than a single temperature and voltage.
+-	In order to make our chip to work after fabrication in all the possible conditions, we simulate it at different corners of process, voltage, and temperature.
+-	These conditions are called corners. All these three parameters directly affect the delay of the cell.
+
+**Understanding PVT**
+
+-	Process: There are millions of transistors on the single-chip as we are going to lower nodes and all the transistors in a chip cannot have the same properties. Process variation is the deviation in parameters of the transistor during the fabrication.
+-	Voltage : As we are going to the lower nodes the supply voltage for a chip is also going to less. Let’s say the chip is operating at 1.2V. So,there are chances that at certain instances of time this voltage may vary.
+-	Temperature: When a chip is operating, the temperature can vary throughout the chip. This is due to the power dissipation in the MOS-transistors.
+
+**PVT Graphs**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211749332-4aa65ec6-9e69-43fa-935e-4cb148721fc7.png" height = "300"></p>
+	
+>	we can know which is the best case scenario and worst case scenario based on the graphs
+
+</details>
