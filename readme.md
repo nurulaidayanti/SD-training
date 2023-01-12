@@ -6861,6 +6861,6 @@ report_qor #to get the WNS WHS THS
 
 **SKY_L1 - Introduction to QFN-48 Package, chip, pads, core, die and IPs**
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212083870-87c29cea-b8b3-4604-a667-25d2cbd49069.png" height = "350"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212083870-87c29cea-b8b3-4604-a667-25d2cbd49069.png" height = "400"></p>
 	
 </details>
