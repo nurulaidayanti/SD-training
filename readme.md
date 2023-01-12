@@ -6910,8 +6910,16 @@ Programing language taken by compiler and convert into respective language or in
 	
 Take the instruction and convert into binary numbers (machine language program) Binary language will then be fed to the hardware
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212097135-2b6608f1-4aa6-497f-8595-d8c04b4f0667.png" height = "350"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212099712-a52d4c4a-96c7-4125-9d68-c9b16201691b.png" height = "310"><img src = "https://user-images.githubusercontent.com/118953932/212100305-1249a36a-0471-4a69-a8b4-f1d5bdb37697.png" height = "310"></p>
+	
+<p align="center">**IMAGES ARE TAKEN FROM LECTURES**</p>
+	
+>	Binary -> RTL -> Netlist -> Hardware
+	
+</details>
 
-<p align="center">**IMAGE ARE TAKEN FROM LECTURES**</p>
+<details><summary>SKY130_D1_SK2 - SoC design and OpenLANE</summary>
+	
+**SKY_L1 - Introduction to all components of open-source digital asic design**
 	
 </details>
