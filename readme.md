@@ -6854,3 +6854,13 @@ report_qor #to get the WNS WHS THS
 >	WNS is worst negative slack of timing path (difference between the clock period and the delay between a pair of registers) where TNS is the total negative slack, which is the sum of all WNS in design. THS is total hold slack which is sum of negative hold path slack in design.
 	
 </details>
+
+# Day-15
+## Sky130 Day 1 - Inception of open-source EDA, OpenLANE and Sky130 PDK
+<details><summary>SKY130_D1_SK1 - How to talk to computers</summary>
+
+**SKY_L1 - Introduction to QFN-48 Package, chip, pads, core, die and IPs**
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212083870-87c29cea-b8b3-4604-a667-25d2cbd49069.png" height = "350"></p>
+	
+</details>
