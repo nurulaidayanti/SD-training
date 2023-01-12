@@ -6904,7 +6904,7 @@ Take apps and convert it into respective assembly language program and to binary
 	
 -	Compiler
 	
-Programing language taken by compiler and convert into respective language or instructions (instructions are based on what the hardware is)
+High Level language taken by compiler and convert into respective language or instructions (instructions are based on what the hardware is)
 	
 -	Assembler
 	
