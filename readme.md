@@ -6838,18 +6838,19 @@ report_qor #to get the WNS WHS THS
 | PVT Corners | WNS | WHS | THS |
 | --- | --- | --- | --- |
 | ff_100C_1v65 | 0.10 | 0.15 | 87.96 |
-| ff_100C_1v95 | 1.93 | 0.20 | 222.79 |
-| ff_n40C_1v56 | 1.96 | 0.11 | 12.05 |
-| ff_n40C_1v65 | 1.83 | 0.14 | 63.38 |
-| ff_n40C_1v76 | 1.71 | 0.18 | 142.01 |
-| ss_100C_1v40 | 7.07 | 0.00 | 0.00 | 
-| ss_100C_1v60 | 2.74 | 0.00 | 0.00 |
+| ff_100C_1v95 | 0.00 | 0.20 | 222.95 |
+| ff_n40C_1v56 | 0.47 | 0.11 | 12.00 |
+| ff_n40C_1v65 | 0.17 | 0.14 | 64.88 |
+| ff_n40C_1v76 | 0.02 | 0.18 | 141.85 |
+| ss_100C_1v40 | 4.40 | 0.00 | 0.00 | 
+| ss_100C_1v60 | 2.64 | 0.00 | 0.00 |
 | ss_n40C_1v28 | 12.54 | 0.00 | 0.00 |
 | ss_n40C_1v35 | 8.10 | 0.00 | 0.00 |
-| ss_n40C_1v40 | 6.79 | 0.00 | 0.00 |
-| ss_n40C_1v44 | 5.81 | 0.00 | 0.00 |
-| ss_n40C_1v76 | 1.99 | 0.00 | 0.00 |
+| ss_n40C_1v40 | 6.73 | 0.00 | 0.00 |
+| ss_n40C_1v44 | 5.79 | 0.00 | 0.00 |
+| ss_n40C_1v76 | 1.93 | 0.00 | 0.00 |
 | tt_025C_1v80 | 1.85 | 0.09 | 9.09 |
 
+>	WNS is worst negative slack of timing path (difference between the clock period and the delay between a pair of registers) where TNS is the total negative slack, which is the sum of all WNS in design. THS is total hold slack which is sum of negative hold path slack in design.
 	
 </details>
