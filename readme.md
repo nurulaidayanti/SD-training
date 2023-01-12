@@ -6795,7 +6795,13 @@ dc_shell> write -f verilog -out vsdbabysoc_net.v
 
 **Change .lib to .db**
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211954477-cb3ef193-bb74-47b4-9f41-6a7d88fc7b4b.png" height = "100"></p>
+-	use lc_shell
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211970269-df7ac5ca-81a0-4913-aa57-aa9ea9c66bd6.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/211970378-fb7c0374-e5a6-41e5-aa4e-0e9bb6ff8109.png" height = "300"></p>
+
+**.db file created**
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211970088-820f8b73-53d7-41c8-a2e2-1ce3859f5da7.png" height = "100"></p>
 	
 **Timing libs for different PVT corners**
 	
@@ -6826,14 +6832,14 @@ report_qor #to get the WNS WHS THS
 
 ```
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211953192-6071abb0-4ea2-4ec1-a627-84d34e2e92dc.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/211953405-8f3902e6-db7c-4ab9-b350-50d47000d2aa.png" height = "220"><img src = "https://user-images.githubusercontent.com/118953932/211953485-03aa30de-7029-460c-922e-8eca4af98c80.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/211953808-1c4d773b-544e-412a-a7c4-c702ae8cd6c0.png" height = "400"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211953192-6071abb0-4ea2-4ec1-a627-84d34e2e92dc.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/211953405-8f3902e6-db7c-4ab9-b350-50d47000d2aa.png" height = "220"><img src = "https://user-images.githubusercontent.com/118953932/211953485-03aa30de-7029-460c-922e-8eca4af98c80.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/211976292-dc65205c-c5ac-4905-b63d-038037291aa2.png" height = "400"></p>
 	
 **Results**
 	
 | PVT Corners | WNS | WHS | THS |
 | --- | --- | --- | --- |
-| ff_100C_1v65 | 1.69 | 0.15 | 90.67 |
-| ff_100C_1v95 | 1.93 | 0.2 | 222.79 |
+| ff_100C_1v65 | 0.10 | 0.15 | 87.96 |
+| ff_100C_1v95 | 1.93 | 0.20 | 222.79 |
 | ff_n40C_1v56 | 1.96 | 0.11 | 12.05 |
 | ff_n40C_1v65 | 1.83 | 0.14 | 63.38 |
 | ff_n40C_1v76 | 1.71 | 0.18 | 142.01 |
@@ -6844,7 +6850,7 @@ report_qor #to get the WNS WHS THS
 | ss_n40C_1v40 | 6.79 | 0.00 | 0.00 |
 | ss_n40C_1v44 | 5.81 | 0.00 | 0.00 |
 | ss_n40C_1v76 | 1.99 | 0.00 | 0.00 |
-|  |  |  |  |
+| tt_025C_1v80 | 1.85 | 0.09 | 9.09 |
 
 	
 </details>
