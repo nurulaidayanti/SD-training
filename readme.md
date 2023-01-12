@@ -6914,7 +6914,7 @@ Take the instruction and convert into binary numbers (machine language program) 
 	
 <p align="center">**IMAGES ARE TAKEN FROM LECTURES**</p>
 	
->	Binary -> RTL -> Netlist -> Hardware
+>	RTL (spesification or instruction) -> Synthesize Netlist (gate level) -> Hardware (physical design implementation of the netlist)
 	
 </details>
 
