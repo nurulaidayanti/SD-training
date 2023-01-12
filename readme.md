@@ -6861,6 +6861,39 @@ report_qor #to get the WNS WHS THS
 
 **SKY_L1 - Introduction to QFN-48 Package, chip, pads, core, die and IPs**
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212083870-87c29cea-b8b3-4604-a667-25d2cbd49069.png" height = "400"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212085331-25e1be1f-51c1-4b61-954c-243a7ff03f6d.png" height = "450"></p>
+
+-	Wire bonds = connect pins to the boundary of the chip which makes it able to transfer all the signal from the outside to the interior of the chip (interconnections of the IC (die) to its packaging)
+
+
+-	Pads = can send the signal from inside the chip to the outside (vice versa)
+
+-	Core = where the digital logics are placed
+
+-	Package = container that holds the semiconductor die. It protects the die from potential damage and connects the chip to a board or other chips.
+	
+-	Foundry IP's = cell with more specific functionality and the design was patent/owned by a company. all Intellectual Property, whether Background IP or Foreground IP, regardless of when or for what purpose it is developed, pertaining to genetic components, pathways, and strains; and methods and tools for design, genetic engineering, testing and/or small-scale fermentation of microbial strains (need to continuously communicate with it)
+	
+-	Macros = pure digital logic (a simple core/cell with simple functionality and can be easily found online)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212085681-a2a5d750-5e5b-4bec-a17d-7556b5ac101b.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/212087538-d3642818-9766-4dec-8009-e343f3878e57.png" height = "350"></p>
+	
+<p align="center">**IMAGES ARE TAKEN FROM LECTURES**</p>
+	
+**SKY_L2 - Introduction to RISC-V**
+	
+-	way to talk to the computer (want to pass informations to the hardware in certain terms)
+	
+-	C program compile in RISC-V assembly language program. This assembly program is then converted into machine language program (binary language program which means that the program need to converted into binary format) then bits get executed in the layout.
+	
+-	need to create or implement the risc-v specification using RTL. from RTL to layout
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212093419-f6726a10-4fdf-45d4-ba3d-c4269fad4b75.png" height = "350"></p>
+
+<p align="center">**IMAGES ARE TAKEN FROM LECTURES**</p>
+	
+>	RISC-V -> RTL -> Layout
+	
+**SKY_L3 - From Software Applications to Hardware**
 	
 </details>
