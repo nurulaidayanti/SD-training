@@ -6790,3 +6790,54 @@ dc_shell> write -f verilog -out vsdbabysoc_net.v
 >	we can know which is the best case scenario and worst case scenario based on the graphs
 
 </details>
+
+<details><summary>Lab 💻🖱️</summary>
+
+**Change .lib to .db**
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211954477-cb3ef193-bb74-47b4-9f41-6a7d88fc7b4b.png" height = "100"></p>
+	
+**Timing libs for different PVT corners**
+	
+```
+#dc_shell
+	
+read_file {mythcore_test.v avsd_pll_1v8.v avsddac.v clk_gate.v vsdbabysoc.v} -autoread -format verilog -top vsdbabysoc
+
+set target_library /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/timing_libs/sky130_fd_sc_hd__ff_100C_1v65.db
+
+	#change target and link library
+	
+set link_library {* /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/timing_libs/sky130_fd_sc_hd__ff_100C_1v65.db}
+
+get_clocks #to check if clock exist
+
+source cons.tcl #constraints
+
+report_clocks #check clock
+
+link
+
+compile
+
+report_timing #to look at the slack
+
+report_qor #to get the WNS WHS THS
+
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/211953192-6071abb0-4ea2-4ec1-a627-84d34e2e92dc.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/211953405-8f3902e6-db7c-4ab9-b350-50d47000d2aa.png" height = "220"><img src = "https://user-images.githubusercontent.com/118953932/211953485-03aa30de-7029-460c-922e-8eca4af98c80.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/211953808-1c4d773b-544e-412a-a7c4-c702ae8cd6c0.png" height = "400"></p>
+	
+**Results**
+	
+| PVT Corners | WNS | WHS | THS |
+| --- | --- | --- | --- |
+| ff_100C_1v65 | 1.69 | 0.15 | 90.67 |
+| ff_100C_1v95 | 1.93 | 0.2 | 222.79 |
+| ff_n40C_1v56 | 1.96 | 0.11 | 12.05 |
+| ff_n40C_1v65 |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
+	
+</details>
