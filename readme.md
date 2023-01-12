@@ -6890,10 +6890,28 @@ report_qor #to get the WNS WHS THS
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212093419-f6726a10-4fdf-45d4-ba3d-c4269fad4b75.png" height = "350"></p>
 
-<p align="center">**IMAGES ARE TAKEN FROM LECTURES**</p>
+<p align="center">**IMAGE ARE TAKEN FROM LECTURES**</p>
 	
 >	RISC-V -> RTL -> Layout
 	
 **SKY_L3 - From Software Applications to Hardware**
+	
+Apps -> System Software -> Hardware
+	
+-	OS
+
+Take apps and convert it into respective assembly language program and to binary language program
+	
+-	Compiler
+	
+Programing language taken by compiler and convert into respective language or instructions (instructions are based on what the hardware is)
+	
+-	Assembler
+	
+Take the instruction and convert into binary numbers (machine language program) Binary language will then be fed to the hardware
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212097135-2b6608f1-4aa6-497f-8595-d8c04b4f0667.png" height = "350"></p>
+
+<p align="center">**IMAGE ARE TAKEN FROM LECTURES**</p>
 	
 </details>
