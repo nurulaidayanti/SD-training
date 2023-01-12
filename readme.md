@@ -6849,7 +6849,7 @@ report_qor #to get the WNS WHS THS
 | ss_n40C_1v40 | 6.73 | 0.00 | 0.00 |
 | ss_n40C_1v44 | 5.79 | 0.00 | 0.00 |
 | ss_n40C_1v76 | 1.93 | 0.00 | 0.00 |
-| tt_025C_1v80 | 1.85 | 0.09 | 9.09 |
+| tt_025C_1v80 | 0.64 | 0.09 | 9.07 |
 
 >	WNS is worst negative slack of timing path (difference between the clock period and the delay between a pair of registers) where TNS is the total negative slack, which is the sum of all WNS in design. THS is total hold slack which is sum of negative hold path slack in design.
 	
