@@ -7029,4 +7029,6 @@ OpenLANE
 -	striVe is a family of open everything SoCs
 	-	Open PDK, Open EDA, Open RTL
 	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212252178-d6e148be-e961-4a02-b74b-5aea0aecfad1.png" height = "180"><img src = "https://user-images.githubusercontent.com/118953932/212252441-db8c1f90-5a8a-453a-9cb2-792a41c9b254.png" height = "250"></p>
+	
 </details>
