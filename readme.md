@@ -6921,5 +6921,107 @@ Take the instruction and convert into binary numbers (machine language program) 
 <details><summary>SKY130_D1_SK2 - SoC design and OpenLANE</summary>
 	
 **SKY_L1 - Introduction to all components of open-source digital asic design**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212212766-53ffaa75-1153-4aeb-870b-d0e9b69961f3.png" height = "350"></p>
+	
+RTL IP'S
+-	Hardware description language (function that want to be implement)_
+	
+EDA TOOLS
+-	Electronic design automation
+	
+PDK (Process Design Kit)
+-	The interface between the FAB and the designers
+-	Collection of files used to model a fabrication process for the EDA tools used to design an IC
+	-	Process Design Rules: DRC, LVS, PEX
+	-	Device Models
+	-	Digital Standard Cell Libraries
+	-	I/O Libraries
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212212966-4be46e5a-f87f-4343-ab65-f36bcca1c52a.png" height = "300"></p>
+	
+<p align="center">**IMAGE IS TAKEN FROM LECTURE'S**</p>
+	
+>	several application do not need the advance performance. Hence why 130nm is still used. it is also cheaper
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212215158-ad267574-e61e-4a3b-950a-04d1cd4bb334.png" height = "350"></p>
+	
+<p align="center">**IMAGE IS TAKEN FROM LECTURE'S**</p>
+
+*ASIC Design Flow*
+	
+-	ASIC Flow Objective: RTL to GDSII (take design from resistor transfer level to GDSII format for the final layout)
+	-	also called as Automated PnR and/or Physical Implementation
+
+**SKY_L2 - Simplified RTL2GDS flow**
+	
+*Simplified RTL to GDSII Flow*
+-	Synthesis
+-	Floor/Power Planing
+-	Placement
+-	Clock Tree Synthesis
+-	Routing
+-	Sign off
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212217452-55c99d98-a1c7-4e12-8cc0-4f07aa970751.png" height = "300"></p>
+	
+*Synthesis*
+-	converts RTL to a circuit out of components from the standard cell library (SCL) 
+-	result of circuit is described in HDL or gate level netlist
+-	"standard cells" have regular layout	
+	-	each cells has different views/models
+		-	Electrical, HDL, SPICE
+		-	Layout (Abstract and Detailed)
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212217125-9b8c423f-d407-40ef-b806-374f9077d34f.png" height = "250"></p>
+	
+*Floor and power planing*
+	
+-	objective is to plan the silicon area and create robust distribution to power the circuit
+	
+-	chip floor-planning: partition the chip die between different system builing blocks and place the I/O Pads
+	
+-	macro floor-planning: dimensions, pin locations, rows definition
+	
+-	power planning: power net is constructed
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212225350-99de632a-8340-406a-bf74-ed85031338fe.png" height = "250"></p>
+	
+*Placement*
+-	place the cells on the floorplan rows, aligned with the sites 
+-	usually done in 2 steps:
+	-	global = try to find optimal positions for all cells but such placement are not necessarily legal which means some cells may overlapped
+	-	detailed = position obtained from global placement are minimally altered to be legal
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212226224-d8afae2e-96dc-4f83-9485-99c06eef665a.png" height = "250"></p>
+	
+*Clock Tree Synthesis*
+-	create a clock distribution network (routing the clock)
+	-	to deliver the clock to all sequential elements (eg: FF)
+	-	with minimum skew 
+	-	all in good shape
+	-	usually a Tree (H, X, ...)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212228414-54f71fab-87ce-4127-8175-1dd687ea51eb.png" height = "150"></p>
+
+_Routing (signal routing)_
+	
+-	implement the interconnect using available metal layers (implement nets to connect the cells together) 
+-	metal tracks from a routing grid
+-	routing grid is huge
+-	divide and conquer
+	-	global routing = generates routing guides
+	-	detailed routing = uses the routing guides to implement the actual wiring
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212228909-c40c0c04-c19f-4ab1-9a94-fbc7063b932b.png" height = "200"></p>
+	
+_Sign Off_
+-	physical verifications
+	-	design rules checking (DRC) - make sure the final layout follows the design rule
+	-	layout vs schematic (LVS) - make sure the final layout matches the gate level netlist that was sourced with
+-	timing verification
+	-	static timing analysis (STA) - make sure all time constraints are met and circuit will run at degsinated clock frequency
+	
+**SKY_L3 - Introduction to OpenLANE and Strive chipsets**
 	
 </details>
