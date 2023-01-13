@@ -7031,4 +7031,45 @@ OpenLANE
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212252178-d6e148be-e961-4a02-b74b-5aea0aecfad1.png" height = "180"><img src = "https://user-images.githubusercontent.com/118953932/212252441-db8c1f90-5a8a-453a-9cb2-792a41c9b254.png" height = "250"></p>
 	
+-	Main Goal:
+	-	Produce a clean GDSII with no human intervention (no-human-in-the-loop)
+	-	Clean means:
+		-	no LVS violations
+		-	no DRC violations
+		-	no Timing Violations
+-	Tuned for SkyWater130nm Open PDK
+	-	also, supports XFAB180 and GF130G
+-	Containerized
+	-	functional out of the box
+	-	instructions to build and run natively will follow
+-	can be used to harden (generate GDSII on the final layout) Macros and Chips
+-	2 modes of operations:
+	-	Autonomous = push button flow 
+	-	Interactive = run commands and steps one by one (can do experimentation and check results)
+-	Design Space Exploration:
+	-	find the best set of flow configurations
+-	Large number of design examples
+	-	43 designs with their best configurations
+	-	more designs will be added soon
+
+**SKY_L4 - Introduction to OpenLANE detailed ASIC design flow**
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212255084-e2bb8575-01e8-4ff6-858b-ee0e3abdb15b.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/212255530-1e350071-f8ce-4af7-8ee4-3102ec62dc61.png" height = "200"></p>
+
+>	from RTL to GDSII format using PDK
+	
+>	OpenLANE is based on several open source project
+	
+1)	RTL Synthesis = RTL is fed to Yosys with the design constraints. Yosys translate the RTL into logic circuits component. Optimized and then mapped using abc. 
+	
+2)	Synthesis Exploration = used to generate reports that shows how the design delay and area (can pick the best strategy based on this)
+	
+3)	Design Exploration = 
+	
+
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212255530-1e350071-f8ce-4af7-8ee4-3102ec62dc61.png" height = "200"></p>
+	
+
+	
 </details>
