@@ -7114,4 +7114,26 @@ _OpenLANE Regression Testing_
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212274809-2045b3cc-b274-425a-b430-a211ea899f37.png" height = "300"></p>
 	
+-	preventive approach
+	-	add a Fake Antenna Diode next to every cell input after placement
+	-	run Antenna Checker (Magic) on the routed layout
+	-	if the checker reports a violation on the cell input pin, replace the Fake Diode cell by a real one (automatically inserting antenna diode when needed)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212277071-8075e901-9aba-41f2-bf1a-054212ac6eef.png" height = "250"></p>
+	
+8)	STA, DRC & LVS
+	
+-	RC Extraction: DEF2SPEF
+-	STA: OpenSTA (OpenROAD) 
+-	Magic is used for DRC and SPICE Extraction from Layout
+-	Magic and Netgen are used for LVS
+	-	Extracted SPICE by Magic vs. Verilog netlist
+	
+	
+</details>
+
+<details><summary>SKY130_D1_SK3 - Get familiar to open-source EDA tools</summary>
+
+**SKY_L1 - OpenLANE Directory structure in detail**
+	
 </details>
