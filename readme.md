@@ -7200,4 +7200,48 @@ To know more about OpenLANE and all the informations -> https://github.com/efabl
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212342781-776a359a-db80-4108-a28f-9af26facdc14.png" height = "300"></p>
 	
+```
+git clone #copy the repository to local
+```
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212344204-b2edbcc9-48c1-4ca3-8f26-4187214cc3d3.png" height = "350"></p>
+	
+1.	Synthesis
+	-	yosys - Performs RTL synthesis
+	-	abc - Performs technology mapping
+	-	OpenSTA - Performs static timing analysis on the resulting netlist to generate timing reports
+2.	Floorplan and PDN
+	-	init_fp - Defines the core area for the macro as well as the rows (used for placement) and the tracks (used for routing)
+	-	ioplacer - Places the macro input and output ports
+	-	pdn - Generates the power distribution network
+	-	tapcell - Inserts welltap and decap cells in the floorplan
+3.	Placement
+	-	RePLace - Performs global placement
+	-	Resizer - Performs optional optimizations on the design
+	-	OpenDP - Perfroms detailed placement to legalize the globally placed components
+4.	CTS
+	-	TritonCTS - Synthesizes the clock distribution network (the clock tree)
+5.	Routing
+	-	FastRoute - Performs global routing to generate a guide file for the detailed router
+	-	CU-GR - Another option for performing global routing.
+	-	TritonRoute - Performs detailed routing
+	-	SPEF-Extractor - Performs SPEF extraction
+6.	GDSII Generation
+	-	Magic - Streams out the final GDSII layout file from the routed def
+	-	Klayout - Streams out the final GDSII layout file from the routed def as a back-up
+7.	Checks
+	-	Magic - Performs DRC Checks & Antenna Checks
+	-	Klayout - Performs DRC Checks
+	-	Netgen - Performs LVS Checks
+	-	CVC - Performs Circuit Validity Checks
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212345392-3afa0e57-3f33-4623-bf30-5b619c891761.png" height = "400"></p>
+	
+<p align="center">**MOST IMAGES ARE TAKEN FROM GITHUB efabless**</p>
+	
+>	MUST RUN THE COMMANDS BE IN ORDER!!
+	
+**SKY_L5 - Steps to characterize synthesis results**
+	
+	
+	
 </details>
