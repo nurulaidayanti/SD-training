@@ -7242,6 +7242,12 @@ git clone #copy the repository to local
 	
 **SKY_L5 - Steps to characterize synthesis results**
 	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212351285-07b8a8bf-3fbe-4f4b-a140-851e052ef2ae.png" height = "400"></p>
+
+>	flop ratio = number of D flip flop divide by total of cells -> 0.1084
 	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212349055-ca818e6a-077f-4d27-a81e-2e6a054b8ca3.png" height = "400"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212351083-05b29dde-3aa2-4805-bb9d-696fd5c8100d.png" height = "400"></p>
 	
 </details>
