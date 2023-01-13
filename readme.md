@@ -7156,5 +7156,21 @@ _Change directory_
 	
 **SKY_L2 - Design Preparation Step**	
 
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212322272-63db55d7-2f96-4d67-adf1-1ff9caf2e301.png" height = "270"><img src = "https://user-images.githubusercontent.com/118953932/212323540-5673f429-4589-4d76-bd12-9aca48a2b9ac.png" height = "270"></p>
+	
+
+
+How openLANE takes the value:
+	
+1.	default (already set in openlane)
+	
+2.	config.tcl
+	
+3.	sky130A....config.tcl (highest priority)
+	
+>	it will overwrite the configuration. eg: the clock period of all those 3 are different so the sky130..config.tcl will overwrite it
+	
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212324462-36c40957-3b5c-496d-af96-0322c5b1ce70.png" height = "150"></p>
 	
 </details>
