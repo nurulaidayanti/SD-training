@@ -7023,5 +7023,10 @@ _Sign Off_
 	-	static timing analysis (STA) - make sure all time constraints are met and circuit will run at degsinated clock frequency
 	
 **SKY_L3 - Introduction to OpenLANE and Strive chipsets**
+
+OpenLANE
+-	started as an Open-Source Flow for a True Open Source Tape-out Experiment
+-	striVe is a family of open everything SoCs
+	-	Open PDK, Open EDA, Open RTL
 	
 </details>
