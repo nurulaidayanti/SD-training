@@ -7155,10 +7155,8 @@ _Change directory_
 >	make sure to always work in this directory!! 
 	
 **SKY_L2 - Design Preparation Step**	
-
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212322272-63db55d7-2f96-4d67-adf1-1ff9caf2e301.png" height = "270"><img src = "https://user-images.githubusercontent.com/118953932/212323540-5673f429-4589-4d76-bd12-9aca48a2b9ac.png" height = "270"></p>
 	
-
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212322272-63db55d7-2f96-4d67-adf1-1ff9caf2e301.png" height = "270"><img src = "https://user-images.githubusercontent.com/118953932/212323540-5673f429-4589-4d76-bd12-9aca48a2b9ac.png" height = "270"></p>
 
 How openLANE takes the value:
 	
@@ -7172,5 +7170,34 @@ How openLANE takes the value:
 	
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212324462-36c40957-3b5c-496d-af96-0322c5b1ce70.png" height = "150"></p>
+	
+_To invoke OpenLANE_
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212332695-de7d04f0-2356-438a-b2ad-117380cf9ccd.png" height = "300"></p>
+
+<p align="center">source: https://github.com/nickson-jose/openlane_build_script</p>
+
+>	make mount
+	
+	
+**SKY_L3 - Review files after design prep and run synthesis**
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212335664-3245c29f-5465-4d4a-8885-6d689758543f.png" height = "350"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212337620-4cb39cb6-9316-47de-9e18-26b7c3fdd2d1.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/212338066-423999a0-3214-4bed-a1ed-ccca1efab297.png" height = "300"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212341589-7d318dc6-9712-4e95-bf49-b5b090a1fe82.png" height = "250"></p>
+
+open_lane
+
+```
+run_synthesis #yosys as well as abc
+```
+	
+**SKY_L4 - OpenLANE Project Git Link Description**
+	
+To know more about OpenLANE and all the informations -> https://github.com/efabless/OpenLane
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212342781-776a359a-db80-4108-a28f-9af26facdc14.png" height = "300"></p>
 	
 </details>
