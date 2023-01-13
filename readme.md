@@ -7136,4 +7136,14 @@ _OpenLANE Regression Testing_
 
 **SKY_L1 - OpenLANE Directory structure in detail**
 	
+_Change directory_
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212283476-343ef436-21ee-414d-bf3d-36173c56ea81.png" height = "250"></p>
+	
+>	pdk = process design kit (will be using skywater130nm pdk)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212285860-bf86f753-af92-4366-b128-59fcb50c8518.png" height = "200"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212288816-93fa4c9d-f7a5-42c4-9096-26733a8f920c.png" height = "350"></p>
+	
 </details>
