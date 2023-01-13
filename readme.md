@@ -7054,22 +7054,64 @@ OpenLANE
 
 **SKY_L4 - Introduction to OpenLANE detailed ASIC design flow**
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212255084-e2bb8575-01e8-4ff6-858b-ee0e3abdb15b.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/212255530-1e350071-f8ce-4af7-8ee4-3102ec62dc61.png" height = "200"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212255084-e2bb8575-01e8-4ff6-858b-ee0e3abdb15b.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/212257431-4c589999-7ad7-49fa-b0e5-c7637afe752b.png" height = "200"></p>
 
 >	from RTL to GDSII format using PDK
 	
->	OpenLANE is based on several open source project
+
 	
 1)	RTL Synthesis = RTL is fed to Yosys with the design constraints. Yosys translate the RTL into logic circuits component. Optimized and then mapped using abc. 
 	
 2)	Synthesis Exploration = used to generate reports that shows how the design delay and area (can pick the best strategy based on this)
 	
-3)	Design Exploration = 
+3)	DFT (optional) 
+	-	Scan Insertion
+	-	Automatic Test Pattern Generation (ATPG)
+	-	Test Patterns Compaction
+	-	Fault Coverage
+	-	Fault Simulation
 	
-
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212259252-6fc089cb-00ec-4055-81e6-2bb1ea337a90.png" height = "250"></p>
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212255530-1e350071-f8ce-4af7-8ee4-3102ec62dc61.png" height = "200"></p>
+4)	Design Exploration = generates the design configuration (useful for finding the best design configuration)
 	
-
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212258044-769d8c11-9792-42b4-bb46-279fb9fac552.png" height = "300"></p>
+	
+_OpenLANE Regression Testing_
+	
+-	the design exploration utility is also used for regression testing (CI)
+	
+-	run OpenLANE on ~70 designs and compare the results to the best known ones
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212258795-f4a34086-1770-42f8-b263-9775869a8481.png" height = "300"></p>
+	
+>	report shows the number of violations and compared to best known results
+	
+5)	Physical Implementation (PnR = place and route) -> used OpenROAD app
+	-	Floor/Power Planning
+	-	End Decoupling Capacitors and Tap cells insertion
+	-	Placement: Global and Detailed
+	-	Post placement optimization
+	-	Clock Tree Synthesis (CTS)
+	-	Routing: Global and Detailed
+	-	"Special step" = fake anntena diode insertion 
+	
+6)	LEC (logic equivalent checking) -> yosys
+	-	everytime the netlist is modified, verification must be performed
+		-	CTS modifies the netlist
+		-	Post Placement optimizations modifies the netlist
+	-	LEC is used to formally confirm that the function did not change after the modifying the netlist
+	
+7)	Antenna Rule Violations
+	-	when a metal wire segment is fabricated, it can act as an antenna
+		-	reactive ion etching causes charge to accumulate on the wire
+		-	transistor gates can be damaged during fabrication
+	-	2 solutions:
+		-	Bridging attaches a higher layer intermediately
+			-	requires Router awareness
+		-	Add antenna diode cell to leak away charges 
+			-	Antenna diodes are provided by SCL
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212274809-2045b3cc-b274-425a-b430-a211ea899f37.png" height = "300"></p>
 	
 </details>
