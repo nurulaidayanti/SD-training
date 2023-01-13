@@ -7146,4 +7146,12 @@ _Change directory_
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212288816-93fa4c9d-f7a5-42c4-9096-26733a8f920c.png" height = "350"></p>
 	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212290670-b199462f-b1b9-4f27-bec0-196be14afec2.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/212291601-d920bd0c-bf07-4084-995d-1cff8aa0acfa.png" height = "250"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212291943-fff7c9bb-d1a2-4bba-97eb-9e077df639a7.png" height = "200"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212292455-7403f423-15bc-4770-9251-c73f8b719065.png" ></p>
+	
+>	make sure to always work in this directory!! 
+	
 </details>
