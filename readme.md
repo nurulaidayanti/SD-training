@@ -7251,3 +7251,24 @@ git clone #copy the repository to local
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212351083-05b29dde-3aa2-4805-bb9d-696fd5c8100d.png" height = "400"></p>
 	
 </details>
+
+# Day-16
+## Sky130 Day 2 - Good floorplan vs bad floorplan and introduction to library cells
+
+<details><summary>SKY130_D2_SK1 - Chip Floor planning considerations</summary>
+
+### SKY_L1 - Utilization factor and aspect ratio
+
+Objective: to understand how to define the Width and Height core and die
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212697249-e32f5a87-f7c7-4330-b9b5-4461223182fd.png" height = "300"></p>
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212700298-778af0ae-7f7c-449a-85ac-31c973bdc6b4.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/212700815-a9e69adc-5e77-4ec8-bb1e-267b4c775bcd.png" height = "300"></p>	
+
+>	convert the logics into physical dimension (want to find out dimension of the standard cells)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212702647-fe8ffb8d-c4e7-4549-88e2-62e1777da471.png" height = "400"></p>
+	
+>	assume both standard cell and flip flop has the area of 1 sq. unit. So the total area (length and width) is going to be 4 sq.unit [(length = 1+1) x (width = 1+1)] This is the minimum area occupied by the netlist.
+	
+</details>
