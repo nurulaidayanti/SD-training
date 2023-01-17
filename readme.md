@@ -7267,8 +7267,43 @@ Objective: to understand how to define the Width and Height core and die
 
 >	convert the logics into physical dimension (want to find out dimension of the standard cells)
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212702647-fe8ffb8d-c4e7-4549-88e2-62e1777da471.png" height = "400"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212702647-fe8ffb8d-c4e7-4549-88e2-62e1777da471.png" height = "350"></p>
 	
 >	assume both standard cell and flip flop has the area of 1 sq. unit. So the total area (length and width) is going to be 4 sq.unit [(length = 1+1) x (width = 1+1)] This is the minimum area occupied by the netlist.
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212914263-45ee84d1-111b-4331-a30b-764c7a061e8c.png" height = "300"></p>
+	
+>	the logics/circuit are placed in the core (which will not exceed) and the die capsulated the core. The die is imprinted multiple time in the silicon wafer.
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212914958-0c60da9f-b787-4e6f-9b6d-1425407e17cd.png" height = "250"></p>
+	
+1.	The netlist occupied the area of the core completely (100% ultilization) 
+2.	Utilization factor = (area occupied by netlist) / (total area of the core) so no extra cell is allowed!!! 
+3.	In practical scenario we go for 50-60% utilization.
+4.	Aspect Ratio = Height (core) / Width (core) (if it's =1, it means the chip is a square shape. If not then are still some spaces for other cells)
+	
+>	Utilization Factor & Aspect Ratio!!
+	
+### SKY_L2 - Concept of pre-placed cells
+	
+_Another example on calculating utilization factor and aspect ratio_	
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212920464-8e773141-9062-4ce1-94de-34478465ac4d.png" height = "350"></p>
+	
+>	the space available can be use for routing and add on other cells
+	
+_Prepaced Cells_
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212927885-4f7bef0e-e76e-423d-b467-fae04524e21b.png" height = "400"></p>
+	
+>	Blocks will be implemented separately. The advantage is when user want to use it multiple times on the netlist to perform some function,  we can just give the block (black box) to some user. Dont need to implement multiple times, can just reuse (instantiated multiple times onto the netlist)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212929444-81abe615-2d41-480b-8f08-6296e413302c.png" height = "300"></p>
+	
+-	the arrangement of these IP's in a chip is referred as Floorplanning
+-	these IP's/blocks have user-defined locations, and hence are placed in chip before automated placement-and-routing and are called as pre-placed cells
+-	automated placement and routing tools places the remaining logical cells in the design onto chip
+
+### SKY_L3 - De-coupling capacitors
 	
 </details>
