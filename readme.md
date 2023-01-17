@@ -7298,7 +7298,7 @@ _Prepaced Cells_
 	
 >	Blocks will be implemented separately. The advantage is when user want to use it multiple times on the netlist to perform some function,  we can just give the block (black box) to some user. Dont need to implement multiple times, can just reuse (instantiated multiple times onto the netlist)
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212929444-81abe615-2d41-480b-8f08-6296e413302c.png" height = "300"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212929444-81abe615-2d41-480b-8f08-6296e413302c.png" height = "200"></p>
 	
 -	the arrangement of these IP's in a chip is referred as Floorplanning
 -	these IP's/blocks have user-defined locations, and hence are placed in chip before automated placement-and-routing and are called as pre-placed cells
