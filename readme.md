@@ -7473,3 +7473,11 @@ move cursor to the wanted cell/others and press s
 <p align="center"><img src = "" height = "300"></p>
 	
 </details>
+	
+<details><summary>Library Binding and Placement</summary>
+	
+**Netlist binding and initial place design**
+	
+
+	
+</details>
