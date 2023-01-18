@@ -7338,6 +7338,29 @@ _Decoupling Capacitor_
 	
 ### Power planning
 	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213071968-46e9db96-dab2-4df4-baad-a65bfe26d3ed.png" height = "300"></p>
+	
+>	orange path need to maintain the signal. It is supply by the power supply because there's no decoupling capacitor. Hence, there is possibilty there will be a voltage drop. 
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213073298-1a4e8362-abe0-4e0c-bb8e-2cfbc328d8e8.png" height = "300"></p>
+	
+>	logic 1 = capacitor being charge to VDD, logic 0 = capacitor discharge to ground
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213074303-fc1ed832-8a1a-4162-bd72-74702a2e2fbe.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/213074491-38f9ade2-5e86-42ed-9d60-3cf25ef6a3a7.png" height = "230"></p>
+	
+>	if the size of ground bounds/ voltage drop exceed the noise margin level, it might enter the undefined state. The problem is the supply is only at one point (single source).
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213075119-edc337ba-928a-4411-aa2e-9a8b35bb62bd.png" height = "300"></p>
+	
+>	solution: multiple power supplies. so it will take the current from the nearest power supply or drop the current to the nearest ground
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213075499-84d9dbc7-1f97-48bc-8e3c-c39beaadea88.png" height = "300"></p>
+	
+>	power meshes
+	
+### Pin placement and logical cell placement blockage
+	
 <p align="center"><img src = "" height = "300"></p>
+
 	
 </details>
