@@ -7377,18 +7377,98 @@ _Decoupling Capacitor_
 	
 >	the area should be block for any placement and routing tool using some blockage
 
-
 ### Steps to run floorplan using OpenLANE
 	
-<p align="center"><img src = "" height = "300"></p>
+```
+pwd
+
+#/home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane_working_dir/openlane/configuration
 	
-<p align="center"><img src = "" height = "300"></p>
+less README.MD
+```
 	
-<p align="center"><img src = "" height = "300"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213086128-58455da8-ee78-4d69-9e76-6f5da7114077.png" height = "250"></p>
+
+>	can see each variable which are required for each stage. it need to be set
 	
-<p align="center"><img src = "" height = "300"></p>
+```
+pwd
 	
-<p align="center"><img src = "" height = "300"></p>
+##/home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane_working_dir/openlane/
+	
+less floorplan.tcl
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213099964-f0893fd4-3202-4b06-9c7c-03116210c485.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/213100135-2bdda134-0071-4422-b487-c8e1269c48a0.png" height = "230"></p>
+	
+>	system default settings
+	
+-	the lowest priority: system default (floorplan.tcl)
+-	second priority: config.tcl (in openlane/designs/picorv32a) (will overwrite the system default)
+-	first: sky130A.....config.tcl (in openlane/designs/picorv32a) (overwrite the others)
+	
+```
+#in the openlane
+	
+run_floorplan
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213102089-409542cc-4693-4122-803b-649d5aec89c8.png" height = "300"></p>
+	
+>	run successful
+	
+### Review floorplan files and steps to view floorplan
+	
+```
+pwd
+
+#/home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs
+	
+less config.tcl #configuration of the current flow/run
+	
+cd /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/<current date and time>/results/floorplan
+	
+less picorv32a.floorplan.def #def file
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213105042-72692fc2-eb17-4075-a02a-d0495ffef0af.png" height = "300"></p>
+	
+### Review floorplan layout in Magic
+	
+```
+magic -T /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+	
+press s to select and v to fit the layout on the screen
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213110778-fcec14ab-29e5-4e70-9cd4-ebd0cd1f6da0.png" height = "300"></p>
+	
+```
+left click then right click (create a box of the area) then z to zoom in
+	
+move cursor to the wanted cell/others and press s
+	
+#tkcon
+% what
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213111995-7527898c-6bbd-4951-a083-43b1802d640e.png" height = "300"></p>
+	
+>	metal layer 3 (which we set for the horizontal)
+	
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213113231-c3367ec2-31e5-4c14-bfec-93e06b426089.png" height = "300"></p>
+	
+>	vertical
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213114129-dee8b6b5-9fb2-4b68-b57d-0ff17525e1d1.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/213114395-e28be675-58d5-491d-9b4e-ae020f764bdf.png" height = "230"></p>
+	
+>	tap cells (left) - the distance of the tap cells are set & end cap cells (right)
+	
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213115464-2ee7a0f4-f56b-4f6b-858b-43cc7d9dc1c9.png" height = "300"></p>
+	
+>	standard cells that are not placed yet and will be placed during placement stage
 	
 <p align="center"><img src = "" height = "300"></p>
 	
