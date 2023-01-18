@@ -7360,7 +7360,36 @@ _Decoupling Capacitor_
 	
 ### Pin placement and logical cell placement blockage
 	
-<p align="center"><img src = "" height = "300"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213078787-de697c53-44e5-4cab-a98f-4d4c6246db72.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/213078977-50c6bb0c-948c-4c77-a04e-ae37da26cd95.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/213079178-68c3660d-689f-4ee4-a5be-2897c803f5b4.png" height = "230"></p>
+	
+>	can merged the clock ports as the 2 sets of circuits are using the same port
 
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213079694-e018c853-64d2-4d75-bd08-63a87bd959e6.png" height = "300"></p>
+
+-	the pins placement is done 
+	
+>	the size of the clock ports are bigger than the data ports because the clock ports continuosly sending signals to all the flip flops in the design (drives the ff to the complete chip). Hence, they need the least resistance path for the clock (the bigger the size, the least the resistance)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213080895-6ce36bab-6fcd-481c-9aad-37cbef6e9b09.png" height = "300"></p>
+	
+-	make sure none of the automated placement or routing tool doesnt cells in the area between core and die (the pins)
+	
+>	the area should be block for any placement and routing tool using some blockage
+
+
+### Steps to run floorplan using OpenLANE
+	
+<p align="center"><img src = "" height = "300"></p>
+	
+<p align="center"><img src = "" height = "300"></p>
+	
+<p align="center"><img src = "" height = "300"></p>
+	
+<p align="center"><img src = "" height = "300"></p>
+	
+<p align="center"><img src = "" height = "300"></p>
+	
+<p align="center"><img src = "" height = "300"></p>
 	
 </details>
