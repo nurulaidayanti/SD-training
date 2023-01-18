@@ -7377,7 +7377,7 @@ _Decoupling Capacitor_
 	
 >	the area should be block for any placement and routing tool using some blockage
 
-### Steps to run floorplan using OpenLANE
+### Steps to run floorplan using OpenLANE ⌨️🤔
 	
 ```
 pwd
@@ -7417,7 +7417,7 @@ run_floorplan
 	
 >	run successful
 	
-### Review floorplan files and steps to view floorplan
+### Review floorplan files and steps to view floorplan ⌨️🤔
 	
 ```
 pwd
@@ -7433,7 +7433,7 @@ less picorv32a.floorplan.def #def file
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213105042-72692fc2-eb17-4075-a02a-d0495ffef0af.png" height = "300"></p>
 	
-### Review floorplan layout in Magic
+### Review floorplan layout in Magic ⌨️🤔
 	
 ```
 magic -T /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
@@ -7516,9 +7516,158 @@ Check if it's correct or not
 -	based setup timing analysis (specification), we will know the placement is reasonable or not
 
 ### Need for libraries and characterization
+
+**Library characterization and modelling**
+
+1.	Logic synthesis  
+	
+	-	convert the functionality (in the form of RTL) into a legal hardware
+	-	output: arrangement of gate that will represent the original funtionality that was describe using RTL
+	
+2.	Floorplanning
+	
+	-	import the output of the logic synthesis (netlist) and decide the size of the core and the die. the size is dependent on the amount of gate and shape and sizes of the gates present output of the logic synthesis.
+	
+3.	Placement
+	
+	-	the logic cells placed on the chip.
+	
+4.	CTS (clock tree synthesis)
+	
+	-	flip flops received the clock at the same time
+	-	take care of the clock signal reaching at each and every clock end points
+	-	the buffers take care the clock signal has equal rise and fall time
+	
+5.	Routing
+	
+	-	certain properties of the cells needs to be take care while routing from one point to another point
+	
+6. Static Timing Analysis (sign off timing analysis)
+	
+	-	want to see setup time, hold time, data arrival time/data required time
+
+### Congestion aware placement using RePlAce ⌨️🤔
+	
+**There are 2 plcaments which are global placement and detail placement**
+	
+-	global
+	-	no legalization happening
+	-	reducing wire length
+	
+-	detail
+	-	legalization occurs (more on timing point of view)
+		-	standard cells are placed inside the rows and no overlaps
+	
+```
+#in openlane
+
+run_placement 
+	
+#in pwd 
+
+cd /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/<current date and time>/results/placement
+	
+magic -T /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213190869-10495ef7-06bd-4ba7-b0ba-dd4a85c131bb.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/213191576-f46690d4-b716-4b22-a258-20fae11d1b6b.png" height = "250"></p>
+	
+>	placement of the standard cell
+
+</details>
+	
+<details><summary>Cell design and characterization flows</summary>
+	
+### Inputs for cell design flow	
+
+Library is a place where all the standard cells are kept
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213193251-55c08736-0f2a-4036-bdc5-7dde0a7ee112.png" height = "300"></p>
+	
+>	in the library there are different cells with different functionality and also different sizes (drive strength), variety of threshold voltage (Vt)
+
+Inputs in the system	
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213197863-2b266333-b191-4770-902a-99ca349021ff.png" height = "300"></p>
+	
+>	the design rule (input gets from the foundry = DRC & LVS rules)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213198714-7fb8b1f9-4d27-4893-b81e-fecb3f94204c.png" height = "300"></p>
+	
+>	Spice models file (foundry parameter) for example parameter for nmos, pmos
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213200317-28b27cd5-b5fa-4d7b-b36b-5df0f7410db7.png" height = "300"></p>
+	
+>	library & user-defined specs = cell height, supply voltage, metal layer, pin location, drawn gate-length
+ 
+### Circuit design step
+		
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213201094-8d2d9b19-428c-44e6-afc1-d4b6d8cc4e2d.png" height = "300"></p>
+
+1.	implement the function
+2.	model PMOS and NMOS transistors in order to meet the library requirement
+3.	once have the values of W/L of the mos, the values in the layout will be implement 
+4.	typical output obtain from circuit design is the CDL (circuit description language)
+	
+>	Circuit design
+
+Layout design step
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213202295-9548be43-6cc7-4130-9977-87bf8b5d1004.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/213204050-90ecb6d0-d501-4bd9-b267-cc1c5c3a530a.png" height = "250"></p>
+	
+1.	function implemented through a mos transistor (pmos and nmos)
+	
+2.	get the pmos and nmos network graphs (derive)
+	
+	
+3.	obtain the euler’s path (path being traced only once)
+	
+4.	draw a stick diagram based on the euler's path
+	
+5.	convert stick diagram into a layout (based on from the input that we got (from the foundry))
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213205187-98746166-e52e-4f6a-9cd2-dd532d513116.png" height = "200"></p>
+	
+>	layout
+
+6.	extract the parasitics of this layout and characterize it in terms of timing
+	
+	-	characterization can help get the timing, noise and power information
+	
+	-	outputs of the cell design flow will be the CDL (circuit description langauge), GDSII, LEF, extracted spice netlist (.cir) , timing, noise, power .libs, function
+	
+### Typical characterization flow
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213209713-eb91ce86-6c8f-4835-9a74-36705db9a1cb.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/213209550-360f8507-6085-4079-ab93-481cf3082b00.png" height = "250"></p>
+	
+1.	read in the models and the tech file from the layout
+	
+2.	read in the extracted spice netlist
+	
+3.	define or recognize the behaviour of the buffer
+	
+4.	read in the subcircuit of the inverter
+	
+5.	attach the necessary power sources
+	
+6.	apply the stimulus
+
+7.	provide the necessary the output load capacitance
+	
+8.	provide the necessary simulation command
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213210226-b83375b9-4999-4789-a7be-cdd84e7c37a1.png" height = "200"></p>
+	
+>	feed all the inputs in a form of configuration file through the characterization software called as GUNA
+	
+</details>
+	
+<details><summary>General timing characterization parameters</summary>
+
+### Timing threshold definitions
 	
 <p align="center"><img src = "" height = "300"></p>
-<p align="center"><img src = "" height = "300"></p>
+	
 <p align="center"><img src = "" height = "300"></p>
 
 </details>
