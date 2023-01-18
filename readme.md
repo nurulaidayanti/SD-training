@@ -7470,14 +7470,55 @@ move cursor to the wanted cell/others and press s
 	
 >	standard cells that are not placed yet and will be placed during placement stage
 	
-<p align="center"><img src = "" height = "300"></p>
 	
 </details>
 	
 <details><summary>Library Binding and Placement</summary>
 	
-**Netlist binding and initial place design**
+### Netlist binding and initial place design
 	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213121230-b5ced5a7-6523-4fe7-bbc3-f370b0b84f18.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/213120745-9835a020-1be3-4bd2-8789-5a65470b1df5.png" height = "230"></p>
+	
+>	in reality it shapes like a box. physical dimension (width and height)
+	
+-	all of the informations of the components are available in the library. various flavour in the library (width, height, condition, etc.)
+	
+-	the bigger the cell size, the faster it is (lesser delay)
 
 	
+### Optimize placement using estimated wire-length and capacitance
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213152965-db9a747d-675c-4f26-a7ef-f4edc61c2602.png" height = "300"></p>
+	
+>	placement (need to think about the huge delay when placing the cells. so, put nearer to the pin) (minimum delay for the one that is placed near)	
+
+	
+**Optimize placement**
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213154954-ed824cd6-e514-45b8-b7a6-50eda2c87f68.png" height = "300"></p>
+	
+>	capacitance sufficient enough for the signal to maintain integrity (signal between 2 components). Hence, no need repeaters
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213154633-23df1655-b42f-4ffd-b026-803c78222b2a.png" height = "300"></p>
+	
+>	in order to reproduce the signal Din2 has send, repeaters (buffer) inserted due to the distance between Din2 and the flip flop is quite large which can cause delay. Hence, it will now have minimum delay after inserted repeaters
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213159233-412f10bd-6122-43cf-9197-72f068d83b66.png" height = "300"></p>
+	
+>	repeaters added to maintain signal integrity
+	
+<p align="center"><img src = "" height = "300"></p>
+	
+>	in different layers (the signal connection from 1 to 2 will be on seperate layer)
+	
+Check if it's correct or not
+-	check the data path (considering the clock is ideal)
+-	based setup timing analysis (specification), we will know the placement is reasonable or not
+
+### Need for libraries and characterization
+	
+<p align="center"><img src = "" height = "300"></p>
+<p align="center"><img src = "" height = "300"></p>
+<p align="center"><img src = "" height = "300"></p>
+
 </details>
