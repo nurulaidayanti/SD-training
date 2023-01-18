@@ -7666,6 +7666,7 @@ Layout design step
 
 ### Timing threshold definitions
 	
+### Propagation delay and transition time
 <p align="center"><img src = "" height = "300"></p>
 	
 <p align="center"><img src = "" height = "300"></p>
