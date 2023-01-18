@@ -7253,11 +7253,11 @@ git clone #copy the repository to local
 </details>
 
 # Day-16
-## Sky130 Day 2 - Good floorplan vs bad floorplan and introduction to library cells
+## Good floorplan vs bad floorplan and introduction to library cells
 
-<details><summary>SKY130_D2_SK1 - Chip Floor planning considerations</summary>
+<details><summary>Chip Floor planning considerations</summary>
 
-### SKY_L1 - Utilization factor and aspect ratio
+### Utilization factor and aspect ratio
 
 Objective: to understand how to define the Width and Height core and die
 
@@ -7284,15 +7284,15 @@ Objective: to understand how to define the Width and Height core and die
 	
 >	Utilization Factor & Aspect Ratio!!
 	
-### SKY_L2 - Concept of pre-placed cells
+### Concept of pre-placed cells
 	
-_Another example on calculating utilization factor and aspect ratio_	
+**Another example on calculating utilization factor and aspect ratio**
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212920464-8e773141-9062-4ce1-94de-34478465ac4d.png" height = "350"></p>
 	
 >	the space available can be use for routing and add on other cells
 	
-_Prepaced Cells_
+**Prepaced Cells**
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/212927885-4f7bef0e-e76e-423d-b467-fae04524e21b.png" height = "400"></p>
 	
@@ -7303,7 +7303,41 @@ _Prepaced Cells_
 -	the arrangement of these IP's in a chip is referred as Floorplanning
 -	these IP's/blocks have user-defined locations, and hence are placed in chip before automated placement-and-routing and are called as pre-placed cells
 -	automated placement and routing tools places the remaining logical cells in the design onto chip
+	
+**Location of Preplaced Cells**
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213053207-6f0ead8f-2f2a-46f2-907d-9a98da5c0cfb.png" height = "300"></p>
+	
+>	know the blocks are communicating with what pins (input or output?) and placed them near the pins. Once they are placed, the location cant be moved. That's why the location of the preplaced cell have to be well define
 
-### SKY_L3 - De-coupling capacitors
+### De-coupling capacitors
+	
+**Surround preplaced cell with Decoupling Capacitor**
+	
+_Decoupling Capacitor_
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213056086-3feb83fb-5b50-43dd-91f2-514eb77a4f6a.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/213056247-1b7be2c0-dbbc-41c4-a8f7-2c8826b89589.png" height = "230"></p>
+	
+>	the transition need to be within noise margin range
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213056788-21d20ecb-bcf0-4bc4-bcca-830b0b09c2ae.png" height = "300"></p>
+	
+>	the undefined region is a dangerous case as it can go to either logic 0 to 1 (cant guarantee we will get the logic that we want)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213063146-59f39176-74e8-4acf-8791-eeac95e4a45d.png" height = "300"></p>
+	
+>	Decoupling capacitor = huge capacitor which fills with charge (supply the same voltage as the power supply)
+	
+-	the circuit will get the current from the decoupling capacitance and there will be hardly any voltage drop as they are close to each other
+	
+-	whenever there is a switching activity, the Cd will loses some amount of charge to the circuit. It will stores it owns charge (gets from the main supply) when there is no switching activity
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213064528-bfaf7576-3e8c-4d5d-8efd-ca14e6abcafa.png" height = "300"></p>
+	
+>	the blocks will behave as it should be. The local communication has been taken care of.
+	
+### Power planning
+	
+<p align="center"><img src = "" height = "300"></p>
 	
 </details>
