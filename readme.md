@@ -7258,15 +7258,13 @@ git clone #copy the repository to local
 <details><summary>Chip Floor planning considerations</summary>
 	
 ##### Table of Contents  
-[Utilization factor and aspect ratio](###)
-[Concept of pre-placed cells](###)  
-[De-coupling capacitors](###)
-[Power planning](###)
-[Pin placement and logical cell placement blockage](###)
-[Review floorplan files and steps to view floorplan ⌨️🤔](###)
-[Review floorplan layout in Magic ⌨️🤔](###)
-[Netlist binding and initial place design](###)
-[Need for libraries and characterization](###)
+-	[Utilization factor and aspect ratio](#utilization-factor-and-aspect-ratio)
+-	[Concept of pre-placed cells](#concept-of-pre-placed-cells)  
+-	[De-coupling capacitors](#de-coupling-capacitors)
+-	[Power planning](#power-planning)
+-	[Pin placement and logical cell placement blockage](#pin-placement-and-logical-cell-placement-blockage)
+-	[Review floorplan files and steps to view floorplan ⌨️🤔](#review-floorplan-files-and-steps-to-view-floorplan-%EF%B8%8F)
+-	[Review floorplan layout in Magic ⌨️🤔](#steps-to-run-floorplan-using-openlane-%EF%B8%8F)
 
 
 ### Utilization factor and aspect ratio
@@ -7487,6 +7485,13 @@ move cursor to the wanted cell/others and press s
 	
 <details><summary>Library Binding and Placement</summary>
 	
+##### Table of Contents  
+-	[Netlist binding and initial place design](#netlist-binding-and-initial-place-design)
+-	[Optimize placement using estimated wire-length and capacitance](#optimize-placement-using-estimated-wire-length-and-capacitance)
+-	[Need for libraries and characterization](#need-for-libraries-and-characterization)  
+-	[Congestion aware placement using RePlAce ⌨️🤔](#congestion-aware-placement-using-replace-%EF%B8%8F)
+
+	
 ### Netlist binding and initial place design
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213121230-b5ced5a7-6523-4fe7-bbc3-f370b0b84f18.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/213120745-9835a020-1be3-4bd2-8789-5a65470b1df5.png" height = "230"></p>
@@ -7590,6 +7595,11 @@ magic -T /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane_workin
 	
 <details><summary>Cell design and characterization flows</summary>
 	
+##### Table of Contents 
+-	[Inputs for cell design flow](#inputs-for-cell-design-flow)
+-	[Circuit design step](#circuit-design-step)
+-	[Typical characterization flow](#typical-characterization-flow)
+	
 ### Inputs for cell design flow	
 
 Library is a place where all the standard cells are kept
@@ -7648,7 +7658,7 @@ Layout design step
 	
 	-	outputs of the cell design flow will be the CDL (circuit description langauge), GDSII, LEF, extracted spice netlist (.cir) , timing, noise, power .libs, function
 	
-### Typical characterization flow
+### Typical characterization flow   
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213209713-eb91ce86-6c8f-4835-9a74-36705db9a1cb.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/213209550-360f8507-6085-4079-ab93-481cf3082b00.png" height = "250"></p>
 	
@@ -7675,8 +7685,12 @@ Layout design step
 </details>
 	
 <details><summary>General timing characterization parameters</summary>
+	
+##### Table of Contents 
+-	[Timing threshold definitions](#timing-threshold-definitions)
+-	[Propagation delay and transition time](#propagation-delay-and-transition-time)
 
-### Timing threshold definitions
+### Timing threshold definitions   
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213327576-e57b0501-bfc3-4f88-bd85-f788a76bde97.png" height = "300"></p>
 	
