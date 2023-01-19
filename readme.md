@@ -7822,11 +7822,13 @@ run_floorplan
 	
 **Writing SPICE deck**
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213407934-49011de6-f87d-49bf-80f9-7e5e84bf80c2.png" height = "250"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213409308-8bb26400-00c8-4cc2-ac86-7926d6b09f53.png" height = "300"></p>
 	
->	describe the M1 and M2
+>	describe M1 and M2 (D G S S Widtg and Length)
 	
 ### SPICE simulation lab for CMOS inverter
+	
+
 	
 <p align="center"><img src = "" height = "300"></p>
 	
