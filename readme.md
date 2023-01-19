@@ -7746,3 +7746,46 @@ out fall threshold = same as in rise but out fall
 Note: always high minus low
 
 </details>
+	
+# Day-17
+## Design library cell using Magic Layout and ngspice characterization
+
+<details><summary>Labs for CMOS inverter ngspice simulations</summary>
+	
+##### Table of Contents 
+-	[IO placer revision](#io-placer-revision)
+-	[SPICE deck creation for CMOS inverter](#spice-deck-creation-for-cmos-inverter)
+	
+### IO placer revision
+	
+**Change on openlane flow**
+	
+```
+pwd
+#/home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane_working_dir/openlane/configuration
+	
+less floorplan.tcl #read the configuration = currently IO mode is set to 1
+```
+	
+```
+#openlane
+	
+set ::env(FP_IO_mode) 2 #set IO mode to 2
+	
+run_floorplan
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213392105-f6b8debc-de4e-4eab-b0da-a01f3a6a922d.png" height = "300"></p>
+	
+>	change the IO mode
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213392322-8e9b7adc-c87c-468f-b689-b27dd13da970.png" height = "300"></p>
+	
+### SPICE deck creation for CMOS inverter
+
+	
+<p align="center"><img src = "" height = "300"></p>
+	
+<p align="center"><img src = "" height = "300"></p>
+	
+</details>	
