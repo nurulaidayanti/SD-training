@@ -7755,6 +7755,8 @@ Note: always high minus low
 ##### Table of Contents 
 -	[IO placer revision](#io-placer-revision)
 -	[SPICE deck creation for CMOS inverter](#spice-deck-creation-for-cmos-inverter)
+-	[SPICE simulation lab for CMOS inverter](#spice-simulation-lab-for-cmos-inverter)	
+
 	
 ### IO placer revision
 	
@@ -7782,7 +7784,49 @@ run_floorplan
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213392322-8e9b7adc-c87c-468f-b689-b27dd13da970.png" height = "300"></p>
 	
 ### SPICE deck creation for CMOS inverter
+	
+**SPICE deck**
+	
+-	Connectivity information about the netlist
+	
+1.	create SPICE deck (for the complete netlist)
+	-	need to define the connectivity of substrate (potential component/pin of transistor)
+	-	the value of the output load capacitance decided by the input capacitances of the circuit which is connected at the cload point
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213395961-c2e32555-9a5a-47ee-8d1c-c79450c3d788.png" height = "250"></p>
+	
+>	substrate terminal of PMOS and NMOS
 
+	
+-	Component value
+	
+1.	define the value of channel length and load capacitance
+		
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213400117-615c566c-ea06-41ae-82b9-288d337706de.png" height = "250"></p>
+
+>	channel length = read (ideally PMOS should be twice or thrice bigger than NMOS) and output load = blue
+	
+2.	define value of input and supply voltage
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213401772-72f7bc17-ed69-4035-af6e-beb8ab094879.png" height = "250"></p>
+	
+>	2.5 V because the channel length is 2.5nm
+	
+-	Identify 'nodes'
+	
+	-	nodes = two points which there are components (eg; the component lies between 2 nodes)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213402642-e6e46575-f216-47ca-9eaf-a70dfb3d5c70.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/213402975-83a399ee-5bfb-4728-a94b-cf0a38c38cec.png" height = "250"></p>
+	
+>	eg: M1 transistor lies between 3 nodes (in, vdd, out). Hence, very easy to define the transistor
+	
+**Writing SPICE deck**
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213407934-49011de6-f87d-49bf-80f9-7e5e84bf80c2.png" height = "250"></p>
+	
+>	describe the M1 and M2
+	
+### SPICE simulation lab for CMOS inverter
 	
 <p align="center"><img src = "" height = "300"></p>
 	
