@@ -7753,11 +7753,13 @@ Note: always high minus low
 <details><summary>Labs for CMOS inverter ngspice simulations</summary>
 	
 ##### Table of Contents 
+	
 -	[IO placer revision](#io-placer-revision)
 -	[SPICE deck creation for CMOS inverter](#spice-deck-creation-for-cmos-inverter)
 -	[SPICE simulation lab for CMOS inverter](#spice-simulation-lab-for-cmos-inverter)	
 -	[Switching Threshold Vm](#switching-threshold-vm)
--	[Static and dynamic simulation of CMOS inverter](#static-and-dynamic-simulation-of-cmos-inverter)	
+-	[Static and dynamic simulation of CMOS inverter](#static-and-dynamic-simulation-of-cmos-inverter)
+-	[Lab steps to git clone vsdstdcelldesign](#lab-steps-to-git-clone-vsdstdcelldesign)
 
 
 	
@@ -7903,6 +7905,46 @@ Note: due to the characteristic or robustness, CMOS is widely used for building 
 >	where it kinda turn on (threshold region). same value, different direction
 	
 ### Static and dynamic simulation of CMOS inverter
+	
+-	identify/calculate the value of rise and fall delay
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213453598-3f52ab2f-9ecc-4fb2-9c66-9e04304b0cb4.png" height = "400"></p>
+	
+>	change to pulse and trans
+	
+```
+source #the file
+	
+run
+	
+setplot
+	
+tran2
+	
+display
+	
+plot out vs time in
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213454309-b2145650-67c6-4ae1-babc-495b4e4d62ef.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213454734-8d52b307-3120-4233-b2d8-b42ebcf81258.png" height = "300"></p>
+	
+>	50% of the waveform (rise)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213455939-9f325e81-6edf-4fa4-8b10-52146179a6a5.png" height = "300"></p>
+	
+>	calculate rise delay (red = falling edge | green = rising edge)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213456571-ddb3dc72-fed0-487c-bafa-6f8a42eb59fa.png" height = "300"></p>
+	
+>	calculate fall delay
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213456700-b1214f31-e9a5-48f7-b180-fc5cf4d47d04.png" height = "300"></p>
+	
+### Lab steps to git clone vsdstdcelldesign
+	
+<p align="center"><img src = "" height = "300"></p>
+	
+<p align="center"><img src = "" height = "300"></p>
 	
 <p align="center"><img src = "" height = "300"></p>
 	
