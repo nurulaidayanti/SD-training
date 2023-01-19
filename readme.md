@@ -7926,7 +7926,7 @@ display
 plot out vs time in
 ```
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213454309-b2145650-67c6-4ae1-babc-495b4e4d62ef.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213454734-8d52b307-3120-4233-b2d8-b42ebcf81258.png" height = "300"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213454309-b2145650-67c6-4ae1-babc-495b4e4d62ef.png" height = "150"><img src = "https://user-images.githubusercontent.com/118953932/213454734-8d52b307-3120-4233-b2d8-b42ebcf81258.png" height = "300"></p>
 	
 >	50% of the waveform (rise)
 	
@@ -7942,14 +7942,51 @@ plot out vs time in
 	
 ### Lab steps to git clone vsdstdcelldesign
 	
-<p align="center"><img src = "" height = "300"></p>
+github link: https://github.com/nickson-jose/vsdstdcelldesign
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213465450-9cfd402f-4e04-4f6e-870a-97978936c360.png" height = "300"></p>
+	
+>	copy the link and git clone it in /openlane_working_dir/openlane
+	
+```
+cd /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane_working_dir/openlane
+	
+git clone https://github.com/nickson-jose/vsdstdcelldesign.git
+	
+cd vsdstdcelldesign
+```
+	
+```
+cd /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic
+	
+cp sky130A.tech /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane_working_dir/openlane
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213470927-cb6d2f93-11ce-4075-9ca6-3cddee6f35d6.png" height = "300"></p>
+	
+>	copy files from other directory to current directory
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213472225-2ced1e8d-00d6-4163-8216-f7d62df17999.png" height = "300"></p>
+	
+>	inverter layout
+	
+</details>
+	
+<details><summary>Inception of Layout Â CMOS fabrication process</summary>
+	
+##### Table of Contents 
+	
+-	[Create Active regions](#create-active-regions)
+-	3	[SPICE deck creation for CMOS inverter](#spice-deck-creation-for-cmos-inverter)
+-	3	[SPICE simulation lab for CMOS inverter](#spice-simulation-lab-for-cmos-inverter)	
+-	3	[Switching Threshold Vm](#switching-threshold-vm)
+-	3	[Static and dynamic simulation of CMOS inverter](#static-and-dynamic-simulation-of-cmos-inverter)
+-	3	[Lab steps to git clone vsdstdcelldesign](#lab-steps-to-git-clone-vsdstdcelldesign)
+	
+### Create Active regions
 	
 <p align="center"><img src = "" height = "300"></p>
 	
 <p align="center"><img src = "" height = "300"></p>
 	
 <p align="center"><img src = "" height = "300"></p>
-	
-<p align="center"><img src = "" height = "300"></p>
-	
-</details>	
