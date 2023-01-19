@@ -7256,6 +7256,18 @@ git clone #copy the repository to local
 ## Good floorplan vs bad floorplan and introduction to library cells
 
 <details><summary>Chip Floor planning considerations</summary>
+	
+##### Table of Contents  
+[Utilization factor and aspect ratio](###)
+[Concept of pre-placed cells](###)  
+[De-coupling capacitors](###)
+[Power planning](###)
+[Pin placement and logical cell placement blockage](###)
+[Review floorplan files and steps to view floorplan ⌨️🤔](###)
+[Review floorplan layout in Magic ⌨️🤔](###)
+[Netlist binding and initial place design](###)
+[Need for libraries and characterization](###)
+
 
 ### Utilization factor and aspect ratio
 
