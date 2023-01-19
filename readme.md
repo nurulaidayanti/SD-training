@@ -7756,6 +7756,9 @@ Note: always high minus low
 -	[IO placer revision](#io-placer-revision)
 -	[SPICE deck creation for CMOS inverter](#spice-deck-creation-for-cmos-inverter)
 -	[SPICE simulation lab for CMOS inverter](#spice-simulation-lab-for-cmos-inverter)	
+-	[Switching Threshold Vm](#switching-threshold-vm)
+-	[Static and dynamic simulation of CMOS inverter](#static-and-dynamic-simulation-of-cmos-inverter)	
+
 
 	
 ### IO placer revision
@@ -7826,9 +7829,82 @@ run_floorplan
 	
 >	describe M1 and M2 (D G S S Widtg and Length)
 	
-### SPICE simulation lab for CMOS inverter
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213435963-c0ef7797-63df-4b87-aaac-4d94b2aec1e1.png" height = "300"></p>
 	
+>	description of output load capacitor, Vdd and Vin
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213437146-98d5019a-c8fd-4972-8152-c64c578150bc.png" height = "230"></p>
+	
+>	red line - sweep the gate input voltage from 0 to 2.5 at steps of 0.05 (to calculate voltage at the output waveform while we sweep the input voltage)
+	
+>	yellow dotted line - describe the model file (all parameters (attribute) are describe in this)
+	
+### SPICE simulation lab for CMOS inverter
 
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213438656-bb6a7a58-d322-4abe-9336-ff31a58d823e.png" height = "300"></p>
+
+>	channel length and width (NMOS and PMOS) are constant. Spice window shown
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213438070-14a37013-ab95-4b83-969f-74f01c22e095.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/213438258-2e08a73e-ba95-481f-a8e3-7a5e8472504b.png" height = "300"></p>
+
+>	left - model file (parameters) | right - netlist
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213439188-8e99c732-baa2-430f-8951-c64645af1cc9.png" height = "250"></p>
+	
+>	spice simulation
+	
+```
+cd #change directory
+
+source <the file> #circuit will present int the simulator
+	
+run #execute circuit
+	
+setplot #shows which plot is currently present in the simulator
+	
+dc1
+	
+display #the current voltages
+	
+plot out vs in #in = voltage which are sweeping and out = output
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213439781-839d2a79-e35e-4e1b-9520-3d857aee4704.png" height = "300"></p>
+	
+>	waveform obtained (slightly to the left)
+		
+**Increase the width of PMOS**
+	
+-	new width for PMOS = 0.9375u | Wp/Lp =3.75
+-	do the same steps as before for the simulation but change dc1 to dc2
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213440994-ac7d4249-9492-43fd-8b81-914aff5c41c8.png" height = "300"></p>
+	
+>	waveform obtained for the new width (2.5 times the NMOS) of PMOS. The waveform is centered
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213442740-1e089afe-198b-4fec-9bae-e8ed50202eaa.png" height = "300"></p>
+	
+>	compare the two waveform (the shapes remains the same)
+	
+Note: due to the characteristic or robustness, CMOS is widely used for building logic gates
+	
+### Switching Threshold Vm
+	
+-	Vm = point where Vin is equal to Vout
+
+-	area where PMOS and NMOS are in saturation region (where both are turn on). this os where there is high chances of leakage current
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213443360-d078d8bb-af88-4230-9849-22458698c037.png" height = "300"></p>
+	
+>	left = ~0.9 | right = ~1.2
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213445077-b0e0de43-24a5-41bd-80bd-6c188024e39a.png" height = "300"></p>
+	
+>	where it kinda turn on (threshold region). same value, different direction
+	
+### Static and dynamic simulation of CMOS inverter
+	
+<p align="center"><img src = "" height = "300"></p>
 	
 <p align="center"><img src = "" height = "300"></p>
 	
