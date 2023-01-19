@@ -7822,7 +7822,7 @@ run_floorplan
 	
 **Writing SPICE deck**
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213409308-8bb26400-00c8-4cc2-ac86-7926d6b09f53.png" height = "300"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213409308-8bb26400-00c8-4cc2-ac86-7926d6b09f53.png" height = "270"></p>
 	
 >	describe M1 and M2 (D G S S Widtg and Length)
 	
