@@ -7666,9 +7666,57 @@ Layout design step
 
 ### Timing threshold definitions
 	
-### Propagation delay and transition time
-<p align="center"><img src = "" height = "300"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213327576-e57b0501-bfc3-4f88-bd85-f788a76bde97.png" height = "300"></p>
 	
-<p align="center"><img src = "" height = "300"></p>
+Slew low rise threshold - taken waveform from the output of the first inverter which being given the input for the second inverter
+-	need to define the value (points towards the lowest of the power supply and typical value is 20% or 30%)
+	
+>	red = input of the second inverter | blue = output of the first inverter
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213328182-f11c7e57-a2bb-4a09-9138-ed70a17a1d76.png" height = "300"></p>
+	
+Slew high rise threshold - 20% from the bottom power supply and 20% from the top. then identify the time difference
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213328418-3a9c7b1a-d884-4c20-9643-6e244aaac171.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/213328296-a3b24299-2969-4fb7-bb32-07faeaf4836e.png" height = "230"></p>
+	
+>	Slew low fall threshold (left) Slew high fall threshold (right)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213328728-2070d8f0-2f09-413e-9244-0b2851e805b1.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/213328944-3ac49915-43d5-4056-a0ff-036e1153b7c7.png" height = "230"></p>
+	
+in rise threshold - threshold for the delay (50% of the slew waveform on the ideal waveform and a point in the output waveform to calculate the delay)
+	
+out rise threshold - the output rising waveform (point where can calculate the delay = 50%)
+	
+>	red = ideal (the one we are applying) | blue = output of the buffer
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213329495-1492679d-6b51-4430-ac81-78354b17f56e.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/213329589-24b1f4cc-8c6b-4064-a1e8-007c8dbbf2b9.png" height = "230"></p>
+	
+in fall threshold = same as in rise but falling waveform
+	
+out fall threshold = same as in rise but out fall
+	
+### Propagation delay and transition time
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213329998-ffd75471-35da-488b-ad04-a2a992843608.png" height = "300"></p>
+	
+>	to calculate the delay, only need to subtract out minus in
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213330174-c96afa5f-dce3-4dd2-ab24-16eca1474c41.png" height = "300"></p>
+	
+>	example for calculating delay
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213330374-b39b7c39-e331-4ee3-b0e5-cebb66c7ff7c.png" height = "300"></p>
+	
+>	If the threshold moves, there will be a problem which is output comes before of input (poor choice of threshold point)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213330678-7bf2e0b9-6db9-4460-abfd-0ea16b44d24b.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/213330864-3ca22c9e-419b-44e1-9786-e2a9f7c2615e.png" height = "230"></p>
+	
+>	from the waveform, the delays on the input wires are quite high. it is due to the design (thats why circuit design is important)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213331356-ff8b8c7b-f2d0-4c7c-8c49-4dd09e76f931.png" height = "300"></p>
+	
+>	for transition time, the time of slew high rise thr need to subtract the time of slew low rise thr for rise waveform (also applies for the fall waveform, using the slew low and high for fall)
+
+Note: always high minus low
 
 </details>
