@@ -8217,7 +8217,7 @@ ext2spice
 	
 -	[Lab steps to create final SPICE deck using Sky130 tech](#lab-steps-to-create-final-spice-deck-using-sky130-tech)
 -	[Lab steps to characterize inverter using sky130 model files](#lab-steps-to-characterize-inverter-using-sky130-model-files)
--	[](#)	
+-	[Lab introduction to Magic tool options and DRC rules](#lab-introduction-to-magic-tool-options-and-drc-rules)	
 -	[](#)
 -	[](#)
 -	[](#)
@@ -8231,13 +8231,49 @@ ext2spice
 	
 >	PMOS and NMOS characterization and connections details
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213678010-20732d92-38d8-41dd-afd7-dcd8c32de4a5.png" height = "300"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213681004-41888b0b-5ad1-492d-a118-59e6957ddd9c.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/213681172-0c603170-6614-40d2-ab2b-ee1681633db3.png" height = "300"></p>
 	
 >	edit the scale to reflect the value in the magic tool. include PMOS and NMOS lib files. comment out the subckt and .end line to include the transient analysis controls. define supply voltages. specifies input pulse and the specification for the transient analysis. rename pmos and nmos models as in the model lib file. "ngspice sky130A_inv.spice" to run the spice simulation.
 	
 ### Lab steps to characterize inverter using sky130 model files
 	
+```
+#ngspice
+	
+plot y vs time a
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213681373-d4882e94-6ee4-4dfe-821a-7bb34a3e8c87.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/213682214-d6189727-fcfd-42da-ac61-f27e4f3ddd71.png" height = "300"></p>
+	
+>	plot y vs time a 
+	
+Note: increase the capacitance load (C3) to 2fF to make it better
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213684137-1035a48f-cfa4-4ed7-b1b1-94c157d7d79c.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/213684629-2fac45c0-e1d1-4d84-ac8d-deb139d2804d.png" height = "300"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213684792-be035a36-f72d-49e1-97f8-b8f737c9b95c.png" height = "100"></p>
 
-
+>	20% = 0.66, 80% = 2.64 | rise time = 0.06669 (difference of the X value)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213686311-ce1157a1-1226-4d14-a90d-1c6a6c00ce9a.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/213686590-6227923b-ab57-4082-8498-9cd60474e507.png" height = "300"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213686663-f392e3e8-f318-42e9-a343-5bb1b479e39e.png" height = "100"></p>
+	
+>	fall time = 0.06 (20% - 80%)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213688384-0a447992-edc1-4117-bf3c-4ed6741605fa.png" height = "300"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213685851-9c2d409f-bd4a-4e40-9808-856e31311dd2.png" height = "100"></p>
+	
+cell rise delay = 0.06361 (50% output - 50% input)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213687095-e61174d6-8ee6-4a5f-9465-03fda4073ca3.png" height = "300"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213687308-2c6569e2-4c0f-4cc2-92e7-dae89efda55b.png" height = "100"></p>
+	
+cell fall delay = 0.02692
+	
+### Lab introduction to Magic tool options and DRC rules
+	
 </details>	
 	
