@@ -7983,9 +7983,8 @@ cp sky130A.tech /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane
 -	[Source Â drain formation](#source-â-drain-formation)
 -	[Local interconnect formation](#local-interconnect-formation)
 -	[Higher level metal formation](#higher-level-metal-formation)
--	[](#)
--	
--	
+-	[Lab introduction to Sky130 basic layers layout and LEF using inverter](#lab-introduction-to-sky130-basic-layers-layout-and-lef-using-inverter)
+-		
 	
 ### Create Active regions
 	
@@ -8130,9 +8129,40 @@ cp sky130A.tech /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane
 	>	mask level and remove it and etched of the TiN using RCA cleaning (solution)
 	
 ### Higher level metal formation
+
+8.	Higher level metal formation
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213636906-5e057559-34b6-4ebf-a2c0-4035f3bbe36b.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213641360-49ac206d-df54-4918-82e2-1664d41a1d6d.png" height = "200"></p>
+	
+>	deposit a thick layer of SiO2 and polish to get a flat surface using chemical mechanical polishing (CMP) technique for planarizing water surface. Then, create contact tools. mask it (Mask12) and remove it and etch of where we want to drill the contact layer. remove photoresist
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213641552-811787da-d095-4a33-b7f8-dd5cfc675001.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213641823-140b9064-71f2-4583-9ba2-61979cb20790.png" height = "200"></p>
+	
+>	deposit thin layer of TiN and deposit blanket tungsten (W) layer deposition. Then CMP again
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213642104-66d74f1c-bc14-43a3-820f-03c9080d354c.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213642250-a5fdfc33-175b-434f-b95e-b5f882cf35f8.png" height = "200"></p>
+	
+>	deposit aluminium layer and mask again (Mask13). Al is plasma etched. Remove resist
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213642528-164c72bb-49a9-46d5-803c-bed56bc4ce5b.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213642753-f51e70f4-46aa-43d2-86a5-107505d925e6.png" height = "200"></p>
+	
+>	aluminium interconnect and deposit oxide
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213642894-6eb01b5c-17ca-4124-8bd5-bd7e48b6446e.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213643133-970880f2-c0a3-40e6-bd17-4d7998a98de7.png" height = "200"></p>
+	
+ >	pattern the same thing and do the mask step again (Mask14). deposit TiN again. deposit tungsten making the contact holes
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213644039-60595754-3ca3-45a9-a87c-6f457b24b2ec.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/213644242-c31ad211-acb0-4d23-b7fb-892e173667e7.png" height = "230"></p>
+	
+>	third level of interconnection (Mask15) and deposit Si3N4 to protect the chip
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213644506-faf69b76-3e3d-493a-864b-dddccf6f038d.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/213644733-18cfa058-d04e-4b0e-bec1-d9c15eac3e1b.png" height = "230"></p>
+	
+>	final mask (Mask16). source, gate and drain fabricated
+	
+### Lab introduction to Sky130 basic layers layout and LEF using inverter
 	
 <p align="center"><img src = "" height = "200"><img src = "" height = "200"></p>
-	
 <p align="center"><img src = "" height = "300"></p>
 <p align="center"><img src = "" height = "300"></p>
 <p align="center"><img src = "" height = "300"></p>
