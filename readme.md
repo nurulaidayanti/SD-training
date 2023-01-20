@@ -8219,7 +8219,7 @@ ext2spice
 -	[Lab steps to characterize inverter using sky130 model files](#lab-steps-to-characterize-inverter-using-sky130-model-files)
 -	[Lab introduction to Magic tool options and DRC rules](#lab-introduction-to-magic-tool-options-and-drc-rules)	
 -	[Lab introduction to Sky130 pdk's and steps to download labs](#lab-introduction-to-sky130-pdks-and-steps-to-download-labs)
--	[](#)
+-	[Lab introduction to Magic and steps to load Sky130 tech-rules](#lab-introduction-to-magic-and-steps-to-load-sky130-tech-rules)
 -	[](#)
 -	[](#)
 -	[](#)
@@ -8285,9 +8285,29 @@ Link for Magic: http://opencircuitdesign.com/magic/index.html
 	
 ###	Lab introduction to Sky130 pdk's and steps to download labs
 	
-<p align="center"><img src = "" height = "300"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213719559-3d132fec-a60c-4bb7-8bdb-35e767d1dea6.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/213720104-8840140f-7edd-4d9c-98cb-06b9a5be1978.png" height = "250"></p>
 	
-<p align="center"><img src = "" height = "300"></p>
+>	for layout exercise
+	
+```
+vim .magicrc 
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213721967-4a3469f7-0651-4a9e-9db4-8f8421b9d0eb.png" height = "300"></p>
+	
+>	startup script for magic
+	
+**To start magic**
+	
+```
+pwd #make sure at /Desktop/work/drc_tests
+	
+magic -d XR
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213722854-c65eeffb-4ebd-4bba-a902-d10b2fd6055a.png" height = "300"></p>
+	
+### Lab introduction to Magic and steps to load Sky130 tech-rules
 	
 </details>	
 	
