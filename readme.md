@@ -7979,7 +7979,7 @@ cp sky130A.tech /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane
 -	[Create Active regions](#create-active-regions)
 -	[Formation of N-well and P-well](#create-active-regions)
 -	[Formation of gate terminal](#formation-of-gate-terminal)	
--	3	[Switching Threshold Vm](#switching-threshold-vm)
+-	[Lightly doped drain (LDD) formation](#lightly-doped-drain-ldd-formation)
 -	3	[Static and dynamic simulation of CMOS inverter](#static-and-dynamic-simulation-of-cmos-inverter)
 -	3	[Lab steps to git clone vsdstdcelldesign](#lab-steps-to-git-clone-vsdstdcelldesign)
 	
@@ -8038,10 +8038,39 @@ cp sky130A.tech /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane
 	
 ### Formation of gate terminal
 	
-<p align="center"><img src = "" height = "200"><img src = "" height = "200"></p>
+4.	formation of gate
+	-	control the threshold voltage
 	
->	create gate for PMOS and NMOS
-
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213609996-a806b9aa-c8f5-4083-8b58-86bc25b7ef0f.png" height = "250"></p>
+	
+>	threshold voltage equation (Na and Cox are 2 important terms as they control Vt)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213610297-6f6a4464-b345-415f-abb8-1d820e2674aa.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213610627-0180a7f6-319d-47b4-be82-14f964609596.png" height = "200"></p>
+	
+>	repeated step (mask) to expose the P-well (NMOS). implement boron but with low energy because want it to be just at the surface (modify doping concentration). do it the same for N-well but with phosphorus or arsenic
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213610782-0494fd5f-4305-47ff-a935-46904a1f3159.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213611043-bf2eea19-43c2-4d46-ada1-be76674f260c.png" height = "200"></p>
+	
+>	remove the oxide and regrown again. then deposit polysilicon layer (~0.4um) and doped it with impurity (implant on the polysilicon layer)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213611153-94bcc004-676e-4ae3-bb5c-fbdd5fca06c5.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213611244-cdfe1aa1-c62e-4634-b12b-ddb1ee679058.png" height = "200"></p>
+	
+>	mask again (Mask6 = polysilicon mask) cross section and top view
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213611369-f3061420-2dfb-470b-8ea5-5b0b28130918.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213611518-4b6a42aa-1bbd-4d3b-947f-32716bd1c070.png" height = "200"></p>
+	
+>	mask remove and remaining area is etched. Then, remove the resist. This is the formation of gate
+	
+### Lightly doped drain (LDD) formation
+	
+<p align="center"><img src = "" height = "300"></p>
+	
+<p align="center"><img src = "" height = "300"></p>
+	
+<p align="center"><img src = "" height = "300"></p>
+	
+<p align="center"><img src = "" height = "300"></p>
+	
 <p align="center"><img src = "" height = "300"></p>
 	
 <p align="center"><img src = "" height = "300"></p>
