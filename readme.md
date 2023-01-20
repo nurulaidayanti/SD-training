@@ -8185,7 +8185,46 @@ Link on detailed explaination: https://github.com/nickson-jose/vsdstdcelldesign
 	
 ### Lab steps to create std cell layout and extract spice netlist
 	
-<p align="center"><img src = "" height = "300"></p>
-<p align="center"><img src = "" height = "300"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213655965-1082962c-a937-4f55-8db9-c34585a9ce8b.png" height = "300"></p>
+
+>	PMOS = N-well. nsubstrate contact between N-well and locali. licon contact between locali and metal 1. NMOS = no well 
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213657383-58406347-4880-4ff4-b875-2e7d8fac7a96.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/213657813-e57062cf-46b0-4981-a425-cef86752afcf.png" height = "150"></p>
+
+>	white dotted line is the error and to know the error just click DRC tab and click DRC find next error. To know the error, look at the tkcon. To fix it select the area (left click right click) and click the layer on the right. Lastly, ensure the final design needs to be DRC clean.
+	
+```
+#in tkcon
+	
+pwd
+	
+extract all #extract the inverter
+	
+ext2spice cthresh 0 rthresh 0 #extract parasitic capacitance
+	
+ext2spice
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213659753-a99e1a76-e94d-4d35-926d-0b524a53a46d.png" height = "300"></p>
+	
+>	the .ext file and .spice created
 	
 </details>
+	
+<details><summary>Sky130 Tech File Labs</summary>
+	
+##### Table of Contents 
+	
+-	[Lab steps to create final SPICE deck using Sky130 tech](#lab-steps-to-create-final-spice-deck-using-sky130-tech)
+-	[](#)
+-	[](#)	
+-	[](#)
+-	[](#)
+-	[](#)
+-	[](#)
+-	[](#)
+-	[](#)
+	
+### Lab steps to create final SPICE deck using Sky130 tech
+	
+<p align="center"><img src = "" height = "300"></p>
