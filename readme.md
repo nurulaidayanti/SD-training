@@ -7984,7 +7984,7 @@ cp sky130A.tech /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane
 -	[Local interconnect formation](#local-interconnect-formation)
 -	[Higher level metal formation](#higher-level-metal-formation)
 -	[Lab introduction to Sky130 basic layers layout and LEF using inverter](#lab-introduction-to-sky130-basic-layers-layout-and-lef-using-inverter)
--		
+-	[Lab steps to create std cell layout and extract spice netlist](#lab-steps-to-create-std-cell-layout-and-extract-spice-netlist)
 	
 ### Create Active regions
 	
@@ -8162,8 +8162,29 @@ cp sky130A.tech /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane
 	
 ### Lab introduction to Sky130 basic layers layout and LEF using inverter
 	
-<p align="center"><img src = "" height = "200"><img src = "" height = "200"></p>
-<p align="center"><img src = "" height = "300"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213649949-5e58ddfd-a442-4bd5-90e0-f19cc7b91346.png" height = "250"></p>
+	
+>	layout of inverter
+	
+-	local  = blue
+-	metal 1 = purple
+-	metal 2 = pinkish
+-	N-Well = black dash line
+-	ndiffusion = green 
+-	pdiffusion = brown 
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213652392-34bd5fa4-c65a-47f9-b4d7-2a7ac182a32f.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/213652795-1f526f30-3dd3-4986-93b4-c72b55a5ae3c.png" height = "250"></p>
+	
+>	cursor go to the green one and press S to see what the higlighted is
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213653224-68cebd69-83c8-48da-969d-b4cac4e08206.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/213653807-cc0ad2f4-c9de-4d53-834c-e488d72919f3.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/213653925-b4fae882-4471-42f7-b436-4a6147309247.png" height = "250"></p>
+
+>	move the cursor and press S twice. the highlighted (left) means the drains are connected to the output. source of PMOS connected to vdd (middle) and source of NMOS connected to ground (right)
+	
+Link on detailed explaination: https://github.com/nickson-jose/vsdstdcelldesign
+	
+### Lab steps to create std cell layout and extract spice netlist
+	
 <p align="center"><img src = "" height = "300"></p>
 <p align="center"><img src = "" height = "300"></p>
 	
