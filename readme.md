@@ -7980,8 +7980,11 @@ cp sky130A.tech /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane
 -	[Formation of N-well and P-well](#create-active-regions)
 -	[Formation of gate terminal](#formation-of-gate-terminal)	
 -	[Lightly doped drain (LDD) formation](#lightly-doped-drain-ldd-formation)
--	3	[Static and dynamic simulation of CMOS inverter](#static-and-dynamic-simulation-of-cmos-inverter)
--	3	[Lab steps to git clone vsdstdcelldesign](#lab-steps-to-git-clone-vsdstdcelldesign)
+-	[Source Â drain formation](#source-â-drain-formation)
+-	[Local interconnect formation](#local-interconnect-formation)
+-	
+-	
+-	
 	
 ### Create Active regions
 	
@@ -8063,16 +8066,56 @@ cp sky130A.tech /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane
 	
 ### Lightly doped drain (LDD) formation
 	
-<p align="center"><img src = "" height = "300"></p>
+5.	Lightly doped drain (LDD) formation
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213626030-b0d9ec29-ed48-46b5-b909-9700e51fe814.png" height = "250"></p>
+	
+>	source and drain are both P-type (PMOS) and source and drain are both N-type (NMOS). want to form the P- and N-
+
+-	2 reasons for this:
+	-	hot electron effect
+		-	electric field E=V/d
+		-	high energy carriers break Si-Si bonds
+		-	3.2eV barrier b/w Si conduction band
+		-	SiO2 conduction band
+	-	short channel efect
+		-	for short channels, drain field penetrates channel
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213626805-d205d123-a455-4782-a7ac-c70b820d1b26.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213627028-58c0646d-55d2-4714-a03c-82479cd61595.png" height = "200"></p>
+
+>	mask7.	fabricate NMOS (implement phosphorus but the doses are carefully chosen so that it wont penetrate too deep = lightly doped) create N- implant
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213627216-724973e5-3359-40d3-92f5-3a4f67e9d51f.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213627493-bfb223ac-5c54-4347-b04f-3735b4ede5b8.png" height = "200"></p>
+
+>	do the same step for PMOS but with boron. create P- implant	
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213627847-9ff3a9cb-f5ec-470d-9248-07a6b31dd0ee.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213628088-d91b5e7b-5316-4785-b8a4-dd728f49c430.png" height = "200"></p>
+	
+>	deposit a layer ofSi3N4 or SiO2 (green) and do etching to prevent the layer from etched of it. the side-wall spacer helps to maintain the N-implant/P-implant
+	
+### Source Â drain formation
+	
+6.	source and drain formation
+	-	add thin layer of screen oxide to prevent from channeling during implants (ion might go deep inside the P-substrate)
+	-	do mask again
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213628870-c04f1360-9862-4283-a021-007bdd4b1a93.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213629172-b8a23f2c-0f18-455c-be68-f0be6727789e.png" height = "200"></p>
+	
+>	implement arsenic. N- implant present
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213629391-5a0ce468-7a6e-4a9e-a3fa-fc3e6f643087.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213629485-198a700b-a1fe-4761-82c3-513407056a2f.png" height = "200"></p>
+	
+>	same process as before
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213629589-515dc37e-f7c0-4187-b88a-db7edad0e47b.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213629760-3481a967-b65c-48ae-87b5-3c619604bc1e.png" height = "200"></p>
+	
+>	high temperature furnace. they will penetrate more in the N-well and P-well	
+
+### Local interconnect formation
 	
 <p align="center"><img src = "" height = "300"></p>
-	
+<p align="center"><img src = "" height = "300"></p>
+<p align="center"><img src = "" height = "300"></p>
 <p align="center"><img src = "" height = "300"></p>
 	
-<p align="center"><img src = "" height = "300"></p>
-	
-<p align="center"><img src = "" height = "300"></p>
-	
-<p align="center"><img src = "" height = "300"></p>
-	
-<p align="center"><img src = "" height = "300"></p>
+</details>
