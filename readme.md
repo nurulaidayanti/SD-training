@@ -7982,7 +7982,8 @@ cp sky130A.tech /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane
 -	[Lightly doped drain (LDD) formation](#lightly-doped-drain-ldd-formation)
 -	[Source Â drain formation](#source-â-drain-formation)
 -	[Local interconnect formation](#local-interconnect-formation)
--	
+-	[Higher level metal formation](#higher-level-metal-formation)
+-	[](#)
 -	
 -	
 	
@@ -8113,7 +8114,25 @@ cp sky130A.tech /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane
 
 ### Local interconnect formation
 	
-<p align="center"><img src = "" height = "300"></p>
+7.	steps to form contacts and interconnects (local)
+	-	user can control the electrical characterisic of the PMOS and NMOS
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213631815-a4c008b1-47b9-4c9e-8935-e94aeebfd08a.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213632653-3ceb41cf-f7f7-4c6d-affa-fca3b59abbd7.png" height = "230"></p>
+	
+>	remove the thin oxide. then deposit titanium on wafer surface using sputtering (titanium was hit with Argon gas and it will sputter out (emit out titanium metal) and will be deposited to substrate)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213632975-091d9a89-dd6f-4054-a2c4-796be867fa71.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213633438-67b61a2d-608b-4850-bceb-8b3b03c07e4c.png" height = "200"></p>
+	
+>	heated at a very high temp and form TiSi2 and TiN
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213633739-9a4a529b-8670-4b14-9a3d-a1aaeea0c8a7.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213634049-adfc3192-9bd2-4284-abef-0d85336f5a58.png" height = "200"></p>
+
+	>	mask level and remove it and etched of the TiN using RCA cleaning (solution)
+	
+### Higher level metal formation
+	
+<p align="center"><img src = "" height = "200"><img src = "" height = "200"></p>
+	
 <p align="center"><img src = "" height = "300"></p>
 <p align="center"><img src = "" height = "300"></p>
 <p align="center"><img src = "" height = "300"></p>
