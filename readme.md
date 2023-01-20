@@ -8309,5 +8309,9 @@ magic -d XR
 	
 ### Lab introduction to Magic and steps to load Sky130 tech-rules
 	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213723687-c022d601-f1df-4d48-994c-f60357aec6d1.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/213723849-3fcda894-8224-46bf-a539-623c8b8d7ab5.png" height = "250"></p>
+	
+>	open met3.mag
+	
 </details>	
 	
