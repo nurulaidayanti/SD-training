@@ -8218,7 +8218,7 @@ ext2spice
 -	[Lab steps to create final SPICE deck using Sky130 tech](#lab-steps-to-create-final-spice-deck-using-sky130-tech)
 -	[Lab steps to characterize inverter using sky130 model files](#lab-steps-to-characterize-inverter-using-sky130-model-files)
 -	[Lab introduction to Magic tool options and DRC rules](#lab-introduction-to-magic-tool-options-and-drc-rules)	
--	[](#)
+-	[Lab introduction to Sky130 pdk's and steps to download labs](#lab-introduction-to-sky130-pdks-and-steps-to-download-labs)
 -	[](#)
 -	[](#)
 -	[](#)
@@ -8274,6 +8274,20 @@ cell rise delay = 0.06361 (50% output - 50% input)
 cell fall delay = 0.02692
 	
 ### Lab introduction to Magic tool options and DRC rules
+	
+Link to know more detail: http://opencircuitdesign.com/
+	
+Link for Magic: http://opencircuitdesign.com/magic/index.html
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213712643-f36f74a5-3fef-440c-811e-2ca4bb3dffed.png" height = "300"></p>
+	
+>	website to learn about Magic (eg: commands, tutorials, technology files (CIF, DRC))
+	
+###	Lab introduction to Sky130 pdk's and steps to download labs
+	
+<p align="center"><img src = "" height = "300"></p>
+	
+<p align="center"><img src = "" height = "300"></p>
 	
 </details>	
 	
