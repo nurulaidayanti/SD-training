@@ -8216,7 +8216,7 @@ ext2spice
 ##### Table of Contents 
 	
 -	[Lab steps to create final SPICE deck using Sky130 tech](#lab-steps-to-create-final-spice-deck-using-sky130-tech)
--	[](#)
+-	[Lab steps to characterize inverter using sky130 model files](#lab-steps-to-characterize-inverter-using-sky130-model-files)
 -	[](#)	
 -	[](#)
 -	[](#)
@@ -8227,4 +8227,17 @@ ext2spice
 	
 ### Lab steps to create final SPICE deck using Sky130 tech
 	
-<p align="center"><img src = "" height = "300"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213673186-a30d8135-fe9c-424d-8892-a74cc6be3fb4.png" height = "300"></p>
+	
+>	PMOS and NMOS characterization and connections details
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213678010-20732d92-38d8-41dd-afd7-dcd8c32de4a5.png" height = "300"></p>
+	
+>	edit the scale to reflect the value in the magic tool. include PMOS and NMOS lib files. comment out the subckt and .end line to include the transient analysis controls. define supply voltages. specifies input pulse and the specification for the transient analysis. rename pmos and nmos models as in the model lib file. "ngspice sky130A_inv.spice" to run the spice simulation.
+	
+### Lab steps to characterize inverter using sky130 model files
+	
+
+
+</details>	
+	
