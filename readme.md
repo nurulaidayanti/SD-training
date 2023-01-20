@@ -7978,7 +7978,7 @@ cp sky130A.tech /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane
 	
 -	[Create Active regions](#create-active-regions)
 -	[Formation of N-well and P-well](#create-active-regions)
--	3	[SPICE simulation lab for CMOS inverter](#spice-simulation-lab-for-cmos-inverter)	
+-	[Formation of gate terminal](#formation-of-gate-terminal)	
 -	3	[Switching Threshold Vm](#switching-threshold-vm)
 -	3	[Static and dynamic simulation of CMOS inverter](#static-and-dynamic-simulation-of-cmos-inverter)
 -	3	[Lab steps to git clone vsdstdcelldesign](#lab-steps-to-git-clone-vsdstdcelldesign)
@@ -8016,6 +8016,33 @@ cp sky130A.tech /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane
 >	Si3N4 stripped
 	
 ### Formation of N-well and P-well
+	
+3.	N-well and P-well formation
+	-	N-well for PMOS fabrication and P-well is for NMOS fabrication (need to protect one area while fabricate)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213598636-582fda52-85e0-492f-bbe7-119c730678bc.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213598806-6fa4f483-603c-419c-b3a4-573ef3145d25.png" height = "200"></p>
+	
+>	Mask2 to protect the layer of photo resist (left = cross section). Right photo = top view
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213599267-77402d20-abaf-493d-9878-291d0ce2cfe2.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213599551-42afb83b-9768-405a-9bbb-0c5fcb147fdd.png" height = "200"></p>
+	
+>	exposed to UV light and washed out. mask removed. P-well created (energy needed to create is ~200keV to make Boron penetrate to the oxide layer and enter into the active area)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213602628-ae1f0e26-3b6c-4bc1-ad67-c4efe4af819c.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213602833-7912c53d-486e-44cd-bbf3-a0d800d49ce8.png" height = "200"></p>
+	
+>	N-well. mask the Pwell side and implant phosphorous (heavier than boron). energy = ~400keV
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213603809-40933d14-1e01-4c1a-b7d3-de4bf1f4d4c0.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213603877-7a0446c9-2fdc-4c74-a0f8-e41e985ba085.png" height = "200"></p>
+	
+>	put it in driving furnace so that it will diffuse the boron and phosphorus into the P type substrate
+	
+### Formation of gate terminal
+	
+<p align="center"><img src = "" height = "200"><img src = "" height = "200"></p>
+	
+>	create gate for PMOS and NMOS
+
+<p align="center"><img src = "" height = "300"></p>
 	
 <p align="center"><img src = "" height = "300"></p>
 	
