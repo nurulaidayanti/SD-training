@@ -7977,7 +7977,7 @@ cp sky130A.tech /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane
 ##### Table of Contents 
 	
 -	[Create Active regions](#create-active-regions)
--	3	[SPICE deck creation for CMOS inverter](#spice-deck-creation-for-cmos-inverter)
+-	[Formation of N-well and P-well](#create-active-regions)
 -	3	[SPICE simulation lab for CMOS inverter](#spice-simulation-lab-for-cmos-inverter)	
 -	3	[Switching Threshold Vm](#switching-threshold-vm)
 -	3	[Static and dynamic simulation of CMOS inverter](#static-and-dynamic-simulation-of-cmos-inverter)
@@ -7985,7 +7985,37 @@ cp sky130A.tech /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane
 	
 ### Create Active regions
 	
-<p align="center"><img src = "" height = "300"></p>
+**16-mask CMOS process**
+	
+1.	selecting a substrate
+	
+	-	P-type, high resistivity (5~50ohms), doping level (10^15cm-3), orientation (100)
+		-	doping = process of adding impurity into p type substrate
+		-	substrate doping should be less than 'well' doping
+	
+2.	creating active region for transistors
+	-	create isolation between each and every pockets
+		-	~40nm of SiO2 (very good insulator)
+		-	deposit a layer of ~80nm Si3N4
+		-	~1um photoresist
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213596444-af585b5b-76db-47cc-a8ef-3b32a6a0f1e4.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213596648-2aab2dc6-c64a-47b6-8575-4852aef2198e.png" height = "200"></p>
+	
+>	Mask1 = protect area from getting exposed. the other area of photoresist will be washed out
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213597083-253ad11a-753c-4da1-bb6c-efa1af6d0cff.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213597240-892df108-e0d0-41df-9c3a-c2362b147597.png" height = "200"></p>
+	
+>	mask removed and area of Si3N4 that was not protected will be etched off. photoresist will then be removed
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213597328-9313f241-b1e5-4e0e-a7b9-06a7f952fb38.png" height = "170"><img src = "https://user-images.githubusercontent.com/118953932/213597501-7fae8819-b832-41dc-9100-6cff7a577c49.png" height = "170"></p>
+	
+>	grow first level silicon dioxide (left) and second level (right). blue arrows are isolation region (the transistor will not communicate with each other due to it)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213597782-9cdf2521-61d2-4c93-bb6a-2b18389d469e.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/213597853-251e2820-a89c-4640-8c08-624941d8ac7c.png" height = "200"></p>
+	
+>	Si3N4 stripped
+	
+### Formation of N-well and P-well
 	
 <p align="center"><img src = "" height = "300"></p>
 	
