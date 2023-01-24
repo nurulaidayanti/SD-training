@@ -8285,7 +8285,7 @@ Link for Magic: http://opencircuitdesign.com/magic/index.html
 	
 ###	Lab introduction to Sky130 pdk's and steps to download labs
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213719559-3d132fec-a60c-4bb7-8bdb-35e767d1dea6.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/213720104-8840140f-7edd-4d9c-98cb-06b9a5be1978.png" height = "250"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213719559-3d132fec-a60c-4bb7-8bdb-35e767d1dea6.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/213720104-8840140f-7edd-4d9c-98cb-06b9a5be1978.png" height = "150"></p>
 	
 >	for layout exercise
 	
@@ -8309,7 +8309,7 @@ magic -d XR
 	
 ### Lab introduction to Magic and steps to load Sky130 tech-rules
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213723687-c022d601-f1df-4d48-994c-f60357aec6d1.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/213723849-3fcda894-8224-46bf-a539-623c8b8d7ab5.png" height = "250"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213723687-c022d601-f1df-4d48-994c-f60357aec6d1.png" height = "220"><img src = "https://user-images.githubusercontent.com/118953932/213723849-3fcda894-8224-46bf-a539-623c8b8d7ab5.png" height = "220"></p>
 	
 >	open met3.mag
 	
