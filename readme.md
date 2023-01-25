@@ -8309,9 +8309,17 @@ magic -d XR
 	
 ### Lab introduction to Magic and steps to load Sky130 tech-rules
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213723687-c022d601-f1df-4d48-994c-f60357aec6d1.png" height = "220"><img src = "https://user-images.githubusercontent.com/118953932/213723849-3fcda894-8224-46bf-a539-623c8b8d7ab5.png" height = "220"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/213723687-c022d601-f1df-4d48-994c-f60357aec6d1.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/213723849-3fcda894-8224-46bf-a539-623c8b8d7ab5.png" height = "230"></p>
 	
 >	open met3.mag
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214491434-48a599eb-a497-480e-b08e-d9b44ef4d706.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214492625-04e40e63-ecb7-4588-b1ab-ff3b866e2e51.png" height = "230"></p>
+	
+>	drc why to check what is the violation (left) make a square and then click the middle mouse or p key at the m3contact (right)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214494263-0e5891d0-9ff8-4a8f-964c-20df74a71fe6.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214494557-284a7111-7b56-4bc6-937c-2f5a585fdfce.png" height = "230"></p>
+	
+>	type command "cif see VIA2" to make the small black boxes which are contact cuts (created based on the rules in the tech file). The distance between the cut and the edge is always larger and will never be smaller than 0.065
 	
 </details>	
 	
