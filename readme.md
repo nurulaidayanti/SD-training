@@ -8383,7 +8383,26 @@ Note: use feed clear to clear the one that we've made
 	
 ### Lab challenge to find missing or incorrect rules and fix them
 	
-
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214580215-61f15b08-22c5-46bf-8266-69da6b18aac8.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/214577228-db357650-3034-48f8-901e-d619ab672923.png" height = "220"></p>
+	
+>	edit the rule
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214579270-1a55413d-28c7-4007-a56e-8f1311bfb8ca.png" height = "250"></p>
+	
+>	tech load the file and then drc check then drc check drc(full) and drc check again. still have error so copy the nwell and place the nsubstratencontact (blue x box) and the error goes away
 	
 </details>	
+	
+# Day-18
+## Pre-layout timing analysis and importance of good clock tree
+
+<details><summary>Timing modelling using delay tables</summary>
+	
+<details><summary>Lab steps to convert grid info to track info</summary>
+	
+
+		
+</details>
+	
+</details>
 	
