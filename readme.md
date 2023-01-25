@@ -8221,7 +8221,7 @@ ext2spice
 -	[Lab introduction to Sky130 pdk's and steps to download labs](#lab-introduction-to-sky130-pdks-and-steps-to-download-labs)
 -	[Lab introduction to Magic and steps to load Sky130 tech-rules](#lab-introduction-to-magic-and-steps-to-load-sky130-tech-rules)
 -	[Lab exercise to fix poly.9 error in Sky130 tech-file](#lab-exercise-to-fix-poly9-error-in-sky130-tech-file)
--	[](#)
+-	[Lab exercise to implement poly resistor spacing to diff and tap](#lab-exercise-to-implement-poly-resistor-spacing-to-diff-and-tap)
 -	[](#)
 -	[](#)
 	
@@ -8333,9 +8333,18 @@ Note: use feed clear to clear the one that we've made
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214506536-4fce5d62-0d0e-448b-9062-a451e5a08aa7.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214507572-644a489a-13d9-4fcc-bc3d-431fb42befe3.png" height = "230"></p>
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214508173-5129b7f6-7e55-4c3c-9299-cf10a4624f32.png" height = "230"><img src = "" height = "230"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214508173-5129b7f6-7e55-4c3c-9299-cf10a4624f32.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214512589-e9d3ff1d-fff3-488c-bb2c-24ae815dcdf4.png" height = "230"></p>
 	
 >	edit sky130A.tech
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214513028-2a5c22f6-cbc7-4be1-b0d5-6d46463bf7da.png" height = "250"></p>
+	
+>	command "tech load sky130A.tech" to read in the new modified tech rules. Run command "drc check" to apply the rule and "drc why" to know why it's violating
+	
+	
+### Lab exercise to implement poly resistor spacing to diff and tap
+	
+
 	
 </details>	
 	
