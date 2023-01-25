@@ -8222,8 +8222,8 @@ ext2spice
 -	[Lab introduction to Magic and steps to load Sky130 tech-rules](#lab-introduction-to-magic-and-steps-to-load-sky130-tech-rules)
 -	[Lab exercise to fix poly.9 error in Sky130 tech-file](#lab-exercise-to-fix-poly9-error-in-sky130-tech-file)
 -	[Lab exercise to implement poly resistor spacing to diff and tap](#lab-exercise-to-implement-poly-resistor-spacing-to-diff-and-tap)
--	[](#)
--	[](#)
+-	[Lab challenge exercise to describe DRC error as geometrical construct](#lab-challenge-exercise-to-describe-drc-error-as-geometrical-construct)
+-	[Lab challenge to find missing or incorrect rules and fix them](#lab-challenge-to-find-missing-or-incorrect-rules-and-fix-them)
 	
 ### Lab steps to create final SPICE deck using Sky130 tech
 	
@@ -8343,6 +8343,45 @@ Note: use feed clear to clear the one that we've made
 	
 	
 ### Lab exercise to implement poly resistor spacing to diff and tap
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214549753-cdc7e673-c74b-4041-881b-07442338e6f8.png" height = "250"></p>
+	
+>	copy and do as above. there's violation
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214564685-1f5c96b7-d56a-4397-a3f3-66604c9d8ada.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214565164-875066b1-53e3-4e65-9815-372553abda7d.png" height = "230"></p>
+	
+>	edit the sky130A.tech
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214565826-c8e19db7-92bb-438a-85f3-ffabce8579c0.png" height = "250"></p>
+	
+>	after changing the violation rule
+	
+	
+### Lab challenge exercise to describe DRC error as geometrical construct
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214566683-246a4778-ca65-4721-938d-04a939113e4a.png" height = "240"><img src = "https://user-images.githubusercontent.com/118953932/214567548-2a04d682-8e38-41fd-8afd-08f020a9bf50.png" height = "220"></p>
+	
+>	cifmaxwidth rule =  checks layers exactly as they appear in gds output even though the layers are not something you can draw directly in the layout
+	
+>	nwell_missing = a layer define a special cif output section in the tech file
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214568529-5c88b126-4269-4bb9-8240-1b65cda11d2a.png" height = "220"><img src = "https://user-images.githubusercontent.com/118953932/214569010-ba85eac1-17a2-469a-a328-27e22025bc9c.png" height = "220"></p>
+	
+>	load nwell.mag and look at nwell.6. deep nwell yellow stripes and nwell green dot pattern
+	
+>	the point of the rule is that the edge of the dnwell needs be covered with overlap all the way around by a ring of regular n-well. The outside distance rule could be implemented by a simple surround drc rule, but the inside distance cant be captured with a simple edge type rule
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214571443-b5f3e334-f9fd-406d-a932-f26827211b8d.png" height = "250"></p>
+	
+>	cif ostyle drc = can only see layers for the cif layer style that is selected for output
+
+>	cif see dnwell_shrink = to see that area
+	
+>	feed clear = clear
+	
+>	cif see nwell_missing =shows the area which gets flagged with the error
+	
+### Lab challenge to find missing or incorrect rules and fix them
 	
 
 	
