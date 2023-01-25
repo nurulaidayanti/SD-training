@@ -8220,7 +8220,7 @@ ext2spice
 -	[Lab introduction to Magic tool options and DRC rules](#lab-introduction-to-magic-tool-options-and-drc-rules)	
 -	[Lab introduction to Sky130 pdk's and steps to download labs](#lab-introduction-to-sky130-pdks-and-steps-to-download-labs)
 -	[Lab introduction to Magic and steps to load Sky130 tech-rules](#lab-introduction-to-magic-and-steps-to-load-sky130-tech-rules)
--	[](#)
+-	[Lab exercise to fix poly.9 error in Sky130 tech-file](#lab-exercise-to-fix-poly9-error-in-sky130-tech-file)
 -	[](#)
 -	[](#)
 -	[](#)
@@ -8315,11 +8315,27 @@ magic -d XR
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214491434-48a599eb-a497-480e-b08e-d9b44ef4d706.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214492625-04e40e63-ecb7-4588-b1ab-ff3b866e2e51.png" height = "230"></p>
 	
->	drc why to check what is the violation (left) make a square and then click the middle mouse or p key at the m3contact (right)
+>	drc why to check what is the violation (up) make a square and then click the middle mouse or p key at the m3contact (down)
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214494263-0e5891d0-9ff8-4a8f-964c-20df74a71fe6.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214494557-284a7111-7b56-4bc6-937c-2f5a585fdfce.png" height = "230"></p>
 	
 >	type command "cif see VIA2" to make the small black boxes which are contact cuts (created based on the rules in the tech file). The distance between the cut and the edge is always larger and will never be smaller than 0.065
+	
+Note: use feed clear to clear the one that we've made
+	
+### Lab exercise to fix poly.9 error in Sky130 tech-file
+	
+-	load poly.mag
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214501474-5bbb75fd-abfd-409b-bd18-b2f9c1b57407.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214501806-4b01f84c-3427-4673-8f0b-c050231802d6.png" height = "230"></p>
+	
+>	below 0.22 so violated
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214506536-4fce5d62-0d0e-448b-9062-a451e5a08aa7.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214507572-644a489a-13d9-4fcc-bc3d-431fb42befe3.png" height = "230"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214508173-5129b7f6-7e55-4c3c-9299-cf10a4624f32.png" height = "230"><img src = "" height = "230"></p>
+	
+>	edit sky130A.tech
 	
 </details>	
 	
