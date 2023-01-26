@@ -8432,7 +8432,43 @@ less track.info
 	
 <details><summary>Lab steps to convert magic layout to std cell LEF</summary>
 	
+Second requirement: the width and height of the std cell should be in the odd multiples of the x and y pitch (to ensure the layout is done as per requirement)
+	
+-	Whenever a layout is made, the layers are defined, but there are no ports, ports does not mean anything to the magic. Port definitions are required when we want to extract the lef file. The ports will be defined as the pins of the macros
 
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214734547-8375c0cf-0b5e-4639-938d-6d8d96e77695.png" height = "250"></p>
+	
+>	text helper to create the port in the design. port number = the order in which the port is written in the lef file (this is how the ports for all the layers are defined in the design)
+	
+Note: this has already been applied so dont click apply
+	
+-	define what is the purpose of the port (how tool know A is input port or Y is an output port)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214735211-eb0ee7ef-a323-4e8a-be2b-266af0eb5014.png" height = "250"></p>
+	
+>	set the port class and port use attribute
+	
+-	 extract the lef file
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214735922-76f353ba-8d9d-49f9-8bf7-2bee0a3e5d01.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214736324-a6db04f1-6f36-438b-8ed4-65f5f0eaf535.png" height = "230"></p>
+	
+>	save the mag file and use that one (sky130_nrlinv.mag)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214736751-3a14fdb8-141e-4821-8cb3-c29e6fc9828a.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214736941-77bfee37-4274-45a0-b51b-941ca05e7a9e.png" height = "230"></p>
+	
+>	create lef life
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214737487-f43a8f46-692b-4ca3-9b7f-f931141378bf.png" height = "250"></p>
+	
+>	pin usage
+	
+</details>
+	
+<details><summary>Introduction to timing libs and steps to include new cell in synthesis</summary>
+	
+<p align="center"><img src = "" height = "250"></p>
+	
+<p align="center"><img src = "" height = "230"><img src = "" height = "230"></p>
 	
 </details>
 	
