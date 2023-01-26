@@ -8400,8 +8400,40 @@ Note: use feed clear to clear the one that we've made
 	
 <details><summary>Lab steps to convert grid info to track info</summary>
 	
+Objective: extract LEF file from the .mag file and then plug the file into the picorv32a flow (previous is standard cell library)
+	
+Main guidelines:
+1.	the input and output ports must lie on the intersection of the vertical and horizontal tracks
+2.	the width of standard cell should be on the track pitch, and the height should be on the track vertical pitch
+	
 
+```
+cd /home/nurul.aidayanti.muhammad.saleh/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd
+
+less track.info
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214727834-6f2ba979-43e7-4ecf-8909-ed51fd997772.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/214729136-1913ca76-e7a9-442c-bf24-3bc503aa968b.png" height = "250"></p>
+	
+	
+>	track info (using during routing stage)  routes can go over the track/layer (metal traces)
+	
+>	press g to enable grid (zoom in to see the grid) 
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214729810-99e0d952-1195-441c-9cba-189a6e82a399.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214729865-7c54125a-22aa-481c-9859-b932aa93442d.png" height = "230"></p>
+	
+>	set the grid based on the track info (grid <space along x> <space along y> <x> <y>) converted the track into grid 
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214730792-a1231aad-54e7-4113-b769-da522b44fa48.png" height = "250"></p>
+	
+>	ports are on the intersection of the horizontal and vertical tracks. it ensures that the routes can reach the ports from x and y direction
 		
+</details>
+	
+<details><summary>Lab steps to convert magic layout to std cell LEF</summary>
+	
+
+	
 </details>
 	
 </details>
