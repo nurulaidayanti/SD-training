@@ -8498,15 +8498,61 @@ Note: this has already been applied so dont click apply
 	
 >	run_floorplan and then run_placement
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214762476-d8cc3783-b9c0-4c2f-ac16-1dc384f18de2.png" height = "230"><img src = "" height = "230"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214762476-d8cc3783-b9c0-4c2f-ac16-1dc384f18de2.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214774544-b22c95ea-e998-4507-a60d-a893cbe83b97.png" height = "80"></p>
 	
->	run magic and 
+>	run magic and the custom cell is done plugin 
+	
+</details>
+	
+<details><summary>Introduction to delay tables</summary>
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214775324-7eb8e831-232a-4ec3-bfc6-d677af1803fd.png" height = "250"></p>
+	
+>	AND GATE = clock propagate through the gate when logic is 1 (else block the clock) | OR GATE = clock propagate through the gate when logic is 0 (else block the clock)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214776362-840f9a6e-3a8e-4442-b119-a4bcd8b51885.png" height = "250"></p>
+	
+>	clock gating technique  (look into the timing characteristics of the buffer before swap out the buffer for a gate)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214776820-68c4b691-78ca-453c-b55a-2f15b47d525b.png" height = "250"></p>
+	
+>	observation need to be done as in picture. but need to keep in mind that the load at the output will be varying. since the load of one buffer is varying, the input transition of the following buffer is also varying. Hence, we will have a variety of delays.
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214778394-345e7ebc-03e0-41e5-9509-ab11a63e4f24.png" height = "250"></p>
+	
+>	the delay table is characterized based on varying the input transition and output load of a cell, against the delay of that cell. Each and every type of cell or gate will have its own delay table for different sizes and threshold tables
+
+	
+</details>
+	
+<details><summary>Delay table usage</summary>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214778995-f2f0401f-5e72-416b-b046-0041c6529e64.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214779280-556f8a18-0495-4eb1-9575-3e4f96de2292.png" height = "230"></p>
+	
+>	for example, delay table for size 1 buffer, input slew = 60ps and output load = 70fF. So the delay of that will be x16. (increase pmos/nmos size, will reduce the resistance. vary the size of the device, it will also vary the RC constant which is delay of that particular cell). that why each and every cell has each own delay table
+	
+Note: if the values are not in the table, those values will be extrapolated from the given data (come out of a equation)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214781518-1a8b2227-af19-4cb7-bdcc-3102a6237683.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214782694-a5c24bfd-0542-4c8f-8b3a-a0ef859952cb.png" height = "230"></p>
+	
+>	latency from clock port to the sink pin (x9' + y15). If in the same level, the buffers drive different loads, then it will have non zero skew value. That's why it is preferred to have the nodes at each level driving the same load. same goes to having different size in the same level
+	
+>	power aware CTS, where we have to consider endpoints which are only active under certain conditions. In these cases, we need not propagate the clock (can stop the clock)
+		
+</details>
+	
+</details>
+	
+<details><summary>Timing analysis with ideal clocks using openSTA</summary>
+	
+<details><summary>Setup timing analysis and introduction to flip-flop setup time</summary>
 	
 <p align="center"><img src = "" height = "250"></p>
+	
+<p align="center"><img src = "" height = "230"><img src = "" height = "230"></p>
 	
 <p align="center"><img src = "" height = "230"><img src = "" height = "230"></p>
 	
 </details>
 	
 </details>
-	
