@@ -8466,6 +8466,42 @@ Note: this has already been applied so dont click apply
 	
 <details><summary>Introduction to timing libs and steps to include new cell in synthesis</summary>
 	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214740469-ad91179b-0d00-480f-bf33-c66452276691.png" height = "250"></p>
+	
+>	copy the lef file and library into the design folder (/picorv32a/src). this is to include the custom cell into the openlane flow (first is synthesis). need to ensure the abc step maps the cell appropriately, thus we need to have a library which has the timing definitions
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214742527-41af02d4-7f93-4661-bfe4-62ea8ca91d3f.png" height = "250"></p>
+	
+>	modify config.tcl
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214746850-e98e45a5-bba8-4c83-8f98-1e46977fde1d.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214747113-c554078e-344b-4bd3-be57-9183df3db54d.png" height = "230"></p>
+	
+>	run synthesis
+	
+</details>
+	
+<details><summary>Lab steps to configure synthesis settings to fix slack and include vsdinv</summary>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214752614-e9afecc9-7b16-48b1-9945-fec2527581cb.png" height = "100"><img src = "https://user-images.githubusercontent.com/118953932/214752483-4f18d349-d2ce-4fac-a4a2-643559232d1d.png" height = "150"></p>
+	
+>	WNS, TNS and chip area
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214756422-17f8f501-24ae-4c20-94bf-0e3cc6892d0d.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214756381-e2cb9462-8d93-4219-b3ff-318c2901f8f8.png" height = "230"></p>
+	
+>	increase area, improve timing (refer README.md) - fix sta
+		
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214759076-fc71510a-aab1-4464-aacb-121640737ab3.png" height = "250"></p>
+	
+>	nrlinv exists in merged.lef (picorv32a/.../runs/tmp)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214761047-493f21aa-e9d4-4389-8783-1be9e715d77f.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214761199-54931475-ccbf-4309-9947-c9c5ca2bf690.png" height = "230"></p>
+	
+>	run_floorplan and then run_placement
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214762476-d8cc3783-b9c0-4c2f-ac16-1dc384f18de2.png" height = "230"><img src = "" height = "230"></p>
+	
+>	run magic and 
+	
 <p align="center"><img src = "" height = "250"></p>
 	
 <p align="center"><img src = "" height = "230"><img src = "" height = "230"></p>
