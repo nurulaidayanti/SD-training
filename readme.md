@@ -8547,7 +8547,21 @@ Note: if the values are not in the table, those values will be extrapolated from
 	
 <details><summary>Setup timing analysis and introduction to flip-flop setup time</summary>
 	
-<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214797321-d9611575-8dcf-4e42-894a-245c2ec0270c.png" height = "300"></p>
+	
+>	on the zero time, there is one clock edge that reaches the launch flop. And on the T time period (T=1ns), the second rising edge reaches the capture flop. Any analysis needs to be done in between 0 and T. For the combinational circuit to work, the combinational delay (the internal delay of the launch flop and combinational delay) needs to be less than the period, T (cannot exceed)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214797833-e727ce73-f3b6-49f3-a8ee-4531fa010476.png" height = "250"></p>
+	
+>	when clock switches from logic 0 to logic 1, the output of the mux will be fed back. data from Qm moves to Q. mux 1 delay or mux 2 delay will restrict the combinational delay requirements. Hence, finite Time 'S' required (before clk edge) for 'D' to reach Qm i.e. internal delay of Mux1 = setup time. this setup time needs to be subtracted away from the complete clock period T
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214799392-8976e36a-1b3d-4422-8874-54c070ee8b37.png" height = "300"></p>
+	
+>	now the capture flop has enough time for it to bring the data to the flop and ensure the data system work at the amount of time
+	
+</details>
+	
+<details><summary>Introduction to clock jitter and uncertainty</summary>
 	
 <p align="center"><img src = "" height = "230"><img src = "" height = "230"></p>
 	
