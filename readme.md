@@ -8757,6 +8757,23 @@ report_checks -path_delay min_max -fields {slew trans net cap input pin} -format
 	
 >	timing improved a bit (buffer change from 1 to 2)
 	
+```
+report_clock_skew -hold
+report_clock_skew -setup
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215113007-b23fbed1-9606-49d1-b1cf-3d72cd878364.png" height = "150"></p>
+	
+>	report clock skew for hold and setup
+	
+```
+set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_sc_hd__clkbuf_1]
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215113462-eb2d49cd-067e-41a6-82d3-c59fca331dd0.png" height = "70"></p>
+	
+>	add back to clkbuf 1
+	
 </details>
 	
 </details>
