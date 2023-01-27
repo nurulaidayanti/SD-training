@@ -8609,7 +8609,7 @@ run_synthesis
 	
 >	"sta pre_sta.tcl" before (left) after setting fanout (right)
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215046418-8fc7d7be-1c17-4e0e-a69e-08ff3da8c0d7.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/215048539-5c304d08-e36b-49a4-9125-42313b219153.png" height = "230"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215046418-8fc7d7be-1c17-4e0e-a69e-08ff3da8c0d7.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/215048539-5c304d08-e36b-49a4-9125-42313b219153.png" height = "100"></p>
 	
 ```
 replace_cell _38618_ sky130_fd_sc_hd__dfxtp_4 #increase drive strength
@@ -8625,10 +8625,66 @@ report_wns
 	
 </details>
 	
-<details><summary>Lab steps to do basic timing ECO</summary>	
+</details>
 	
+<details><summary>Clock tree synthesis TritonCTS and signal integrity</summary>	
+	
+<details><summary>Lab steps to run CTS using TritonCTS</summary>
+	
+```
+#in sta terminal
+	
+write_verilog ~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/<date>/results/synthesis/picorv32a.synthesis.v
+```
 
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215092735-599dd07b-a622-4fb4-88e5-13ca842b759a.png" height = "60"><img src = "https://user-images.githubusercontent.com/118953932/215092626-43f39b32-5adb-43e9-8c0d-9f0f93bd958a.png" height = "90"></p>
+	
+>	create new netlist (overwritten the old file)
+	
+```
+#in openlane
+	
+run_floorplan
+	
+run_placement
+	
+run_cts
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215094936-28eb3fee-9da5-4431-ba98-de913e478ab6.png" height = "150"></p>
+	
+>	README.md
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215095226-038bb8ae-bb28-4845-908e-8d91af7d6cbe.png" height = "100"></p>
+	
+>	cts file generated
+
+</details>
+	
+<details><summary>Lab steps to verify CTS runs</summary>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215096839-0bbc1f5e-f97f-4188-9ac5-440fcc8f3ff0.png" height = "200"></p>
+	
+>	open the tcl file for cts stage (every stage has its own .tcl file)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215097695-ddd740d1-4bbc-4c3a-9e8f-3595f5654b7c.png" height = "100"><img src = "https://user-images.githubusercontent.com/118953932/215097953-c1d5f3dd-94a8-4a1c-87c3-9854c453963f.png" height = "250"></p>
+	
+>	or_cts.tcl
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215098954-c3038131-2ad0-4a9a-8c50-80ec8cf57617.png" height = "130"></p>
+	
+>	clock buffer cells are added. disadvantage of the tritonCTS = cannot create an optimized CTS for multi corner
 	
 </details>
-
+	
+</details>
+	
+<details><summary>Timing analysis with real clocks using openSTA</summary>
+	
+<details><summary>Lab steps to analyze timing with real clocks using OpenSTA</summary>
+	
+<p align="center"><img src = "" height = "150"></p>
+	
+</details>
+	
 </details>
