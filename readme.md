@@ -8577,8 +8577,20 @@ Note: SU = setup uncertainty
 	
 <details><summary>Lab steps to configure OpenSTA for post-synth timing analysis</summary>
 	
-<p align="center"><img src = "" height = "230"><img src = "" height = "230"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214987106-907af7a2-1ede-459c-b9f2-ab469388d467.png" height = "150"><img src = "https://user-images.githubusercontent.com/118953932/214995825-4d8c55a0-6a60-448e-a9ea-b8ede40433f8.png" height = "230"></p>
+	
+>	write configuration pre_sta.conf (top) and my_base.sdc (bottom)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214996888-70861fc8-2fe5-4798-891e-815b4aa09303.png" height = "230"></p>
+	
+>	run sta using "sta pre_sta.conf" in openlane directory (where the file is)
 	
 </details>
 	
+<details><summary>Lab steps to optimize synthesis to reduce setup violations</summary>
+	
+<p align="center"><img src = "" height = "230"><img src = "" height = "230"></p>
+	
+</details>
+
 </details>
