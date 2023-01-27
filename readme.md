@@ -8589,7 +8589,45 @@ Note: SU = setup uncertainty
 	
 <details><summary>Lab steps to optimize synthesis to reduce setup violations</summary>
 	
-<p align="center"><img src = "" height = "230"><img src = "" height = "230"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215004112-f0083c92-0e0d-4101-82a6-241964131814.png" height = "250"></p>
+	
+>	ignore hold timing since CTS is not done yet
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215004490-05cc54f3-12ab-4e8b-93ec-dfc95add684d.png" height = "250"></p>
+	
+>	delay are high for setup timing. the more the input slew, the more the delay. the more the cap, the more the output delay
+	
+```
+#in openlane
+	
+set ::env(SYNTH_MAX_FANOUT) 4
+	
+run_synthesis
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215032726-762b3475-1014-4992-8653-b358a836268b.png" height = "120"><img src = "https://user-images.githubusercontent.com/118953932/215033016-dd810e26-1583-4417-b1b7-a89135344a8a.png" height = "80"></p>
+	
+>	"sta pre_sta.tcl" before (left) after setting fanout (right)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215046418-8fc7d7be-1c17-4e0e-a69e-08ff3da8c0d7.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/215048539-5c304d08-e36b-49a4-9125-42313b219153.png" height = "230"></p>
+	
+```
+replace_cell _38618_ sky130_fd_sc_hd__dfxtp_4 #increase drive strength
+	
+report_checks -fields {net cap dlew input pins} -digits 4
+	
+report_tns
+
+report_wns
+```
+	
+>	wns and tns improved a bit
+	
+</details>
+	
+<details><summary>Lab steps to do basic timing ECO</summary>	
+	
+
 	
 </details>
 
