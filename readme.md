@@ -8728,6 +8728,35 @@ echo $::env(CTS_CLK_BUFFER_LIST) #list of buffers
 	
 <details><summary>Lab steps to observe impact of bigger CTS buffers on setup and hold timing</summary>
 	
+```
+exit 
+echo $::env(CTS_CLK_BUFFER_LIST)
+set ::env(CTS_CLK_BUFFER_LIST) [lreplace $::env(CTS_CLK_BUFFER_LIST) 0 0]
+echo $::env(CURRENT_DEF)
+set ::env(CURRENT_DEF) /openLANE_flow/designs/picorv32a/runs/13-01_14-09/results/placement/picorv32a.placement.def
+run_cts
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215110303-b659e380-f00e-41cc-98ee-599d53bd4b8f.png" height = "230"></p>
+	
+```
+openroad
+read_lef /openLANE_flow/designs/picorv32a/runs/19-01_07-02/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/19-01_07-02/results/cts/picorv32a.cts.def
+write_db pico_cts1.db
+read_db pico_cts1.db
+read_verilog /openLANE_flow/designs/picorv32a/runs/19-01_07-02/results/synthesis/picorv32a.synthesis_cts.v
+read_liberty $::env(LIB_SYNTH_COMPLETE)
+link_design picorv32a
+read_sdc designs/picorv32a/src/my_base.sdc
+set_propagated_clock [all_clocks]
+report_checks -path_delay min_max -fields {slew trans net cap input pin} -format full_clock_expanded
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215111942-f713e220-0488-493f-a765-b263d2937810.png" height = "230"></p>
+	
+>	timing improved a bit (buffer change from 1 to 2)
+	
 </details>
 	
 </details>
