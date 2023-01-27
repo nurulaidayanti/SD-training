@@ -8563,7 +8563,19 @@ Note: if the values are not in the table, those values will be extrapolated from
 	
 <details><summary>Introduction to clock jitter and uncertainty</summary>
 	
-<p align="center"><img src = "" height = "230"><img src = "" height = "230"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214981873-7d5ed9b7-2aeb-4cf7-a924-d40fa01c65ee.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214982344-e9a661a3-e355-4339-9d3a-f667e9456dec.png" height = "230"></p>
+	
+>	clock is expected to reach the clock pin at exactly 0 or T. but in real scenarios, the clock source might not be able to reach exactly at that moment. this is due to the clock source generation might have its own built-in variation. The temporary variation of the clock period is called as jitter. The combinational delay will become more stringent becuase of the variations. Hence, we will model the jitter using one more parameter called uncertainty.
+	
+Note: SU = setup uncertainty
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/214982604-da9320c9-d843-4311-9fdb-f83e03fce125.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/214982802-09a03820-f797-4bc6-a389-69c3a99e0d18.png" height = "230"></p>
+	
+>	combinational delay (should be less than 1ns-0.01ns-0.09ns = 0.9ns)
+	
+</details>
+	
+<details><summary>Lab steps to configure OpenSTA for post-synth timing analysis</summary>
 	
 <p align="center"><img src = "" height = "230"><img src = "" height = "230"></p>
 	
