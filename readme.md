@@ -8683,7 +8683,50 @@ run_cts
 	
 <details><summary>Lab steps to analyze timing with real clocks using OpenSTA</summary>
 	
-<p align="center"><img src = "" height = "150"></p>
+```
+openroad #invoke openroad
+read_lef /openLANE_flow/designs/picorv32a/runs/19-01_07-02/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/19-01_07-02/results/cts/picorv32a.cts.def
+write_db pico_cts.db
+read_db pico_cts.db
+read_verilog /openLANE_flow/designs/picorv32a/runs/19-01_07-02/results/synthesis/picorv32a.synthesis_cts.v
+read_liberty -max $::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__slow.lib
+read_liberty -min $::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__fast.lib
+set_propagated_clock [all_clocks]
+read_sdc designs/picorv32a/src/my_base.sdc
+report_checks -path_delay min_max -format full_clock_expanded -digits 4
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215101234-3255221d-abc1-495b-b840-47cdafe85ed7.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/215102881-f4b9c51f-64fa-4da4-96a1-0347dd680f2a.png" height = "250"></p>
+	
+>	use “openroad” to perform timing analysis of the clock tree (able to use the variables set within the openlane flow). needs to rectified hold slack first because the violation cannot be solved by simply changing the period
+	
+</details>
+	
+<details><summary>Lab steps to execute OpenSTA with right timing libraries and CTS assignment</summary>
+	
+```
+exit 
+openroad
+read_db pico_cts.db
+read_verilog /openLANE_flow/designs/picorv32a/runs/19-01_07-02/results/synthesis/picorv32a.synthesis_cts.v
+read_liberty $::env(LIB_SYNTH_COMPLETE)
+link_design picorv32a
+read_sdc designs/picorv32a/src/my_base.sdc
+set_propagated_clock [all_clocks]
+report_checks -path_delay min_max -fields {slew trans net cap input pin} -format full_clock_expanded
+echo $::env(CTS_CLK_BUFFER_LIST) #list of buffers
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215105810-62e105d3-9373-4d99-9f1c-36d5e0ce46ab.png" height = "230"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215106306-5f167f67-5a17-4cd2-b291-96d9f5655f53.png" height = "230"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215105983-12de381b-93f1-4469-8bc3-2fdb791d59b7.png" height = "230"></p>
+	
+>	both hold and setup timing met. this is due to the clock buffers are inserted based on the CTS_CLK_BUFFER_LIST from left to right to meet the skew value. if the skew value is not met, then the next buffer is used, but the buffer will increase in size from left to right (skew values needs to be within the 10% of the max clock period)
+	
+</details>
+	
+<details><summary>Lab steps to observe impact of bigger CTS buffers on setup and hold timing</summary>
 	
 </details>
 	
