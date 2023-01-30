@@ -8887,13 +8887,67 @@ Note: physical design engineer = route (physical wire) algorithm = 2 different p
 	
 <details><summary>Design Rule Check</summary>
 	
-<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215403675-9f07de80-e3ad-4947-b660-da92a72f1fe9.png" height = "250"></p>
 	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215404000-a2551083-0f85-4493-827e-acc69eb2b3b0.png" height = "100"><img src = "https://user-images.githubusercontent.com/118953932/215404299-42cef9e0-dad4-48e8-bae7-49e9c9ab2832.png" height = "100"></p>
+	
+DRC rules to be followed when performing the routing of design
+	
+1.	wire width (should be not less than a specified amount but can exceed)
+	
+2.	wire pitch (centre-to-centre distance of those 2 wires should be at least amount of distance spesified)
+	
+3.	wire spacing (minimum spacing should be followed which means can be more but cant be less)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215404653-ebacf2d0-86ae-4cdf-aa05-5cbb69ce06b9.png" height = "250"></p>
+	
+>	signal short (buffer tries to send signal tu ff2 but it can shorted because both are same wires at the same metal layer)
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215404881-817cb55a-b76e-49c0-b20b-b438cc029c95.png" height = "250"></p>
+	
+>	solution: introduce one more layer at the top of it (upper metal layer wider than lower metal layer)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215405165-553cc655-62c6-4879-a868-c21b5d4747a3.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/215405417-09d6971c-8acd-4484-b1c1-81c7517eb9cc.png" height = "250"></p>
+	
+>	although no more signal short but there are 2 new design rule to be check which are via width (should be no less than a certain value) and via spacing (the distance between 2 vias cannot be less than a specific distance)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215405685-1b13f1b4-ea9e-4785-9ff5-04bdc62b5f13.png" height = "250"></p>
+	
+>	parasitics extraction (resistances and capacitances of the wires are extracted and used for further processes)
+	
+</details>
+	
+</details>
+
+<details><summary>Power Distribution Network and routing</summary>
+	
+<details><summary>Lab steps to build power distribution network</summary>
+
+</details>	
+
+<details><summary>Lab steps from power straps to std cell power</summary>
+	
+</details>
+	
+<details><summary>Basics of global and detail routing and configure TritonRoute</summary>
+	
+</details>
+	
+</details>
+	
+<details><summary>TritonRoute Features</summary>
+	
+<details><summary>TritonRoute feature 1 - Honors pre-processed route guides</summary>
+	
+<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "" height = "250"></p>
 <p align="center"><img src = "" height = "250"></p>
 
-<p align="center"><img src = "" height = "250"></p>
-	
-<p align="center"><img src = "" height = "250"></p>
 	
 </details>
 	
