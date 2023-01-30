@@ -8939,8 +8939,36 @@ DRC rules to be followed when performing the routing of design
 	
 <details><summary>TritonRoute feature 1 - Honors pre-processed route guides</summary>
 	
-<p align="center"><img src = "" height = "250"></p>
-<p align="center"><img src = "" height = "250"></p>
+-	Global Routing: Form routing guides that can route all the nets. The tool used is FastRoute.
+
+-	Detailed Routing: Uses the global routing's guide to connect the pins with the least amount of wire and bends. The tool used is TritonRoute.
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215407053-c263b913-dcad-41cf-a1bd-4ab6afc5ba64.png" height = "250"></p>
+	
+-	performs initial detail route
+	
+-	honors the preprocessed route guides (obtained after fast routes) i.e. attempts as much as possible to route within route guides
+	
+-	assumes route guides for each net satisfy inter-guide connectivity
+	
+-	works on proposed MILP-based (algorithm) panel routing scheme with intra-layer parallel (within a layer M1) and inter-layer sequential routing framework (in between layers M1, M2, M3). via does not happened during lower layer
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215407923-6d03ea64-2400-48f5-9300-714a8159ab28.png" height = "250"></p>
+	
+>	after global route (done by FastRoute). output of the FastRoute is initial routing guide. it will divide not proper direction (supposed vertical but encounters horizontal) called spilitting. then, merging which is merging the edges. net, bridging which bridges additional upper layer. finally, preprocessed guides (M1 = vertical, M2 = horizontal)
+	
+</details>
+	
+<details><summary>TritonRoute Feature2 & 3 - Inter-guide connectivity and intra- & inter-layer routing</summary>
+	
+Inter-guide connectivity
+	
+-	two guides are connected if:
+	-	they are on the same metal layer with touching edges, or
+	-	they are on neighboring metal layers with a nonzero vertically overlapped area
+	
+-	each unconnected terminal i.e. pin of a standard-cell instance should have its pin shape overlapped by a route guide
+	
 <p align="center"><img src = "" height = "250"></p>
 <p align="center"><img src = "" height = "250"></p>
 <p align="center"><img src = "" height = "250"></p>
