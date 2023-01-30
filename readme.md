@@ -8629,6 +8629,38 @@ report_wns
 	
 <details><summary>Clock tree synthesis TritonCTS and signal integrity</summary>	
 	
+<details><summary>Clock tree routing and buffering using H-Tree algorithm</summary>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215368265-46c0e833-abcf-4b08-86fd-8e7bb7887108.png" height = "240"><img src = "https://user-images.githubusercontent.com/118953932/215368881-0f2e09d8-42e0-4007-9f48-aa4d95551181.png" height = "240"></p>
+	
+>	make clock reach the flops by connecting it (left one is a bad tree) clock reaches each and every flop almost at the same time due to it connected at midpoint (right picture) H-Tree
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215368459-ce13d38d-8cfb-4058-898b-dd9bf6857262.png" height = "250"></p>
+	
+>	want skew to be as close to 0 as possible
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215369173-d2d3bfc4-66d1-4573-8ba8-3132a74183d7.png" height = "250"></p>
+	
+>	lot of resistance and capacitances in the path. expect output waveform be the same as input waveform but we didnt get it due to the rc network. Hence, need to add repeaters (help reproduce signal)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215369650-2ab56e5b-fe9b-4383-b5a3-50a6095768c1.png" height = "250"></p>
+	
+>	repeaters (red buffer = clock buffer) for clock have equal rise and fall time. clock signal which is being sent at the input will be continuosly reproduce at the flop clock end point
+	
+</details>
+	
+<details><summary>Crosstalk and clock net shielding</summary>
+	
+<p align="center"><img src = "" height = "250"></p>
+	
+<p align="center"><img src = "" height = "250"></p>
+	
+<p align="center"><img src = "" height = "250"></p>
+	
+<p align="center"><img src = "" height = "250"></p>
+	
+</details>
+	
 <details><summary>Lab steps to run CTS using TritonCTS</summary>
 	
 ```
