@@ -8720,13 +8720,37 @@ run_cts
 	
 <details><summary>Setup timing analysis using real clocks</summary>
 	
-<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215373673-761e1499-d394-43f3-84cb-d312cb9e8727.png" height = "240"><img src = "https://user-images.githubusercontent.com/118953932/215374164-dcdd0fc6-b3da-41d5-a679-79cfd9d7cdf6.png" height = "240"></p>
 	
-<p align="center"><img src = "" height = "250"></p>
+>	due to the buffers insertion, the clock edge will reach the clock pin with consideration to the delays of the buffers inserted (causing window to shift)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215374483-98b434f5-b047-425f-9e01-c2f9aee722f9.png" height = "250"></p>
+	
+>	real complete setup timing analysis equation
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215374665-0c517506-c1e2-494d-8cf9-d0885b6e02ee.png" height = "100"></p>
+	
+>	slack (violating if negative)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215375189-883edf5e-98c0-4e4c-9a00-e2740aa78af0.png" height = "240"><img src = "https://user-images.githubusercontent.com/118953932/215375362-4bae71a4-dc0a-4e2f-9424-c6d01c0d8c1f.png" height = "240"></p>
+	
+>	hold timing analysis (the 0 edge will be sent to launch flop and capture flop) capture flop send message to the launch flop to send data after hold time (mux 2 delay). need to send existing data outside of the flop first
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215375722-55ccd3b7-9ced-4d4d-ac54-6ee9481e6d0f.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/215375766-3bb55b77-d593-4134-936e-1e5d477f9d02.png" height = "90"></p>
+	
+>	hold equation
 	
 </details>
 	
 <details><summary>Hold timing analysis using real clocks</summary>
+	
+<p align="center"><img src = "" height = "250"></p>
+	
+<p align="center"><img src = "" height = "250"></p>
+	
+<p align="center"><img src = "" height = "250"></p>
+	
+<p align="center"><img src = "" height = "250"></p>
 	
 </details>
 	
