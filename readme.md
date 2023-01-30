@@ -8961,7 +8961,7 @@ DRC rules to be followed when performing the routing of design
 	
 <details><summary>TritonRoute Feature2 & 3 - Inter-guide connectivity and intra- & inter-layer routing</summary>
 	
-Inter-guide connectivity
+**Inter-guide connectivity**
 	
 -	two guides are connected if:
 	-	they are on the same metal layer with touching edges, or
@@ -8969,7 +8969,14 @@ Inter-guide connectivity
 	
 -	each unconnected terminal i.e. pin of a standard-cell instance should have its pin shape overlapped by a route guide
 	
-<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215410686-5486e902-cb50-4990-9f03-ba0fec2ffa52.png" height = "250"></p>
+	
+>	dash line = panels. each routing guide is assign to one panel. routing in the higher layers will begin only if the routing of the bottom layers have been completed
+	
+</details>
+	
+<details><summary>TritonRoute method to handle connectivity</summary>
+	
 <p align="center"><img src = "" height = "250"></p>
 <p align="center"><img src = "" height = "250"></p>
 <p align="center"><img src = "" height = "250"></p>
