@@ -8852,3 +8852,32 @@ set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_
 </details>
 	
 </details>
+	
+# Day-19
+	
+## Final steps for RTL2GDS using tritonRoute and openSTA
+	
+<details><summary>Routing and design rule check (DRC)</summary>
+	
+<details><summary>Introduction to Maze Routing Â LeeÂs algorithm</summary>
+	
+<p align="center"><img src = "" height = "250"></p>
+	
+<p align="center"><img src = "" height = "250"></p>
+	
+<p align="center"><img src = "" height = "250"></p>
+	
+<p align="center"><img src = "" height = "250"></p>
+	
+<p align="center"><img src = "" height = "250"></p>
+	
+<p align="center"><img src = "" height = "250"></p>
+
+<p align="center"><img src = "" height = "250"></p>
+	
+<p align="center"><img src = "" height = "250"></p>
+	
+	
+</details>
+	
+</details>
