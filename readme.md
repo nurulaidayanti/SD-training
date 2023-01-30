@@ -8977,7 +8977,22 @@ DRC rules to be followed when performing the routing of design
 	
 <details><summary>TritonRoute method to handle connectivity</summary>
 	
-<p align="center"><img src = "" height = "250"></p>
+-	Inputs: LEF file, DEF file, and the Preprocessed route guides
+	
+-	Outputs: detailed routing solution with optimized wire-length and via count
+	
+-	Constraints: route guide honouring, connectivity constraints and design rules
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215412091-75e668d4-72d8-4e60-8845-2afd33e04ad1.png" height = "250"></p>
+	
+>	access point and access point cluster
+	
+>	access point refers to the point where the via can be placed to allow connectivity between layers. the objective of the Mixed Integer Liner Programming (MILP) is to connect one access point to another access point optimally. first, choose one of the access points where the via should be dropped. second, determining how the first access point will connect to the next access point.
+	
+</details>
+	
+<details><summary>Routing topology algorithm and final files list post-route</summary>
+	
 <p align="center"><img src = "" height = "250"></p>
 <p align="center"><img src = "" height = "250"></p>
 <p align="center"><img src = "" height = "250"></p>
