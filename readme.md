@@ -8651,13 +8651,18 @@ report_wns
 	
 <details><summary>Crosstalk and clock net shielding</summary>
 	
-<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215370305-7d5e740c-423c-48a7-87a7-3cf93d75280a.png" height = "250"></p>
 	
-<p align="center"><img src = "" height = "250"></p>
+>	clock nets are the critical nets in the design, the clock tree are built to ensure there is a minimum skew. However, if there is any cross talk that happens and affect the clock signals, that will affect the design very badly. clock net shielding = protect the clock nets from the outside world
 	
-<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215370888-90dc7ad2-94a7-4a61-96f4-9839a2fdd6ea.png" height = "250"></p>
 	
-<p align="center"><img src = "" height = "250"></p>
+>	if glitch occurs on the clock net, incorrect data in the memory will result inaccurate functionality for the design. shield (wire) can be connected to Vdd or ground (because they wont switch)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215373047-2075c497-df1b-4b1c-af43-bf08064e9c7f.png" height = "250"></p>
+	
+>	impact of crosstalk delta delay
+	
 	
 </details>
 	
@@ -8712,6 +8717,18 @@ run_cts
 </details>
 	
 <details><summary>Timing analysis with real clocks using openSTA</summary>
+	
+<details><summary>Setup timing analysis using real clocks</summary>
+	
+<p align="center"><img src = "" height = "250"></p>
+	
+<p align="center"><img src = "" height = "250"></p>
+	
+</details>
+	
+<details><summary>Hold timing analysis using real clocks</summary>
+	
+</details>
 	
 <details><summary>Lab steps to analyze timing with real clocks using OpenSTA</summary>
 	
