@@ -8933,19 +8933,41 @@ DRC rules to be followed when performing the routing of design
 <p align="center"><img src = "" height = "250"></p>
 <p align="center"><img src = "" height = "250"></p>
 <p align="center"><img src = "" height = "250"></p>
-<p align="center"><img src = "" height = "250"></p>
-<p align="center"><img src = "" height = "250"></p>
+
+
 
 </details>	
 
 <details><summary>Lab steps from power straps to std cell power</summary>
 	
-<p align="center"><img src = "" height = "250"></p>
-
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215434516-18189b0b-16ef-47ee-902e-4ebbdc620905.png" height = "250"></p>
+	
+>	power/ground pads (pastel red or blue coloured rectangle) power/ground rings (red or blue rectangle ring) power/ground strap (red or blue vertical line) power/ground rails (red or blue horizontal lines) 
+	
+power and ground flows:
+	
+power/ground pads -> power/ground ring -> power/ground straps -> power/ground rails
 	
 </details>
 	
 <details><summary>Basics of global and detail routing and configure TritonRoute</summary>
+	
+	
+```
+echo $::env(CURRENT_DEF) #will see change from CTS 1 to floorplan/pdn.def 
+	
+echo $::env(ROUTING_STRATEGY) #will get 0
+	
+run_routing
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215437844-f1c36d1d-d7de-45b0-bbc0-304776cd1f74.png" height = "280"></p>
+	
+>	routing guideline in README.md
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215437961-aece2a61-3160-4995-8257-2e8e255a0ad7.png" height = "80"></p>
+	
+>	run_routing complete
 	
 </details>
 	
