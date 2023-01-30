@@ -8922,10 +8922,26 @@ DRC rules to be followed when performing the routing of design
 <details><summary>Power Distribution Network and routing</summary>
 	
 <details><summary>Lab steps to build power distribution network</summary>
+	
+<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "" height = "250"></p>
 
 </details>	
 
 <details><summary>Lab steps from power straps to std cell power</summary>
+	
+<p align="center"><img src = "" height = "250"></p>
+
 	
 </details>
 	
@@ -8993,11 +9009,34 @@ DRC rules to be followed when performing the routing of design
 	
 <details><summary>Routing topology algorithm and final files list post-route</summary>
 	
-<p align="center"><img src = "" height = "250"></p>
-<p align="center"><img src = "" height = "250"></p>
-<p align="center"><img src = "" height = "250"></p>
-<p align="center"><img src = "" height = "250"></p>
-
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215429480-196716df-6537-4438-966f-c2d9de2e868c.png" height = "250"></p>
+	
+>	for each APC, find the cost associated to it. then, minimum spanning tree, MST, between the APCs and the costs (minimal and optimal point between 2 APC).
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215429961-48c4dfa8-3368-4b66-8543-dcc981d132ce.png" height = "250"></p>
+	
+>	memory that was taken up by the tool and the number of DRC violations (= 3) in the design port routing
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215430267-ed835080-7ab4-40a2-886c-750d2e50455d.png" height = "150"></p>
+	
+>	modify or fix it manually to get rid of the violations
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215430884-ad830c94-f85a-40d7-9055-e37157fbb731.png" height = "400"></p>
+	
+>	routing guides (less fastroute guide)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215431874-13c10dce-9ab2-4ea8-954f-2a801367245e.png" height = "200"></p>
+	
+>	extract parasitics (need to declare the LEF and the DEF first)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215432308-3b617f81-7161-4f6d-a29c-dd6781ee2f9c.png" height = "80"></p>
+	
+>	files created
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215432681-6d3f59aa-e3d7-4f1e-b6d4-92d4592ca826.png" height = "80"></p>
+	
+>	 netlist modified due to the antenna diodes insertions happens
+	
 	
 </details>
 	
