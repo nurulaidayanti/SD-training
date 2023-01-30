@@ -8861,13 +8861,31 @@ set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_
 	
 <details><summary>Introduction to Maze Routing Â LeeÂs algorithm</summary>
 	
-<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215386242-fc097f59-93c3-4cc4-af47-09d8e39cb682.png" height = "250"></p>
 	
-<p align="center"><img src = "" height = "250"></p>
+>	find best possible connection (shortest path and minimal zigzag lines) between 2 endpoint (source and target)
 	
-<p align="center"><img src = "" height = "250"></p>
+Note: physical design engineer = route (physical wire) algorithm = 2 different points which needs to be connected
 	
-<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215387726-74b7180c-727a-44ea-9d0d-e796b54527c8.png" height = "250"></p>
+	
+>	Lee's algorithm (maze routing). first, creates routing grid. then determines 2 points (source and target). next label the grid ground (adjacent of horizontal and vertical grid) continue labeling until reach the target
+	
+</details>
+	
+<details><summary>LeeÂs Algorithm conclusion</summary>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215388421-34bbb450-7fae-4136-a141-b4ab0b002ca2.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/215388455-edb275ea-9861-492c-9168-bef4a2604326.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/215388705-958f93a5-be07-49ab-9a80-1300bcef5189.png" height = "250"></p>
+	
+>	it will not do at the logical blockage. it will prefer the less zigzag route (left) which is the shortest one
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215389082-b13ff3e3-34b2-4db5-8a21-fbb22ba5d116.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/215389192-c3a0e1c6-5e6a-47b0-9897-f4dc771f3f91.png" height = "250"></p>
+	
+>	algorithm prefer lower number of bends (connecting 2 points with the shortest distance)
+	
+</details>
+	
+<details><summary>Design Rule Check</summary>
 	
 <p align="center"><img src = "" height = "250"></p>
 	
@@ -8876,7 +8894,6 @@ set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_
 <p align="center"><img src = "" height = "250"></p>
 	
 <p align="center"><img src = "" height = "250"></p>
-	
 	
 </details>
 	
