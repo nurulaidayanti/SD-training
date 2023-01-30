@@ -8738,19 +8738,21 @@ run_cts
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215375722-55ccd3b7-9ced-4d4d-ac54-6ee9481e6d0f.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/215375766-3bb55b77-d593-4134-936e-1e5d477f9d02.png" height = "90"></p>
 	
->	hold equation
+>	hold equation with the presents of clock buffer
 	
 </details>
 	
 <details><summary>Hold timing analysis using real clocks</summary>
 	
-<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215376687-008cd9b0-89b9-403b-b76b-75d38b5f5f0e.png" height = "250"></p>
 	
-<p align="center"><img src = "" height = "250"></p>
+>	arrival greater than required
 	
-<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215378464-3a010f20-0c7b-42d8-8bdb-3af3c7a68fce.png" height = "250"></p>
 	
-<p align="center"><img src = "" height = "250"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215379428-0019c017-3cc3-4bad-a49f-42a6a9cafd8c.png" height = "230"><img src = "https://user-images.githubusercontent.com/118953932/215379512-ed9daf35-4925-4962-96ca-2e0e8191c549.png" height = "230"></p>
+	
+>	setup and hold time
 	
 </details>
 	
