@@ -8923,17 +8923,19 @@ DRC rules to be followed when performing the routing of design
 	
 <details><summary>Lab steps to build power distribution network</summary>
 	
-<p align="center"><img src = "" height = "250"></p>
-<p align="center"><img src = "" height = "250"></p>
-<p align="center"><img src = "" height = "250"></p>
-<p align="center"><img src = "" height = "250"></p>
-<p align="center"><img src = "" height = "250"></p>
-<p align="center"><img src = "" height = "250"></p>
-<p align="center"><img src = "" height = "250"></p>
-<p align="center"><img src = "" height = "250"></p>
-<p align="center"><img src = "" height = "250"></p>
-<p align="center"><img src = "" height = "250"></p>
+```
+#in openlane (invoke openlane as previous)
 
+echo $::env(CURRENT_DEF) #should be cts.def
+	
+gen_pdn #run power distribution network
+```
+	
+Note: prep -design -tag **-overwrite** is used when want to create a fresh run with new configurations but without changing the tag name
+	
+>	LEF and DEF files are read. then it will create the gird and transfer the power and ground. the standard cells are placed in the standard cell rows (will need to have the power and ground lines along the side rows where the standard cells are placed) then, the straps are provided for the chip. from the power pads, the power goes into the straps. from the straps, it drills down into the standard cell rails
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/215444344-09859c4e-e506-41d6-8453-4611a0e0a697.png" height = "250"></p>
 
 
 </details>	
