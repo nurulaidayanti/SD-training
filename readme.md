@@ -9095,4 +9095,16 @@ git clone https://github.com/bharath19-gs/synopsys_ICC2flow_130nm.git
 	
 >	report_area, report_timing, report_power
 	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217714304-4cb40fa9-6f89-4a73-97d6-021ee038f53a.png" height = "450"></p>
 
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217714493-745de464-43e2-42ea-a77b-08762512e1dc.png" height = "450"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217714554-96f0fdfb-8cbf-4be6-a64f-edd37cb3faa9.png" height = "450"></p>
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217714607-52b7fc61-d6dd-4ac8-acd0-7bf61f367544.png" height = "450"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217714638-08ec18e1-0f2a-420a-9da1-1f4e9522875e.png" height = "450"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217714681-e9a33fd2-d587-4f35-8a2c-3ac2b88a0ab2.png" height = "450"></p>
+	
+>	modify all the files
