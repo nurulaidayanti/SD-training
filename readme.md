@@ -9065,3 +9065,28 @@ run_routing
 </details>
 	
 </details>
+	
+# Day-20
+## Floorplanning and Power Planning Lab
+	
+```
+git clone https://github.com/manili/VSDBabySoC.git
+git clone https://github.com/bharath19-gs/VSDBabySoC_ICC2.git
+git clone https://github.com/bharath19-gs/synopsys_ICC2flow_130nm.git
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217689500-6560dbc2-6bf2-42bb-a635-741192902b97.png" height = "500"><img src = "https://user-images.githubusercontent.com/118953932/217689648-3568d92f-0f25-49f6-af12-ac45b2738952.png" height = "430"></p>
+	
+>	modify the vsdbabysoc.tcl (use own local file)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217690067-f6ae05ff-c0ff-486a-bf19-7cf31387a47b.png" height = "250"></p>
+	
+>	in dc_shell, source vsdbabysoc.tcl
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217690775-e8b6ccd5-b606-4dde-86d7-d563f71b810c.png" height = "190"><img src = "https://user-images.githubusercontent.com/118953932/217690823-a6d95a05-1104-47a5-9046-74b4d3d5d5d9.png" height = "210"></p>
+	
+>	check_design before and after optimization done
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217691341-4864d040-1449-43ad-8aa6-ad45506a5fac.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/217691281-ae63c6cd-3389-4c79-a9d5-8ff9ff5120ad.png" height = "330"></p>
+	
+>	schematic design
