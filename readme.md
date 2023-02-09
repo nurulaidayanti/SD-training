@@ -9108,3 +9108,11 @@ git clone https://github.com/bharath19-gs/synopsys_ICC2flow_130nm.git
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217714681-e9a33fd2-d587-4f35-8a2c-3ac2b88a0ab2.png" height = "450"></p>
 	
 >	modify all the files
+	
+-	7% utilization
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217714948-d0bb2dc3-2e2b-4334-b974-15469d0b9f50.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/217715063-fb5f4ea2-355a-4d69-83c3-4c472ac282be.png" height = "300"></p>
+	
+>	flow completed. then, start_gui
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217715469-1e2c5658-47f4-419d-85a7-dc36c2ece7e0.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/217715345-be062c13-cbb6-4a89-80b7-9f3a2f67307e.png" height = "300"></p>
