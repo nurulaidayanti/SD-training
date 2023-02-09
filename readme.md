@@ -9094,3 +9094,5 @@ git clone https://github.com/bharath19-gs/synopsys_ICC2flow_130nm.git
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217692403-27429af2-be79-41fe-9a00-5ec475100e60.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/217692423-1cca0d90-6701-4cbd-a820-a700af765cee.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/217692465-f1d86351-78c0-4009-b79f-acbed2b2de47.png" height = "320"></p>
 	
 >	report_area, report_timing, report_power
+	
+
