@@ -9109,7 +9109,7 @@ git clone https://github.com/bharath19-gs/synopsys_ICC2flow_130nm.git
 	
 >	modify all the files
 	
--	7% utilization
+-	7% core utilization
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217714948-d0bb2dc3-2e2b-4334-b974-15469d0b9f50.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/217715063-fb5f4ea2-355a-4d69-83c3-4c472ac282be.png" height = "300"></p>
 	
