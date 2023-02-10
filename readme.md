@@ -9116,3 +9116,9 @@ git clone https://github.com/bharath19-gs/synopsys_ICC2flow_130nm.git
 >	flow completed. then, start_gui
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217715469-1e2c5658-47f4-419d-85a7-dc36c2ece7e0.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/217715345-be062c13-cbb6-4a89-80b7-9f3a2f67307e.png" height = "300"></p>
+	
+-	40% core utilization 
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218029720-fb006697-67b6-448e-9f0e-afc402ccbd5d.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/218029818-91d8ce03-136b-4133-9345-f711421f1854.png" height = "300"></p>
+	
+>	floorplan of 40% of core utilization and report timing
