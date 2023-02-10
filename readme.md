@@ -9069,6 +9069,34 @@ run_routing
 # Day-20
 ## Floorplanning and Power Planning Lab
 	
+<details><summary>Theory</summary>	
+	
+-	Physical design flow
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218101890-f460f70c-08a2-41bb-8cd2-5974193c6141.png" height = "300"></p>
+	
+<p align="center">taken from training's slide</p>
+	
+Partitioning = divides a circuit into smaller sub-circuits or modules, each of which can be constructed and examined separately.
+	
+Floorplanning = determines the size of the design cell (or die), creates the boundary and core area, and creates wire tracks for placement of standard cells. It is also a process of positioning blocks or macros on the die.
+	
+Power planning = often intrinsic to floorplanning, distributes power (VDD) and ground (GND) nets throughout the chip
+	
+Placement = finds the spatial locations of all cells within each block
+	
+Clock tree synthesis = determines the buffering, gating and routing of the clock signal to meet prescribed skew and delay requirements
+	
+Global routing = allocates routing resources that are used for connections 
+	
+Detailed routing = assigns routes to specific metal layers and routing tracks within the global routing resources
+	
+Timing closure = optimizes circuit performance by specialized placement or routing techniques 
+	
+</details>
+	
+<details><summary>Lab</summary>
+	
 ```
 git clone https://github.com/manili/VSDBabySoC.git
 git clone https://github.com/bharath19-gs/VSDBabySoC_ICC2.git
@@ -9128,3 +9156,7 @@ git clone https://github.com/bharath19-gs/synopsys_ICC2flow_130nm.git
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218029720-fb006697-67b6-448e-9f0e-afc402ccbd5d.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/218029818-91d8ce03-136b-4133-9345-f711421f1854.png" height = "250"></p>
 	
 >	floorplan of 40% of core utilization and report timing
+	
+</details>
+	
+
