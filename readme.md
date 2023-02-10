@@ -9107,6 +9107,8 @@ git clone https://github.com/bharath19-gs/synopsys_ICC2flow_130nm.git
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217714681-e9a33fd2-d587-4f35-8a2c-3ac2b88a0ab2.png" height = "450"></p>
 	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218031832-fd263bb5-46a0-49cf-8bbc-98cd41c22db8.png" height = "350"></p>
+	
 >	modify all the files
 	
 -	7% core utilization
@@ -9118,6 +9120,10 @@ git clone https://github.com/bharath19-gs/synopsys_ICC2flow_130nm.git
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/217715469-1e2c5658-47f4-419d-85a7-dc36c2ece7e0.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/217715345-be062c13-cbb6-4a89-80b7-9f3a2f67307e.png" height = "300"></p>
 	
 -	40% core utilization 
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218030687-fc585a82-94b8-4ff2-b984-cf331481e2ca.png" height = "300"></p>
+	
+>	change to 40%
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218029720-fb006697-67b6-448e-9f0e-afc402ccbd5d.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/218029818-91d8ce03-136b-4133-9345-f711421f1854.png" height = "250"></p>
 	
