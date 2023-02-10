@@ -9119,6 +9119,6 @@ git clone https://github.com/bharath19-gs/synopsys_ICC2flow_130nm.git
 	
 -	40% core utilization 
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218029720-fb006697-67b6-448e-9f0e-afc402ccbd5d.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/218029818-91d8ce03-136b-4133-9345-f711421f1854.png" height = "300"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218029720-fb006697-67b6-448e-9f0e-afc402ccbd5d.png" height = "350"><img src = "https://user-images.githubusercontent.com/118953932/218029818-91d8ce03-136b-4133-9345-f711421f1854.png" height = "250"></p>
 	
 >	floorplan of 40% of core utilization and report timing
