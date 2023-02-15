@@ -9406,9 +9406,21 @@ ECO strategies
 	
 <details><summary>Lab</summary>
 	
+```
+report_timing -from core/CPU_is_add_a3_reg -to core/CPU_Xreg_value_a4_reg[24][31] -corner estimated_corner -mode [all_modes]
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/219041047-e0b6e1ff-c239-4b34-8f10-938ee27d2181.png" height = "550"></p>
+	
+```
+report_timing -from core/CPU_is_add_a3_reg -to core/CPU_Xreg_value_a4_reg[24][31] -path_type full_clock_expanded -capacitance -nets -physical
+```
+<p align="center"><img src = "" height = "350"></p>
+
+	
 </details>
 	
-<p align="center"><img src = "" height = "350"></p>
+
 	
 <p align="center"><img src = "" height = "350"></p>
 	
