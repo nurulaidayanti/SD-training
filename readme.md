@@ -9295,6 +9295,70 @@ Various CTS checks
 		
 </details>
 	
+# Day-23
+## Clock gating technique &Timing Violations and ECO
+<details><summary>Theory</summary>
+	
+Advanced H-Tree for million flop clock end-points randomly placed
+
+-	When performing CTS, power consumption also needs to be considered (especially when designing a large number of clocks where the design might induce a larger power, as well as a larger power usage)
+
+-	A digital circuit with a lot of clocks would be so huge with many buffers etc when designing its clock tree
+
+	-	In order to fix that, the whole chip is sectioned into smaller versions where each section will have its own clock tree, and managed to get a complete routed tree. Therefore, Clock Gating (CG) technique is introduced
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218975056-6700fc74-f915-4971-ad51-c61ca8fc27d0.png" height = "250"></p>
+	
+Clock Gating
+	
+-	reduce the clock power consumption by cutting off the idle clock cycles
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218976494-69605536-21a4-4d51-a892-d96fa54e7e01.png" height = "150"></p>
+	
+-	it is inserted synthesis stage and optimized in the implementation stage (Physical Design stage)
+	
+-	There are mainly three types of CG:
+	-	CG = AND gate
+	-	CG = OR gate
+	-	CG = universal NAND gate
+	
+Routing
+
+-	making physical connections between signal pins using metal layers
+	
+-	3 types of routing:
+	-	P/G routing
+	-	Clock routing
+	-	Signal routing
+		-	Global routing
+		-	Detailed routing
+	
+Basic flow of routing
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218977508-24f31d03-10db-4b86-8dcf-e0f530370fac.png" height = "400"></p>
+	
+</details>
+
+<details><summary>Lab</summary>
+	
+Routing
+	
+1.	P/G Routing
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218973482-f1633001-378e-4d34-920e-5a9cc52a2315.png" height = "350"></p>
+	
+2.	Clock Routing and signal routing:
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218974114-b1319a11-7e2d-4c98-8149-4c730e1a47be.png" height = "200"></p>
+	
+>	"place_opt" = place and optimize current design
+	
+>	"clock_opt" = synthesize and route clocks, then further optimize the design based on the propagated clock latencies
+	
+>	"route_auto" = run global routing, trace assignment, and detailed routing at once/automatically
+	
+</details>
+	
 <p align="center"><img src = "" height = "350"></p>
 	
 <p align="center"><img src = "" height = "350"></p>
