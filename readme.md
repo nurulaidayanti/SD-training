@@ -9359,6 +9359,55 @@ Routing
 	
 </details>
 	
+# Day-24
+## Timing violations and ECO
+	
+<details><summary>Theory</summary>
+	
+Engineering Change Order (ECO) is how you incorporate last minute changes in your design
+-	do ECO on the gate level netlist
+-	edit the gate-level netlist, make the same changes in RTL
+-	pass all verifications before it is passed on to layout (make sure the ECO pass formal and functional verification before start editing layout)
+-	all the violations are fixed and seal all the sign-off checks that weren’t done during the PD flow
+	
+ECO has has the following steps :
+1.	Investigate the problem using the recent database
+2.	ECO generation to address the problem
+3.	ECO implementation with the recent database
+4.	After implementing and fixing the problem, save it in the database for future
+	
+ECO strategies
+1.	Margin based fixing
+	a.	Design rule violations(DRV) - max_cap and max_tran
+	b.	Setup and hold violations
+2.	Selective endpoint biased fixing
+	a.	With and without margin
+	b.	With and without slack range
+3.	Slack based fixing
+	a.	Setup and hold target slack
+	b.	Max slack
+4.	Fix `n` number paths
+	a.	Number of paths per group (max_paths)
+	b.	Number of paths per endpoint (nworst)
+5.	GBA(group based) and PBA(path-based)fixing
+6.	Full chip vs reg2reg fixing
+7.	Leakage fixing using HVT
+8.	Hierarchical ECO
+	a.	Top level only
+	b.	Individual 
+	c.	Replicated hierarchies only
+	d.	All of the above
+9.	Physical aware ECO
+	a.	Routing congestion aware
+	b.	Cell legalization aware
+	c.	Buffer on route
+
+</details>
+	
+<details><summary>Lab</summary>
+	
+</details>
+	
 <p align="center"><img src = "" height = "350"></p>
 	
 <p align="center"><img src = "" height = "350"></p>
