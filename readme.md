@@ -9224,3 +9224,62 @@ Pre-Placement Sanity Checks -> Floating Pins in Netlist, Unconstrained Pins, Tim
 	
 	
 </details>
+	
+# Day-22
+## CTS Lab analysis
+	
+<details><summary>Theory</summary>
+	
+Clock Tree Synthesis 
+	-	It is a technique for distributing the clock equally among all sequential parts of a VLSI design
+		-	Balancing the delays to all clock input pins
+	-	The goal is to minimize skew and insertion delay.
+	
+Various algo’s used for CTS
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218964242-960a792f-6709-4c4e-97f1-e07410cef15b.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/218964608-16df3fa5-53b7-421f-9aeb-160d024ec914.png" height = "200"></p>
+	
+>	from left: conventional CTS, multisource CTS, clock mesh and H-tree CTS
+	
+</details>
+	
+<details><summary>Lab</summary>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218961749-dde93b34-347b-4ca0-bf58-a153312c3982.png" height = "500"></p>
+	
+>	check clock tree
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218961909-eefff739-4a38-4983-b878-125022105f6a.png" height = "500"></p>
+	
+>	legality complete. no violation
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218962078-5c2e9803-1025-40af-a94c-9a8cc9415e80.png" height = "350"></p>
+	
+>	summary of report clock timing
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218962278-5f8d1fbe-2170-4ed6-a1c5-bffacda5f9d1.png" height = "250"></p>
+	
+>	report clock timing for skew
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218962441-14f215d4-f7ef-406c-8762-5b9d9648975f.png" height = "250"></p>
+	
+>	report clock timing for latency
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218962535-27cb5c14-86e9-4e08-97a9-170ce29ed022.png" height = "250"></p>
+	
+>	report clock timing for transition
+	
+<p align="center"><img src = "" height = "350"></p>
+	
+<p align="center"><img src = "" height = "350"></p>
+	
+<p align="center"><img src = "" height = "350"></p>
+	
+<p align="center"><img src = "" height = "350"></p>
+
+<p align="center"><img src = "" height = "350"></p>
+
+<p align="center"><img src = "" height = "350"></p>
+
+	
+</details>
