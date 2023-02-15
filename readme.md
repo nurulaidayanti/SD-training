@@ -9227,13 +9227,13 @@ Pre-Placement Sanity Checks -> Floating Pins in Netlist, Unconstrained Pins, Tim
 	
 # Day-22
 ## CTS Lab analysis
-	
 <details><summary>Theory</summary>
 	
 Clock Tree Synthesis 
-	-	It is a technique for distributing the clock equally among all sequential parts of a VLSI design
-		-	Balancing the delays to all clock input pins
-	-	The goal is to minimize skew and insertion delay.
+	
+-	It is a technique for distributing the clock equally among all sequential parts of a VLSI design
+	-	Balancing the delays to all clock input pins
+-	The goal is to minimize skew and insertion delay.
 	
 Various algo’s used for CTS
 	
@@ -9241,26 +9241,28 @@ Various algo’s used for CTS
 	
 >	from left: conventional CTS, multisource CTS, clock mesh and H-tree CTS
 	
+	
 H-tree algorithm
 	
-	1.	Find out all the flops present
-	2.	Find out the center of all the flops
-	3.	Trace clock port ot the center point
-	4.	Now divide the core into two parts, trace both the parts and reach to each center
-	5.	Then form this center again divide the area into two and again trace till center at both the end
-	6.	Repeat this algo till the time we reach the flop clock pin.
+1.	Find out all the flops present
+2.	Find out the center of all the flops
+3.	Trace clock port ot the center point
+4.	Now divide the core into two parts, trace both the parts and reach to each center
+5.	Then form this center again divide the area into two and again trace till center at both the end
+6.	Repeat this algo till the time we reach the flop clock pin.
 	
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218966395-25875a8f-2a98-4efc-afe3-7355e66124d2.png" height = "200"></p>
 	
 Various CTS checks
-	1.	Skew check
-	2.	Pulse  width check
-	3.	Duty cycle check
-	4.	Latency check
-	5.	Power check
-	6.	Crosstalk Quality check
-	7.	Delta Delay Quality check
+	
+1.	Skew check
+2.	Pulse  width check
+3.	Duty cycle check
+4.	Latency check
+5.	Power check
+6.	Crosstalk Quality check
+7.	Delta Delay Quality check
 	8.	Glitch Quality check
 	
 </details>
@@ -9290,18 +9292,17 @@ Various CTS checks
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218962535-27cb5c14-86e9-4e08-97a9-170ce29ed022.png" height = "250"></p>
 	
 >	report clock timing for transition
-	
-<p align="center"><img src = "" height = "350"></p>
-	
-<p align="center"><img src = "" height = "350"></p>
-	
-<p align="center"><img src = "" height = "350"></p>
-	
-<p align="center"><img src = "" height = "350"></p>
-
-<p align="center"><img src = "" height = "350"></p>
-
-<p align="center"><img src = "" height = "350"></p>
-
-	
+		
 </details>
+	
+<p align="center"><img src = "" height = "350"></p>
+	
+<p align="center"><img src = "" height = "350"></p>
+	
+<p align="center"><img src = "" height = "350"></p>
+	
+<p align="center"><img src = "" height = "350"></p>
+
+<p align="center"><img src = "" height = "350"></p>
+
+<p align="center"><img src = "" height = "350"></p>
