@@ -9241,6 +9241,28 @@ Various algo’s used for CTS
 	
 >	from left: conventional CTS, multisource CTS, clock mesh and H-tree CTS
 	
+H-tree algorithm
+	
+	1.	Find out all the flops present
+	2.	Find out the center of all the flops
+	3.	Trace clock port ot the center point
+	4.	Now divide the core into two parts, trace both the parts and reach to each center
+	5.	Then form this center again divide the area into two and again trace till center at both the end
+	6.	Repeat this algo till the time we reach the flop clock pin.
+	
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218966395-25875a8f-2a98-4efc-afe3-7355e66124d2.png" height = "200"></p>
+	
+Various CTS checks
+	1.	Skew check
+	2.	Pulse  width check
+	3.	Duty cycle check
+	4.	Latency check
+	5.	Power check
+	6.	Crosstalk Quality check
+	7.	Delta Delay Quality check
+	8.	Glitch Quality check
+	
 </details>
 	
 <details><summary>Lab</summary>
