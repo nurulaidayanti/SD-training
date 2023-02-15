@@ -9160,3 +9160,52 @@ git clone https://github.com/bharath19-gs/synopsys_ICC2flow_130nm.git
 </details>
 	
 
+# Day-21
+## Placement and CTS Labs
+	
+<details><summary>Theory</summary>
+	
+Pre-Placement Sanity Checks -> Floating Pins in Netlist, Unconstrained Pins, Timing, Pin direction mismatch, etc.
+	
+-	Placement
+	-	Standard Cell
+	-	Placement Stages 
+		-	Global Placement
+		-	Legalization
+		-	Detailed Placement
+	-	Objectives/Quality Checks
+		-	Congestion
+		-	Performance
+		-	Timing
+		-	Routability
+		-	Runtime
+	
+-	ClockTreeSynthesis(CTS)
+	-	Inputs of CTS
+		-	Placement DB
+		-	CTS Spec File
+	-	CTS Steps
+		-	Clustering
+		-	DRV Fixing
+		-	Insertion Delay Reduction
+		-	Power Reduction
+		-	Balancing
+		-	Post-Conditioning
+	
+-	Clock Tree Synthesis(CTS)
+	-	CTS Quality Checks
+		1)	Skew
+		2)	Pulse width
+		3)	Duty cycle 
+		4)	Latency
+		5)	Clock tree power
+		6)	Signal Integrity and Crosstalk
+	-	Timing Analysis and Fixing
+	
+</details>
+	
+<details><summary>Lab</summary>
+	
+
+	
+</details>
