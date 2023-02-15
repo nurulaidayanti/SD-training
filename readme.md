@@ -9206,6 +9206,21 @@ Pre-Placement Sanity Checks -> Floating Pins in Netlist, Unconstrained Pins, Tim
 	
 <details><summary>Lab</summary>
 	
-
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218896202-64be8f77-6fd4-4801-80bb-6affc3c4ff92.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/218896485-a849aee7-adc7-44ef-82ab-0d997805f467.png" height = "300"></p>
+		
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218896601-c79bafa0-f8ab-424b-9f5d-d0985904d20f.png" height = "350"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218896658-7159d7a9-403d-4236-ba76-a90239fb387b.png" height = "350"></p>
+	
+>	Timing met
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218896823-ae908141-b175-4cac-8013-a81956dad6d9.png" height = "350"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218896869-a16a2514-a14a-431e-b594-d6fcb703c75a.png" height = "350"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/218896938-655e2fa5-723b-40d8-8289-2f548b107b41.png" height = "300"><img src = "https://user-images.githubusercontent.com/118953932/218896960-41221e41-dc9a-4bb3-98d2-8d4f0df13f6b.png" height = "300"></p>
+	
+>	schematic design of CTS
+	
 	
 </details>
