@@ -9415,15 +9415,45 @@ report_timing -from core/CPU_is_add_a3_reg -to core/CPU_Xreg_value_a4_reg[24][31
 ```
 report_timing -from core/CPU_is_add_a3_reg -to core/CPU_Xreg_value_a4_reg[24][31] -path_type full_clock_expanded -capacitance -nets -physical
 ```
-<p align="center"><img src = "" height = "350"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/219323795-26a79d1f-5c4b-4f7a-befb-5dd1743c1852.png" height = "350"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/219323975-97058a28-5071-4be7-abe7-d5fdc1f86a82.png" height = "350"></p>
 
- size_cell core/U6 sky130_fd_sc_hd__nand2_4
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/219324066-3fc3fc8a-8cf9-4537-99ae-e0d7b1b7b9cc.png" height = "110"></p>
+	
+>	violated so need to perform ECO
+	
+```
+size_cell core/U6 sky130_fd_sc_hd__nand2_4
 	
 size_cell core/U563 sky130_fd_sc_hd__a21oi_4
 	
 size_cell core/U308 sky130_fd_sc_hd__nand2_8
 	
 size_cell core/U210 sky130_fd_sc_hd__inv_4
+```
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/219325197-ba59f4bf-7172-43d4-83c7-d4d5f7e8339a.png" height = "350"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/219325334-62c70783-c9e6-492c-8496-31a071575ec8.png" height = "330"></p>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/219325578-50236680-622d-4e1f-8e32-19f9476b0dce.png" height = "200"></p>
+	
+>	after upsize cell (still violated but reduced)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/219326789-e8d29f1f-15c4-482c-bb30-d2514dc69cd5.png" height = "350"></p>
+	
+>	qor
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/219327241-6ddaa9ec-800b-4978-bc45-bc2355a00fdf.png" height = "200"></p>
+	
+>	adding decaps
+	
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/219327587-2f1fff24-3d49-4749-aabd-e8b355495cd9.png" height = "100"><img src = "https://user-images.githubusercontent.com/118953932/219328012-0e615435-3f6f-49d8-b908-d7e8b9b4b3ad.png" height = "100"></p>
+
+
+>	report power before and after adding decaps
 	
 </details>
 	
