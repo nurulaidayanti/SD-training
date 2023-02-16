@@ -9417,6 +9417,13 @@ report_timing -from core/CPU_is_add_a3_reg -to core/CPU_Xreg_value_a4_reg[24][31
 ```
 <p align="center"><img src = "" height = "350"></p>
 
+ size_cell core/U6 sky130_fd_sc_hd__nand2_4
+	
+size_cell core/U563 sky130_fd_sc_hd__a21oi_4
+	
+size_cell core/U308 sky130_fd_sc_hd__nand2_8
+	
+size_cell core/U210 sky130_fd_sc_hd__inv_4
 	
 </details>
 	
