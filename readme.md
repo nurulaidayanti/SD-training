@@ -9471,15 +9471,76 @@ Covered previously
 	
 <details><summary>Theory</summary>
 	
+Electronic signals - a message encoded by changing the voltage of an electric current
+	
+Types of electronic signals:
+-	analog signal (most available in nature)
+-	digital signal = microcontroller/microprocessors understand/speak (basically 1’s and 0’s)
+	-	use ADC's and DAC's 
+	
+Mixed-signal chips
+-	are those at least partially deal with input signals whose precise values matter
+-	This broad class includes RF, Analog, Analog-to-Digital and Digital-to-Analog conversion 
+-	More recently, a large number of Mixed-Signal chips where at least part of the chip design needs to measure signals with high precision. 
+-	These chips have very different Design and Process Technology demands than normal Digital circuits.
+	
+AMS - analog and mixed signal(digital and analog)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/219525733-0e9ac16b-7353-4443-9619-c12bcf2abc24.png" height = "350"></p>
+	
+Block diagram representation for mixed signal design
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/219525823-56a8fef2-8403-4e93-b62b-3aa834bcd1f3.png" height = "200"></p>
+	
+Example : VSDBabySoC
+-	RVMYTH processor - digital block
+-	PLL - analog block
+-	DAC - analog block(for digital to analog conversion)
 
+Introduction to various files
+1.	LEF file - Library Exchange Format file :  Physical properties such as width, height etc regarding the standard cells
+	a.	Tf(technology file) or Tlef(technology lef) -contain same information
+	b.	Cell tf
+2.	LIBerty file - contains the timing information of the cells
+3.	gdsII and OASIS file. - GDSII is a file format similar to JPEG, DOCX, XLSX etc to enable a layout design to be transferred from one place to another(IP owner handoff to PD team, PD team to foundry for fabrication), to be viewed/used for verifications like Physical verification checks by EDA tools
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/219526255-06c695c3-1aa8-46b9-8ffa-0a307993a4e4.png" height = "250"></p>
+	
+This is where we need the following files 
+1.	LEF file
+2.	LIB file
+3.	Tf files(tlu+ file)
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/219526458-4c0ef9df-0334-485d-9fad-b51b7a42d2d5.png" height = "350"></p>
+	
+Sources of various files
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/219526661-d5a3edae-4437-4b8d-9f68-7fa5ba1f4ff4.png" height = "200"></p>
+	
+IP cores
+	
+-	consists of a block of logic or data that is used in a semiconductor chip
+-	usually the intellectual property of a particular person or company
+-	used when making a fieldprogrammable gate array (FPGA) or application-specific integrated circuit (ASIC)
+-	created throughout the design process and can be turned into components for reuse
+-	there are different categories for IP cores including hard IP cores and soft IP cores
+	-	soft IP core - can be customized during the physical design phase and mapped to any process technology
+	-	hard IP core - has the logic implementation and the physical implementation
+-	In other words, the physical layout of a hard macro-IP is finished and fixed in a particular process technology.
+	
+Diagram how it actually works in the semiconductor industry 
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/219526828-071443f8-8137-4c38-b6b2-3e5df1d3c782.png" height = "250"></p>
+	
+>	all pictures are from notes
 	
 </details>
 	
-<p align="center"></img src = "" height = "350"></p>
+
 	
-<p align="center"></img src = "" height = "350"></p>
+
 	
-<p align="center"></img src = "" height = "350"></p>
+
 
 <p align="center"></img src = "" height = "350"></p>
 
