@@ -9457,7 +9457,23 @@ size_cell core/U210 sky130_fd_sc_hd__inv_4
 	
 </details>
 	
+# Day-25
+## RISC-V core RTL2GDS flow
+	
+<details><summary>Theory</summary>
+	
+Covered previously
+	
+</details>
+	
+# Day-26
+## Introduction to mixed-signal flow
+	
+<details><summary>Theory</summary>
+	
 
+	
+</details>
 	
 <p align="center"></img src = "" height = "350"></p>
 	
