@@ -9609,7 +9609,29 @@ Reporting Crosstalk Settings
 	-	report_si_aggressor_exclusion
 </details>	
 
+<details><summary>Lab</summary>
+	
 
+	
+</details>
+	
+# Day-28
+## Introduction to DRC and LVS
+	
+<details><summary>Theory</summary>
+	
+Physical Verification 
+-	DRC (Design Rule Check) - determine if the layout satisfies a set of rules required for manufacturing
+-	LVS (Layout vs Schematic) - verifying that the layout created is functionally the same as the schematic/netlist of the design
+-	ARC (Antenna Rule Checking) - Process antenna effect or “plasma induced gate oxide damage” is a manufacturing effect 
+-	ERC (Electrical rule check) - Involves checking a design for all electrical connections that are considered dangerous
+	
+</details>
+	
+<details><summary>Lab</summary>
+	
+</details>
+	
 <p align="center"></img src = "" height = "350"></p>
 
 <p align="center"></img src = "" height = "350"></p>
