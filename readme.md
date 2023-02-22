@@ -9558,7 +9558,7 @@ Crosstalk-Glitch
 -	When one net is switching, and another net is constant then switching signal may cause spikes on other net because of which coupling capacitance (Cc) occurs between two nets, this is called as crosstalk noise
 -	Types of Glitches = Rise, Fall, Overshoot, Undershoot
 	
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/220545783-d892a164-24d1-458e-bf0e-a221ac567103.png" height = "350"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/220545783-d892a164-24d1-458e-bf0e-a221ac567103.png" height = "200"></p>
 	
 Performing Crosstalk Delay Analysis
 1.	Enable Prime Time SI 
@@ -9581,6 +9581,32 @@ Timing Reports
 -	report_si_double_switching
 -	report_noise
 -	Viewing the Crosstalk Analysis Report = report_timing -transition_time -crosstalk_delta \ -input_pins -significant_digits 4
+	
+Bottleneck Reports 
+-	report_si_bottleneck 
+-	report_bottleneck 
+-	delta_delay 
+-	delta_delay_ratio
+-	total_victim_delay_bump
+-	delay_bump_per_aggressor
+-	To get a list of all the victim nets with a delay violation or within 2.0 time units of a violation, listed in order of delta delay = report_si_bottleneck -cost_type delta_delay \ -slack_lesser_than 2.0
+	
+Bottleneck Reports
+-	report_delay_calculation –crosstalk
+-	size_cell
+-	set_coupling_separation
+-	-include_clock_nets
+-	minimum_active_aggressor
+-	In the following example command, the bottleneck command reports nets where three or more active aggressors are affecting the net = report_si_bottleneck -cost_type delta_delay \ -minimum_active_aggressors 3
+	
+Crosstalk Net Delay Calculation
+-	report_delay_calculation -crosstalk \ -from [get_pinsg1/Z] -to [get_pinsg2/A]
+
+Reporting Crosstalk Settings
+-	To check your crosstalk settings:
+	-	report_si_delay_analysis
+	-	report_si_noise_analysis
+	-	report_si_aggressor_exclusion
 </details>	
 
 
