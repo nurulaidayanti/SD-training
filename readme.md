@@ -9537,9 +9537,51 @@ Diagram how it actually works in the semiconductor industry
 </details>
 	
 
+# Day-27
+## Introduction to Crosstalk-Glitch and Delta Delay
 	
+<details><summary>Theory</summary>	
+	
+Signal Integrity & Crosstalk are the Quality checks of the clock routes 
+-	Signal integrity = the ability of an electrical signal to carry information reliably and resist the effects of high-frequency electromagnetic interference from nearby signals.
+-	Crosstalk = the undesirable electrical interaction between two or more physically adjacent nets due to capacitive cross-coupling
+	-	a type of noise signal that corrupts the actual signal while transmission through the communication medium 
+	-	Reasons for Crosstalk and Fixes for Crosstalk
+	
+Aggressor and Victim Nets
+	
+-	A net that receives undesirable cross-coupling effects from a nearby net is called a victim net
+-	A net that causes these effects in a victim net is called an aggressor net
+	
+Crosstalk-Glitch
 
+-	When one net is switching, and another net is constant then switching signal may cause spikes on other net because of which coupling capacitance (Cc) occurs between two nets, this is called as crosstalk noise
+-	Types of Glitches = Rise, Fall, Overshoot, Undershoot
 	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/220545783-d892a164-24d1-458e-bf0e-a221ac567103.png" height = "350"></p>
+	
+Performing Crosstalk Delay Analysis
+1.	Enable Prime Time SI 
+	-	set_app_varsi_enable_analysis true
+2.	Back-annotate the design with cross-coupling capacitance information in a SPEF or GPD file
+	-	read_parasitics -keep_capacitive_couplingfile_name.spf
+	
+Using check_timing
+-	Types to check specific to crosstalk analysis:
+	1.	no_driving_cell
+	2.	ideal_clocks
+	3.	partial_input_delay
+	4.	unexpandable_clocks
+
+Timing Reports 
+-	report_timing
+-	-crosstalk_delta
+-	report_si_bottleneck
+-	report_delay_calculation–crosstalk
+-	report_si_double_switching
+-	report_noise
+-	Viewing the Crosstalk Analysis Report = report_timing -transition_time -crosstalk_delta \ -input_pins -significant_digits 4
+</details>	
 
 
 <p align="center"></img src = "" height = "350"></p>
