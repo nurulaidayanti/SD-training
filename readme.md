@@ -9707,12 +9707,19 @@ Useful Magic Shortcuts:
 -	V can be used to view the entire layout
 -	CTRL+P opens up the parameter options for the selected device
 -	S key can be used to select layers
--	Typing the what command in the magic console gives information on the selected layer
+-	Typing the `what` command in the magic console gives information on the selected layer
 -	; key can be used to type commands in the magic console without moving between windows, until the Enter key is pressed
 -	I key can be used to select a device, and M key is used to move them
 	
-<p align="center"><img src = "" height = "300"></p>
+-	To edit Devices drop down buttons: Click on "Devices 1" then "nmos (MOSFET)"
 
+-	Select nmos (MOSFET) under "Devices 1" and set the width to 2 um, length to 0.5 um and fingers to 3 and then click create
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/220854968-14c049cf-0f02-42c2-83aa-4d2715eff5d3.png" height = "350"></p>
+
+Change device type
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/220855550-9a2ff149-5c12-4899-81f2-6052396433bb.png" height = "350"></p>
 
 	
 </details>
