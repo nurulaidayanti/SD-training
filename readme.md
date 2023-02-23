@@ -9630,6 +9630,35 @@ Physical Verification
 	
 <details><summary>Lab</summary>
 	
+<details><summary>Check Tool Installations</summary>
+	
+Magic
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/220836665-75e8d896-a0eb-462d-8e3f-007920a9782d.png" height = "200"></p>
+	
+It can be run by giving the command "magic" in the command line interface. This brings up a layout window and a console window that is a stock tcl interpreter used to run commands for layout and actions. We can get the tcl interpreter in the terminal itself instead of the seperate console window by using the option "magic -noconsole". Magic can also be run without the graphics layout window using the option "magic -dnull - noconsole", and should be called as such when running from a script. To run magic in batch mode, we use the command "magic -dnull -noconsole filename.tcl".
+
+Netgen
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/220837118-5e762356-4eee-4d84-99d3-501aa0590a4b.png" height = "200"></p>
+	
+can run Netgen using the command "netgen" in the terminal. It is completely command driven and has no graphics interface. Its console window is a stock tcl interpreter like magic as well. We can get the tcl interpreter in the terminal itself instead of the seperate console window by using the option "netgen -noconsole". To run netgen in batch mode, we use the command "netgen -batch source filename.tcl". Netgen also provides a GUI window written in python that can be accessed using "usr/local/lib/netgen/pyhton/lvs_manager.py", though this interface hides many useful options that cannot be accessed with just this window itself.
+	
+Xschem
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/220837524-eee5bc5d-464d-4628-8c83-102c89bb34ff.png" height = "200"></p>
+	
+It is accessed using the command "xschem" in the terminal. This should bring up a schematics window. Unlike netgen and magic however, xschem has no seperate console window and uses the native command line terminal for tcl commands. Xschem can be run in batch mode with the command "xschem --tcl filename.tcl -q".
+
+Ngspice
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/220837686-73b1d771-4e94-4770-851d-1c06c934f953.png" height = "200"></p>
+	
+It can be run using the command "ngspice" in the linux command line. Ngspice has its own prompt and runs its own set of interpreter commands that aren't based on tcl. It can be run in batch mode using the option "ngspice -b".
+
+	
+</details>
+	
 </details>
 	
 <p align="center"></img src = "" height = "350"></p>
