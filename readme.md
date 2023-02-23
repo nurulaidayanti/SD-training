@@ -9672,6 +9672,51 @@ Ngspice
 	
 </details>
 	
+<details><summary>Creating Sky130 Device Layout In Magic</summary>
+	
+**Create directory for the design and initialise subdirectories for each of the open source tools**
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/220842466-428a5299-477a-410a-9e34-3637c150f894.png" height = "150"></p>
+
+**Set up each directory for its respective tool to run properly with the SkyWater PDKs**
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/220844493-7a0e1503-bd4f-4c19-b2e6-7a041e297ef3.png" height = "200"></p>
+	
+**Xschem**
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/220845305-343f0bdc-c697-43a4-843c-73f84a79c1fa.png" height = "300"></p>
+	
+>	Examples can be accessed by clicking the relevant rectangle and pressing the E key on the keyboard. We can return to the menu by pressing CTRL+E. The F key resizes the schematic to fit the window
+	
+Example:
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/220848965-c1d7a646-ae24-4fd6-ba89-59d7bb794fa8.png" height = "300"></p>
+
+**Magic**
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/220850033-a5b73596-abe0-47e7-8a6f-b92aa6600349.png" height = "300"></p>
+
+>	can use the command `magic -d XR` to invoke a cairo graphics package which uses 3D acceleration to get better rendering than the default graphics. There is also an OpenGL based graphics package that can be accessed using `magic -d -OGL`
+	
+Useful Magic Shortcuts:
+
+-	Left and right mouse buttons to adjust the cursor box
+-	Shift+Z to zoom out
+-	Middle mouse button/P to select a layer (also known as painting)
+-	E to erase whatever is present in the cursor box (can also be done ny clicking the middle mouse button on an empty part of the layout)
+-	V can be used to view the entire layout
+-	CTRL+P opens up the parameter options for the selected device
+-	S key can be used to select layers
+-	Typing the what command in the magic console gives information on the selected layer
+-	; key can be used to type commands in the magic console without moving between windows, until the Enter key is pressed
+-	I key can be used to select a device, and M key is used to move them
+	
+<p align="center"><img src = "" height = "300"></p>
+
+
+	
+</details>
+	
 </details>
 	
 <p align="center"></img src = "" height = "350"></p>
