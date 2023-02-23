@@ -9732,6 +9732,8 @@ Open Xschem
 >	press "insert" key on the keyboard to pop out Choose symbol window. select the SkyWater library directory path to access SkyWater components and choose the fd_pr library. To create an inverter, we need a basic nfet and pfet. So let's select a nfet and pfet device from the insert window and place it anywhere in the schematic.
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/220865454-5dc7708b-3099-4573-8169-0894a70d1d62.png" height = "260"><img src = "https://user-images.githubusercontent.com/118953932/220866159-899da68c-d67a-4694-ab6d-45d0b98fa260.png" height = "260"></p>
+	
+>	
 
 	
 </details>
