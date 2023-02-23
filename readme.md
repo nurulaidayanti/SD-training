@@ -9720,6 +9720,11 @@ Useful Magic Shortcuts:
 Change device type
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/220855550-9a2ff149-5c12-4899-81f2-6052396433bb.png" height = "350"></p>
+	
+</details>
+	
+<details><summary>Creating Simple Schematic In Xschem</summary>
+	
 
 	
 </details>
