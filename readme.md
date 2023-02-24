@@ -9738,7 +9738,12 @@ Open Xschem
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221108240-f7053eff-5e7d-4b7e-a695-f67427dca25c.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/221108668-f998a0b8-7809-4f49-830b-70ac446a62f2.png" height = "250"></p>
 	
 >	connect wires and save as inverter.sch
-
+	
+</details>
+	
+<details><summary>Creating Symbol And Exporting Schematic In Xschem</summary>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221202050-5fa81f56-ca34-4505-b794-746355cbcc7f.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/221203993-861007a0-2f3f-4bfe-87b0-b160b3fbaeb0.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/221204821-b0ff10da-ba3f-4c84-b156-883c5504e878.png" height = "250"></p>
 	
 </details>
 	
