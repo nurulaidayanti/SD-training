@@ -9733,7 +9733,11 @@ Open Xschem
 
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/220865454-5dc7708b-3099-4573-8169-0894a70d1d62.png" height = "260"><img src = "https://user-images.githubusercontent.com/118953932/220866159-899da68c-d67a-4694-ab6d-45d0b98fa260.png" height = "260"></p>
 	
->	
+>	nfet and pfet
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221108240-f7053eff-5e7d-4b7e-a695-f67427dca25c.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/221108668-f998a0b8-7809-4f49-830b-70ac446a62f2.png" height = "250"></p>
+	
+>	connect wires and save as inverter.sch
 
 	
 </details>
