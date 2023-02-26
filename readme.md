@@ -9611,6 +9611,19 @@ Reporting Crosstalk Settings
 
 <details><summary>Lab</summary>
 	
+```
+source /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/d20/VSDBabySoC_ICC2/standaloneFlow/top.tcl
+
+update_timing
+	
+write_parasitics -format spef -output vsdbabysoc_spef
+	
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221421257-396780c5-579f-475b-859d-5d7cc5e35c48.png" height = "400"></p>
+	
+```
+```
 
 	
 </details>
