@@ -9747,6 +9747,64 @@ Open Xschem
 	
 </details>
 	
+<details><summary>Importing Schematic To Layout And Inverter Layout Steps</summary>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221402902-fb02ac3e-f7e6-400d-88db-43df26c8c1c0.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/221402946-3c6d0586-d89d-4539-b5fa-3087d79d34e3.png" height = "250"></p>
+	
+>	import spice and use the "V" key
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221403182-cf941c8b-4a09-4846-9046-7ec728f5fd24.png" height = "250"></p>
+	
+>	use "I" key
+	
+
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221414333-ecb4b91b-ae14-4618-8e76-2db1b783f4ca.png" height = "250"></p>
+	
+>	inverter layout
+
+	
+</details>
+	
+<details><summary>Final DRC/LVS Checks And Post Layout Simulations</summary>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221415548-137d41cb-0142-4a5c-a5e9-2d07d6980124.png" height = "150"><img src = "https://user-images.githubusercontent.com/118953932/221415730-40f28302-0b17-40a4-8115-baa522a04256.png" height = "250"></p>
+	
+>	parasitic capacitances and modify the test bench netlist file.
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221416234-72607776-0a2e-483d-8bbf-ea7d9b89b420.png" height = "200"><img src = "https://user-images.githubusercontent.com/118953932/221416187-4ce0ca64-1a2f-49c9-b97e-02d053938065.png" height = "200"></p>
+	
+>	result ngspice
+	
+</details>
+	
+<details><summary>GDS Read</summary>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221416794-e012a883-e666-4470-a131-bc42f2396196.png" height = "150"></p>
+	
+>	lists all the subcells
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221416964-d9871790-54ab-4ef9-9a22-d3dd7e27c9b6.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/221417262-ab79bc47-98a2-409e-9cf0-d563bd6f0874.png" height = "250"></p>
+
+>	load and2_1 cell
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221417262-ab79bc47-98a2-409e-9cf0-d563bd6f0874.png" height = "250"></p>
+
+	
+</details>
+	
+<details><summary>Ports</summary>
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221417680-4e32032d-77c3-417b-aba8-8be6b9b97289.png" height = "350"></p>
+	
+>	port
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221417937-34f56f6c-db2e-4fda-bb6b-0a2c0f1a853f.png" height = "250"><img src = "https://user-images.githubusercontent.com/118953932/221418105-e72ead3b-f3dc-49e2-bd55-04ac31dba0bb.png" height = "250"></p>
+	
+>	sky130_fd_sc_hd.spice
+
+	
+</details>
+	
 </details>
 	
 <p align="center"></img src = "" height = "350"></p>
