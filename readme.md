@@ -9626,7 +9626,7 @@ write_parasitics -format spef -output vsdbabysoc_spef
 gzip -d /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/d20/VSDBabySoC_ICC2/icc2/write_data_dir/vsdbabysoc/vsdbabysoc.pt.v.gz
 ```
 
-<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221448049-c3c3c979-43d1-465f-8c06-481bc5a2ef77.png" height = "400"></p>
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221448049-c3c3c979-43d1-465f-8c06-481bc5a2ef77.png" height = "300"></p>
 	
 ```
 pt_shell> set target_library "/nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/avsddac.db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/avsdpll.db /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/lib/sky130_fd_sc_hd__tt_025C_1v80.db"
@@ -9639,6 +9639,8 @@ pt_shell> link_design
 	
 pt_shell> current_design
 ```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221453588-9b6ec1f2-5eb8-47ff-afa8-88adc290420b.png" height = "300"></p>
 	
 </details>
 	
