@@ -9642,6 +9642,38 @@ pt_shell> current_design
 	
 <p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221453588-9b6ec1f2-5eb8-47ff-afa8-88adc290420b.png" height = "300"></p>
 	
+```
+pt_shell> read_sdc /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/d20/VSDBabySoC_ICC2/icc2/write_data_dir/vsdbabysoc/vsdbabysoc.sdc
+	
+pt_shell> set_app_var si_enable_analysis true
+	
+pt_shell> read_parasitics -keep_capacitive_coupling /nfs/png/disks/png_mip_gen6p9ddr_0032/nurul/VLSI/sky130RTLDesignAndSynthesisWorkshop/DC_WORKSHOP/verilog_files/rvmyth/d20/VSDBabySoC_ICC2/icc2/vsdbabysoc_spef.temp1_25.spef
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221454364-27f2a36e-a7df-469e-af1c-bb9cc27693f0.png" height = "200"></p>
+	
+```
+pt_shell> check_timing
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221454936-45a42f64-0654-478f-b4a7-436072bc5d67.png" height = "300"></p>
+	
+```
+report_si_bottleneck
+report_bottleneck
+report_si_delay_analysis
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221455748-87115db1-50ed-441d-9fc5-17b69b1b746e.png" height = "400"></p>
+	
+```
+report_si_aggressor_exclusion
+report_si_noise_analysis
+```
+	
+<p align="center"><img src = "https://user-images.githubusercontent.com/118953932/221455938-1de400a5-e27c-4f2b-94d5-c0475f525991.png" height = "300"></p>
+
+	
 </details>
 	
 # Day-28
